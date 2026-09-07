@@ -1,0 +1,91 @@
+--- /workspace/context/plan/v001.md	2026-09-06 23:05:48.517689610 +0000
++++ /workspace/context/plan/v002.md	2026-09-06 23:06:12.641689871 +0000
+@@ -1,36 +1,73 @@
+-# Learning Plan — v001
++# Learning Plan — v002
+ 
+ - **Written:** 2026-09-07 (AEST)
+ - **Owner:** Curriculum (reports to Mentor)
+-- **Status:** bootstrap — no competency targets yet
++- **Prior:** v001
++- **Status:** active — seeded from competencies.md v0 (no Analyst signals yet)
+ 
+ ## Rationale
+ 
+-First numbered version. `/workspace/context/competencies.md` and `/workspace/context/signals.md` are not on disk, and collectors have not landed captures, so inventing targets would fake a plan. This version locks operating rules, the versioning contract, and an empty target board. The next rewrite happens when Analyst flags the same gap across two runs, or on the standing Sunday 18:00 AEST pass — whichever comes first after the matrix exists.
++Competencies landed with provisional evidence. Largest gaps are `poc-ship` (1→4), then `workshop` and `market-fit` (1→3), then the discovery/scoping/design cluster (2→4). v002 replaces the empty board with a 30/70 study/build slate aimed at those gaps. Integration and security-deploy stay maintenance (already at 3). Targets will reshuffle when Analyst flags the same gap across two runs, or on the Sunday rewrite.
+ 
+ ## Operating rules
+ 
+ 1. Hold a **30% study / 70% build** split across active targets.
+ 2. Never edit a written plan version. Always add a new numbered version with a diff against the prior version and a one-paragraph rationale.
+-3. Canonical latest copy lives at `/workspace/context/plan.md`. Immutable snapshots live at `/workspace/context/plan/vNNN.md`.
+-4. Each new version is sent to Mentor, and to Herald once that bot exists (Phase 5).
+-
+-## Rewrite triggers
+-
+-- Analyst gap: same competency flagged (demand ≥ 4, evidence ≤ 2) across two scoring runs
+-- Standing: every Sunday at 18:00 AEST
++3. Canonical latest copy: `/workspace/context/plan.md`. Snapshots: `/workspace/context/plan/vNNN.md`.
++4. Mentor picks **one** daily target from this board. Curriculum does not set the day-of pick.
++5. Each new version goes to Mentor, and to Herald once that bot exists (Phase 5).
+ 
+ ## Active targets
+ 
+-_None. Waiting on Mentor to seed `competencies.md` and on Analyst signals from collector runs._
++### Build — 70%
++
++| priority | id | evidence→target | build artifact |
++|----------|-----|-----------------|----------------|
++| P0 | poc-ship | 1→4 | Thin POC→prod playbook: cutover, rollback, ownership, exit criteria for one sample security→FDE engagement |
++| P1 | cust-discovery | 2→4 | One structured discovery script + worked example that separates symptom from constraint |
++| P1 | scope-write | 2→4 | Turn that discovery into a scoped SoW (outcomes, out-of-scope, risks, success checks) |
++| P2 | sol-design | 2→4 | Before/after architecture sketch for the same engagement |
++| P2 | write-up | 2→4 | Decision-log + handoff runbook template customers can keep |
++
++### Study — 30%
++
++| priority | id | evidence→target | study focus |
++|----------|-----|-----------------|-------------|
++| P0 | market-fit | 1→3 | Read collector captures once Pulse/Lurk land; note which FDE skills employers buy this quarter |
++| P1 | workshop | 1→3 | Study 2–3 strong technical workshop/demo formats (Scope on demand if a specific video is worth it) |
++| P2 | stakeholder | 2→4 | Short read on exec-vs-IC communication patterns; fold into discovery script |
++
++### Maintenance (light touch)
++
++| id | evidence→target | note |
++|----|-----------------|------|
++| integration | 3→4 | Practice only when a build artifact needs an API/auth path |
++| security-deploy | 3→4 | Strength to lean on inside POC and workshop builds — not a primary lane |
++
++## Suggested sequencing (Mentor day picks)
++
++1. `poc-ship` build (P0) — several days
++2. `cust-discovery` build → immediately `scope-write` build (paired)
++3. Interleave `market-fit` study when captures appear
++4. `sol-design` + `write-up` once scoping exists
++5. `workshop` study before any demo artifact
+ 
+ ## Study / build allocation
+ 
+ | Lane | Share | Current load |
+ |------|-------|--------------|
+-| Study | 30% | — |
+-| Build | 70% | — |
++| Study | 30% | market-fit, workshop, stakeholder |
++| Build | 70% | poc-ship, cust-discovery, scope-write, sol-design, write-up |
++
++## Open dependencies
++
++- No `/workspace/context/signals.md` yet — gap persistence rule cannot fire until Analyst runs twice
++- Captures dirs empty — `market-fit` study waits on Pulse/Lurk
++- Herald not live (Phase 5) — versions notify Mentor only until then
+ 
+-## Diff vs prior
++## Diff vs v001
+ 
+-_N/A — v001 is the first version._
++- Replaced empty target board with prioritized build/study table from competencies.md gaps
++- Added Mentor daily-pick rule and suggested sequencing
++- Added maintenance lane for integration / security-deploy
++- Documented dependencies on signals, captures, and Herald
