@@ -1,61 +1,30 @@
-# FDE signal keywords
-# Used by Pulse (X) and Lurk (Reddit). One phrase per line. Case-insensitive.
-# Owner: Mentor. Aligned to competencies.md rebuild 2026-09-07.
+# Scout search keywords
+# Derived from competency names in competencies.md plus role terms Lucas named.
+# Used for Reddit (and later X) matching. Do not interpret or score here.
 
-## Role / hiring
-forward deployed engineer
-forward-deployed engineer
-FDE
-field engineer
-customer engineer
-solutions engineer
-implementation engineer
-deployment engineer
-AI engineer production
-applied AI engineer
+## From competency matrix
 
-## Core engineering
-production systems
-shipping to production
-on-call
-production language
-Python production
-AWS deploy
-Azure deploy
-GCP deploy
-unfamiliar codebase
-API authentication
-OAuth
-OIDC
+- Shipping and maintaining live production systems
+- Depth in one production language
+- Cloud platform working knowledge
+- Debugging an unfamiliar codebase
+- API integration and authentication patterns
+- LLM integration in production systems
+- Context engineering
+- Agent orchestration and harness design
+- Eval suites
+- Legacy databases, ETL, migration
+- Enterprise SSO
+- Compliance in customer deploy
+- Decomposing an ambiguous customer problem
+- Customer discovery
+- Exec communication
+- Production ownership
+- Scoping & engagement artifacts
 
-## Applied AI
-LLM integration
-RAG
-vector database
-embeddings
-chunking
-reranking
-context engineering
-agent orchestration
-agent harness
-eval suite
-hallucination eval
+## Role terms
 
-## Integration wall
-legacy database
-ETL pipeline
-data migration
-SAML
-enterprise SSO
-data residency
-compliance deploy
-security sign-off
-
-## Customer-facing
-ambiguous problem
-customer discovery
-stakeholder communication
-executive communication
-statement of work
-scoping engagement
-production ownership
+- forward deployed
+- solutions architect
+- client delivery
+- consulting to product
