@@ -1,7 +1,7 @@
 # Today's single target
 # Owner: Mentor. One target only. Not a plan version.
 
-- **date**: 2026-09-09 (AEST)
+- **date**: 2026-09-10 (AEST)
 - **competency**: `prod-ship`
 - **lane**: build
 - **from plan**: v004 P0 — weeks 1–4 (~18–20 days)
