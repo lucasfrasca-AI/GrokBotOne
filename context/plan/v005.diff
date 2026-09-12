@@ -1,0 +1,238 @@
+--- /workspace/context/plan/v004.md	2026-09-08 12:31:17.423766200 +0000
++++ /workspace/context/plan/v005.md	2026-09-11 14:11:55.551864439 +0000
+@@ -1,115 +1,141 @@
+-# Learning Plan — v004
++# Learning Plan — v005
+ 
+-- **Written:** 2026-09-07 (AEST)
++- **Written:** 2026-09-12 (AEST)
+ - **Owner:** Curriculum (reports to Mentor)
+-- **Prior:** v003
+-- **Status:** active — three P0 cycle only; rebuilt IDs; Lucas evidence (ranges floored); one Analyst run (`20260906T231515Z`)
++- **Prior:** v004
++- **Status:** active — FDE 11-stage map as syllabus spine; this cycle = stages 1–3 only
++- **Note:** Lucas asked for “v004” of this redesign; v004 already shipped (three-P0 competency cycle), so immutable versioning makes this **v005**.
++
++## Syllabus spine (Lucas, 2026-09-12)
++
++Work in the order it happens. Matrix IDs score progress; this map sets sequence.
++
++| # | phase | stage |
++|---|-------|-------|
++| 1 | PLAN | Discovery / Design — Use Case, Success Metrics, Readiness, Business Case |
++| 2 | PLAN | Compliance — Data Sovereignty, Privacy, Regulation, Risk Management |
++| 3 | BUILD | Infrastructure / Hosting — Solution Architecture, Hosting Model, Cloud Provider, Compute, Networking, Interfaces, IaC |
++| 4 | BUILD | Data Pipeline — Retrieval Strategy, Sources, Ingestion, Chunking, Storage, Retrieval Techniques |
++| 5 | BUILD | Model Configuration — Access, Selection, Customisation, Prompt / Context Engineering, Inference Parameters |
++| 6 | BUILD | Orchestration / Harness — Agent Patterns, Frameworks, Tool Calling, Memory, Caching, Resilience, Human-in-the-Loop |
++| 7 | BUILD | Security / Guardrails — Input Controls, Data Protection, Access Control, Output Controls, Abuse Prevention |
++| 8 | VALIDATE | Evaluation / Tuning — Quality Metrics, Bias, Eval Methods, Adversarial Testing, Tuning Loop, Tooling, Acceptance |
++| 9 | RUN | Visibility / LLMOps — Interpretability, Cost, Performance, Quality Monitoring, Audit, Observability |
++| 10 | RUN | Deployment / Lifecycle — Deployment, Versioning, Change Control, Continuous Improvement, Operations |
++| 11 | RUN | Adoption / Hand Off — Stakeholders, Enablement, Hand Off, Value Realisation |
+ 
+-## Rationale
+-
+-v003 was structurally sound and not executable: fourteen active targets across ~43 weekdays, several needing 3–4 point moves, while `prod-ship` alone is multi-week. v004 cuts to **three P0 competencies** for the 60-day window.
++**This cycle covers stages 1–3 only.** Stages 4–11 sit in **Later cycles** below.
+ 
+-**The three:** `prod-ship`, `api-auth`, `cust-discovery`.
++## Rationale
+ 
+-**Why this combination for an FDE hiring manager.** The strongest visible evidence in 60 days is a portfolio a manager can poke and read: (1) a live system you shipped and kept under real use — the hard gate, without which FDE claims do not land; (2) a production-grade API + auth integration into that system — the customer-system wiring FDEs are hired to do, and Analyst-flagged this run; (3) a discovery script plus one worked example — proof you can surface the real problem behind the stated one, also Analyst-flagged, and the artifact is buildable in days rather than quarters. Weight went to **buildable-and-shippable** over broadly useful: these three produce a running system, an integration, and a customer-facing write-up. That is the FDE job in miniature.
++v004 sequenced three competencies (`prod-ship` → `api-auth` → `cust-discovery`) for hiring-manager-visible evidence. Lucas has now supplied an 11-stage FDE map that is the real work order. v005 switches the plan’s spine from competency-first to **stage-first**: each active stage ships one artifact you can show; competencies move as a side effect of that artifact, scored on the matrix.
+ 
+-**What this cycle gives up (visible in "Not this cycle", not deleted):**
+-- `ambiguity-decomp` — the signature interview round; sacrificed so the cycle ships integration + discovery artifacts instead of interview-theater plans. Biggest interview risk.
+-- `exec-comm` — largest evidence gap (1→5) but hard to ship as visible product evidence in 60 days; practice folds into discovery write-ups informally, not as a P0.
+-- `prod-ownership` — partially absorbed into the `prod-ship` multi-week arc (own one failure cycle on the live system) rather than a separate P0.
+-- `legacy-data` — Analyst-flagged; deferred so `api-auth` can land on the live substrate first.
+-- `llm-integrate` / `eval-design` / `context-eng` / `agent-orch` — Applied AI depth waits until production substrate and auth path exist.
+-- `prod-lang`, `codebase-debug`, `scope-write`, `enterprise-auth`, `cloud-deploy`, `compliance-deploy` — real gaps, not this cycle's visible-evidence bet.
++**Deliberately not covering this cycle:** data pipeline, model config, orchestration, security/guardrails, evaluation, LLMOps, deployment/lifecycle, and adoption/hand-off (stages 4–11). Also not covering a standalone “ship any live app” `prod-ship` arc detached from the map — production shipping starts as **stage 3 infrastructure** that hosts the chosen use case, not a free-floating demo. Applied AI depth (`llm-integrate`, `context-eng`, `agent-orch`, `eval-design`) waits until stages 4–8. Integration-wall depth beyond what stage 2–3 require (`legacy-data`, deep `enterprise-auth`) waits. Interview-only drills without a stage artifact are out.
+ 
+ Numbers: where Lucas gave a range, the **lower** figure is used and marked provisional until he confirms.
+ 
+ ## Operating rules
+ 
+-1. Hold a **30% study / 70% build** split **inside these three** — not across the full matrix.
+-2. Never edit a written plan version. Always add a new numbered version with a diff against the prior version and a one-paragraph rationale.
++1. Hold a **30% study / 70% build** split **inside stages 1–3** — not across the full map or matrix.
++2. Never edit a written plan version. Always add a new numbered version with a diff and a one-paragraph rationale.
+ 3. Canonical latest: `/workspace/context/plan.md`. Snapshots: `/workspace/context/plan/vNNN.md` (+ `.diff`).
+-4. Mentor picks **one** daily target from the three P0s (or the study slice of the active week). Curriculum does not set the day-of pick.
++4. Mentor picks **one** daily target from the active stage (or its study slice). Curriculum does not set the day-of pick.
+ 5. Each new version goes to Mentor and Herald.
+-6. Evidence and targets are Lucas-only — never invent or overwrite scores when rewriting.
++6. Evidence and targets are Lucas-only — never invent or overwrite scores.
++7. Gap rewrites: when a Mentor-flagged gap in `signals.md` persists across two runs; Sunday 18:00 AEST rewrite regardless. (Analyst is retired.)
+ 
+-## Score convention (this version)
++## Score convention (floored)
+ 
+ | id | evidence | target | notes |
+ |----|----------|--------|-------|
+-| prod-ship | 2 | 4 | target floored from `4-5` — provisional until Lucas confirms |
+-| api-auth | 2 | 5 | as written |
+ | cust-discovery | 1 | 4 | as written |
++| ambiguity-decomp | 2 | 4 | as written |
++| scope-write | 2 | 5 | as written |
++| exec-comm | 1 | 5 | as written |
++| compliance-deploy | 3 | 5 | as written |
++| cloud-deploy | 2 | 4 | evidence floored from `2-3`, target floored from `4-5` — provisional |
++| prod-ship | 2 | 4 | target floored from `4-5` — provisional |
++| api-auth | 2 | 5 | as written (interfaces in stage 3) |
++
++## This cycle — stages 1 to 3
++
++### Study / build allocation (inside 1–3 only)
++
++| Lane | Share | Where it sits |
++|------|-------|---------------|
++| Study | 30% | Short opens on each stage: discovery methods; compliance/residency patterns; cloud + IaC patterns for the chosen host |
++| Build | 70% | The three shippable artifacts below |
++
++### Stage 1 — Discovery / Design (PLAN)
++
++**Ship:** one real **discovery + scoping pack** for a single AI/customer use case — not a reading list. Must include: use case statement, success metrics, readiness assessment, and business case, written as something you could hand a skeptical stakeholder.
++
++| moves | evidence→target | how the artifact moves it |
++|-------|-----------------|---------------------------|
++| cust-discovery | 1 → 4 | Surfaces the real problem behind the stated ask |
++| ambiguity-decomp | 2 → 4 | Turns the ambiguous brief into a concrete plan |
++| scope-write | 2 → 5 | Outcomes, out-of-scope, risks, success checks |
++| exec-comm | 1 → 5 | Business case / metrics readable by non-technical stakeholders (practice inside the same pack) |
++
++**Rough size:** ~8–10 weekdays (weeks 1–2). ~30% study (discovery/scoping methods) then build the pack.
++
++### Stage 2 — Compliance (PLAN)
++
++**Ship:** one **compliance & risk decision pack** bound to the stage-1 use case — data sovereignty position, privacy constraints, applicable regulation map, and a risk register with owners/mitigations. Shippable PDF/markdown an engagement lead could attach to the scoping pack.
++
++| moves | evidence→target | how the artifact moves it |
++|-------|-----------------|---------------------------|
++| compliance-deploy | 3 → 5 | Customer-deploy constraints (residency, regulatory, security sign-off) made explicit and actionable |
++
++**Rough size:** ~6–8 weekdays (weeks 3–4). Short study open on residency/privacy patterns, then build the pack for *this* use case only.
++
++### Stage 3 — Infrastructure / Hosting (BUILD)
++
++**Ship:** a **solution architecture + deployed hosting baseline** for that use case — architecture diagram/decision record (hosting model, cloud provider, compute, networking, interfaces) plus IaC that actually stands up the baseline (not slides). Interfaces stub or wire at least one authenticated external/API boundary.
++
++| moves | evidence→target | how the artifact moves it |
++|-------|-----------------|---------------------------|
++| cloud-deploy | 2 → 4 | Real cloud working knowledge on the chosen provider |
++| prod-ship | 2 → 4 | Baseline kept running under real use (debug/iterate), not a disposable lab |
++| api-auth | 2 → 5 | Interface/auth path in the architecture, implemented not only drawn |
++
++**Rough size:** ~12–16 weekdays (weeks 5–8). Short IaC/cloud study open, then mostly build. This is the multi-week stage.
++
++### 8-week boundary (Mentor day picks still one-at-a-time)
++
++| weeks | stage | focus |
++|-------|-------|-------|
++| 1–2 | 1 Discovery / Design | Discovery + scoping pack |
++| 3–4 | 2 Compliance | Compliance & risk pack for that use case |
++| 5–8 | 3 Infrastructure / Hosting | Architecture + IaC baseline, kept live |
++
++## Mentor flags caveat
++
++Current `signals.md` still reflects a single historical Reddit scoring run (pre-Mentor ownership). Persistence rewrite still waits for a **second confirming Mentor run** against the same gap. Sunday 18:00 AEST rewrite remains standing.
++
++## Later cycles (stages 4–11)
++
++Visible. Not planned this cycle. Competency hints are directional only.
++
++| # | stage | primary matrix IDs (indicative) |
++|---|-------|----------------------------------|
++| 4 | Data Pipeline | `context-eng`, `legacy-data` |
++| 5 | Model Configuration | `llm-integrate`, `context-eng` |
++| 6 | Orchestration / Harness | `agent-orch` |
++| 7 | Security / Guardrails | `compliance-deploy`, `api-auth`, `enterprise-auth` |
++| 8 | Evaluation / Tuning | `eval-design` |
++| 9 | Visibility / LLMOps | `prod-ship`, `prod-ownership` |
++| 10 | Deployment / Lifecycle | `prod-ship`, `prod-ownership`, `cloud-deploy` |
++| 11 | Adoption / Hand Off | `exec-comm`, `scope-write`, `cust-discovery` |
+ 
+-## Active targets — this cycle (three P0s)
++Also deferred as standalone P0s from v004’s “Not this cycle” list unless a later stage pulls them in: `prod-lang`, `codebase-debug`, `legacy-data` (until stage 4), deep `enterprise-auth`, `llm-integrate` / `eval-design` / `context-eng` / `agent-orch` (until stages 4–8), `prod-ownership` as its own arc (until stages 9–10).
+ 
+-### Build — 70% of cycle effort
++## Diff vs v004
+ 
+-| id | evidence→target | build artifact | rough size |
+-|----|-----------------|----------------|------------|
+-| prod-ship | 2 → 4 | Ship one small system and keep it running under real use (debug + iterate, not a disposable demo). Include at least one owned failure cycle (absorbs the deferred `prod-ownership` intent). | ~18–20 weekdays (~4 weeks) |
+-| api-auth | 2 → 5 | Integrate a real API with production-grade auth into or alongside that live system (not a toy curl script). | ~8–10 weekdays (~2 weeks) |
+-| cust-discovery | 1 → 4 | Structured discovery script + one worked example that surfaces the real problem behind the stated one. | ~6–8 weekdays (~1.5–2 weeks), after a short study slice |
+-
+-### Study — 30% of cycle effort
+-
+-Study is not a fourth competency. It is time **inside** the three:
+-
+-| when | tied to | study focus |
+-|------|---------|-------------|
+-| Week 1 (front of prod-ship) | prod-ship | How production systems are operated and debugged under real usage — enough to avoid building a demo |
+-| Start of api-auth week | api-auth | Production auth patterns (token/session/OIDC basics) before wiring |
+-| Start of cust-discovery week | cust-discovery | Discovery methods that separate symptom from constraint — then immediately build the script + worked example |
+-
+-Rough split across 8 weeks: ~2.5 weeks study-shaped, ~5.5 weeks build-shaped (30/70).
+-
+-## 8-week sequence
+-
+-| weeks | focus | days (approx) | lane |
+-|-------|-------|---------------|------|
+-| **1–4** | `prod-ship` — stand up the live system, keep it running, take it through one failure cycle | ~18–20 weekdays | mostly build; week 1 opens with a short study slice |
+-| **5–6** | `api-auth` — production-grade API + auth on/alongside that system | ~8–10 weekdays | short study open, then build |
+-| **7–8** | `cust-discovery` — methods study, then script + one worked example | ~8–10 weekdays | ~30% study / 70% build inside these two weeks |
+-
+-Mentor still picks one daily target; the table is the week boundary, not a substitute for `today.md`.
+-
+-## Analyst flags in play (one run only)
+-
+-| id | demand | evidence | persistent across 2 runs? | this cycle? |
+-|----|--------|----------|---------------------------|-------------|
+-| api-auth | 4 | 2 | no — first run | **yes — P0** |
+-| cust-discovery | 4 | 1 | no — first run | **yes — P0** |
+-| ambiguity-decomp | 4 | 2 | no — first run | not this cycle |
+-| exec-comm | 4 | 1 | no — first run | not this cycle |
+-| legacy-data | 4 | 1 | no — first run | not this cycle |
+-
+-Rewrite on persistence still waits for a second confirming Analyst run.
+-
+-## Not this cycle
+-
+-Visible on purpose. Still real gaps. Not deleted.
+-
+-| id | evidence→target (floored) | why deferred |
+-|----|---------------------------|--------------|
+-| ambiguity-decomp | 2 → 4 | Signature interview gate; deferred so this cycle ships system + auth + discovery artifacts |
+-| exec-comm | 1 → 5 | Largest soft gap; weak as standalone shipped evidence in 60 days |
+-| prod-ownership | 1 → 5 | Intent folded into `prod-ship` failure-cycle requirement |
+-| legacy-data | 1 → 4 | Analyst-flagged; waits until auth path exists on the live system |
+-| llm-integrate | 2 → 5 | evidence floored from `2-3`; needs live substrate first |
+-| eval-design | 2 → 5 | Pairs with LLM path — later |
+-| context-eng | 3 → 5 | Already strongest Applied AI score — later deepening |
+-| agent-orch | 3 → 5 | target carried as Lucas wrote (`5*`); later |
+-| scope-write | 2 → 5 | Natural follow-on after discovery lands — next cycle candidate |
+-| prod-lang | 1 → 4 | evidence floored from `1-2`, target floored from `4-5`; standing depth, not this cycle's visible bet |
+-| codebase-debug | 1 → 4 | Critical long-term; practice opportunistically inside `prod-ship`, not a P0 |
+-| enterprise-auth | 2 → 4 | Adjacent to `api-auth`; deepen after the first auth integration ships |
+-| cloud-deploy | 2 → 4 | evidence floored from `2-3`, target floored from `4-5`; use if `prod-ship` needs it, not a P0 |
+-| compliance-deploy | 3 → 5 | Strength lane — apply when a customer-shaped constraint appears |
+-
+-## Diff vs v003
+-
+-- Collapsed fourteen active targets to three P0s (`prod-ship`, `api-auth`, `cust-discovery`)
+-- Moved all other competencies to an explicit "Not this cycle" section
+-- Replaced suggested-order list with an 8-week boundary table and day counts
+-- Forced single-number evidence/target (floor ranges; mark provisional)
+-- Applied 30/70 inside the three only
+-- Kept single-Analyst-run caveat and two-run persistence rule unchanged
++- Replaced competency-first three-P0 board with Lucas’s 11-stage FDE map as syllabus spine
++- Active cycle is stages 1–3 with one shippable artifact each (discovery/scoping pack; compliance/risk pack; architecture + IaC baseline)
++- Mapped each stage to matrix IDs it moves; floored single-number scores
++- Stages 4–11 moved to Later cycles (visible, not planned)
++- 30/70 applied inside stages 1–3 only
++- Explicit rationale for what is deliberately not covered
++- Version label is v005 because v004 already exists under the immutability rule
