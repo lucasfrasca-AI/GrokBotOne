@@ -1,0 +1,71 @@
+--- /workspace/context/plan/v005.md	2026-09-11 14:11:55.551864439 +0000
++++ /workspace/context/plan/v006.md	2026-09-13 08:11:12.425240703 +0000
+@@ -1,10 +1,10 @@
+-# Learning Plan — v005
++# Learning Plan — v006
+ 
+-- **Written:** 2026-09-12 (AEST)
++- **Written:** 2026-09-13 (AEST)
+ - **Owner:** Curriculum (reports to Mentor)
+-- **Prior:** v004
++- **Prior:** v005
+ - **Status:** active — FDE 11-stage map as syllabus spine; this cycle = stages 1–3 only
+-- **Note:** Lucas asked for “v004” of this redesign; v004 already shipped (three-P0 competency cycle), so immutable versioning makes this **v005**.
++- **Trigger:** standing Sunday 18:00 AEST rewrite (no two-run Mentor gap)
+ 
+ ## Syllabus spine (Lucas, 2026-09-12)
+ 
+@@ -28,7 +28,7 @@
+ 
+ ## Rationale
+ 
+-v004 sequenced three competencies (`prod-ship` → `api-auth` → `cust-discovery`) for hiring-manager-visible evidence. Lucas has now supplied an 11-stage FDE map that is the real work order. v005 switches the plan’s spine from competency-first to **stage-first**: each active stage ships one artifact you can show; competencies move as a side effect of that artifact, scored on the matrix.
++Standing Sunday rewrite. Since v005 (2026-09-12), competencies.md evidence/targets are unchanged, captures under `/workspace/captures` have no new Scout items, and `signals.md` is still the single historical Reddit scoring run (`20260906T231515Z`) — not a second Mentor confirming run against the same gaps. No Mentor-flagged gap has therefore persisted across two runs, so this version does **not** reshape priorities. It keeps the stage-first spine, the stages 1–3 active cycle, the three shippable artifacts, the floored score table, and the 30/70 split inside 1–3. Light refresh only: pin the 8-week calendar so Mentor day-picks have a clear week-1 start (Mon 2026-09-14 AEST), and restate that historical flags (`api-auth`, `cust-discovery`, `ambiguity-decomp`, `exec-comm`, `legacy-data`) remain one-run only until Mentor writes a second pass.
+ 
+ **Deliberately not covering this cycle:** data pipeline, model config, orchestration, security/guardrails, evaluation, LLMOps, deployment/lifecycle, and adoption/hand-off (stages 4–11). Also not covering a standalone “ship any live app” `prod-ship` arc detached from the map — production shipping starts as **stage 3 infrastructure** that hosts the chosen use case, not a free-floating demo. Applied AI depth (`llm-integrate`, `context-eng`, `agent-orch`, `eval-design`) waits until stages 4–8. Integration-wall depth beyond what stage 2–3 require (`legacy-data`, deep `enterprise-auth`) waits. Interview-only drills without a stage artifact are out.
+ 
+@@ -103,15 +103,19 @@
+ 
+ ### 8-week boundary (Mentor day picks still one-at-a-time)
+ 
+-| weeks | stage | focus |
+-|-------|-------|-------|
+-| 1–2 | 1 Discovery / Design | Discovery + scoping pack |
+-| 3–4 | 2 Compliance | Compliance & risk pack for that use case |
+-| 5–8 | 3 Infrastructure / Hosting | Architecture + IaC baseline, kept live |
++Calendar pinned at this Sunday rewrite (AEST weekdays). Relative week labels from v005 still apply.
++
++| weeks | calendar (AEST) | stage | focus |
++|-------|-----------------|-------|-------|
++| 1–2 | Mon 2026-09-14 → Fri 2026-09-25 | 1 Discovery / Design | Discovery + scoping pack |
++| 3–4 | Mon 2026-09-28 → Fri 2026-10-09 | 2 Compliance | Compliance & risk pack for that use case |
++| 5–8 | Mon 2026-10-12 → Fri 2026-11-06 | 3 Infrastructure / Hosting | Architecture + IaC baseline, kept live |
++
++Mentor’s 2026-09-12 `today.md` already opened stage 1 on `cust-discovery` inside the discovery + scoping pack — that pick stays the entry move for week 1.
+ 
+ ## Mentor flags caveat
+ 
+-Current `signals.md` still reflects a single historical Reddit scoring run (pre-Mentor ownership). Persistence rewrite still waits for a **second confirming Mentor run** against the same gap. Sunday 18:00 AEST rewrite remains standing.
++Current `signals.md` still reflects a single historical Reddit scoring run (pre-Mentor ownership, `20260906T231515Z`). Persistence rewrite still waits for a **second confirming Mentor run** against the same gap. One-run flags remain: `api-auth`, `cust-discovery`, `ambiguity-decomp`, `exec-comm`, `legacy-data`. Sunday 18:00 AEST rewrite remains standing.
+ 
+ ## Later cycles (stages 4–11)
+ 
+@@ -130,12 +134,10 @@
+ 
+ Also deferred as standalone P0s from v004’s “Not this cycle” list unless a later stage pulls them in: `prod-lang`, `codebase-debug`, `legacy-data` (until stage 4), deep `enterprise-auth`, `llm-integrate` / `eval-design` / `context-eng` / `agent-orch` (until stages 4–8), `prod-ownership` as its own arc (until stages 9–10).
+ 
+-## Diff vs v004
++## Diff vs v005
+ 
+-- Replaced competency-first three-P0 board with Lucas’s 11-stage FDE map as syllabus spine
+-- Active cycle is stages 1–3 with one shippable artifact each (discovery/scoping pack; compliance/risk pack; architecture + IaC baseline)
+-- Mapped each stage to matrix IDs it moves; floored single-number scores
+-- Stages 4–11 moved to Later cycles (visible, not planned)
+-- 30/70 applied inside stages 1–3 only
+-- Explicit rationale for what is deliberately not covered
+-- Version label is v005 because v004 already exists under the immutability rule
++- Standing Sunday rewrite; no priority reshape (no two-run Mentor gap)
++- Pinned 8-week AEST calendar for stages 1–3 (week 1 starts Mon 2026-09-14)
++- Restated Mentor one-run flag caveat with run id
++- Noted Mentor’s 2026-09-12 stage-1 `cust-discovery` open as the week-1 entry
++- Spine, artifacts, score table, 30/70, and Later cycles unchanged
