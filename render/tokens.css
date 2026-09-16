@@ -1,0 +1,17 @@
+:root{
+
+  --pitch:#05010E; --bone:#F3F3F1; --sub:#D4D2CE; --mute:#A4A098;
+
+  --violet:#A855F7; --indigo:#6366F1; --amber:#FCD34D; --accent:#895AF6;
+
+  --surface:#160F24; --surface2:#1C1528; --input:#1B122B; --red:#DC2828;
+
+  --rule:rgba(243,243,241,.12); --rule2:rgba(243,243,241,.07);
+
+  --spectrum:linear-gradient(to right,#6366F1,#A855F7,#FCD34D);
+
+  --sans:"Geist",ui-sans-serif,system-ui,sans-serif;
+
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+}
