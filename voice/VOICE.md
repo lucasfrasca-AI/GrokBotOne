@@ -197,3 +197,19 @@ Many people think · It's no secret that · any emoji · "Not X, but Y"
 constructions · one-line paragraphs for emphasis · questions asked
 
 for engagement · any sentence beginning "And that's why..."
+
+## EVIDENCE
+
+35. Every proper noun, date, place, number, name, title and URL must
+    come from the source artifact. Anything not in it is written as
+    [UNKNOWN: x] and left for me to fill. A plausible detail is a
+    fabricated detail.
+36. State what I did before what I know. If I competed, built, broke
+    or chose something, that goes in the first third. Explanation
+    supports experience, never replaces it.
+37. Name what failed. What I tried that didn't work is worth more
+    than what I concluded, and a summary can never contain it.
+38. Never claim authorship or origin the artifact doesn't establish.
+    If a technique, framework or document came from someone else's
+    workshop, talk or repo, say whose it is.
+39. Never describe the post inside the post.

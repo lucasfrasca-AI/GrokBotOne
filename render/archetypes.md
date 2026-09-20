@@ -1,6 +1,6 @@
 Diagram archetypes
 
-Six types. Every diagram is one of these. If a subject doesn't fit one, the subject is too complex for a single diagram — split it or drop it.
+Seven types. Every diagram is one of these. If a subject doesn't fit one, the subject is too complex for a single diagram — split it or drop it.
 
 Studio picks the archetype from Herald's brief. If the brief doesn't name one, ask rather than guess.
 
@@ -8,13 +8,15 @@ Global rules
 
 Output 1200x1200 PNG. Dark mode default.
 
+Fill the canvas. Expand the content area to use the full height, or crop the canvas to the content. Dead space at the bottom reads as an unfinished render.
+
 Colours come from tokens.css only. Never introduce another.
 
 The four phase colours are semantic, not decorative — use them only when the diagram genuinely has plan / build / validate / run phases. Otherwise violet --violet is the single accent.
 
 Never carry meaning in colour alone. Labels do the work.
 
-Maximum 9 labelled elements. Above that, legibility on a phone fails and the diagram is doing too much.
+Maximum 9 labelled elements (except Reference card, where card count is the budget). Above that, legibility on a phone fails and the diagram is doing too much.
 
 Every label must be readable at 390px wide. Screenshot and check before handing over.
 
@@ -130,8 +132,26 @@ The central node is the only element in --violet.
 
 Reference search: "concept map knowledge graph diagram"
 
+7. Reference card
+
+Use when: the content is a set of parallel items that each need a name, a short definition, and a consequence.
+
+Structure: two columns of equal cards. Six to eight cards maximum.
+
+Rules:
+
+Each card: number, title, one-line definition, up to 3 chip tags, and one consequence line. Nothing else.
+
+Element cap does not apply. Card count is the budget.
+
+Every card must have the same fields filled. A card missing one field means the set isn't parallel enough for this archetype.
+
+Fill the canvas — expand cards to use full height rather than leaving dead space under a cramped grid.
+
+Reference search: "reference card grid", "cheat sheet cards", "taxonomy card layout"
+
 Choosing
 
-If the subject is... Use Parts that connect Architecture Steps in a fixed order across actors Sequence A change you made Before / after Rules or branching logic Decision tree Change over a span of time Timeline Relationships with no sequence Concept map
+If the subject is... Use Parts that connect Architecture Steps in a fixed order across actors Sequence A change you made Before / after Rules or branching logic Decision tree Change over a span of time Timeline Relationships with no sequence Concept map Parallel items each needing name, definition, consequence Reference card
 
-When two fit, pick the one with fewer elements.
+When two fit, pick the one with fewer elements — except Reference card, where card count (6–8) is the budget.

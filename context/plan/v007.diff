@@ -1,0 +1,70 @@
+--- /workspace/context/plan/v006.md	2026-09-20 16:02:14.151909451 +1000
++++ /workspace/context/plan/v007.md	2026-09-20 18:13:21.235926629 +1000
+@@ -1,8 +1,8 @@
+-# Learning Plan — v006
++# Learning Plan — v007
+ 
+-- **Written:** 2026-09-13 (AEST)
++- **Written:** 2026-09-20 (AEST)
+ - **Owner:** Curriculum (reports to Mentor)
+-- **Prior:** v005
++- **Prior:** v006
+ - **Status:** active — FDE 11-stage map as syllabus spine; this cycle = stages 1–3 only
+ - **Trigger:** standing Sunday 18:00 AEST rewrite (no two-run Mentor gap)
+ 
+@@ -28,7 +28,7 @@
+ 
+ ## Rationale
+ 
+-Standing Sunday rewrite. Since v005 (2026-09-12), competencies.md evidence/targets are unchanged, captures under `/workspace/captures` have no new Scout items, and `signals.md` is still the single historical Reddit scoring run (`20260906T231515Z`) — not a second Mentor confirming run against the same gaps. No Mentor-flagged gap has therefore persisted across two runs, so this version does **not** reshape priorities. It keeps the stage-first spine, the stages 1–3 active cycle, the three shippable artifacts, the floored score table, and the 30/70 split inside 1–3. Light refresh only: pin the 8-week calendar so Mentor day-picks have a clear week-1 start (Mon 2026-09-14 AEST), and restate that historical flags (`api-auth`, `cust-discovery`, `ambiguity-decomp`, `exec-comm`, `legacy-data`) remain one-run only until Mentor writes a second pass.
++Standing Sunday rewrite. Since v006 (2026-09-13), competencies.md evidence/targets are unchanged, captures under `/workspace/captures` still hold only the historical Reddit set (run `20260906T231515Z`), and `signals.md` remains that same single scoring run — not a second Mentor confirming run against the same gaps. No Mentor-flagged gap has therefore persisted across two runs, so this version does **not** reshape priorities. It keeps the stage-first spine, the stages 1–3 active cycle, the three shippable artifacts, the floored score table, and the 30/70 split inside 1–3. Light refresh only: note calendar progress — Stage 1 week 1 ended Fri 2026-09-19 AEST; week 2 starts Mon 2026-09-21 and runs through Fri 2026-09-25 — without inventing pack-completion evidence; Mentor’s latest `today.md` (2026-09-18) still had Lucas building the discovery + scoping pack on `cust-discovery`. Historical one-run flags (`api-auth`, `cust-discovery`, `ambiguity-decomp`, `exec-comm`, `legacy-data`) stay one-run only until Mentor writes a second pass.
+ 
+ **Deliberately not covering this cycle:** data pipeline, model config, orchestration, security/guardrails, evaluation, LLMOps, deployment/lifecycle, and adoption/hand-off (stages 4–11). Also not covering a standalone “ship any live app” `prod-ship` arc detached from the map — production shipping starts as **stage 3 infrastructure** that hosts the chosen use case, not a free-floating demo. Applied AI depth (`llm-integrate`, `context-eng`, `agent-orch`, `eval-design`) waits until stages 4–8. Integration-wall depth beyond what stage 2–3 require (`legacy-data`, deep `enterprise-auth`) waits. Interview-only drills without a stage artifact are out.
+ 
+@@ -79,6 +79,8 @@
+ 
+ **Rough size:** ~8–10 weekdays (weeks 1–2). ~30% study (discovery/scoping methods) then build the pack.
+ 
++**Progress note (as of 2026-09-20 AEST):** Week 1 (Mon 2026-09-14 → Fri 2026-09-19) has ended. Week 2 starts Mon 2026-09-21 → Fri 2026-09-25. No pack-completion evidence recorded — Mentor day-picks through 2026-09-18 were still building the pack on `cust-discovery`. Continue stage 1 until the pack ships or the week-2 boundary hands off to stage 2.
++
+ ### Stage 2 — Compliance (PLAN)
+ 
+ **Ship:** one **compliance & risk decision pack** bound to the stage-1 use case — data sovereignty position, privacy constraints, applicable regulation map, and a risk register with owners/mitigations. Shippable PDF/markdown an engagement lead could attach to the scoping pack.
+@@ -103,15 +105,15 @@
+ 
+ ### 8-week boundary (Mentor day picks still one-at-a-time)
+ 
+-Calendar pinned at this Sunday rewrite (AEST weekdays). Relative week labels from v005 still apply.
++Calendar pinned at v006 (AEST weekdays); progress status updated this rewrite. Relative week labels from v005 still apply.
+ 
+-| weeks | calendar (AEST) | stage | focus |
+-|-------|-----------------|-------|-------|
+-| 1–2 | Mon 2026-09-14 → Fri 2026-09-25 | 1 Discovery / Design | Discovery + scoping pack |
+-| 3–4 | Mon 2026-09-28 → Fri 2026-10-09 | 2 Compliance | Compliance & risk pack for that use case |
+-| 5–8 | Mon 2026-10-12 → Fri 2026-11-06 | 3 Infrastructure / Hosting | Architecture + IaC baseline, kept live |
++| weeks | calendar (AEST) | stage | focus | status (as of 2026-09-20) |
++|-------|-----------------|-------|-------|---------------------------|
++| 1–2 | Mon 2026-09-14 → Fri 2026-09-25 | 1 Discovery / Design | Discovery + scoping pack | Week 1 ended Fri 2026-09-19; **week 2 starts Mon 2026-09-21** |
++| 3–4 | Mon 2026-09-28 → Fri 2026-10-09 | 2 Compliance | Compliance & risk pack for that use case | upcoming |
++| 5–8 | Mon 2026-10-12 → Fri 2026-11-06 | 3 Infrastructure / Hosting | Architecture + IaC baseline, kept live | upcoming |
+ 
+-Mentor’s 2026-09-12 `today.md` already opened stage 1 on `cust-discovery` inside the discovery + scoping pack — that pick stays the entry move for week 1.
++Mentor opened stage 1 on `cust-discovery` (2026-09-12) and was still on that build lane as of 2026-09-18 `today.md` — week-2 day picks stay inside the discovery + scoping pack unless Mentor chooses otherwise.
+ 
+ ## Mentor flags caveat
+ 
+@@ -134,10 +136,10 @@
+ 
+ Also deferred as standalone P0s from v004’s “Not this cycle” list unless a later stage pulls them in: `prod-lang`, `codebase-debug`, `legacy-data` (until stage 4), deep `enterprise-auth`, `llm-integrate` / `eval-design` / `context-eng` / `agent-orch` (until stages 4–8), `prod-ownership` as its own arc (until stages 9–10).
+ 
+-## Diff vs v005
++## Diff vs v006
+ 
+ - Standing Sunday rewrite; no priority reshape (no two-run Mentor gap)
+-- Pinned 8-week AEST calendar for stages 1–3 (week 1 starts Mon 2026-09-14)
+-- Restated Mentor one-run flag caveat with run id
+-- Noted Mentor’s 2026-09-12 stage-1 `cust-discovery` open as the week-1 entry
++- Calendar progress: Stage 1 week 1 ended Fri 2026-09-19; week 2 starts Mon 2026-09-21 → Fri 2026-09-25
++- Progress note under Stage 1; status column on 8-week table
++- Noted Mentor’s 2026-09-18 `today.md` still on `cust-discovery` build (no invented completion)
+ - Spine, artifacts, score table, 30/70, and Later cycles unchanged

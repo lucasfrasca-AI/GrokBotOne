@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+  <rect width="1200" height="1200" fill="#05010E"/>
+
+  <!-- 1. Title -->
+  <text x="600" y="88" text-anchor="middle"
+        font-family="General Sans, ui-sans-serif, system-ui, sans-serif"
+        font-size="38" font-weight="600" fill="#F3F3F1">Prompt injection: defend the trust boundary</text>
+
+  <!-- 2. Untrusted prompt (OUTSIDE boundary) -->
+  <rect x="340" y="130" width="520" height="110" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="2"/>
+  <text x="600" y="178" text-anchor="middle"
+        font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="32" font-weight="600" fill="#F3F3F1">Untrusted prompt</text>
+  <text x="600" y="214" text-anchor="middle"
+        font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="22" fill="#A4A098">attacker-controlled</text>
+
+  <!-- 3. Arrow: prompt (data flow) -->
+  <line x1="600" y1="240" x2="600" y2="298" stroke="rgba(243,243,241,.12)" stroke-width="2.5"/>
+  <polygon points="600,312 588,292 612,292" fill="#A855F7"/>
+  <text x="640" y="282" text-anchor="start"
+        font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="26" font-weight="500" fill="#A855F7">prompt</text>
+
+  <!-- 4. Trust boundary (dashed) -->
+  <rect x="120" y="330" width="960" height="580" rx="18" fill="none"
+        stroke="#A855F7" stroke-width="2.5" stroke-dasharray="12 9"/>
+  <text x="150" y="372" text-anchor="start"
+        font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="24" font-weight="600" fill="#A855F7">Trust boundary</text>
+
+  <!-- 5. LLM — trusted confused deputy (NOT untrusted) -->
+  <rect x="340" y="400" width="520" height="110" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="2"/>
+  <text x="600" y="448" text-anchor="middle"
+        font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="32" font-weight="600" fill="#F3F3F1">LLM</text>
+  <text x="600" y="484" text-anchor="middle"
+        font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="22" fill="#D4D2CE">confused deputy</text>
+
+  <!-- 6. Arrow: tool calls (data flow) -->
+  <line x1="600" y1="510" x2="600" y2="568" stroke="rgba(243,243,241,.12)" stroke-width="2.5"/>
+  <polygon points="600,582 588,562 612,562" fill="#A855F7"/>
+  <text x="640" y="552" text-anchor="start"
+        font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="26" font-weight="500" fill="#A855F7">tool calls</text>
+
+  <!-- 7. Tools | App · Data (reachable surface) -->
+  <rect x="180" y="610" width="280" height="100" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="2"/>
+  <text x="320" y="656" text-anchor="middle"
+        font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="28" font-weight="600" fill="#F3F3F1">Tools</text>
+  <text x="320" y="688" text-anchor="middle"
+        font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="20" fill="#A4A098">reachable surface</text>
+
+  <rect x="520" y="610" width="360" height="100" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="2"/>
+  <text x="700" y="656" text-anchor="middle"
+        font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="28" font-weight="600" fill="#F3F3F1">App · Data</text>
+  <text x="700" y="688" text-anchor="middle"
+        font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="20" fill="#A4A098">reachable surface</text>
+
+  <!-- 8. Least privilege (control callout) -->
+  <rect x="300" y="760" width="600" height="72" rx="14" fill="#1B122B" stroke="#A855F7" stroke-width="2.5"/>
+  <text x="600" y="806" text-anchor="middle"
+        font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="28" font-weight="600" fill="#A855F7">Least privilege</text>
+
+  <!-- 9. Footer ≤2 items -->
+  <text x="600" y="980" text-anchor="middle"
+        font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="24" fill="#A4A098">Input allowlisting · Human-in-loop</text>
+
+  <!-- LF mark bottom-LEFT: 72px square, margin 36 -->
+  <image href="marks/lf-mark.png" x="36" y="1092" width="72" height="72"
+         preserveAspectRatio="xMidYMid meet"/>
+
+  <!-- Event mark: octopus bottom-RIGHT (~150px tall) -->
+  <image href="marks/octopus-mark.png" x="1066" y="1014" width="98" height="150"
+         preserveAspectRatio="xMidYMid meet"/>
+</svg>
