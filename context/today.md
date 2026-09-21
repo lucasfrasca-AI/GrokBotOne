@@ -1,7 +1,7 @@
 # Today's single target
 # Owner: Mentor. One target only. Not a plan version.
 
-- **date**: 2026-09-20 (AEST) — Sunday; stage 1 week 2 opens Mon 2026-09-21
+- **date**: 2026-09-21 (AEST)
 - **stage**: 1 — Discovery / Design (plan v007)
 - **competency**: `cust-discovery`
 - **lane**: build
