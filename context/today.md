@@ -1,7 +1,7 @@
 # Today's single target
 # Owner: Mentor. One target only. Not a plan version.
 
-- **date**: 2026-09-21 (AEST)
+- **date**: 2026-09-22 (AEST)
 - **stage**: 1 — Discovery / Design (plan v007)
 - **competency**: `cust-discovery`
 - **lane**: build
