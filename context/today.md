@@ -1,7 +1,7 @@
 # Today's single target
 # Owner: Mentor. One target only. Not a plan version.
 
-- **date**: 2026-09-30 (AEST)
+- **date**: 2026-10-01 (AEST)
 - **stage**: 2 — Compliance (plan v008)
 - **competency**: `compliance-deploy`
 - **lane**: build

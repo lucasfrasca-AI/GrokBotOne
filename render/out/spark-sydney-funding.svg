@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1200" viewBox="0 0 1200 1200" role="img"
+     aria-label="Sydney funding and deals 2018-2025">
+  <defs>
+    <linearGradient id="spectrum" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="50%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#FCD34D"/>
+    </linearGradient>
+    <linearGradient id="barFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#6366F1"/>
+    </linearGradient>
+    <linearGradient id="dealsArea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FCD34D" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#FCD34D" stop-opacity="0.02"/>
+    </linearGradient>
+    <style type="text/css"><![CDATA[
+      .t { font-family: Geist, Inter, ui-sans-serif, system-ui, sans-serif; }
+      .m { font-family: "Geist Mono", ui-monospace, monospace; }
+    ]]></style>
+  </defs>
+
+  <rect width="1200" height="1200" fill="#05010E"/>
+
+  <text x="48" y="48" class="t" font-size="28" font-weight="600" fill="#F3F3F1">Sydney: funding &amp; deals (2018-2025)</text>
+  <rect x="48" y="58" width="420" height="3" fill="url(#spectrum)" rx="1.5"/>
+  <text x="48" y="82" class="t" font-size="14" fill="#A4A098">StartupBlink ecosystem data · Sydney Australia</text>
+
+  <!-- Denser KPI row: 3 equal cards -->
+  <g id="card-avg">
+    <rect x="48" y="100" width="352" height="200" rx="14" fill="#160F24" stroke="rgba(243,243,241,0.12)"/>
+    <rect x="48" y="100" width="6" height="200" rx="3" fill="#6366F1"/>
+    <text x="72" y="128" class="t" font-size="12" font-weight="600" fill="#A855F7" letter-spacing="1.5">AVERAGE FUNDING</text>
+    <text x="72" y="152" class="t" font-size="15" fill="#D4D2CE">Calendar year 2025</text>
+    <text x="72" y="174" class="t" font-size="13" fill="#A4A098">Sydney Australia</text>
+    <text x="72" y="220" class="m" font-size="40" font-weight="700" fill="#F3F3F1">$10.25M</text>
+    <rect x="72" y="240" width="140" height="36" rx="8" fill="#1B122B"/>
+    <text x="142" y="264" text-anchor="middle" class="t" font-size="16" font-weight="600" fill="#DC2828">-12.96% YoY</text>
+  </g>
+
+  <g id="card-fund">
+    <rect x="424" y="100" width="352" height="200" rx="14" fill="#160F24" stroke="rgba(243,243,241,0.12)"/>
+    <rect x="424" y="100" width="6" height="200" rx="3" fill="#A855F7"/>
+    <text x="448" y="128" class="t" font-size="12" font-weight="600" fill="#A855F7" letter-spacing="1.5">TOTAL FUNDING</text>
+    <text x="448" y="152" class="t" font-size="15" fill="#D4D2CE">Calendar year 2025</text>
+    <text x="448" y="174" class="t" font-size="13" fill="#A4A098">Sydney Australia</text>
+    <text x="448" y="220" class="m" font-size="40" font-weight="700" fill="#F3F3F1">$871.58M</text>
+    <rect x="448" y="240" width="140" height="36" rx="8" fill="#1B122B"/>
+    <text x="518" y="264" text-anchor="middle" class="t" font-size="16" font-weight="600" fill="#DC2828">-43.09% YoY</text>
+  </g>
+
+  <g id="card-deals">
+    <rect x="800" y="100" width="352" height="200" rx="14" fill="#1C1528" stroke="rgba(243,243,241,0.12)"/>
+    <rect x="800" y="100" width="6" height="200" rx="3" fill="#FCD34D"/>
+    <text x="824" y="128" class="t" font-size="12" font-weight="600" fill="#FCD34D" letter-spacing="1.5">DEAL COUNT</text>
+    <text x="824" y="152" class="t" font-size="15" fill="#D4D2CE">Calendar year 2025</text>
+    <text x="824" y="174" class="t" font-size="13" fill="#A4A098">Sydney Australia</text>
+    <text x="824" y="220" class="m" font-size="40" font-weight="700" fill="#F3F3F1">85</text>
+    <rect x="824" y="240" width="140" height="36" rx="8" fill="#1B122B"/>
+    <text x="894" y="264" text-anchor="middle" class="t" font-size="16" font-weight="600" fill="#DC2828">-34.62% YoY</text>
+  </g>
+
+  <!-- Chart -->
+  <rect x="48" y="320" width="1104" height="700" rx="14" fill="#160F24" stroke="rgba(243,243,241,0.12)"/>
+
+  <rect x="360" y="342" width="14" height="14" rx="2" fill="url(#barFill)"/>
+  <text x="382" y="354" class="t" font-size="13" fill="#D4D2CE">Amount of Funding (USD)</text>
+  <rect x="620" y="342" width="14" height="14" rx="2" fill="#FCD34D"/>
+  <text x="642" y="354" class="t" font-size="13" fill="#D4D2CE">Number of Deals</text>
+  <line x1="88" y1="955.0" x2="1085" y2="955.0" stroke="rgba(243,243,241,0.07)" stroke-width="1"/>
+  <text x="1095" y="913.0" class="m" font-size="13" fill="#A4A098">0</text>
+  <line x1="88" y1="845.0" x2="1085" y2="845.0" stroke="rgba(243,243,241,0.07)" stroke-width="1"/>
+  <text x="1095" y="803.0" class="m" font-size="13" fill="#A4A098">80</text>
+  <line x1="88" y1="735.0" x2="1085" y2="735.0" stroke="rgba(243,243,241,0.07)" stroke-width="1"/>
+  <text x="1095" y="693.0" class="m" font-size="13" fill="#A4A098">160</text>
+  <line x1="88" y1="625.0" x2="1085" y2="625.0" stroke="rgba(243,243,241,0.07)" stroke-width="1"/>
+  <text x="1095" y="583.0" class="m" font-size="13" fill="#A4A098">240</text>
+  <line x1="88" y1="515.0" x2="1085" y2="515.0" stroke="rgba(243,243,241,0.07)" stroke-width="1"/>
+  <text x="1095" y="473.0" class="m" font-size="13" fill="#A4A098">320</text>
+  <rect x="125.4" y="787.7" width="49.9" height="121.3" rx="4" fill="url(#barFill)"/>
+  <rect x="250.0" y="715.8" width="49.9" height="193.2" rx="4" fill="url(#barFill)"/>
+  <rect x="374.6" y="628.4" width="49.9" height="280.6" rx="4" fill="url(#barFill)"/>
+  <rect x="499.3" y="469.0" width="49.9" height="440.0" rx="4" fill="url(#barFill)"/>
+  <rect x="623.9" y="504.3" width="49.9" height="404.7" rx="4" fill="url(#barFill)"/>
+  <rect x="748.5" y="607.2" width="49.9" height="301.8" rx="4" fill="url(#barFill)"/>
+  <rect x="873.1" y="669.3" width="49.9" height="239.7" rx="4" fill="url(#barFill)"/>
+  <rect x="997.8" y="775.0" width="49.9" height="134.0" rx="4" fill="url(#barFill)"/>
+  <path d="M 150.3,616.1 L 274.9,625.8 L 399.6,547.4 L 524.2,515.0 L 648.8,473.1 L 773.4,605.1 L 898.1,715.1 L 1022.7,792.1 L 1022.7,909 L 150.3,909 Z" fill="url(#dealsArea)"/>
+  <path d="M 150.3,616.1 L 274.9,625.8 L 399.6,547.4 L 524.2,515.0 L 648.8,473.1 L 773.4,605.1 L 898.1,715.1 L 1022.7,792.1" fill="none" stroke="#FCD34D" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="150.3" cy="616.1" r="5.5" fill="#05010E" stroke="#FCD34D" stroke-width="2"/>
+  <circle cx="274.9" cy="625.8" r="5.5" fill="#05010E" stroke="#FCD34D" stroke-width="2"/>
+  <circle cx="399.6" cy="547.4" r="5.5" fill="#05010E" stroke="#FCD34D" stroke-width="2"/>
+  <circle cx="524.2" cy="469.0" r="5.5" fill="#05010E" stroke="#FCD34D" stroke-width="2"/>
+  <circle cx="648.8" cy="473.1" r="5.5" fill="#05010E" stroke="#FCD34D" stroke-width="2"/>
+  <circle cx="773.4" cy="605.1" r="5.5" fill="#05010E" stroke="#FCD34D" stroke-width="2"/>
+  <circle cx="898.1" cy="715.1" r="5.5" fill="#05010E" stroke="#FCD34D" stroke-width="2"/>
+  <circle cx="1022.7" cy="792.1" r="5.5" fill="#05010E" stroke="#FCD34D" stroke-width="2"/>
+  <g transform="translate(150.3,925) rotate(-35)">
+    <text text-anchor="end" class="m" font-size="14" fill="#A4A098">2018</text>
+  </g>
+  <g transform="translate(274.9,925) rotate(-35)">
+    <text text-anchor="end" class="m" font-size="14" fill="#A4A098">2019</text>
+  </g>
+  <g transform="translate(399.6,925) rotate(-35)">
+    <text text-anchor="end" class="m" font-size="14" fill="#A4A098">2020</text>
+  </g>
+  <g transform="translate(524.2,925) rotate(-35)">
+    <text text-anchor="end" class="m" font-size="14" fill="#A4A098">2021</text>
+  </g>
+  <g transform="translate(648.8,925) rotate(-35)">
+    <text text-anchor="end" class="m" font-size="14" fill="#A4A098">2022</text>
+  </g>
+  <g transform="translate(773.4,925) rotate(-35)">
+    <text text-anchor="end" class="m" font-size="14" fill="#A4A098">2023</text>
+  </g>
+  <g transform="translate(898.1,925) rotate(-35)">
+    <text text-anchor="end" class="m" font-size="14" fill="#A4A098">2024</text>
+  </g>
+  <g transform="translate(1022.7,925) rotate(-35)">
+    <text text-anchor="end" class="m" font-size="14" fill="#A4A098">2025</text>
+  </g>
+
+  <text x="48" y="1048" class="t" font-size="12" fill="#A4A098">https://www.startupblink.com/startupecosystemreport</text>
+  <image href="marks/lf-mark.png" x="48" y="1080" width="72" height="72"/>
+  <image href="marks/spark-logo-br-sm.png" x="1032" y="1095" width="120" height="59"/>
+</svg>

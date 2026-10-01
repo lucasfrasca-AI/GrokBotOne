@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1200" viewBox="0 0 1200 1200" role="img"
+     aria-label="Rank climbs; business environment lags — index health vs capital climate">
+  <defs>
+    <linearGradient id="spectrum" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="50%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#FCD34D"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="1200" fill="#05010E"/>
+
+  <!-- title -->
+  <text x="48" y="68" font-family='General Sans, "General Sans", ui-sans-serif, system-ui, sans-serif'
+        font-size="34" font-weight="600" fill="#F3F3F1">Rank climbs; business environment lags</text>
+  <rect x="48" y="84" width="380" height="3" fill="url(#spectrum)" rx="1.5"/>
+  <text x="48" y="112" font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="15" fill="#A4A098">Index health vs the capital climate (StartupBlink + Sydney 2025)</text>
+
+  <!-- panels: y=136 → 900 (h=764); amber 920; citation 1038; marks 1080 -->
+
+  <!-- ========== BEFORE: ON THE INDEX ========== -->
+  <g id="before">
+    <rect x="48" y="136" width="528" height="764" rx="16" fill="#160F24" stroke="rgba(243,243,241,0.12)" stroke-width="1"/>
+    <text x="72" y="178" font-family="Geist Mono, ui-monospace, monospace" font-size="13" font-weight="500" fill="#A4A098" letter-spacing="2">ON THE INDEX</text>
+    <line x1="72" y1="196" x2="552" y2="196" stroke="rgba(243,243,241,0.07)" stroke-width="1"/>
+
+    <!-- slot 1 y~230 -->
+    <text x="72" y="250" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#A4A098">Ecosystem rank</text>
+    <text x="72" y="310" font-family="Geist Mono, ui-monospace, monospace" font-size="52" font-weight="600" fill="#F3F3F1">#9</text>
+
+    <!-- slot 2 y~360 -->
+    <text x="72" y="380" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#A4A098">Annual growth</text>
+    <text x="72" y="440" font-family="Geist Mono, ui-monospace, monospace" font-size="52" font-weight="600" fill="#F3F3F1">+22.9%</text>
+
+    <!-- slot 3 y~490 -->
+    <text x="72" y="510" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#A4A098">Ecosystem value</text>
+    <text x="72" y="570" font-family="Geist Mono, ui-monospace, monospace" font-size="44" font-weight="600" fill="#F3F3F1">US$195.2B</text>
+
+    <!-- slot 4 y~620 -->
+    <text x="72" y="640" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#A4A098">Unicorns</text>
+    <text x="72" y="700" font-family="Geist Mono, ui-monospace, monospace" font-size="52" font-weight="600" fill="#F3F3F1">8</text>
+
+    <!-- consequence near panel bottom -->
+    <line x1="72" y1="760" x2="552" y2="760" stroke="rgba(243,243,241,0.07)" stroke-width="1"/>
+    <text x="72" y="810" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="17" fill="#D4D2CE">The scoreboard looks healthy</text>
+  </g>
+
+  <!-- ========== AFTER: ON THE GROUND ========== -->
+  <g id="after">
+    <rect x="624" y="136" width="528" height="764" rx="16" fill="#160F24" stroke="rgba(243,243,241,0.12)" stroke-width="1"/>
+    <text x="648" y="178" font-family="Geist Mono, ui-monospace, monospace" font-size="13" font-weight="500" fill="#A855F7" letter-spacing="2">ON THE GROUND</text>
+    <line x1="648" y1="196" x2="1128" y2="196" stroke="rgba(243,243,241,0.07)" stroke-width="1"/>
+
+    <text x="648" y="250" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#A4A098">Business Environment</text>
+    <text x="648" y="310" font-family="Geist Mono, ui-monospace, monospace" font-size="52" font-weight="600" fill="#A855F7">#17</text>
+    <text x="800" y="310" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" fill="#A4A098">(of 125)</text>
+
+    <text x="648" y="380" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#A4A098">Sydney funding (2025)</text>
+    <text x="648" y="440" font-family="Geist Mono, ui-monospace, monospace" font-size="48" font-weight="600" fill="#A855F7">−43% YoY</text>
+
+    <text x="648" y="510" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#A4A098">Sydney deals (2025)</text>
+    <text x="648" y="570" font-family="Geist Mono, ui-monospace, monospace" font-size="48" font-weight="600" fill="#A855F7">−35% YoY</text>
+
+    <text x="648" y="640" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#A4A098">Policy climate</text>
+    <text x="648" y="682" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="600" fill="#A855F7">Policy / tax / program</text>
+    <text x="648" y="714" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="600" fill="#A855F7">uncertainty</text>
+
+    <line x1="648" y1="760" x2="1128" y2="760" stroke="rgba(243,243,241,0.07)" stroke-width="1"/>
+    <text x="648" y="800" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" fill="#D4D2CE">Uncertainty parks capital even when</text>
+    <text x="648" y="824" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" fill="#D4D2CE">the index looks healthy</text>
+  </g>
+
+  <!-- amber callout -->
+  <rect x="48" y="920" width="1104" height="58" rx="10" fill="#1C1528" stroke="rgba(252,211,77,0.35)" stroke-width="1"/>
+  <text x="72" y="956" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" fill="#FCD34D">Spark exists so founders and government keep talking when clarity freezes.</text>
+
+  <text x="48" y="1038" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">https://www.startupblink.com/startupecosystemreport</text>
+
+  <image href="marks/lf-mark.png" x="48" y="1080" width="72" height="72"/>
+  <image href="marks/spark-logo-br.png" x="972" y="1075" width="180" height="89"/>
+</svg>

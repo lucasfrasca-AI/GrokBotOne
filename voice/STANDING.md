@@ -32,3 +32,14 @@
 8. Use everything in the artifact. Concrete material in the artifact
    goes in the post before anything reasoned into place. Do not invent
    generic halves while leaving artifact material unused.
+
+9. Never use an em dash in any draft. Prefer commas, periods, or short
+   sentences. Voice must sound like Lucas: human and plain, not AI-slop.
+
+10. LinkedIn event posts: match the canonical sample in
+    `/workspace/voice/examples/linkedin-spark-festival.md`. Warm thanks
+    opener; short paragraphs; "Some takeaways include notably…"; slash
+    phrases like "dialogue / funding-clarity"; plain stock; no em
+    dashes; EU → Privacy Act Dec 2026 → agentic closer when that arc
+    fits; end with "Longer write-up:" + URL. Prefer Lucas's wording
+    over polished Writerese.
