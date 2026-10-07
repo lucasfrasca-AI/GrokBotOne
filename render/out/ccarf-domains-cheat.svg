@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1200" viewBox="0 0 1200 1200">
+  <rect width="1200" height="1200" fill="#05010E"/>
+
+  <defs>
+    <linearGradient id="specDomains" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="50%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#FCD34D"/>
+    </linearGradient>
+  </defs>
+  <rect x="48" y="36" width="260" height="4" rx="2.0" fill="url(#specDomains)"/>
+<text x="48" y="70" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A855F7" letter-spacing="1.6" font-weight="600">CCAR-F  ·  CHEAT</text>
+<text x="48" y="110" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="38" fill="#F3F3F1" font-weight="700">Five Domains</text>
+<text x="48" y="140" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" fill="#D4D2CE">Weights and pass reflexes from Exam Guide §4</text>
+<rect x="36" y="158" width="168" height="194" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="36" y="158" width="6" height="194" rx="3" fill="#A855F7"/>
+<text x="120" y="245" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="42" fill="#F3F3F1" font-weight="700">27%</text>
+<text x="120" y="281" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A855F7" font-weight="700">D1</text>
+<rect x="52" y="332" width="136" height="6" rx="3" fill="rgba(243,243,241,.08)"/>
+<rect x="52" y="332" width="136" height="6" rx="3" fill="#A855F7"/>
+<rect x="216" y="158" width="726" height="194" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="236" y="190" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#F3F3F1" font-weight="650">Agentic Architecture &amp; Orchestration</text>
+<text x="236" y="218" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· stop_reason loop (tool_use / end_turn); append</text>
+<text x="236" y="238" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  tool results</text>
+<text x="236" y="258" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Hub-spoke; parallel Task; allowedTools includes</text>
+<text x="236" y="278" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  Task</text>
+<text x="236" y="298" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Hooks / prerequisite gates for irreversible or</text>
+<text x="236" y="318" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  money-moving steps</text>
+<rect x="954" y="158" width="210" height="194" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="954" y="158" width="6" height="194" rx="3" fill="#A855F7"/>
+<text x="1059" y="233" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" fill="#A855F7" font-weight="700">27%</text>
+<text x="1059" y="263" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#F3F3F1" font-weight="650">stop_reason</text>
+<text x="1059" y="287" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">loop · hub-spoke · gates</text>
+<rect x="36" y="362" width="168" height="177" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="36" y="362" width="6" height="177" rx="3" fill="#6366F1"/>
+<text x="120" y="440" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="39" fill="#F3F3F1" font-weight="700">18%</text>
+<text x="120" y="476" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#6366F1" font-weight="700">D2</text>
+<rect x="52" y="519" width="136" height="6" rx="3" fill="rgba(243,243,241,.08)"/>
+<rect x="52" y="519" width="90" height="6" rx="3" fill="#6366F1"/>
+<rect x="216" y="362" width="726" height="177" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="236" y="394" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#F3F3F1" font-weight="650">Tool Design &amp; MCP</text>
+<text x="236" y="422" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Differentiating tool descriptions; split generic</text>
+<text x="236" y="442" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  tools</text>
+<text x="236" y="462" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· .mcp.json (team + ${ENV}) vs ~/.claude.json</text>
+<text x="236" y="482" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  (personal)</text>
+<text x="236" y="502" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Grep=contents; Glob=paths; ~4-5 tools per role</text>
+<rect x="954" y="362" width="210" height="177" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="954" y="362" width="6" height="177" rx="3" fill="#6366F1"/>
+<text x="1059" y="428" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" fill="#6366F1" font-weight="700">18%</text>
+<text x="1059" y="458" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#F3F3F1" font-weight="650">tool scope</text>
+<text x="1059" y="482" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">desc first · 4-5 tools</text>
+<rect x="36" y="549" width="168" height="180" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="36" y="549" width="6" height="180" rx="3" fill="#A855F7"/>
+<text x="120" y="629" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="39" fill="#F3F3F1" font-weight="700">20%</text>
+<text x="120" y="665" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A855F7" font-weight="700">D3</text>
+<rect x="52" y="709" width="136" height="6" rx="3" fill="rgba(243,243,241,.08)"/>
+<rect x="52" y="709" width="100" height="6" rx="3" fill="#A855F7"/>
+<rect x="216" y="549" width="726" height="180" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="236" y="581" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#F3F3F1" font-weight="650">Claude Code Config &amp; Workflows</text>
+<text x="236" y="609" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Team standards in project CLAUDE.md (not</text>
+<text x="236" y="629" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  user-level)</text>
+<text x="236" y="649" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· .claude/rules/ + paths: globs; skills</text>
+<text x="236" y="669" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  context:fork</text>
+<text x="236" y="689" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· CI: -p/--print, --output-format json,</text>
+<text x="236" y="709" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  --json-schema</text>
+<rect x="954" y="549" width="210" height="180" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="954" y="549" width="6" height="180" rx="3" fill="#A855F7"/>
+<text x="1059" y="617" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" fill="#A855F7" font-weight="700">20%</text>
+<text x="1059" y="647" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#F3F3F1" font-weight="650">project paths</text>
+<text x="1059" y="671" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">CLAUDE.md · rules · CI</text>
+<rect x="36" y="739" width="168" height="180" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="36" y="739" width="6" height="180" rx="3" fill="#6366F1"/>
+<text x="120" y="819" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="39" fill="#F3F3F1" font-weight="700">20%</text>
+<text x="120" y="855" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#6366F1" font-weight="700">D4</text>
+<rect x="52" y="899" width="136" height="6" rx="3" fill="rgba(243,243,241,.08)"/>
+<rect x="52" y="899" width="100" height="6" rx="3" fill="#6366F1"/>
+<rect x="216" y="739" width="726" height="180" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="236" y="771" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#F3F3F1" font-weight="650">Prompt Engineering &amp; Structured Output</text>
+<text x="236" y="799" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Explicit categorical criteria; few-shot 2-4 with</text>
+<text x="236" y="819" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  reasoning</text>
+<text x="236" y="839" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· tool_use + schema; tool_choice auto/any/forced;</text>
+<text x="236" y="859" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  nullable/enum</text>
+<text x="236" y="879" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Message Batches only if latency-tolerant;</text>
+<text x="236" y="899" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  custom_id for failures</text>
+<rect x="954" y="739" width="210" height="180" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="954" y="739" width="6" height="180" rx="3" fill="#6366F1"/>
+<text x="1059" y="807" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" fill="#6366F1" font-weight="700">20%</text>
+<text x="1059" y="837" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#F3F3F1" font-weight="650">tool_choice</text>
+<text x="1059" y="861" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">schema · nullable · batches</text>
+<rect x="36" y="929" width="168" height="172" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="36" y="929" width="6" height="172" rx="3" fill="#FCD34D"/>
+<text x="120" y="1005" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="38" fill="#F3F3F1" font-weight="700">15%</text>
+<text x="120" y="1041" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#FCD34D" font-weight="700">D5</text>
+<rect x="52" y="1081" width="136" height="6" rx="3" fill="rgba(243,243,241,.08)"/>
+<rect x="52" y="1081" width="75" height="6" rx="3" fill="#FCD34D"/>
+<rect x="216" y="929" width="726" height="172" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="236" y="961" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#F3F3F1" font-weight="650">Context Management &amp; Reliability</text>
+<text x="236" y="989" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Case-facts block; trim tool output;</text>
+<text x="236" y="1009" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  lost-in-middle mitigation</text>
+<text x="236" y="1029" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Escalate: human ask, policy gap, no progress -</text>
+<text x="236" y="1049" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  not sentiment</text>
+<text x="236" y="1069" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Scratchpads / subagent isolation /</text>
+<text x="236" y="1089" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  crash-recovery manifests</text>
+<rect x="954" y="929" width="210" height="172" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="954" y="929" width="6" height="172" rx="3" fill="#FCD34D"/>
+<text x="1059" y="993" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" fill="#FCD34D" font-weight="700">15%</text>
+<text x="1059" y="1023" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#F3F3F1" font-weight="650">escalate</text>
+<text x="1059" y="1047" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">case-facts · trim · recover</text>
+
+  <image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1105" width="72" height="67.3" preserveAspectRatio="xMidYMid meet"/>
+  <text x="1164" y="1149" text-anchor="end" font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="14" fill="#A4A098">Exam Guide v1.0 §4 / Anthropic</text>
+
+</svg>

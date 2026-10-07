@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1200" viewBox="0 0 1200 1200">
+  <rect width="1200" height="1200" fill="#05010E"/>
+
+  <defs>
+    <linearGradient id="specQuiz" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="50%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#FCD34D"/>
+    </linearGradient>
+  </defs>
+  <rect x="48" y="36" width="260" height="4" rx="2.0" fill="url(#specQuiz)"/>
+<text x="48" y="64" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#FCD34D" letter-spacing="1.6" font-weight="600">PRACTICE / SAMPLE  ·  EXAM GUIDE</text>
+<text x="48" y="100" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="32" fill="#F3F3F1" font-weight="700">PRACTICE QUESTION</text>
+<text x="48" y="126" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">Code Generation / review · Official sample - not live exam</text>
+<rect x="36" y="144" width="1128" height="336" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="36" y="144" width="6" height="336" rx="3" fill="#A855F7"/>
+<text x="64" y="176" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A855F7" font-weight="700">STEM</text>
+<text x="64" y="206" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" fill="#F3F3F1" font-weight="600">You want to create a custom /review slash</text>
+<text x="64" y="250" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" fill="#F3F3F1" font-weight="600">command that runs your team&apos;s standard code</text>
+<text x="64" y="294" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" fill="#F3F3F1" font-weight="600">review checklist. This command should be</text>
+<text x="64" y="338" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" fill="#F3F3F1" font-weight="600">available to every developer when they clone</text>
+<text x="64" y="382" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" fill="#F3F3F1" font-weight="600">or pull the repository. Where should you</text>
+<text x="64" y="426" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" fill="#F3F3F1" font-weight="600">create this command file?</text>
+<rect x="36" y="496" width="1128" height="144" rx="12" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="64" y="580" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="36" fill="#A855F7" font-weight="700">A</text>
+<text x="124" y="560" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" fill="#F3F3F1" font-weight="600">In the .claude/commands/ directory in the</text>
+<text x="124" y="594" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" fill="#F3F3F1" font-weight="600">project repository</text>
+<rect x="36" y="650" width="1128" height="144" rx="12" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="64" y="734" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="36" fill="#A855F7" font-weight="700">B</text>
+<text x="124" y="714" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" fill="#F3F3F1" font-weight="600">In ~/.claude/commands/ in each developer&apos;s</text>
+<text x="124" y="748" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" fill="#F3F3F1" font-weight="600">home directory</text>
+<rect x="36" y="804" width="1128" height="144" rx="12" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="64" y="888" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="36" fill="#A855F7" font-weight="700">C</text>
+<text x="124" y="885" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" fill="#F3F3F1" font-weight="600">In the CLAUDE.md file at the project root</text>
+<rect x="36" y="958" width="1128" height="144" rx="12" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="64" y="1042" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="36" fill="#A855F7" font-weight="700">D</text>
+<text x="124" y="1022" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" fill="#F3F3F1" font-weight="600">In a .claude/config.json file with a</text>
+<text x="124" y="1056" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" fill="#F3F3F1" font-weight="600">commands array</text>
+
+  <image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1108" width="72" height="67.3" preserveAspectRatio="xMidYMid meet"/>
+  <text x="1164" y="1152" text-anchor="end" font-family="Geist, ui-sans-serif, system-ui, sans-serif"
+        font-size="14" fill="#A4A098">Exam Guide v1.0 sample questions (Anthropic)</text>
+
+</svg>
