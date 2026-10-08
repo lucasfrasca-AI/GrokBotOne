@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1200" viewBox="0 0 1200 1200">
+  <rect width="1200" height="1200" fill="#05010E"/>
+
+  
+  <defs>
+    <linearGradient id="specAU" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="50%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#FCD34D"/>
+    </linearGradient>
+  </defs>
+  <rect x="48" y="36" width="260" height="4" rx="2.0" fill="url(#specAU)"/>
+  <text x="48" y="68" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A855F7"
+        letter-spacing="1.6" font-weight="600">FDE  ·  AUSTRALIA  ·  AI HIRING</text>
+  <text x="48" y="114" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="42" fill="#F3F3F1"
+        font-weight="700">AI in Australian jobs</text>
+  <text x="48" y="145" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="17" fill="#D4D2CE">Talent supply, employer demand, and how job ads are shifting</text>
+
+<rect x="36" y="164" width="1128" height="430" rx="18" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="36" y="182" width="5" height="394" rx="2.5" fill="#A855F7"/>
+<text x="76" y="204" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A855F7" font-weight="700" letter-spacing="1.6">AI TALENT GAP  ·  SUPPLY VS DEMAND</text>
+<defs>
+    <pattern id="hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="14" height="14" fill="rgba(252,211,77,.08)"/>
+      <line x1="0" y1="0" x2="0" y2="14" stroke="rgba(252,211,77,.5)" stroke-width="5"/>
+    </pattern>
+  </defs>
+<text x="76" y="250" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="700" fill="#F3F3F1">Supply<tspan dx="14" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="400" fill="#D4D2CE">AI specialists</tspan></text>
+<text x="76" y="420" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="700" fill="#F3F3F1">Demand<tspan dx="14" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="400" fill="#D4D2CE">AI jobs by 2027</tspan></text>
+<rect x="76" y="268" width="494.8" height="100" rx="10" fill="#A855F7"/>
+<rect x="76" y="438" width="860" height="100" rx="10" fill="url(#hatch)"/>
+<rect x="76" y="438" width="494.8" height="100" rx="10" fill="#A855F7"/>
+<rect x="558.8" y="438" width="12" height="100" fill="#A855F7"/>
+<path d="M 570.8 439 H 925 Q 935 439 935 449 V 527 Q 935 537 925 537 H 570.8 Z" fill="none" stroke="#FCD34D" stroke-width="2" stroke-dasharray="7 5"/>
+<line x1="570.8" y1="262" x2="570.8" y2="546" stroke="#F3F3F1" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="4 5"/>
+<rect x="616.4" y="460.0" width="274.0" height="56" rx="12" fill="#05010E" stroke="#FCD34D" stroke-width="2"/>
+<text x="753.4" y="499.0" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="30" font-weight="700" fill="#FCD34D">60,000+ short</text>
+<text x="590.8" y="333.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="44" font-weight="700" fill="#F3F3F1">84,000</text>
+<text x="956.0" y="472" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#A4A098">up to</text>
+<text x="956.0" y="516" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="44" font-weight="700" fill="#F3F3F1">146,000</text>
+<text x="76" y="570" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#A4A098">Source: Bain &amp; Company, Mar 2025</text>
+<text x="1136" y="570" text-anchor="end" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#A4A098">Bars drawn to scale</text>
+<rect x="36" y="614" width="326" height="190" rx="16" fill="#1C1528" stroke="rgba(168,85,247,.55)" stroke-width="1.5"/>
+<text x="62" y="688" text-anchor="start" font-weight="700"><tspan font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="64" font-weight="700" fill="#A855F7">43%</tspan></text>
+<text x="62" y="729" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">of software and data job ads</text>
+<text x="62" y="754" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">mention AI</text>
+<text x="62" y="782" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#A4A098">Source: Indeed Hiring Lab, Apr 2026</text>
+<rect x="382" y="614" width="448" height="190" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="408" y="688" text-anchor="start" font-weight="700"><tspan font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="64" font-weight="700" fill="#F3F3F1">8.5%</tspan></text>
+<text x="408" y="729" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">of employers posted at least one AI-related</text>
+<text x="408" y="754" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">ad, up from 5.8% a year earlier</text>
+<text x="408" y="782" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#A4A098">Source: Indeed Hiring Lab, Apr 2026</text>
+<rect x="850" y="614" width="314" height="190" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="876" y="688" text-anchor="start" font-weight="700"><tspan font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="64" font-weight="700" fill="#A855F7">2/3</tspan></text>
+<text x="876" y="729" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">of AI ads come from the top</text>
+<text x="876" y="754" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">1% of employers</text>
+<text x="876" y="782" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#A4A098">Source: Indeed Hiring Lab, Apr 2026</text>
+<rect x="36" y="824" width="352" height="252" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="62" y="898" text-anchor="start" font-weight="700"><tspan font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="64" font-weight="700" fill="#F3F3F1">71</tspan></text>
+<text x="62" y="939" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">job titles now carry “AI”, more than</text>
+<text x="62" y="964" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">3x a year earlier; 61% are tech</text>
+<text x="62" y="989" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">roles</text>
+<text x="62" y="1054" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#A4A098">Source: Indeed Hiring Lab, Sep 2026</text>
+<rect x="408" y="824" width="448" height="252" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="434" y="895" text-anchor="start" font-weight="700"><tspan font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="60" font-weight="700" fill="#A855F7">+25%</tspan></text>
+<text x="434" y="935" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" fill="#D4D2CE">software developer jobs, about 40,000 people,</text>
+<text x="434" y="960" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" fill="#D4D2CE">Nov 2022 to Feb 2026</text>
+<rect x="434" y="974" width="3" height="47" rx="1.5" fill="#A855F7"/>
+<text x="448" y="991" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-style="italic" font-weight="500" fill="#F3F3F1">“no evidence to date of broad labour market</text>
+<text x="448" y="1016" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-style="italic" font-weight="500" fill="#F3F3F1">upheaval”</text>
+<text x="434" y="1054" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#A4A098">Source: DEWR, Jul 2026</text>
+<rect x="876" y="824" width="288" height="252" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="902" y="898" text-anchor="start" font-weight="700"><tspan font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="64" font-weight="700" fill="#F3F3F1">70%</tspan></text>
+<text x="902" y="939" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">of Australian leaders are</text>
+<text x="902" y="964" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">considering hiring</text>
+<text x="902" y="989" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">AI-focused roles</text>
+<text x="902" y="1036" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#A4A098">Source: Microsoft Work Trend Index,</text>
+<text x="902" y="1054" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#A4A098">Apr 2025</text>
+
+  <image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1105" width="72" height="67.3" preserveAspectRatio="xMidYMid meet"/>
+  <text x="128" y="1146" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#A4A098">Sources on each card</text>
+
+  <image href="logo-aicamp-violet.png" xlink:href="logo-aicamp-violet.png" x="1034.0" y="51.4" width="130" height="25.2" preserveAspectRatio="xMaxYMid meet"/>
+  <image href="logo-atlassian-violet.png" xlink:href="logo-atlassian-violet.png" x="1024.0" y="1130.4" width="140" height="16.4" preserveAspectRatio="xMaxYMid meet"/>
+</svg>

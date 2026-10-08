@@ -50,7 +50,7 @@ def spectrum_bar(x, y, w, h=4, gid=None):
 
 
 
-def chip(x, y, text, kind="mute", scale=1.0):
+def chip(x, y, text, kind="mute"):
     colors = {
         "mute": (INPUT, MUTE),
         "violet": ("rgba(168,85,247,.18)", VIOLET),
@@ -59,38 +59,30 @@ def chip(x, y, text, kind="mute", scale=1.0):
         "accent": ("rgba(137,90,246,.18)", ACCENT),
     }
     bg, fg = colors.get(kind, colors["mute"])
-    fs = max(11, int(round(14 * scale)))
-    th = max(22, int(round(30 * scale)))
-    pad_x = max(8, int(round(12 * scale)))
-    tw = max(int(round(48 * scale)), int(len(text) * (9.6 * scale) + pad_x * 2))
-    ty = y + int(round(th * 0.68))
+    tw = max(54, int(len(text) * 9.6 + 24))
+    th = 30
     return (
-        f'<rect x="{x}" y="{y}" width="{tw}" height="{th}" rx="{max(5, int(7 * scale))}" fill="{bg}"/>'
-        f'<text x="{x + pad_x}" y="{ty}" font-family="{MONO}" font-size="{fs}" '
+        f'<rect x="{x}" y="{y}" width="{tw}" height="{th}" rx="7" fill="{bg}"/>'
+        f'<text x="{x + 12}" y="{y + 20}" font-family="{MONO}" font-size="14" '
         f'fill="{fg}" font-weight="500">{esc(text)}</text>',
-        tw + max(6, int(round(8 * scale))),
-        th,
+        tw + 8,
     )
 
 
 
-def chips_row(x, y, items, max_w=520, scale=1.0):
+def chips_row(x, y, items, max_w=520):
     parts = []
     cx, cy = x, y
-    row_h = max(26, int(round(36 * scale)))
-    chip_th = max(22, int(round(30 * scale)))
+    row_h = 36
     for text, kind in items:
-        frag, step, th = chip(cx, cy, text, kind, scale=scale)
-        chip_th = max(chip_th, th)
-        if cx + step - max(6, int(round(8 * scale))) > x + max_w and cx > x:
+        frag, step = chip(cx, cy, text, kind)
+        if cx + step - 8 > x + max_w and cx > x:
             cx = x
             cy += row_h
-            frag, step, th = chip(cx, cy, text, kind, scale=scale)
-            chip_th = max(chip_th, th)
+            frag, step = chip(cx, cy, text, kind)
         parts.append(frag)
         cx += step
-    used_h = (cy - y) + chip_th
-    return "\n".join(parts), used_h
+    return "\n".join(parts), (cy - y) + 28
 
 
 
@@ -112,107 +104,12 @@ def lf_mark(x=36, y=1108, width=72):
 
 
 
-BADGE_W = 98
-BADGE_X = 1200 - BADGE_W - 32  # TR: ~1070
-
-
-def ccarf_badge(x=None, y=30, width=None):
+def ccarf_badge(x=1052, y=30, width=116):
     """Purple Claude Certified Architect Foundations corner watermark (square)."""
-    if width is None:
-        width = BADGE_W
-    if x is None:
-        x = 1200 - width - 32
     return (
         f'<image href="{BADGE}" xlink:href="{BADGE}" x="{x}" y="{y}" width="{width}" '
         f'height="{width}" preserveAspectRatio="xMidYMid meet" opacity="0.92"/>'
     )
-
-
-
-def domain_cue_glyph(cx, cy, kind, accent, scale=1.0):
-    """Small SVG glyph for domain right-cue panel (brand tokens only)."""
-    s = scale
-    parts = []
-    if kind == "loop":
-        # stop_reason loop: circular arrows
-        r = 18 * s
-        parts.append(
-            f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{accent}" '
-            f'stroke-width="2.5" stroke-dasharray="8 5" opacity="0.9"/>'
-        )
-        parts.append(
-            f'<circle cx="{cx}" cy="{cy}" r="{r * 0.45}" fill="{accent}" opacity="0.35"/>'
-        )
-        # arrow tip
-        parts.append(
-            f'<path d="M {cx + r * 0.15:.1f} {cy - r - 2:.1f} l 7 4 l -8 2 z" fill="{accent}"/>'
-        )
-    elif kind == "tool":
-        # tool scope: wrench-like + bracket
-        parts.append(
-            f'<rect x="{cx - 16*s}" y="{cy - 10*s}" width="{32*s}" height="{20*s}" rx="4" '
-            f'fill="none" stroke="{accent}" stroke-width="2.2"/>'
-        )
-        parts.append(
-            f'<rect x="{cx - 6*s}" y="{cy - 4*s}" width="{12*s}" height="{8*s}" rx="2" '
-            f'fill="{accent}" opacity="0.55"/>'
-        )
-        parts.append(
-            f'<line x1="{cx - 22*s}" y1="{cy}" x2="{cx - 16*s}" y2="{cy}" '
-            f'stroke="{accent}" stroke-width="2.2"/>'
-        )
-        parts.append(
-            f'<line x1="{cx + 16*s}" y1="{cy}" x2="{cx + 22*s}" y2="{cy}" '
-            f'stroke="{accent}" stroke-width="2.2"/>'
-        )
-    elif kind == "paths":
-        # project paths: nested folders
-        parts.append(
-            f'<rect x="{cx - 18*s}" y="{cy - 6*s}" width="{28*s}" height="{18*s}" rx="3" '
-            f'fill="rgba(168,85,247,.18)" stroke="{accent}" stroke-width="1.8"/>'
-        )
-        parts.append(
-            f'<path d="M {cx - 18*s} {cy - 6*s} h 10 l 4 -5 h 8 v 5" fill="none" '
-            f'stroke="{accent}" stroke-width="1.8"/>'
-        )
-        parts.append(
-            f'<rect x="{cx - 10*s}" y="{cy - 14*s}" width="{24*s}" height="{16*s}" rx="3" '
-            f'fill="{INPUT}" stroke="{INDIGO}" stroke-width="1.6" opacity="0.95"/>'
-        )
-    elif kind == "choice":
-        # tool_choice: branching decision
-        parts.append(
-            f'<circle cx="{cx}" cy="{cy - 12*s}" r="{5*s}" fill="{accent}"/>'
-        )
-        parts.append(
-            f'<line x1="{cx}" y1="{cy - 7*s}" x2="{cx}" y2="{cy + 2*s}" '
-            f'stroke="{accent}" stroke-width="2"/>'
-        )
-        parts.append(
-            f'<line x1="{cx}" y1="{cy + 2*s}" x2="{cx - 14*s}" y2="{cy + 14*s}" '
-            f'stroke="{accent}" stroke-width="2"/>'
-        )
-        parts.append(
-            f'<line x1="{cx}" y1="{cy + 2*s}" x2="{cx + 14*s}" y2="{cy + 14*s}" '
-            f'stroke="{INDIGO}" stroke-width="2"/>'
-        )
-        parts.append(
-            f'<circle cx="{cx - 14*s}" cy="{cy + 14*s}" r="{4*s}" fill="{accent}"/>'
-        )
-        parts.append(
-            f'<circle cx="{cx + 14*s}" cy="{cy + 14*s}" r="{4*s}" fill="{INDIGO}"/>'
-        )
-    elif kind == "escalate":
-        # escalate: upward chevrons / ladder
-        for i, dy in enumerate((-10, 0, 10)):
-            op = 0.45 + i * 0.25
-            y0 = cy + dy * s
-            parts.append(
-                f'<path d="M {cx - 12*s} {y0 + 6*s} L {cx} {y0 - 4*s} L {cx + 12*s} {y0 + 6*s}" '
-                f'fill="none" stroke="{accent}" stroke-width="2.4" stroke-linecap="round" '
-                f'stroke-linejoin="round" opacity="{op:.2f}"/>'
-            )
-    return "\n".join(parts)
 
 
 def footer(cite, mark_y=1105):
@@ -242,92 +139,35 @@ def wrap_text(text, max_chars):
 
 
 def render_std_card(x, y, w, h, c):
-    """Top-down stack: number+title -> def -> chips -> cons. Gaps >=10. No overlap."""
     parts = [card_box(x, y, w, h)]
-    pad = 16
-    inner_w = w - 2 * pad
-    # Prefer roomy type; fall back to compact if content cannot stack cleanly.
-    profiles = [
-        # n_fs, title_fs, def_fs, def_lh, def_chars, chip_scale, gap, cons_fs, cons_lh, cons_chars, max_def, max_cons
-        (16, 24, 16, 21, 36 if w < 520 else 44, 1.0, 14, 14, 18, 40 if w < 520 else 48, 2, 2),
-        (15, 22, 15, 19, 38 if w < 520 else 46, 0.88, 12, 13, 16, 42 if w < 520 else 52, 2, 2),
-        (14, 20, 14, 17, 40 if w < 520 else 50, 0.78, 10, 12, 15, 46 if w < 520 else 56, 2, 2),
-    ]
-    chosen = None
-    for prof in profiles:
-        n_fs, title_fs, def_fs, def_lh, def_chars, chip_scale, gap, cons_fs, cons_lh, cons_chars, max_def, max_cons = prof
-        def_lines = wrap_text(c["def"], def_chars)[:max_def]
-        cons_lines = wrap_text(c["cons"], cons_chars)[:max_cons]
-        # measure chips (may wrap)
-        _, chip_h = chips_row(0, 0, c["chips"], max_w=inner_w - 4, scale=chip_scale)
-        # force single-line chips on densest profile by shrinking further if wrapped
-        if chip_h > max(22, int(round(30 * chip_scale))) + 2 and chip_scale > 0.7:
-            # try tighter scale so chips stay one row
-            for s in (0.82, 0.74, 0.68):
-                _, h_try = chips_row(0, 0, c["chips"], max_w=inner_w - 4, scale=s)
-                if h_try <= max(22, int(round(30 * s))) + 2:
-                    chip_scale = s
-                    chip_h = h_try
-                    break
-        # vertical budget from top
-        y_cursor = 14  # pad from card top to number baseline area
-        # number (~fs) + title (+ ~title_fs+8) + gap + defs + gap + chips + gap + cons
-        need = 14  # top pad to number
-        need += n_fs + 6  # number block
-        need += title_fs + 4  # title
-        need += gap
-        need += max(1, len(def_lines)) * def_lh
-        need += gap
-        need += chip_h
-        need += gap
-        need += max(1, len(cons_lines)) * cons_lh
-        need += 12  # bottom pad
-        if need <= h:
-            chosen = (n_fs, title_fs, def_fs, def_lh, def_chars, chip_scale, gap, cons_fs, cons_lh, cons_chars, def_lines, cons_lines, chip_h)
-            break
-    if chosen is None:
-        # last resort: use densest profile even if tight
-        n_fs, title_fs, def_fs, def_lh, def_chars, chip_scale, gap, cons_fs, cons_lh, cons_chars, max_def, max_cons = profiles[-1]
-        def_lines = wrap_text(c["def"], def_chars)[:max_def]
-        cons_lines = wrap_text(c["cons"], cons_chars)[:max_cons]
-        _, chip_h = chips_row(0, 0, c["chips"], max_w=inner_w - 4, scale=chip_scale)
-        chosen = (n_fs, title_fs, def_fs, def_lh, def_chars, chip_scale, gap, cons_fs, cons_lh, cons_chars, def_lines, cons_lines, chip_h)
-
-    n_fs, title_fs, def_fs, def_lh, def_chars, chip_scale, gap, cons_fs, cons_lh, cons_chars, def_lines, cons_lines, chip_h = chosen
-
-    cy = y + 12 + n_fs
+    pad = 18
     parts.append(
-        f'<text x="{x + pad}" y="{cy}" font-family="{MONO}" font-size="{n_fs}" '
+        f'<text x="{x + pad}" y="{y + 30}" font-family="{MONO}" font-size="16" '
         f'fill="{VIOLET}" font-weight="600">{esc(c["n"])}</text>'
     )
-    cy += title_fs + 8
     parts.append(
-        f'<text x="{x + pad}" y="{cy}" font-family="{SANS}" font-size="{title_fs}" '
+        f'<text x="{x + pad}" y="{y + 60}" font-family="{SANS}" font-size="25" '
         f'fill="{BONE}" font-weight="650">{esc(c["title"])}</text>'
     )
-    cy += gap + 4
-    for line in def_lines:
-        cy += def_lh
+    def_lines = wrap_text(c["def"], 38 if w < 520 else 44)
+    dy = y + 90
+    for line in def_lines[:2]:
         parts.append(
-            f'<text x="{x + pad}" y="{cy}" font-family="{SANS}" font-size="{def_fs}" '
+            f'<text x="{x + pad}" y="{dy}" font-family="{SANS}" font-size="17" '
             f'fill="{SUB}">{esc(line)}</text>'
         )
-    cy += gap
-    chip_y = cy
-    chip_svg, chip_h = chips_row(x + pad, chip_y, c["chips"], max_w=inner_w - 4, scale=chip_scale)
+        dy += 23
+    chip_y = dy + 8
+    chip_svg, chip_h = chips_row(x + pad, chip_y, c["chips"], max_w=w - 2 * pad - 4)
     parts.append(chip_svg)
-    # Bottom-anchor cons when spare height exists; never closer than `gap` below chips.
-    # Visual gap = baseline - ~0.8*fs - chip_bottom; pad with extra so true ink gap >= gap.
-    min_baseline = chip_y + chip_h + gap + int(round(cons_fs * 0.85))
-    preferred = y + h - 14 - (len(cons_lines) - 1) * cons_lh
-    cons_y = max(min_baseline, preferred)
-    # Clamp if somehow past floor (should not happen when need <= h).
-    floor = y + h - 10 - (len(cons_lines) - 1) * cons_lh
-    if cons_y > floor:
-        cons_y = max(min_baseline, floor)
-    for i, line in enumerate(cons_lines):
+    cons_lines = wrap_text(c["cons"], 42 if w < 520 else 48)
+    cons_y = y + h - 18 - (len(cons_lines[:2]) - 1) * 18
+    min_cons = chip_y + chip_h + 14
+    if cons_y < min_cons:
+        cons_y = min(min_cons, y + h - 18)
+    for i, line in enumerate(cons_lines[:2]):
         parts.append(
-            f'<text x="{x + pad}" y="{cons_y + i * cons_lh}" font-family="{SANS}" font-size="{cons_fs}" '
+            f'<text x="{x + pad}" y="{cons_y + i * 18}" font-family="{SANS}" font-size="15" '
             f'fill="{AMBER}">{esc(line)}</text>'
         )
     return "\n".join(parts)
@@ -346,7 +186,7 @@ def wrap_svg(inner: str) -> str:
 
 
 def gen_g1():
-    """Exam Overview: certified exams + EXAM SPECIFICS + scenarios + compact domains."""
+    """Exam Overview: banded hierarchy (title -> FORMAT hero -> scenarios -> domains)."""
     cite = "Exam Guide v1.0 / Anthropic (facts)"
     parts = []
     parts.append(spectrum_bar(48, 36, 260, 4, "specOverview"))
@@ -363,129 +203,75 @@ def gen_g1():
         f'Claude Certified Architect - Foundations · Exam Guide v1.0</text>'
     )
 
-    # Claude Certified exams (replaces duplicate FORMAT big-numbers hero)
-    fx, fy, fw, fh = 36, 150, 1128, 168
+    # FORMAT hero - taller, big numbers
+    fx, fy, fw, fh = 36, 152, 1128, 248
     parts.append(card_box(fx, fy, fw, fh, rx=16))
     parts.append(f'<rect x="{fx}" y="{fy}" width="6" height="{fh}" rx="3" fill="{VIOLET}"/>')
     parts.append(
-        f'<text x="{fx + 28}" y="{fy + 28}" font-family="{MONO}" font-size="13" '
-        f'fill="{VIOLET}" font-weight="700" letter-spacing="1.6">CLAUDE CERTIFIED</text>'
+        f'<text x="{fx + 28}" y="{fy + 34}" font-family="{MONO}" font-size="16" '
+        f'fill="{VIOLET}" font-weight="700" letter-spacing="2">EXAM FORMAT</text>'
     )
-    exams = [
-        # name, code, highlight
-        ("Claude Certified Architect - Foundations", "CCAR-F", True),
-        ("Claude Certified Architect - Professional", "CCAR-P", False),
-        ("Claude Certified AI Operator - Foundations", "CCAO-F", False),
-        ("Claude Certified Developer - Foundations", "CCDV-F", False),
+    top = [
+        ("60", "Q", VIOLET, "rgba(168,85,247,.18)"),
+        ("120", "min", INDIGO, "rgba(99,102,241,.18)"),
+        ("720", "pass", VIOLET, "rgba(168,85,247,.18)"),
+        ("$125", "USD", AMBER, "rgba(252,211,77,.15)"),
     ]
-    # 2x2 compact cards; CCAR-F pops (violet fill + bone text + thicker border)
-    gap_x, gap_y = 12, 10
-    card_w = (fw - 56 - gap_x) // 2
-    card_h = 56
-    grid_top = fy + 42
-    for i, (name, code, hi) in enumerate(exams):
-        col, row = i % 2, i // 2
-        cx = fx + 28 + col * (card_w + gap_x)
-        cy = grid_top + row * (card_h + gap_y)
-        if hi:
-            parts.append(
-                f'<rect x="{cx}" y="{cy}" width="{card_w}" height="{card_h}" rx="12" '
-                f'fill="{VIOLET}" stroke="{BONE}" stroke-width="2.5"/>'
-            )
-            code_fg, name_fg = BONE, BONE
-            code_wt = "800"
-        else:
-            parts.append(
-                f'<rect x="{cx}" y="{cy}" width="{card_w}" height="{card_h}" rx="12" '
-                f'fill="{SURFACE}" stroke="{RULE}" stroke-width="1"/>'
-            )
-            code_fg, name_fg = MUTE, SUB
-            code_wt = "700"
+    cell_w = 250
+    gap = 14
+    for i, (num, unit, fg, bg) in enumerate(top):
+        cx = 58 + i * (cell_w + gap)
         parts.append(
-            f'<text x="{cx + 16}" y="{cy + 24}" font-family="{MONO}" font-size="16" '
-            f'fill="{code_fg}" font-weight="{code_wt}">{esc(code)}</text>'
+            f'<rect x="{cx}" y="{fy + 52}" width="{cell_w}" height="100" rx="14" fill="{bg}"/>'
         )
         parts.append(
-            f'<text x="{cx + 16}" y="{cy + 44}" font-family="{SANS}" font-size="13" '
-            f'fill="{name_fg}" font-weight="{"650" if hi else "500"}">{esc(name)}</text>'
+            f'<text x="{cx + cell_w/2:.1f}" y="{fy + 108}" text-anchor="middle" '
+            f'font-family="{MONO}" font-size="42" fill="{fg}" font-weight="700">{esc(num)}</text>'
+        )
+        parts.append(
+            f'<text x="{cx + cell_w/2:.1f}" y="{fy + 136}" text-anchor="middle" '
+            f'font-family="{MONO}" font-size="15" fill="{MUTE}" font-weight="600">{esc(unit)}</text>'
+        )
+    bottoms = [
+        (58, 250, "closed book", INPUT, MUTE, 16),
+        (322, 520, "partner-only Pearson", "rgba(99,102,241,.28)", INDIGO, 18),
+        (856, 250, "12 months", INPUT, MUTE, 16),
+    ]
+    for bx, bw, label, bg, fg, fs in bottoms:
+        parts.append(
+            f'<rect x="{bx}" y="{fy + 168}" width="{bw}" height="60" rx="12" fill="{bg}"/>'
+        )
+        parts.append(
+            f'<text x="{bx + bw/2:.1f}" y="{fy + 198}" text-anchor="middle" '
+            f'dominant-baseline="central" font-family="{MONO}" font-size="{fs}" '
+            f'fill="{fg}" font-weight="700">{esc(label)}</text>'
         )
 
-    # EXAM SPECIFICS - richer descriptive labels (replaces cryptic chips)
-    sx, sy, sw, sh = 36, 354, 1128, 236
+    # Scenario structure
+    sx, sy, sw, sh = 36, 416, 1128, 118
     parts.append(card_box(sx, sy, sw, sh, rx=14))
-    parts.append(f'<rect x="{sx}" y="{sy}" width="6" height="{sh}" rx="3" fill="{INDIGO}"/>')
+    parts.append(f'<rect x="{sx}" y="{sy}" width="6" height="{sh}" rx="3" fill="{AMBER}"/>')
     parts.append(
         f'<text x="{sx + 28}" y="{sy + 30}" font-family="{MONO}" font-size="14" '
-        f'fill="{INDIGO}" font-weight="700" letter-spacing="1.2">EXAM SPECIFICS</text>'
-    )
-    specs = [
-        ("format", "60 MC / multi-response", VIOLET),
-        ("time", "120 minutes", INDIGO),
-        ("pass", "scaled 720 / 1000", VIOLET),
-        ("fee", "$125 USD", AMBER),
-        ("delivery", "Pearson OnVUE / center", INDIGO),
-        ("eligibility", "partner-only", VIOLET),
-        ("scenarios", "4 of 6 themes on a form", AMBER),
-        ("validity", "12 months", MUTE),
-    ]
-    # 2 cols x 4 rows
-    col_w = 530
-    row_h = 42
-    for i, (label, value, accent) in enumerate(specs):
-        col = i % 2
-        row = i // 2
-        rx = sx + 28 + col * (col_w + 24)
-        ry = sy + 48 + row * row_h
-        parts.append(
-            f'<rect x="{rx}" y="{ry}" width="{col_w}" height="36" rx="9" fill="{INPUT}"/>'
-        )
-        parts.append(
-            f'<text x="{rx + 14}" y="{ry + 23}" font-family="{MONO}" font-size="12" '
-            f'fill="{accent}" font-weight="700">{esc(label)}</text>'
-        )
-        parts.append(
-            f'<text x="{rx + 130}" y="{ry + 23}" font-family="{SANS}" font-size="15" '
-            f'fill="{BONE}" font-weight="600">{esc(value)}</text>'
-        )
-
-    # About strip: what the exam covers
-    ax, ay, aw, ah = 36, 606, 1128, 56
-    parts.append(card_box(ax, ay, aw, ah, rx=12))
-    parts.append(
-        f'<text x="{ax + 28}" y="{ay + 34}" font-family="{SANS}" font-size="16" '
-        f'fill="{SUB}">Covers <tspan fill="{BONE}" font-weight="650">Claude Code</tspan>'
-        f'  ·  <tspan fill="{BONE}" font-weight="650">Agent SDK</tspan>'
-        f'  ·  <tspan fill="{BONE}" font-weight="650">Messages API</tspan>'
-        f'  ·  <tspan fill="{BONE}" font-weight="650">MCP</tspan>'
-        f'  ·  closed book</text>'
-    )
-
-    # Scenario structure (compact)
-    scx, scy, scw, sch = 36, 678, 1128, 96
-    parts.append(card_box(scx, scy, scw, sch, rx=14))
-    parts.append(f'<rect x="{scx}" y="{scy}" width="6" height="{sch}" rx="3" fill="{AMBER}"/>')
-    parts.append(
-        f'<text x="{scx + 28}" y="{scy + 26}" font-family="{MONO}" font-size="13" '
         f'fill="{AMBER}" font-weight="700" letter-spacing="1.2">SCENARIO STRUCTURE</text>'
     )
     parts.append(
-        f'<text x="{scx + 28}" y="{scy + 54}" font-family="{SANS}" font-size="19" '
-        f'fill="{BONE}" font-weight="650">4 of 6 themes · ~15 items each · mechanisms recur</text>'
+        f'<text x="{sx + 28}" y="{sy + 64}" font-family="{SANS}" font-size="24" '
+        f'fill="{BONE}" font-weight="650">4 of 6 themes on a form · ~15 items each</text>'
     )
     chip_svg, _ = chips_row(
-        scx + 28,
-        scy + 64,
+        sx + 28,
+        sy + 78,
         [
             ("community note", "amber"),
             ("scenarios = dressing", "violet"),
+            ("mechanisms recur", "mute"),
             ("learn toolkit not plot", "indigo"),
         ],
         max_w=1060,
-        scale=0.85,
     )
     parts.append(chip_svg)
 
-    # FIVE DOMAINS - compact (freed space went to specifics)
     domains = [
         ("D1", "27%", "Agentic Architecture & Orchestration", VIOLET),
         ("D2", "18%", "Tool Design & MCP Integration", INDIGO),
@@ -493,62 +279,62 @@ def gen_g1():
         ("D4", "20%", "Prompt Engineering & Structured Output", INDIGO),
         ("D5", "15%", "Context Management & Reliability", AMBER),
     ]
-    dx, dy = 36, 794
+    dx, dy = 36, 550
     dw = 1128
     footer_top = 1105
-    avail = footer_top - dy - 6
-    hdr_h = 30
-    gap_d = 6
+    avail = footer_top - dy - 8
+    hdr_h = 36
+    gap_d = 8
     row_h = (avail - hdr_h - 4 * gap_d) // 5
     group_h = hdr_h + 5 * row_h + 4 * gap_d
-    parts.append(card_box(dx, dy, dw, group_h, rx=14))
+    parts.append(card_box(dx, dy, dw, group_h, rx=16))
     parts.append(
-        f'<text x="{dx + 22}" y="{dy + 22}" font-family="{MONO}" font-size="13" '
+        f'<text x="{dx + 22}" y="{dy + 26}" font-family="{MONO}" font-size="14" '
         f'fill="{VIOLET}" font-weight="700" letter-spacing="1.2">FIVE DOMAINS  ·  WEIGHTS</text>'
     )
     parts.append(
-        f'<text x="{dx + dw - 22}" y="{dy + 22}" text-anchor="end" font-family="{MONO}" '
-        f'font-size="12" fill="{MUTE}">100%</text>'
+        f'<text x="{dx + dw - 22}" y="{dy + 26}" text-anchor="end" font-family="{MONO}" '
+        f'font-size="13" fill="{MUTE}">100%</text>'
     )
     max_pct = 27
     for i, (dn, pct, name, accent) in enumerate(domains):
         ry = dy + hdr_h + i * (row_h + gap_d)
         parts.append(
             f'<rect x="{dx + 14}" y="{ry}" width="{dw - 28}" height="{row_h}" '
-            f'rx="10" fill="{INPUT}"/>'
+            f'rx="12" fill="{INPUT}"/>'
         )
         parts.append(
-            f'<rect x="{dx + 14}" y="{ry}" width="4" height="{row_h}" rx="2" fill="{accent}"/>'
+            f'<rect x="{dx + 14}" y="{ry}" width="5" height="{row_h}" rx="2" fill="{accent}"/>'
         )
         mid_y = ry + row_h / 2
         parts.append(
-            f'<text x="{dx + 34}" y="{mid_y:.1f}" dominant-baseline="central" '
-            f'font-family="{MONO}" font-size="15" fill="{accent}" font-weight="700">{dn}</text>'
+            f'<text x="{dx + 36}" y="{mid_y:.1f}" dominant-baseline="central" '
+            f'font-family="{MONO}" font-size="17" fill="{accent}" font-weight="700">{dn}</text>'
         )
         parts.append(
-            f'<text x="{dx + 78}" y="{mid_y:.1f}" dominant-baseline="central" '
-            f'font-family="{MONO}" font-size="20" fill="{BONE}" font-weight="700">{pct}</text>'
+            f'<text x="{dx + 84}" y="{mid_y:.1f}" dominant-baseline="central" '
+            f'font-family="{MONO}" font-size="26" fill="{BONE}" font-weight="700">{pct}</text>'
         )
         parts.append(
-            f'<text x="{dx + 148}" y="{mid_y:.1f}" dominant-baseline="central" '
-            f'font-family="{SANS}" font-size="15" fill="{BONE}" font-weight="600">{esc(name)}</text>'
+            f'<text x="{dx + 180}" y="{mid_y:.1f}" dominant-baseline="central" '
+            f'font-family="{SANS}" font-size="18" fill="{BONE}" font-weight="600">{esc(name)}</text>'
         )
-        bar_max_w = 160
+        bar_max_w = 200
         pct_n = int(pct.rstrip("%"))
         bar_w = int(bar_max_w * pct_n / max_pct)
-        bar_x = dx + dw - 28 - 16 - bar_max_w
-        bar_y = mid_y - 4
+        bar_x = dx + dw - 28 - 18 - bar_max_w
+        bar_y = mid_y - 6
         parts.append(
-            f'<rect x="{bar_x}" y="{bar_y:.1f}" width="{bar_max_w}" height="8" '
-            f'rx="4" fill="rgba(243,243,241,.08)"/>'
+            f'<rect x="{bar_x}" y="{bar_y:.1f}" width="{bar_max_w}" height="12" '
+            f'rx="6" fill="rgba(243,243,241,.08)"/>'
         )
         parts.append(
-            f'<rect x="{bar_x}" y="{bar_y:.1f}" width="{bar_w}" height="8" '
-            f'rx="4" fill="{accent}"/>'
+            f'<rect x="{bar_x}" y="{bar_y:.1f}" width="{bar_w}" height="12" '
+            f'rx="6" fill="{accent}"/>'
         )
 
     parts.append(footer(cite, 1105))
-    parts.append(ccarf_badge(y=30))  # TR watermark 98
+    parts.append(ccarf_badge(1052, 30, 116))  # TR watermark
     return wrap_svg("\n".join(parts))
 
 
@@ -564,7 +350,6 @@ def gen_g2():
             "title": "Agentic Architecture & Orchestration",
             "accent": VIOLET,
             "keyword": "stop_reason",
-            "glyph": "loop",
             "cue": "loop · hub-spoke · gates",
             "bullets": [
                 "stop_reason loop (tool_use / end_turn); append tool results",
@@ -579,7 +364,6 @@ def gen_g2():
             "title": "Tool Design & MCP",
             "accent": INDIGO,
             "keyword": "tool scope",
-            "glyph": "tool",
             "cue": "desc first · 4-5 tools",
             "bullets": [
                 "Differentiating tool descriptions; split generic tools",
@@ -594,7 +378,6 @@ def gen_g2():
             "title": "Claude Code Config & Workflows",
             "accent": VIOLET,
             "keyword": "project paths",
-            "glyph": "paths",
             "cue": "CLAUDE.md · rules · CI",
             "bullets": [
                 "Team standards in project CLAUDE.md (not user-level)",
@@ -609,7 +392,6 @@ def gen_g2():
             "title": "Prompt Engineering & Structured Output",
             "accent": INDIGO,
             "keyword": "tool_choice",
-            "glyph": "choice",
             "cue": "schema · nullable · batches",
             "bullets": [
                 "Explicit categorical criteria; few-shot 2-4 with reasoning",
@@ -624,7 +406,6 @@ def gen_g2():
             "title": "Context Management & Reliability",
             "accent": AMBER,
             "keyword": "escalate",
-            "glyph": "escalate",
             "cue": "case-facts · trim · recover",
             "bullets": [
                 "Case-facts block; trim tool output; lost-in-middle mitigation",
@@ -720,21 +501,24 @@ def gen_g2():
         parts.append(
             f'<rect x="{cx}" y="{y}" width="6" height="{card_h}" rx="3" fill="{accent}"/>'
         )
-        glyph_cy = y + card_h * 0.38
-        parts.append(domain_cue_glyph(cx + cue_w / 2, glyph_cy, d["glyph"], accent, scale=1.05))
         parts.append(
-            f'<text x="{cx + cue_w/2:.0f}" y="{y + card_h * 0.68:.0f}" text-anchor="middle" '
+            f'<text x="{cx + cue_w/2:.0f}" y="{y + card_h/2 - 22:.0f}" text-anchor="middle" '
+            f'font-family="{MONO}" font-size="22" fill="{accent}" font-weight="700">'
+            f'{esc(d["pct"])}</text>'
+        )
+        parts.append(
+            f'<text x="{cx + cue_w/2:.0f}" y="{y + card_h/2 + 8:.0f}" text-anchor="middle" '
             f'font-family="{MONO}" font-size="14" fill="{BONE}" font-weight="650">'
             f'{esc(d["keyword"])}</text>'
         )
         parts.append(
-            f'<text x="{cx + cue_w/2:.0f}" y="{y + card_h * 0.82:.0f}" text-anchor="middle" '
+            f'<text x="{cx + cue_w/2:.0f}" y="{y + card_h/2 + 32:.0f}" text-anchor="middle" '
             f'font-family="{SANS}" font-size="12" fill="{MUTE}">{esc(d["cue"])}</text>'
         )
         y += card_h + gap
 
     parts.append(footer(cite, 1105))
-    parts.append(ccarf_badge(y=30))  # TR watermark
+    parts.append(ccarf_badge(1052, 30, 116))  # TR watermark
     return wrap_svg("\n".join(parts))
 
 
@@ -809,45 +593,21 @@ def gen_g3():
 '''
     body_top = 168
     margin_x = 36
-    gutter = 22  # clearly larger than edge-to-edge tile
-    footer_top = 1105
-    avail = footer_top - body_top - 8
-    # Uneven row heights (sum fractions = 1.0) + staggered column widths
-    row_fracs = [0.23, 0.29, 0.24, 0.24]
-    row_gaps = 3 * gutter
-    row_heights = [int((avail - row_gaps) * f) for f in row_fracs]
-    # fix rounding so rows fill avail
-    row_heights[-1] += (avail - row_gaps) - sum(row_heights)
-    # Stagger: odd rows flip wide/narrow; left/right widths differ per row
+    gap = 12
+    col_w = (W - 2 * margin_x - gap) // 2
+    avail = 1090 - body_top
+    row_h = (avail - 3 * gap) // 4
     parts = [head]
-    y = body_top
-    for row in range(4):
-        rh = row_heights[row]
-        # alternate which column is wider
-        if row % 2 == 0:
-            left_w = int((W - 2 * margin_x - gutter) * 0.56)
-            right_w = (W - 2 * margin_x - gutter) - left_w
-        else:
-            left_w = int((W - 2 * margin_x - gutter) * 0.44)
-            right_w = (W - 2 * margin_x - gutter) - left_w
-        # slight vertical stagger on right column (~8px) for dynamism
-        y_left = y
-        y_right = y + (6 if row % 2 == 0 else -4)
-        # clamp right card into footer band
-        if y_right + rh > footer_top - 4:
-            y_right = footer_top - 4 - rh
-        if y_right < body_top:
-            y_right = body_top
-        i_left = row * 2
-        i_right = row * 2 + 1
-        parts.append(render_std_card(margin_x, y_left, left_w, rh, terms[i_left]))
-        parts.append(
-            render_std_card(margin_x + left_w + gutter, y_right, right_w, rh, terms[i_right])
-        )
-        y += rh + gutter
+    for i, c in enumerate(terms):
+        col = i % 2
+        row = i // 2
+        x = margin_x + col * (col_w + gap)
+        y = body_top + row * (row_h + gap)
+        parts.append(render_std_card(x, y, col_w, row_h, c))
     parts.append(footer(cite, 1105))
-    parts.append(ccarf_badge(y=30))  # TR watermark
+    parts.append(ccarf_badge(1052, 30, 116))  # TR watermark
     return wrap_svg("\n".join(parts))
+
 
 
 def gen_g4():
@@ -947,23 +707,21 @@ def gen_g4():
             "n": "01",
             "title": "Hooks",
             "lines": [
-                "PreToolUse can block before the tool runs",
-                "Use Pre for refunds, rm -rf, money moves",
-                "PostToolUse fires after; cannot un-delete",
-                "PreCompact runs before /compact archive",
-                "No Compact tool target for PreToolUse",
+                "PreToolUse blocks refunds / rm -rf",
+                "PostToolUse cannot un-delete",
+                "PreCompact before /compact (archive)",
+                "No Compact tool for PreToolUse",
             ],
-            "chips": [("Pre=block", "violet"), ("Post=after", "mute"), ("PreCompact", "indigo")],
+            "chips": [("Pre=block", "violet"), ("Post=after", "mute")],
         },
         {
             "n": "02",
             "title": "tool_choice",
             "lines": [
-                "auto: model may text or call a tool",
-                "any: must call some tool this turn",
+                "auto: text or tool (default)",
+                "any: must call some tool",
                 "forced name for mandatory first step",
-                "none: no tools allowed this turn",
-                "Force named tool, then switch to auto",
+                "none: no tools this turn",
             ],
             "chips": [("auto", "indigo"), ("any", "violet"), ("forced", "amber")],
         },
@@ -971,37 +729,34 @@ def gen_g4():
             "n": "03",
             "title": "stop_reason",
             "lines": [
-                "Continue the loop on tool_use",
-                "Stop cleanly on end_turn",
+                "Continue on tool_use",
+                "Stop on end_turn",
                 "Also: max_tokens / pause_turn / refusal",
-                "Append tool results, then call again",
-                "Never parse assistant prose to exit",
+                "Never parse prose to exit loop",
             ],
-            "chips": [("tool_use", "violet"), ("end_turn", "indigo"), ("loop", "mute")],
+            "chips": [("tool_use", "violet"), ("end_turn", "indigo")],
         },
         {
             "n": "04",
             "title": "Batches vs sync",
             "lines": [
-                "Batches: no multi-turn tool loops",
-                "custom_id to resubmit failed rows",
-                "Blocking / pre-merge -> sync Messages",
-                "~50% cheaper; up to 24h; no SLA",
-                "Latency-tolerant jobs only for batches",
+                "No multi-turn tools in a batch",
+                "custom_id to resubmit failures",
+                "Blocking / pre-merge -> sync API",
+                "~50% cheaper, up to 24h, no SLA",
             ],
-            "chips": [("batches", "amber"), ("custom_id", "mute"), ("sync", "violet")],
+            "chips": [("batches", "amber"), ("sync if blocking", "violet")],
         },
         {
             "n": "05",
             "title": "Grep / Glob + CI",
             "lines": [
-                "Grep searches file contents",
-                "Glob matches path patterns only",
-                "Explore: Grep -> Read matches",
-                "CI hang -> -p / --print non-interactive",
-                "Reject CLAUDE_HEADLESS / --batch flags",
+                "Grep = file contents",
+                "Glob = path patterns",
+                "CI hang -> -p / --print",
+                "Reject CLAUDE_HEADLESS / --batch",
             ],
-            "chips": [("Grep", "indigo"), ("Glob", "violet"), ("-p", "amber")],
+            "chips": [("Grep=contents", "indigo"), ("Glob=paths", "violet"), ("-p", "amber")],
         },
         {
             "n": "06",
@@ -1009,11 +764,10 @@ def gen_g4():
             "lines": [
                 ".mcp.json + ${ENV} shared on clone",
                 "~/.claude.json personal / experimental",
-                "Secrets only via ${ENV_VAR} refs",
+                "Secrets via ${ENV_VAR}",
                 "stdio / SSE / HTTP transports",
-                "Team standards live in project file",
             ],
-            "chips": [(".mcp.json", "indigo"), ("${ENV}", "amber"), ("~/.claude.json", "mute")],
+            "chips": [(".mcp.json", "indigo"), ("~/.claude.json", "mute")],
         },
     ]
     mx0 = 36
@@ -1030,35 +784,21 @@ def gen_g4():
             f'<rect x="{mx}" y="{my}" width="4" height="{mh}" rx="2" fill="{VIOLET}"/>'
         )
         out.append(
-            f'<text x="{mx + 14}" y="{my + 26}" font-family="{MONO}" font-size="13" '
+            f'<text x="{mx + 14}" y="{my + 22}" font-family="{MONO}" font-size="12" '
             f'fill="{VIOLET}" font-weight="700">{m["n"]}</text>'
         )
         out.append(
-            f'<text x="{mx + 44}" y="{my + 26}" font-family="{SANS}" font-size="17" '
+            f'<text x="{mx + 42}" y="{my + 22}" font-family="{SANS}" font-size="15" '
             f'fill="{BONE}" font-weight="650">{esc(m["title"])}</text>'
         )
-        lines = m["lines"][:5]
-        # reserve space for up to 2 chip rows (wrap-safe)
-        chip_reserve = 70
-        chip_pad = 8
-        title_bot = my + 36
-        chip_y = my + mh - chip_reserve - chip_pad
-        body_top = title_bot + 6
-        body_bot = chip_y - 6
-        n = max(1, len(lines))
-        if n > 1:
-            step = max(17, min(24, int((body_bot - body_top - 2) / (n - 0.1))))
-        else:
-            step = 20
-        by = body_top + 14
-        for line in lines:
+        by = my + 42
+        for line in m["lines"][:4]:
             out.append(
-                f'<text x="{mx + 14}" y="{by}" font-family="{SANS}" font-size="15" '
+                f'<text x="{mx + 14}" y="{by}" font-family="{SANS}" font-size="14" '
                 f'fill="{SUB}">{esc("· " + line)}</text>'
             )
-            by += step
-        chip_s, chip_used = chips_row(mx + 10, chip_y, m["chips"], max_w=mw - 20)
-        chip_s = chip_s.replace('font-size="14"', 'font-size="15"')
+            by += 20
+        chip_s, _ = chips_row(mx + 12, my + mh - 38, m["chips"], max_w=mw - 24)
         out.append(chip_s)
         return "\n".join(out)
 
@@ -1070,13 +810,13 @@ def gen_g4():
         parts.append(mech_card(mx, my, col_w, row_h, m))
 
     parts.append(footer(cite, 1105))
-    parts.append(ccarf_badge(y=28))  # TR watermark
+    parts.append(ccarf_badge(1052, 28, 116))  # TR watermark
     return wrap_svg("\n".join(parts))
 
 
 
 def gen_g5():
-    """Prep & Sources: ordered ladder + OFFICIAL / UNOFFICIAL / AUTHOR sources."""
+    """Prep Sequence: ordered ladder + UNOFFICIAL resources panel."""
     cite = "Pass directives §5 / Exam Guide §8 · Anthropic"
     steps = [
         ("01", "Guide end-to-end", "Exam Guide v1.0; self-score tasks red/amber/green", VIOLET, True),
@@ -1092,17 +832,18 @@ def gen_g5():
     parts.append(spectrum_bar(48, 36, 240, 4, "specPrep"))
     parts.append(
         f'<text x="48" y="68" font-family="{MONO}" font-size="14" fill="{VIOLET}"'
-        f' letter-spacing="1.6" font-weight="600">CCAR-F  ·  PREP &amp; SOURCES</text>'
+        f' letter-spacing="1.6" font-weight="600">CCAR-F  ·  PREP</text>'
     )
     parts.append(
         f'<text x="48" y="108" font-family="{SANS}" font-size="36" fill="{BONE}"'
-        f' font-weight="700">Prep &amp; Sources</text>'
+        f' font-weight="700">Prep Sequence</text>'
     )
     parts.append(
         f'<text x="48" y="136" font-family="{SANS}" font-size="16" fill="{SUB}">'
-        f'Eight ordered steps + sources</text>'
+        f'Eight ordered steps + resource shortlist</text>'
     )
 
+    # Layout: ladder left (~720), resources right (~372)
     ladder_x = 36
     ladder_w = 720
     panel_x = 772
@@ -1111,6 +852,7 @@ def gen_g5():
     footer_top = 1105
     avail = footer_top - body_top - 4
 
+    # Ladder
     gap_s = 6
     step_h = (avail - 7 * gap_s) // 8
     rail_x = ladder_x + 28
@@ -1156,157 +898,69 @@ def gen_g5():
             f'font-size="13" fill="{SUB}">{esc(dlines[0])}</text>'
         )
 
+    # Right resources panel
     parts.append(card_box(panel_x, body_top, panel_w, avail, rx=14))
-
-    official_tech = [
-        ("Exam Guide v1.0 PDF", "Anthropic Partner / everpath"),
-        ("MCP servers", "github.com/modelcontextprotocol/servers"),
-        ("Claude Code", "github.com/anthropics/claude-code"),
-        ("Hooks docs", "code.claude.com/docs/en/hooks"),
-    ]
-    unofficial = [
-        ("hong-chu wiki", "github.com/hong-chu/claude-certified-..."),
-        ("paullarionov practical", "github.com/paullarionov/claude-certified-..."),
-        ("sarveshtalele foundations", "github.com/sarveshtalele/claude-architect-..."),
-        ("utkarsh1agarwal guide", "github.com/utkarsh1agarwal/claude-architect-exam-guide"),
-        ("haytamAroui certified", "github.com/haytamAroui/Claude-Certified-Architect"),
-        ("dnacenta certified", "github.com/dnacenta/claude-certified-architect"),
-        ("shourabhmodak prep", "github.com/shourabhmodak/claude-certified-architect-exam-prep"),
-    ]
-    author_docs = [
-        ("Master Cheat Sheet", "find the constraint, pick the mechanism"),
-        ("Master Study Guide", "terms, paths, flags by domain"),
-        ("Master Mock Exam", "timed practice on the scenario bank"),
-    ]
-
-    n_off = len(official_tech)
-    n_un = len(unofficial)
-    n_au = len(author_docs)
-    hdr_off = 22
-    hdr_un = 26
-    hdr_au = 26
-    gap_r = 4
-    gap_sec = 10
-    pad_bot = 10
-    pad_mid = 4
-
-    # AUTHOR sized for 3 docs; OFFICIAL/UNOFFICIAL rows expand to fill above (no dead zone)
-    auth_row_h = 48
-    auth_block_h = hdr_au + n_au * auth_row_h + (n_au - 1) * gap_r + 6
-    auth_top = body_top + avail - pad_bot - auth_block_h
-    list_h = auth_top - body_top - gap_sec
-    inner = list_h - hdr_off - pad_mid - hdr_un
-    total_rows = n_off + n_un
-    row_h = (inner - (total_rows - 1) * gap_r) // total_rows
-    row_h = max(38, min(58, row_h))
-    # absorb tiny rounding leftover into auth_row_h (keep author readable, not sparse)
-    used = hdr_off + pad_mid + hdr_un + total_rows * row_h + (total_rows - 1) * gap_r
-    slack = list_h - used
-    if 0 < slack <= 12:
-        auth_top -= slack
-        auth_block_h += slack
-        auth_row_h = (auth_block_h - hdr_au - (n_au - 1) * gap_r - 6) // n_au
-    elif slack > 12:
-        # grow list rows further instead of puffing author
-        bump = slack // total_rows
-        row_h = min(58, row_h + bump)
-        used = hdr_off + pad_mid + hdr_un + total_rows * row_h + (total_rows - 1) * gap_r
-        slack2 = list_h - used
-        if slack2 > 0:
-            auth_top -= slack2
-            auth_block_h += slack2
-            auth_row_h = (auth_block_h - hdr_au - (n_au - 1) * gap_r - 6) // n_au
-
-    off_block_h = hdr_off + n_off * row_h + (n_off - 1) * gap_r + 4
-
+    # OFFICIAL band at top of panel
     parts.append(
-        f'<rect x="{panel_x}" y="{body_top}" width="{panel_w}" height="{off_block_h}" '
+        f'<rect x="{panel_x}" y="{body_top}" width="{panel_w}" height="92" rx="14" '
+        f'fill="{SURFACE2}"/>'
+    )
+    # clip bottom of official to square corners into body - redraw stroke
+    parts.append(
+        f'<rect x="{panel_x}" y="{body_top}" width="{panel_w}" height="92" '
         f'fill="{SURFACE2}"/>'
     )
     parts.append(
-        f'<text x="{panel_x + 16}" y="{body_top + 16}" font-family="{MONO}" font-size="11" '
-        f'fill="{AMBER}" font-weight="700" letter-spacing="1.2">OFFICIAL</text>'
+        f'<text x="{panel_x + 18}" y="{body_top + 28}" font-family="{MONO}" font-size="12" '
+        f'fill="{AMBER}" font-weight="600">OFFICIAL</text>'
     )
-    ry = body_top + hdr_off
-    for i, (name, path_line) in enumerate(official_tech):
-        bg = INPUT if i == 0 else "rgba(27,18,43,.65)"
+    parts.append(
+        f'<text x="{panel_x + 18}" y="{body_top + 54}" font-family="{SANS}" font-size="14" '
+        f'fill="{BONE}" font-weight="600">Exam Guide v1.0 PDF</text>'
+    )
+    parts.append(
+        f'<text x="{panel_x + 18}" y="{body_top + 76}" font-family="{SANS}" font-size="12" '
+        f'fill="{MUTE}">Anthropic Partner / everpath</text>'
+    )
+
+    parts.append(
+        f'<text x="{panel_x + 18}" y="{body_top + 118}" font-family="{MONO}" font-size="12" '
+        f'fill="{VIOLET}" font-weight="600">UNOFFICIAL</text>'
+    )
+    parts.append(
+        f'<text x="{panel_x + 18}" y="{body_top + 138}" font-family="{SANS}" font-size="12" '
+        f'fill="{MUTE}">Verify against Guide + docs</text>'
+    )
+
+    resources = [
+        ("hong-chu foundations wiki", "github.com/hong-chu/claude-certified-", "architect-foundations-llm-wiki"),
+        ("paullarionov practical test", "github.com/paullarionov/claude-", "certified-architect (practical_test_en.html)"),
+        ("sarveshtalele foundations", "github.com/sarveshtalele/claude-", "architect-exam-guide/.../foundations"),
+        ("Certification Guide learn", "claudecertificationguide.com/learn", ""),
+    ]
+    ry = body_top + 158
+    for name, url1, url2 in resources:
         parts.append(
-            f'<rect x="{panel_x + 12}" y="{ry}" width="{panel_w - 24}" height="{row_h}" '
-            f'rx="7" fill="{bg}"/>'
+            f'<rect x="{panel_x + 14}" y="{ry}" width="{panel_w - 28}" height="88" '
+            f'rx="10" fill="{INPUT}"/>'
         )
-        mid = ry + row_h / 2
         parts.append(
-            f'<text x="{panel_x + 22}" y="{mid - 6:.0f}" font-family="{SANS}" font-size="12" '
+            f'<text x="{panel_x + 28}" y="{ry + 28}" font-family="{SANS}" font-size="14" '
             f'fill="{BONE}" font-weight="600">{esc(name)}</text>'
         )
         parts.append(
-            f'<text x="{panel_x + 22}" y="{mid + 10:.0f}" font-family="{MONO}" font-size="9" '
-            f'fill="{INDIGO}">{esc(path_line)}</text>'
+            f'<text x="{panel_x + 28}" y="{ry + 52}" font-family="{MONO}" font-size="11" '
+            f'fill="{INDIGO}">{esc(url1)}</text>'
         )
-        ry += row_h + gap_r
-
-    ry += pad_mid
-    parts.append(
-        f'<text x="{panel_x + 16}" y="{ry + 14}" font-family="{MONO}" font-size="11" '
-        f'fill="{VIOLET}" font-weight="700" letter-spacing="1.2">UNOFFICIAL</text>'
-    )
-    parts.append(
-        f'<text x="{panel_x + panel_w - 16}" y="{ry + 14}" text-anchor="end" '
-        f'font-family="{SANS}" font-size="10" fill="{MUTE}">verify vs Guide</text>'
-    )
-    ry += hdr_un
-    for name, path_line in unofficial:
-        parts.append(
-            f'<rect x="{panel_x + 12}" y="{ry}" width="{panel_w - 24}" height="{row_h}" '
-            f'rx="7" fill="{INPUT}"/>'
-        )
-        mid = ry + row_h / 2
-        parts.append(
-            f'<text x="{panel_x + 22}" y="{mid - 6:.0f}" font-family="{SANS}" font-size="11" '
-            f'fill="{BONE}" font-weight="600">{esc(name)}</text>'
-        )
-        parts.append(
-            f'<text x="{panel_x + 22}" y="{mid + 10:.0f}" font-family="{MONO}" font-size="9" '
-            f'fill="{INDIGO}">{esc(path_line)}</text>'
-        )
-        ry += row_h + gap_r
-
-    # FROM THE AUTHOR - violet/amber band (not community)
-    parts.append(
-        f'<rect x="{panel_x + 6}" y="{auth_top}" width="{panel_w - 12}" height="{auth_block_h}" '
-        f'rx="10" fill="rgba(168,85,247,.16)" stroke="{VIOLET}" stroke-width="1.5"/>'
-    )
-    parts.append(
-        f'<rect x="{panel_x + 6}" y="{auth_top}" width="5" height="{auth_block_h}" '
-        f'rx="2" fill="{AMBER}"/>'
-    )
-    parts.append(
-        f'<text x="{panel_x + 22}" y="{auth_top + 17}" font-family="{MONO}" font-size="11" '
-        f'fill="{VIOLET}" font-weight="700" letter-spacing="0.8">lucasfrasca.com</text>'
-    )
-    ary = auth_top + hdr_au
-    for name, blurb in author_docs:
-        parts.append(
-            f'<rect x="{panel_x + 18}" y="{ary}" width="{panel_w - 36}" height="{auth_row_h}" '
-            f'rx="7" fill="{SURFACE2}" stroke="rgba(252,211,77,.4)" stroke-width="1"/>'
-        )
-        parts.append(
-            f'<rect x="{panel_x + 18}" y="{ary}" width="3" height="{auth_row_h}" '
-            f'rx="1.5" fill="{VIOLET}"/>'
-        )
-        mid = ary + auth_row_h / 2
-        parts.append(
-            f'<text x="{panel_x + 30}" y="{mid - 6:.0f}" font-family="{SANS}" font-size="12" '
-            f'fill="{BONE}" font-weight="650">{esc(name)}</text>'
-        )
-        parts.append(
-            f'<text x="{panel_x + 30}" y="{mid + 11:.0f}" font-family="{SANS}" font-size="10" '
-            f'fill="{SUB}">{esc(blurb)}</text>'
-        )
-        ary += auth_row_h + gap_r
+        if url2:
+            parts.append(
+                f'<text x="{panel_x + 28}" y="{ry + 72}" font-family="{MONO}" font-size="11" '
+                f'fill="{INDIGO}">{esc(url2)}</text>'
+            )
+        ry += 96
 
     parts.append(footer(cite, 1105))
-    parts.append(ccarf_badge(y=30))
+    parts.append(ccarf_badge(1052, 30, 116))  # TR watermark
     return wrap_svg("\n".join(parts))
 
 
@@ -1396,7 +1050,7 @@ def gen_g6():
             )
 
     parts.append(footer(cite, 1108))
-    parts.append(ccarf_badge(y=28))  # TR watermark
+    parts.append(ccarf_badge(1052, 28, 116))  # TR watermark
     return wrap_svg("\n".join(parts))
 
 

@@ -30,9 +30,11 @@
 <text x="236" y="318" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  money-moving steps</text>
 <rect x="954" y="158" width="210" height="194" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
 <rect x="954" y="158" width="6" height="194" rx="3" fill="#A855F7"/>
-<text x="1059" y="233" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" fill="#A855F7" font-weight="700">27%</text>
-<text x="1059" y="263" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#F3F3F1" font-weight="650">stop_reason</text>
-<text x="1059" y="287" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">loop · hub-spoke · gates</text>
+<circle cx="1059.0" cy="231.72" r="18.900000000000002" fill="none" stroke="#A855F7" stroke-width="2.5" stroke-dasharray="8 5" opacity="0.9"/>
+<circle cx="1059.0" cy="231.72" r="8.505" fill="#A855F7" opacity="0.35"/>
+<path d="M 1061.8 210.8 l 7 4 l -8 2 z" fill="#A855F7"/>
+<text x="1059" y="290" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#F3F3F1" font-weight="650">stop_reason</text>
+<text x="1059" y="317" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">loop · hub-spoke · gates</text>
 <rect x="36" y="362" width="168" height="177" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
 <rect x="36" y="362" width="6" height="177" rx="3" fill="#6366F1"/>
 <text x="120" y="440" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="39" fill="#F3F3F1" font-weight="700">18%</text>
@@ -48,9 +50,12 @@
 <text x="236" y="502" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Grep=contents; Glob=paths; ~4-5 tools per role</text>
 <rect x="954" y="362" width="210" height="177" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
 <rect x="954" y="362" width="6" height="177" rx="3" fill="#6366F1"/>
-<text x="1059" y="428" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" fill="#6366F1" font-weight="700">18%</text>
-<text x="1059" y="458" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#F3F3F1" font-weight="650">tool scope</text>
-<text x="1059" y="482" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">desc first · 4-5 tools</text>
+<rect x="1042.2" y="418.76" width="33.6" height="21.0" rx="4" fill="none" stroke="#6366F1" stroke-width="2.2"/>
+<rect x="1052.7" y="425.06" width="12.600000000000001" height="8.4" rx="2" fill="#6366F1" opacity="0.55"/>
+<line x1="1035.9" y1="429.26" x2="1042.2" y2="429.26" stroke="#6366F1" stroke-width="2.2"/>
+<line x1="1075.8" y1="429.26" x2="1082.1" y2="429.26" stroke="#6366F1" stroke-width="2.2"/>
+<text x="1059" y="482" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#F3F3F1" font-weight="650">tool scope</text>
+<text x="1059" y="507" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">desc first · 4-5 tools</text>
 <rect x="36" y="549" width="168" height="180" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
 <rect x="36" y="549" width="6" height="180" rx="3" fill="#A855F7"/>
 <text x="120" y="629" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="39" fill="#F3F3F1" font-weight="700">20%</text>
@@ -67,9 +72,11 @@
 <text x="236" y="709" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  --json-schema</text>
 <rect x="954" y="549" width="210" height="180" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
 <rect x="954" y="549" width="6" height="180" rx="3" fill="#A855F7"/>
-<text x="1059" y="617" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" fill="#A855F7" font-weight="700">20%</text>
-<text x="1059" y="647" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#F3F3F1" font-weight="650">project paths</text>
-<text x="1059" y="671" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">CLAUDE.md · rules · CI</text>
+<rect x="1040.1" y="611.1" width="29.400000000000002" height="18.900000000000002" rx="3" fill="rgba(168,85,247,.18)" stroke="#A855F7" stroke-width="1.8"/>
+<path d="M 1040.1 611.1 h 10 l 4 -5 h 8 v 5" fill="none" stroke="#A855F7" stroke-width="1.8"/>
+<rect x="1048.5" y="602.6999999999999" width="25.200000000000003" height="16.8" rx="3" fill="#1B122B" stroke="#6366F1" stroke-width="1.6" opacity="0.95"/>
+<text x="1059" y="671" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#F3F3F1" font-weight="650">project paths</text>
+<text x="1059" y="697" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">CLAUDE.md · rules · CI</text>
 <rect x="36" y="739" width="168" height="180" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
 <rect x="36" y="739" width="6" height="180" rx="3" fill="#6366F1"/>
 <text x="120" y="819" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="39" fill="#F3F3F1" font-weight="700">20%</text>
@@ -86,9 +93,14 @@
 <text x="236" y="899" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  custom_id for failures</text>
 <rect x="954" y="739" width="210" height="180" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
 <rect x="954" y="739" width="6" height="180" rx="3" fill="#6366F1"/>
-<text x="1059" y="807" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" fill="#6366F1" font-weight="700">20%</text>
-<text x="1059" y="837" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#F3F3F1" font-weight="650">tool_choice</text>
-<text x="1059" y="861" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">schema · nullable · batches</text>
+<circle cx="1059.0" cy="794.8" r="5.25" fill="#6366F1"/>
+<line x1="1059.0" y1="800.05" x2="1059.0" y2="809.5" stroke="#6366F1" stroke-width="2"/>
+<line x1="1059.0" y1="809.5" x2="1044.3" y2="822.1" stroke="#6366F1" stroke-width="2"/>
+<line x1="1059.0" y1="809.5" x2="1073.7" y2="822.1" stroke="#6366F1" stroke-width="2"/>
+<circle cx="1044.3" cy="822.1" r="4.2" fill="#6366F1"/>
+<circle cx="1073.7" cy="822.1" r="4.2" fill="#6366F1"/>
+<text x="1059" y="861" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#F3F3F1" font-weight="650">tool_choice</text>
+<text x="1059" y="887" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">schema · nullable · batches</text>
 <rect x="36" y="929" width="168" height="172" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
 <rect x="36" y="929" width="6" height="172" rx="3" fill="#FCD34D"/>
 <text x="120" y="1005" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="38" fill="#F3F3F1" font-weight="700">15%</text>
@@ -105,12 +117,15 @@
 <text x="236" y="1089" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">  crash-recovery manifests</text>
 <rect x="954" y="929" width="210" height="172" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
 <rect x="954" y="929" width="6" height="172" rx="3" fill="#FCD34D"/>
-<text x="1059" y="993" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" fill="#FCD34D" font-weight="700">15%</text>
-<text x="1059" y="1023" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#F3F3F1" font-weight="650">escalate</text>
-<text x="1059" y="1047" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">case-facts · trim · recover</text>
+<path d="M 1046.4 990.16 L 1059.0 979.66 L 1071.6 990.16" fill="none" stroke="#FCD34D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
+<path d="M 1046.4 1000.66 L 1059.0 990.16 L 1071.6 1000.66" fill="none" stroke="#FCD34D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.70"/>
+<path d="M 1046.4 1011.16 L 1059.0 1000.66 L 1071.6 1011.16" fill="none" stroke="#FCD34D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+<text x="1059" y="1046" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#F3F3F1" font-weight="650">escalate</text>
+<text x="1059" y="1070" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#A4A098">case-facts · trim · recover</text>
 
   <image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1105" width="72" height="67.3" preserveAspectRatio="xMidYMid meet"/>
   <text x="1164" y="1149" text-anchor="end" font-family="Geist, ui-sans-serif, system-ui, sans-serif"
         font-size="14" fill="#A4A098">Exam Guide v1.0 §4 / Anthropic</text>
 
+<image href="ccarf-badge-purple.png" xlink:href="ccarf-badge-purple.png" x="1070" y="30" width="98" height="98" preserveAspectRatio="xMidYMid meet" opacity="0.92"/>
 </svg>

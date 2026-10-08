@@ -14,76 +14,99 @@
 <text x="48" y="68" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A855F7" letter-spacing="1.6" font-weight="600">CCAR-F  ·  REFERENCE</text>
 <text x="48" y="104" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="36" fill="#F3F3F1" font-weight="700">CCAR-F Exam Overview</text>
 <text x="48" y="132" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">Claude Certified Architect - Foundations · Exam Guide v1.0</text>
-<rect x="36" y="152" width="1128" height="248" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
-<rect x="36" y="152" width="6" height="248" rx="3" fill="#A855F7"/>
-<text x="64" y="186" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#A855F7" font-weight="700" letter-spacing="2">EXAM FORMAT</text>
-<rect x="58" y="204" width="250" height="100" rx="14" fill="rgba(168,85,247,.18)"/>
-<text x="183.0" y="260" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="42" fill="#A855F7" font-weight="700">60</text>
-<text x="183.0" y="288" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A4A098" font-weight="600">Q</text>
-<rect x="322" y="204" width="250" height="100" rx="14" fill="rgba(99,102,241,.18)"/>
-<text x="447.0" y="260" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="42" fill="#6366F1" font-weight="700">120</text>
-<text x="447.0" y="288" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A4A098" font-weight="600">min</text>
-<rect x="586" y="204" width="250" height="100" rx="14" fill="rgba(168,85,247,.18)"/>
-<text x="711.0" y="260" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="42" fill="#A855F7" font-weight="700">720</text>
-<text x="711.0" y="288" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A4A098" font-weight="600">pass</text>
-<rect x="850" y="204" width="250" height="100" rx="14" fill="rgba(252,211,77,.15)"/>
-<text x="975.0" y="260" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="42" fill="#FCD34D" font-weight="700">$125</text>
-<text x="975.0" y="288" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A4A098" font-weight="600">USD</text>
-<rect x="58" y="320" width="250" height="60" rx="12" fill="#1B122B"/>
-<text x="183.0" y="350" text-anchor="middle" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#A4A098" font-weight="700">closed book</text>
-<rect x="322" y="320" width="520" height="60" rx="12" fill="rgba(99,102,241,.28)"/>
-<text x="582.0" y="350" text-anchor="middle" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#6366F1" font-weight="700">partner-only Pearson</text>
-<rect x="856" y="320" width="250" height="60" rx="12" fill="#1B122B"/>
-<text x="981.0" y="350" text-anchor="middle" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#A4A098" font-weight="700">12 months</text>
-<rect x="36" y="416" width="1128" height="118" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
-<rect x="36" y="416" width="6" height="118" rx="3" fill="#FCD34D"/>
-<text x="64" y="446" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#FCD34D" font-weight="700" letter-spacing="1.2">SCENARIO STRUCTURE</text>
-<text x="64" y="480" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" fill="#F3F3F1" font-weight="650">4 of 6 themes on a form · ~15 items each</text>
-<rect x="64" y="494" width="158" height="30" rx="7" fill="rgba(252,211,77,.15)"/><text x="76" y="514" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#FCD34D" font-weight="500">community note</text>
-<rect x="230" y="494" width="216" height="30" rx="7" fill="rgba(168,85,247,.18)"/><text x="242" y="514" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A855F7" font-weight="500">scenarios = dressing</text>
-<rect x="454" y="494" width="177" height="30" rx="7" fill="#1B122B"/><text x="466" y="514" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A4A098" font-weight="500">mechanisms recur</text>
-<rect x="639" y="494" width="235" height="30" rx="7" fill="rgba(99,102,241,.18)"/><text x="651" y="514" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#6366F1" font-weight="500">learn toolkit not plot</text>
-<rect x="36" y="550" width="1128" height="543" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
-<text x="58" y="576" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A855F7" font-weight="700" letter-spacing="1.2">FIVE DOMAINS  ·  WEIGHTS</text>
-<text x="1142" y="576" text-anchor="end" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#A4A098">100%</text>
-<rect x="50" y="586" width="1100" height="95" rx="12" fill="#1B122B"/>
-<rect x="50" y="586" width="5" height="95" rx="2" fill="#A855F7"/>
-<text x="72" y="633.5" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" fill="#A855F7" font-weight="700">D1</text>
-<text x="120" y="633.5" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26" fill="#F3F3F1" font-weight="700">27%</text>
-<text x="216" y="633.5" dominant-baseline="central" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" fill="#F3F3F1" font-weight="600">Agentic Architecture &amp; Orchestration</text>
-<rect x="918" y="627.5" width="200" height="12" rx="6" fill="rgba(243,243,241,.08)"/>
-<rect x="918" y="627.5" width="200" height="12" rx="6" fill="#A855F7"/>
-<rect x="50" y="689" width="1100" height="95" rx="12" fill="#1B122B"/>
-<rect x="50" y="689" width="5" height="95" rx="2" fill="#6366F1"/>
-<text x="72" y="736.5" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" fill="#6366F1" font-weight="700">D2</text>
-<text x="120" y="736.5" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26" fill="#F3F3F1" font-weight="700">18%</text>
-<text x="216" y="736.5" dominant-baseline="central" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" fill="#F3F3F1" font-weight="600">Tool Design &amp; MCP Integration</text>
-<rect x="918" y="730.5" width="200" height="12" rx="6" fill="rgba(243,243,241,.08)"/>
-<rect x="918" y="730.5" width="133" height="12" rx="6" fill="#6366F1"/>
-<rect x="50" y="792" width="1100" height="95" rx="12" fill="#1B122B"/>
-<rect x="50" y="792" width="5" height="95" rx="2" fill="#A855F7"/>
-<text x="72" y="839.5" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" fill="#A855F7" font-weight="700">D3</text>
-<text x="120" y="839.5" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26" fill="#F3F3F1" font-weight="700">20%</text>
-<text x="216" y="839.5" dominant-baseline="central" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" fill="#F3F3F1" font-weight="600">Claude Code Configuration &amp; Workflows</text>
-<rect x="918" y="833.5" width="200" height="12" rx="6" fill="rgba(243,243,241,.08)"/>
-<rect x="918" y="833.5" width="148" height="12" rx="6" fill="#A855F7"/>
-<rect x="50" y="895" width="1100" height="95" rx="12" fill="#1B122B"/>
-<rect x="50" y="895" width="5" height="95" rx="2" fill="#6366F1"/>
-<text x="72" y="942.5" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" fill="#6366F1" font-weight="700">D4</text>
-<text x="120" y="942.5" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26" fill="#F3F3F1" font-weight="700">20%</text>
-<text x="216" y="942.5" dominant-baseline="central" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" fill="#F3F3F1" font-weight="600">Prompt Engineering &amp; Structured Output</text>
-<rect x="918" y="936.5" width="200" height="12" rx="6" fill="rgba(243,243,241,.08)"/>
-<rect x="918" y="936.5" width="148" height="12" rx="6" fill="#6366F1"/>
-<rect x="50" y="998" width="1100" height="95" rx="12" fill="#1B122B"/>
-<rect x="50" y="998" width="5" height="95" rx="2" fill="#FCD34D"/>
-<text x="72" y="1045.5" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" fill="#FCD34D" font-weight="700">D5</text>
-<text x="120" y="1045.5" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26" fill="#F3F3F1" font-weight="700">15%</text>
-<text x="216" y="1045.5" dominant-baseline="central" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" fill="#F3F3F1" font-weight="600">Context Management &amp; Reliability</text>
-<rect x="918" y="1039.5" width="200" height="12" rx="6" fill="rgba(243,243,241,.08)"/>
-<rect x="918" y="1039.5" width="111" height="12" rx="6" fill="#FCD34D"/>
+<rect x="36" y="150" width="1128" height="168" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="36" y="150" width="6" height="168" rx="3" fill="#A855F7"/>
+<text x="64" y="178" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#A855F7" font-weight="700" letter-spacing="1.6">CLAUDE CERTIFIED</text>
+<rect x="64" y="192" width="530" height="56" rx="12" fill="#A855F7" stroke="#F3F3F1" stroke-width="2.5"/>
+<text x="80" y="216" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#F3F3F1" font-weight="800">CCAR-F</text>
+<text x="80" y="236" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#F3F3F1" font-weight="650">Claude Certified Architect - Foundations</text>
+<rect x="606" y="192" width="530" height="56" rx="12" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="622" y="216" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#A4A098" font-weight="700">CCAR-P</text>
+<text x="622" y="236" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#D4D2CE" font-weight="500">Claude Certified Architect - Professional</text>
+<rect x="64" y="258" width="530" height="56" rx="12" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="80" y="282" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#A4A098" font-weight="700">CCAO-F</text>
+<text x="80" y="302" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#D4D2CE" font-weight="500">Claude Certified AI Operator - Foundations</text>
+<rect x="606" y="258" width="530" height="56" rx="12" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="622" y="282" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#A4A098" font-weight="700">CCDV-F</text>
+<text x="622" y="302" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#D4D2CE" font-weight="500">Claude Certified Developer - Foundations</text>
+<rect x="36" y="354" width="1128" height="236" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="36" y="354" width="6" height="236" rx="3" fill="#6366F1"/>
+<text x="64" y="384" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#6366F1" font-weight="700" letter-spacing="1.2">EXAM SPECIFICS</text>
+<rect x="64" y="402" width="530" height="36" rx="9" fill="#1B122B"/>
+<text x="78" y="425" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A855F7" font-weight="700">format</text>
+<text x="194" y="425" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="600">60 MC / multi-response</text>
+<rect x="618" y="402" width="530" height="36" rx="9" fill="#1B122B"/>
+<text x="632" y="425" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#6366F1" font-weight="700">time</text>
+<text x="748" y="425" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="600">120 minutes</text>
+<rect x="64" y="444" width="530" height="36" rx="9" fill="#1B122B"/>
+<text x="78" y="467" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A855F7" font-weight="700">pass</text>
+<text x="194" y="467" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="600">scaled 720 / 1000</text>
+<rect x="618" y="444" width="530" height="36" rx="9" fill="#1B122B"/>
+<text x="632" y="467" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#FCD34D" font-weight="700">fee</text>
+<text x="748" y="467" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="600">$125 USD</text>
+<rect x="64" y="486" width="530" height="36" rx="9" fill="#1B122B"/>
+<text x="78" y="509" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#6366F1" font-weight="700">delivery</text>
+<text x="194" y="509" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="600">Pearson OnVUE / center</text>
+<rect x="618" y="486" width="530" height="36" rx="9" fill="#1B122B"/>
+<text x="632" y="509" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A855F7" font-weight="700">eligibility</text>
+<text x="748" y="509" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="600">partner-only</text>
+<rect x="64" y="528" width="530" height="36" rx="9" fill="#1B122B"/>
+<text x="78" y="551" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#FCD34D" font-weight="700">scenarios</text>
+<text x="194" y="551" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="600">4 of 6 themes on a form</text>
+<rect x="618" y="528" width="530" height="36" rx="9" fill="#1B122B"/>
+<text x="632" y="551" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A4A098" font-weight="700">validity</text>
+<text x="748" y="551" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="600">12 months</text>
+<rect x="36" y="606" width="1128" height="56" rx="12" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="64" y="640" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" fill="#D4D2CE">Covers <tspan fill="#F3F3F1" font-weight="650">Claude Code</tspan>  ·  <tspan fill="#F3F3F1" font-weight="650">Agent SDK</tspan>  ·  <tspan fill="#F3F3F1" font-weight="650">Messages API</tspan>  ·  <tspan fill="#F3F3F1" font-weight="650">MCP</tspan>  ·  closed book</text>
+<rect x="36" y="678" width="1128" height="96" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="36" y="678" width="6" height="96" rx="3" fill="#FCD34D"/>
+<text x="64" y="704" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#FCD34D" font-weight="700" letter-spacing="1.2">SCENARIO STRUCTURE</text>
+<text x="64" y="732" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#F3F3F1" font-weight="650">4 of 6 themes · ~15 items each · mechanisms recur</text>
+<rect x="64" y="742" width="134" height="26" rx="5" fill="rgba(252,211,77,.15)"/><text x="74" y="760" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#FCD34D" font-weight="500">community note</text>
+<rect x="205" y="742" width="183" height="26" rx="5" fill="rgba(168,85,247,.18)"/><text x="215" y="760" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A855F7" font-weight="500">scenarios = dressing</text>
+<rect x="395" y="742" width="199" height="26" rx="5" fill="rgba(99,102,241,.18)"/><text x="405" y="760" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#6366F1" font-weight="500">learn toolkit not plot</text>
+<rect x="36" y="794" width="1128" height="304" rx="14" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="58" y="816" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#A855F7" font-weight="700" letter-spacing="1.2">FIVE DOMAINS  ·  WEIGHTS</text>
+<text x="1142" y="816" text-anchor="end" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A4A098">100%</text>
+<rect x="50" y="824" width="1100" height="50" rx="10" fill="#1B122B"/>
+<rect x="50" y="824" width="4" height="50" rx="2" fill="#A855F7"/>
+<text x="70" y="849.0" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A855F7" font-weight="700">D1</text>
+<text x="114" y="849.0" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" fill="#F3F3F1" font-weight="700">27%</text>
+<text x="184" y="849.0" dominant-baseline="central" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="600">Agentic Architecture &amp; Orchestration</text>
+<rect x="960" y="845.0" width="160" height="8" rx="4" fill="rgba(243,243,241,.08)"/>
+<rect x="960" y="845.0" width="160" height="8" rx="4" fill="#A855F7"/>
+<rect x="50" y="880" width="1100" height="50" rx="10" fill="#1B122B"/>
+<rect x="50" y="880" width="4" height="50" rx="2" fill="#6366F1"/>
+<text x="70" y="905.0" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#6366F1" font-weight="700">D2</text>
+<text x="114" y="905.0" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" fill="#F3F3F1" font-weight="700">18%</text>
+<text x="184" y="905.0" dominant-baseline="central" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="600">Tool Design &amp; MCP Integration</text>
+<rect x="960" y="901.0" width="160" height="8" rx="4" fill="rgba(243,243,241,.08)"/>
+<rect x="960" y="901.0" width="106" height="8" rx="4" fill="#6366F1"/>
+<rect x="50" y="936" width="1100" height="50" rx="10" fill="#1B122B"/>
+<rect x="50" y="936" width="4" height="50" rx="2" fill="#A855F7"/>
+<text x="70" y="961.0" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A855F7" font-weight="700">D3</text>
+<text x="114" y="961.0" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" fill="#F3F3F1" font-weight="700">20%</text>
+<text x="184" y="961.0" dominant-baseline="central" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="600">Claude Code Configuration &amp; Workflows</text>
+<rect x="960" y="957.0" width="160" height="8" rx="4" fill="rgba(243,243,241,.08)"/>
+<rect x="960" y="957.0" width="118" height="8" rx="4" fill="#A855F7"/>
+<rect x="50" y="992" width="1100" height="50" rx="10" fill="#1B122B"/>
+<rect x="50" y="992" width="4" height="50" rx="2" fill="#6366F1"/>
+<text x="70" y="1017.0" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#6366F1" font-weight="700">D4</text>
+<text x="114" y="1017.0" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" fill="#F3F3F1" font-weight="700">20%</text>
+<text x="184" y="1017.0" dominant-baseline="central" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="600">Prompt Engineering &amp; Structured Output</text>
+<rect x="960" y="1013.0" width="160" height="8" rx="4" fill="rgba(243,243,241,.08)"/>
+<rect x="960" y="1013.0" width="118" height="8" rx="4" fill="#6366F1"/>
+<rect x="50" y="1048" width="1100" height="50" rx="10" fill="#1B122B"/>
+<rect x="50" y="1048" width="4" height="50" rx="2" fill="#FCD34D"/>
+<text x="70" y="1073.0" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#FCD34D" font-weight="700">D5</text>
+<text x="114" y="1073.0" dominant-baseline="central" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" fill="#F3F3F1" font-weight="700">15%</text>
+<text x="184" y="1073.0" dominant-baseline="central" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="600">Context Management &amp; Reliability</text>
+<rect x="960" y="1069.0" width="160" height="8" rx="4" fill="rgba(243,243,241,.08)"/>
+<rect x="960" y="1069.0" width="88" height="8" rx="4" fill="#FCD34D"/>
 
   <image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1105" width="72" height="67.3" preserveAspectRatio="xMidYMid meet"/>
   <text x="1164" y="1149" text-anchor="end" font-family="Geist, ui-sans-serif, system-ui, sans-serif"
         font-size="14" fill="#A4A098">Exam Guide v1.0 / Anthropic (facts)</text>
 
+<image href="ccarf-badge-purple.png" xlink:href="ccarf-badge-purple.png" x="1070" y="30" width="98" height="98" preserveAspectRatio="xMidYMid meet" opacity="0.92"/>
 </svg>

@@ -1,0 +1,541 @@
+#!/usr/bin/env python3
+"""Generate two FDE meetup stat-sheet SVGs (1200x1200 dark brand, archetype 7 as stat sheet).
+
+Style and helpers copied (not imported) from _gen_ccarf.py.
+Reserved corners for later logo pass (nothing drawn there):
+  top-right    x >= 1060, y <= 120  (AICamp)
+  bottom-right x >= 1060, y >= 1080 (Atlassian)
+"""
+from pathlib import Path
+from xml.sax.saxutils import escape
+from PIL import ImageFont
+
+OUT = Path("/workspace/render/out")
+W = H = 1200
+
+PITCH = "#05010E"
+BONE = "#F3F3F1"
+SUB = "#D4D2CE"
+MUTE = "#A4A098"
+VIOLET = "#A855F7"
+INDIGO = "#6366F1"
+AMBER = "#FCD34D"
+ACCENT = "#895AF6"
+SURFACE = "#160F24"
+SURFACE2 = "#1C1528"
+INPUT = "#1B122B"
+RULE = "rgba(243,243,241,.12)"
+RULE2 = "rgba(243,243,241,.07)"
+
+SANS = "Geist, ui-sans-serif, system-ui, sans-serif"
+HEAD = "General Sans, Geist, ui-sans-serif, system-ui, sans-serif"
+MONO = "Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace"
+
+MARK = "lf-mark.png"  # same-dir href: rsvg will not load ../ paths
+
+MARGIN = 36
+BODY_TOP = 164
+BODY_BOT = 1076          # keeps bottom-right logo zone (y >= 1080) clear
+GUT = 20
+RESERVE_TR = (1060, 0, 1200, 120)
+RESERVE_BR = (1060, 1080, 1200, 1200)
+
+FONT_DIR = "/usr/share/fonts/truetype/sand-box/google"
+_FONT_FILES = {
+    "sans": f"{FONT_DIR}/Geist/Geist-VariableFont_wght.ttf",
+    "sans_i": f"{FONT_DIR}/Geist/Geist-Italic-VariableFont_wght.ttf",
+    "mono": f"{FONT_DIR}/Geist Mono/GeistMono-VariableFont_wght.ttf",
+}
+_font_cache = {}
+WARN = []
+
+
+def font(kind, size, weight=400):
+    key = (kind, size, weight)
+    if key not in _font_cache:
+        f = ImageFont.truetype(_FONT_FILES[kind], size)
+        try:
+            f.set_variation_by_axes([weight])
+        except Exception:
+            pass
+        _font_cache[key] = f
+    return _font_cache[key]
+
+
+def tw(text, kind="sans", size=16, weight=400):
+    return font(kind, size, weight).getlength(text)
+
+
+def esc(t: str) -> str:
+    t = t.replace("\u2014", "-").replace("\u2013", "-")
+    t = t.replace("\u2192", "->")
+    return escape(t, {"'": "&apos;", '"': "&quot;"})
+
+
+def wrap_px(text, max_w, kind="sans", size=16, weight=400):
+    words = text.split()
+    lines, cur = [], []
+    for w_ in words:
+        trial = " ".join(cur + [w_])
+        if tw(trial, kind, size, weight) <= max_w or not cur:
+            cur.append(w_)
+        else:
+            lines.append(" ".join(cur))
+            cur = [w_]
+    if cur:
+        lines.append(" ".join(cur))
+    return lines
+
+
+def spectrum_bar(x, y, w, h=4, gid="spec"):
+    return f'''
+  <defs>
+    <linearGradient id="{gid}" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="{INDIGO}"/>
+      <stop offset="50%" stop-color="{VIOLET}"/>
+      <stop offset="100%" stop-color="{AMBER}"/>
+    </linearGradient>
+  </defs>
+  <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{h/2}" fill="url(#{gid})"/>'''
+
+
+def card_box(x, y, w, h, rx=14, fill=SURFACE, stroke=RULE, sw=1):
+    return (
+        f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" '
+        f'fill="{fill}" stroke="{stroke}" stroke-width="{sw}"/>'
+    )
+
+
+def lf_mark(x=36, y=1105, width=72):
+    height = width * 144 / 154
+    return (
+        f'<image href="{MARK}" xlink:href="{MARK}" x="{x}" y="{y}" width="{width}" '
+        f'height="{height:.1f}" preserveAspectRatio="xMidYMid meet"/>'
+    )
+
+
+def footer(cite="Sources on each card", mark_y=1105):
+    # cite sits right of the LF mark (bottom-left), well clear of the BR logo zone
+    return f'''
+  {lf_mark(36, mark_y, 72)}
+  <text x="128" y="{mark_y + 41}" font-family="{SANS}" font-size="14" fill="{MUTE}">{esc(cite)}</text>
+'''
+
+
+def wrap_svg(inner: str) -> str:
+    return f'''<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1200" viewBox="0 0 1200 1200">
+  <rect width="1200" height="1200" fill="{PITCH}"/>
+{inner}
+</svg>
+'''
+
+
+def header(eyebrow, title, subtitle, gid):
+    assert 48 + tw(eyebrow, "mono", 14, 600) + 1.6 * len(eyebrow) < RESERVE_TR[0] - 20
+    assert 48 + tw(title, "sans", 42, 700) < RESERVE_TR[0] - 20
+    return f'''
+  {spectrum_bar(48, 36, 260, 4, gid)}
+  <text x="48" y="68" font-family="{MONO}" font-size="14" fill="{VIOLET}"
+        letter-spacing="1.6" font-weight="600">{esc(eyebrow)}</text>
+  <text x="48" y="114" font-family="{HEAD}" font-size="42" fill="{BONE}"
+        font-weight="700">{esc(title)}</text>
+  <text x="48" y="145" font-family="{SANS}" font-size="17" fill="{SUB}">{esc(subtitle)}</text>
+'''
+
+
+# ---------------------------------------------------------------- stat cards
+
+def num_svg(x, baseline, segs, fs, anchor="start"):
+    """segs: list of (text, colour, kind) where kind in mono|sans."""
+    out = [f'<text x="{x}" y="{baseline:.0f}" text-anchor="{anchor}" font-weight="700">']
+    prev_sans = False
+    for text, col, kind in segs:
+        fam = MONO if kind == "mono" else SANS
+        sz = fs if kind == "mono" else int(fs * 0.5)
+        wt = "700" if kind == "mono" else "500"
+        dx = f' dx="{int(fs * 0.22)}"' if (kind == "sans" or prev_sans) else ""
+        out.append(
+            f'<tspan{dx} font-family="{fam}" font-size="{sz}" font-weight="{wt}" fill="{col}">{esc(text.strip())}</tspan>'
+        )
+        prev_sans = kind == "sans"
+    out.append("</text>")
+    return "".join(out)
+
+
+def num_width(segs, fs):
+    total = 0
+    for text, _, kind in segs:
+        if kind == "mono":
+            total += tw(text, "mono", fs, 700)
+        else:
+            total += tw(text.strip(), "sans", int(fs * 0.5), 500) + 2 * int(fs * 0.22)
+    return total
+
+
+def stat_card(x, y, w, h, c, mode="stack"):
+    """c: num (segs), body (str), quote (opt str), src (str), hi (bool)."""
+    pad = 26
+    parts = []
+    if c.get("hi"):
+        parts.append(card_box(x, y, w, h, 16, SURFACE2, "rgba(168,85,247,.55)", 1.5))
+    else:
+        parts.append(card_box(x, y, w, h, 16))
+    inner = w - 2 * pad
+
+    src_fs, src_lh = 14, 18
+    src_lines = wrap_px(c["src"], inner, "sans", src_fs)
+    first_src = y + h - 22 - (len(src_lines) - 1) * src_lh
+
+    body_fs, body_lh = c.get("body_fs", 19), 25
+    num_fs = c.get("num_fs", 64 if mode == "stack" else 76)
+
+    if mode == "stack":
+        while num_width(c["num"], num_fs) > inner and num_fs > 36:
+            num_fs -= 2
+        nb = y + 28 + 0.72 * num_fs
+        parts.append(num_svg(x + pad, nb, c["num"], num_fs))
+        body_lines = wrap_px(c["body"], inner, "sans", body_fs)
+        by = nb + 22 + body_fs
+        tx = x + pad
+        text_w = inner
+    else:  # side: number left, text right, source along the bottom
+        nw = num_width(c["num"], num_fs)
+        tx = x + pad + nw + 28
+        text_w = x + w - pad - tx
+        body_lines = wrap_px(c["body"], text_w, "sans", body_fs)
+        top, bot = y + 24, first_src - 30
+        mid = (top + bot) / 2
+        nb = mid + 0.36 * num_fs
+        parts.append(num_svg(x + pad, nb, c["num"], num_fs))
+        block = (len(body_lines) - 1) * body_lh + 0.72 * body_fs
+        by = mid - block / 2 + 0.72 * body_fs
+    for i, line in enumerate(body_lines):
+        parts.append(
+            f'<text x="{tx}" y="{by + i * body_lh:.0f}" font-family="{SANS}" font-size="{body_fs}" '
+            f'fill="{SUB}">{esc(line)}</text>'
+        )
+    last = by + (len(body_lines) - 1) * body_lh
+    if c.get("quote"):
+        q_lines = wrap_px("\u201c" + c["quote"] + "\u201d", text_w, "sans_i", body_fs, 500)
+        qy = last + body_lh + 6
+        parts.append(
+            f'<rect x="{tx}" y="{qy - body_fs + 1:.0f}" width="3" height="{(len(q_lines) - 1) * body_lh + body_fs + 4:.0f}" '
+            f'rx="1.5" fill="{VIOLET}"/>'
+        )
+        for i, line in enumerate(q_lines):
+            parts.append(
+                f'<text x="{tx + 14}" y="{qy + i * body_lh:.0f}" font-family="{SANS}" font-size="{body_fs}" '
+                f'font-style="italic" font-weight="500" fill="{BONE}">{esc(line)}</text>'
+            )
+        last = qy + (len(q_lines) - 1) * body_lh
+    for i, line in enumerate(src_lines):
+        parts.append(
+            f'<text x="{x + pad}" y="{first_src + i * src_lh:.0f}" font-family="{SANS}" font-size="{src_fs}" '
+            f'fill="{MUTE}">{esc(line)}</text>'
+        )
+    if last + 6 + src_fs > first_src - 0:
+        WARN.append(f"tight card at {x},{y}: body last {last:.0f} vs src {first_src:.0f}")
+    if mode == "stack" and nb > y + h:
+        WARN.append("number overflow")
+    return "\n".join(parts)
+
+
+def row_cards(y, h, widths, cards, mode="stack"):
+    assert sum(widths) + GUT * (len(widths) - 1) == W - 2 * MARGIN, widths
+    x = MARGIN
+    out = []
+    for wd, c in zip(widths, cards):
+        out.append(stat_card(x, y, wd, h, c, c.get("mode", mode)))
+        x += wd + GUT
+    return "\n".join(out)
+
+
+def V(t):
+    return [(t, VIOLET, "mono")]
+
+
+def B(t):
+    return [(t, BONE, "mono")]
+
+
+# ---------------------------------------------------------------- graphic 1
+
+def hero_gap(x, y, w, h):
+    p = [card_box(x, y, w, h, 18)]
+    p.append(f'<rect x="{x}" y="{y + 18}" width="5" height="{h - 36}" rx="2.5" fill="{VIOLET}"/>')
+    p.append(
+        f'<text x="{x + 40}" y="{y + 40}" font-family="{MONO}" font-size="14" fill="{VIOLET}" '
+        f'font-weight="700" letter-spacing="1.6">AI TALENT GAP  ·  SUPPLY VS DEMAND</text>'
+    )
+    x0 = x + 40
+    full = 860
+    xs = x0 + full * 84 / 146
+    xe = x0 + full
+    bh = 100
+    b1 = y + 104
+    b2 = y + 274
+    p.append('''<defs>
+    <pattern id="hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="14" height="14" fill="rgba(252,211,77,.08)"/>
+      <line x1="0" y1="0" x2="0" y2="14" stroke="rgba(252,211,77,.5)" stroke-width="5"/>
+    </pattern>
+  </defs>''')
+    # labels above bars
+    p.append(
+        f'<text x="{x0}" y="{b1 - 18}" font-family="{HEAD}" font-size="26" font-weight="700" fill="{BONE}">Supply'
+        f'<tspan dx="14" font-family="{SANS}" font-size="21" font-weight="400" fill="{SUB}">AI specialists</tspan></text>'
+    )
+    p.append(
+        f'<text x="{x0}" y="{b2 - 18}" font-family="{HEAD}" font-size="26" font-weight="700" fill="{BONE}">Demand'
+        f'<tspan dx="14" font-family="{SANS}" font-size="21" font-weight="400" fill="{SUB}">AI jobs by 2027</tspan></text>'
+    )
+    # supply bar
+    p.append(f'<rect x="{x0}" y="{b1}" width="{xs - x0:.1f}" height="{bh}" rx="10" fill="{VIOLET}"/>')
+    # demand bar: violet up to supply level, hatched gap beyond
+    p.append(f'<rect x="{x0}" y="{b2}" width="{full}" height="{bh}" rx="10" fill="url(#hatch)"/>')
+    p.append(f'<rect x="{x0}" y="{b2}" width="{xs - x0:.1f}" height="{bh}" rx="10" fill="{VIOLET}"/>')
+    p.append(f'<rect x="{xs - 12:.1f}" y="{b2}" width="12" height="{bh}" fill="{VIOLET}"/>')
+    r = 10
+    p.append(
+        f'<path d="M {xs:.1f} {b2 + 1} H {xe - r - 1} Q {xe - 1} {b2 + 1} {xe - 1} {b2 + r + 1} '
+        f'V {b2 + bh - r - 1} Q {xe - 1} {b2 + bh - 1} {xe - r - 1} {b2 + bh - 1} H {xs:.1f} Z" '
+        f'fill="none" stroke="{AMBER}" stroke-width="2" stroke-dasharray="7 5"/>'
+    )
+    # supply-level guide line
+    p.append(
+        f'<line x1="{xs:.1f}" y1="{b1 - 6}" x2="{xs:.1f}" y2="{b2 + bh + 8}" stroke="{BONE}" '
+        f'stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="4 5"/>'
+    )
+    # gap pill
+    gap_label = "60,000+ short"
+    gfs = 30
+    gw = tw(gap_label, "mono", gfs, 700) + 40
+    gcx = (xs + xe) / 2
+    gy = b2 + bh / 2
+    p.append(
+        f'<rect x="{gcx - gw / 2:.1f}" y="{gy - 28}" width="{gw:.1f}" height="56" rx="12" '
+        f'fill="{PITCH}" stroke="{AMBER}" stroke-width="2"/>'
+    )
+    p.append(
+        f'<text x="{gcx:.1f}" y="{gy + 11}" text-anchor="middle" font-family="{MONO}" font-size="{gfs}" '
+        f'font-weight="700" fill="{AMBER}">{gap_label}</text>'
+    )
+    # end values
+    p.append(
+        f'<text x="{xs + 20:.1f}" y="{b1 + bh / 2 + 15}" font-family="{MONO}" font-size="44" '
+        f'font-weight="700" fill="{BONE}">84,000</text>'
+    )
+    p.append(
+        f'<text x="{xe + 20:.1f}" y="{b2 + 34}" font-family="{MONO}" font-size="16" '
+        f'font-weight="600" fill="{MUTE}">up to</text>'
+    )
+    p.append(
+        f'<text x="{xe + 20:.1f}" y="{b2 + 78}" font-family="{MONO}" font-size="44" '
+        f'font-weight="700" fill="{BONE}">146,000</text>'
+    )
+    assert xe + 20 + tw("146,000", "mono", 44, 700) < x + w - 16
+    # footer row of hero
+    p.append(
+        f'<text x="{x0}" y="{y + h - 24}" font-family="{SANS}" font-size="14" fill="{MUTE}">'
+        f'Source: Bain &amp; Company, Mar 2025</text>'
+    )
+    p.append(
+        f'<text x="{x + w - 28}" y="{y + h - 24}" text-anchor="end" font-family="{SANS}" font-size="14" '
+        f'fill="{MUTE}">Bars drawn to scale</text>'
+    )
+    return "\n".join(p)
+
+
+def gen_au():
+    parts = [header("FDE  ·  AUSTRALIA  ·  AI HIRING", "AI in Australian jobs",
+                    "Talent supply, employer demand, and how job ads are shifting", "specAU")]
+    hero_h = 430
+    parts.append(hero_gap(MARGIN, BODY_TOP, W - 2 * MARGIN, hero_h))
+    r1y = BODY_TOP + hero_h + GUT
+    r1h = 190
+    r2y = r1y + r1h + GUT
+    r2h = BODY_BOT - r2y
+    src_i_apr = "Source: Indeed Hiring Lab, Apr 2026"
+    row1 = [
+        {"num": V("43%"), "body": "of software and data job ads mention AI", "src": src_i_apr, "hi": True},
+        {"num": B("8.5%"), "body": "of employers posted at least one AI-related ad, up from 5.8% a year earlier",
+         "src": src_i_apr},
+        {"num": V("2/3"), "body": "of AI ads come from the top 1% of employers", "src": src_i_apr},
+    ]
+    row2 = [
+        {"num": B("71"), "body": "job titles now carry \u201cAI\u201d, more than 3x a year earlier; 61% are tech roles",
+         "src": "Source: Indeed Hiring Lab, Sep 2026"},
+        {"num": V("+25%"), "body": "software developer jobs, about 40,000 people, Nov 2022 to Feb 2026",
+         "quote": "no evidence to date of broad labour market upheaval", "src": "Source: DEWR, Jul 2026",
+         "body_fs": 18, "num_fs": 60},
+        {"num": B("70%"), "body": "of Australian leaders are considering hiring AI-focused roles",
+         "src": "Source: Microsoft Work Trend Index, Apr 2025"},
+    ]
+    parts.append(row_cards(r1y, r1h, [326, 448, 314], row1))
+    parts.append(row_cards(r2y, r2h, [352, 448, 288], row2))
+    parts.append(footer())
+    return wrap_svg("\n".join(parts))
+
+
+# ---------------------------------------------------------------- graphic 2
+
+def hero_curve(x, y, w, h):
+    p = [card_box(x, y, w, h, 18)]
+    p.append(f'<rect x="{x}" y="{y + 18}" width="5" height="{h - 36}" rx="2.5" fill="{VIOLET}"/>')
+    p.append(
+        f'<text x="{x + 40}" y="{y + 40}" font-family="{MONO}" font-size="14" fill="{VIOLET}" '
+        f'font-weight="700" letter-spacing="1.6">INDEED FDE JOB ADS  ·  INDEX, JAN 2025 = 100</text>'
+    )
+    # mandatory label pill
+    lab = "Indexed growth, not job counts"
+    lw = tw(lab, "sans", 17, 650) + 32
+    lx = x + w - 28 - lw
+    p.append(
+        f'<rect x="{lx:.1f}" y="{y + 20}" width="{lw:.1f}" height="34" rx="9" fill="{INPUT}" '
+        f'stroke="{AMBER}" stroke-width="1.5"/>'
+    )
+    p.append(
+        f'<text x="{lx + 16:.1f}" y="{y + 43}" font-family="{SANS}" font-size="17" font-weight="650" '
+        f'fill="{AMBER}">{lab}</text>'
+    )
+    px0, px1 = x + 128, x + w - 72
+    py_top, py0 = y + 108, y + 380   # y for 5,500 and 0
+    ymax = 5500
+
+    def X(months):
+        return px0 + (px1 - px0) * months / 15.0
+
+    def Y(v):
+        return py0 - (py0 - py_top) * v / ymax
+
+    # gridlines
+    for v in (0, 1000, 2000, 3000, 4000, 5000):
+        yy = Y(v)
+        p.append(
+            f'<line x1="{px0 - 8}" y1="{yy:.1f}" x2="{px1 + 24}" y2="{yy:.1f}" '
+            f'stroke="{RULE if v == 0 else RULE2}" stroke-width="{1.5 if v == 0 else 1}"/>'
+        )
+        p.append(
+            f'<text x="{px0 - 16}" y="{yy + 5:.1f}" text-anchor="end" font-family="{MONO}" font-size="14" '
+            f'fill="{MUTE}">{v:,}</text>'
+        )
+    pts = [(0, 100, "Jan 2025"), (3, 643, "Apr 2025"), (15, 5330, "Apr 2026")]
+    xy = [(X(m), Y(v)) for m, v, _ in pts]
+    # area + line
+    area = f"M {xy[0][0]:.1f} {py0} " + " ".join(f"L {a:.1f} {b:.1f}" for a, b in xy) + f" L {xy[-1][0]:.1f} {py0} Z"
+    p.append(f'<path d="{area}" fill="rgba(168,85,247,.14)"/>')
+    line = "M " + " L ".join(f"{a:.1f} {b:.1f}" for a, b in xy)
+    p.append(f'<path d="{line}" fill="none" stroke="{VIOLET}" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>')
+    # x-axis labels + ticks
+    for (m, v, lbl), (a, b) in zip(pts, xy):
+        p.append(f'<line x1="{a:.1f}" y1="{py0}" x2="{a:.1f}" y2="{py0 + 8}" stroke="{MUTE}" stroke-width="1.5"/>')
+        p.append(
+            f'<text x="{a:.1f}" y="{py0 + 32}" text-anchor="middle" font-family="{MONO}" font-size="15" '
+            f'font-weight="600" fill="{SUB}">{lbl}</text>'
+        )
+    # dots
+    for a, b in xy:
+        p.append(f'<circle cx="{a:.1f}" cy="{b:.1f}" r="9" fill="{PITCH}" stroke="{VIOLET}" stroke-width="4"/>')
+    # point labels
+    a, b = xy[0]
+    p.append(
+        f'<text x="{a - 14:.1f}" y="{b - 22:.1f}" font-family="{MONO}" font-weight="700">'
+        f'<tspan font-size="24" fill="{BONE}">100</tspan>'
+        f'<tspan dx="8" font-size="14" font-weight="600" fill="{MUTE}">base</tspan></text>'
+    )
+    a, b = xy[1]
+    p.append(
+        f'<text x="{a - 18:.1f}" y="{b - 46:.1f}" text-anchor="end" font-family="{MONO}" font-size="30" '
+        f'font-weight="700" fill="{BONE}">643</text>'
+    )
+    p.append(
+        f'<text x="{a - 18:.1f}" y="{b - 20:.1f}" text-anchor="end" font-family="{MONO}" font-size="18" '
+        f'font-weight="700" fill="{VIOLET}">+543%</text>'
+    )
+    a, b = xy[2]
+    p.append(
+        f'<text x="{a - 22:.1f}" y="{b - 4:.1f}" text-anchor="end" font-family="{MONO}" font-weight="700">'
+        f'<tspan font-size="36" fill="{BONE}">5,330</tspan>'
+        f'<tspan font-size="20" fill="{VIOLET}" dx="14">+5,230%</tspan></text>'
+    )
+    # YoY callout below the steep segment
+    (ax, ay), (bx, by_) = xy[1], xy[2]
+    cx_w, cx_h = 336, 76
+    cbx = px1 - cx_w - 10
+    cby = py0 - cx_h - 46
+    # connector from callout to segment midpoint-ish
+    t = 0.62
+    sx, sy = ax + (bx - ax) * t, ay + (by_ - ay) * t
+    p.append(
+        f'<line x1="{cbx + 40}" y1="{cby}" x2="{sx:.1f}" y2="{sy + 6:.1f}" stroke="{AMBER}" '
+        f'stroke-width="1.5" stroke-dasharray="4 4"/>'
+    )
+    p.append(f'<circle cx="{sx:.1f}" cy="{sy:.1f}" r="4" fill="{AMBER}"/>')
+    p.append(card_box(cbx, cby, cx_w, cx_h, 12, PITCH, AMBER, 1.5))
+    p.append(
+        f'<text x="{cbx + 20}" y="{cby + 34}" font-family="{SANS}" font-size="20" fill="{BONE}" font-weight="500">about '
+        f'<tspan font-family="{MONO}" font-size="24" font-weight="700" fill="{AMBER}">+729%</tspan> year on year</text>'
+    )
+    p.append(
+        f'<text x="{cbx + 20}" y="{cby + 60}" font-family="{MONO}" font-size="14" fill="{MUTE}">Apr 2025 to Apr 2026</text>'
+    )
+    p.append(
+        f'<text x="{x + 40}" y="{y + h - 22}" font-family="{SANS}" font-size="14" fill="{MUTE}">'
+        f'Source: Indeed via Business Insider, May 2026</text>'
+    )
+    p.append(
+        f'<text x="{x + w - 28}" y="{y + h - 22}" text-anchor="end" font-family="{SANS}" font-size="14" '
+        f'fill="{MUTE}">Time axis to scale</text>'
+    )
+    return "\n".join(p)
+
+
+def gen_role():
+    parts = [header("FDE  ·  FORWARD DEPLOYED ENGINEER  ·  DEMAND", "The FDE hiring curve",
+                    "How fast forward deployed engineer roles are spreading, and who fills them", "specRole")]
+    hero_h = 470
+    parts.append(hero_curve(MARGIN, BODY_TOP, W - 2 * MARGIN, hero_h))
+    r1y = BODY_TOP + hero_h + GUT
+    r1h = 206
+    r2y = r1y + r1h + GUT
+    r2h = BODY_BOT - r2y
+    row1 = [
+        {"num": [("0.2%", BONE, "mono"), ("  to  ", SUB, "sans"), ("3.1%", VIOLET, "mono")],
+         "body": "of companies now have at least one FDE, since early 2025", "src": "Source: Pave data",
+         "hi": True, "num_fs": 58},
+        {"num": V("+1,165%"), "body": "in ads with the exact FDE title, Jan to Oct 2025 vs the same period in 2024",
+         "src": "Source: Bloomberry analysis of about 1,000 ads, Nov 2025", "body_fs": 18},
+        {"num": B("45%"), "body": "of FDEs were previously software engineers", "src": "Source: Bloomberry, Nov 2025",
+         "body_fs": 18},
+    ]
+    row2 = [
+        {"num": B("12%"), "body": "of FDE roles are entry-level", "src": "Source: Bloomberry, Nov 2025"},
+        {"num": V("800%+"), "body": "rise in FDE ads on Indeed, Jan to Sep 2025", "src": "Source: Financial Times, Nov 2025"},
+    ]
+    parts.append(row_cards(r1y, r1h, [372, 452, 264], row1))
+    parts.append(row_cards(r2y, r2h, [470, 638], row2, mode="side"))
+    parts.append(footer())
+    return wrap_svg("\n".join(parts))
+
+
+def check_bad(s: str, name: str):
+    for ch in ("\u2014", "\u2013"):
+        if ch in s:
+            raise SystemExit(f"dash found in {name}: {ch!r}")
+
+
+def main():
+    for name, fn in (("fde-au-ai-stats", gen_au), ("fde-role-stats", gen_role)):
+        svg = fn()
+        check_bad(svg, name)
+        path = OUT / f"{name}.svg"
+        path.write_text(svg)
+        print(f"wrote {path}")
+    for w_ in WARN:
+        print("WARN", w_)
+
+
+if __name__ == "__main__":
+    main()

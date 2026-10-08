@@ -59,69 +59,80 @@
 <text x="40" y="515" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A4A098" font-weight="700">MECHANISM TRIGGERS</text>
 <rect x="36" y="523" width="370" height="285" rx="11" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
 <rect x="36" y="523" width="4" height="285" rx="2" fill="#A855F7"/>
-<text x="50" y="545" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A855F7" font-weight="700">01</text>
-<text x="78" y="545" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="650">Hooks</text>
-<text x="50" y="565" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· PreToolUse blocks refunds / rm -rf</text>
-<text x="50" y="585" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· PostToolUse cannot un-delete</text>
-<text x="50" y="605" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· PreCompact before /compact (archive)</text>
-<text x="50" y="625" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· No Compact tool for PreToolUse</text>
-<rect x="48" y="770" width="110" height="30" rx="7" fill="rgba(168,85,247,.18)"/><text x="60" y="790" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A855F7" font-weight="500">Pre=block</text>
-<rect x="166" y="770" width="120" height="30" rx="7" fill="#1B122B"/><text x="178" y="790" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A4A098" font-weight="500">Post=after</text>
+<text x="50" y="549" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#A855F7" font-weight="700">01</text>
+<text x="80" y="549" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="17" fill="#F3F3F1" font-weight="650">Hooks</text>
+<text x="50" y="579" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· PreToolUse can block before the tool runs</text>
+<text x="50" y="603" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Use Pre for refunds, rm -rf, money moves</text>
+<text x="50" y="627" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· PostToolUse fires after; cannot un-delete</text>
+<text x="50" y="651" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· PreCompact runs before /compact archive</text>
+<text x="50" y="675" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· No Compact tool target for PreToolUse</text>
+<rect x="46" y="730" width="110" height="30" rx="7" fill="rgba(168,85,247,.18)"/><text x="58" y="750" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A855F7" font-weight="500">Pre=block</text>
+<rect x="164" y="730" width="120" height="30" rx="7" fill="#1B122B"/><text x="176" y="750" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A4A098" font-weight="500">Post=after</text>
+<rect x="46" y="766" width="120" height="30" rx="7" fill="rgba(99,102,241,.18)"/><text x="58" y="786" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#6366F1" font-weight="500">PreCompact</text>
 <rect x="414" y="523" width="370" height="285" rx="11" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
 <rect x="414" y="523" width="4" height="285" rx="2" fill="#A855F7"/>
-<text x="428" y="545" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A855F7" font-weight="700">02</text>
-<text x="456" y="545" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="650">tool_choice</text>
-<text x="428" y="565" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· auto: text or tool (default)</text>
-<text x="428" y="585" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· any: must call some tool</text>
-<text x="428" y="605" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· forced name for mandatory first step</text>
-<text x="428" y="625" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· none: no tools this turn</text>
-<rect x="426" y="770" width="62" height="30" rx="7" fill="rgba(99,102,241,.18)"/><text x="438" y="790" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#6366F1" font-weight="500">auto</text>
-<rect x="496" y="770" width="54" height="30" rx="7" fill="rgba(168,85,247,.18)"/><text x="508" y="790" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A855F7" font-weight="500">any</text>
-<rect x="558" y="770" width="81" height="30" rx="7" fill="rgba(252,211,77,.15)"/><text x="570" y="790" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#FCD34D" font-weight="500">forced</text>
+<text x="428" y="549" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#A855F7" font-weight="700">02</text>
+<text x="458" y="549" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="17" fill="#F3F3F1" font-weight="650">tool_choice</text>
+<text x="428" y="579" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· auto: model may text or call a tool</text>
+<text x="428" y="603" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· any: must call some tool this turn</text>
+<text x="428" y="627" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· forced name for mandatory first step</text>
+<text x="428" y="651" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· none: no tools allowed this turn</text>
+<text x="428" y="675" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Force named tool, then switch to auto</text>
+<rect x="424" y="730" width="62" height="30" rx="7" fill="rgba(99,102,241,.18)"/><text x="436" y="750" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#6366F1" font-weight="500">auto</text>
+<rect x="494" y="730" width="52" height="30" rx="7" fill="rgba(168,85,247,.18)"/><text x="506" y="750" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A855F7" font-weight="500">any</text>
+<rect x="554" y="730" width="81" height="30" rx="7" fill="rgba(252,211,77,.15)"/><text x="566" y="750" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#FCD34D" font-weight="500">forced</text>
 <rect x="792" y="523" width="370" height="285" rx="11" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
 <rect x="792" y="523" width="4" height="285" rx="2" fill="#A855F7"/>
-<text x="806" y="545" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A855F7" font-weight="700">03</text>
-<text x="834" y="545" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="650">stop_reason</text>
-<text x="806" y="565" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Continue on tool_use</text>
-<text x="806" y="585" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Stop on end_turn</text>
-<text x="806" y="605" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Also: max_tokens / pause_turn / refusal</text>
-<text x="806" y="625" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Never parse prose to exit loop</text>
-<rect x="804" y="770" width="100" height="30" rx="7" fill="rgba(168,85,247,.18)"/><text x="816" y="790" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A855F7" font-weight="500">tool_use</text>
-<rect x="912" y="770" width="100" height="30" rx="7" fill="rgba(99,102,241,.18)"/><text x="924" y="790" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#6366F1" font-weight="500">end_turn</text>
+<text x="806" y="549" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#A855F7" font-weight="700">03</text>
+<text x="836" y="549" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="17" fill="#F3F3F1" font-weight="650">stop_reason</text>
+<text x="806" y="579" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Continue the loop on tool_use</text>
+<text x="806" y="603" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Stop cleanly on end_turn</text>
+<text x="806" y="627" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Also: max_tokens / pause_turn / refusal</text>
+<text x="806" y="651" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Append tool results, then call again</text>
+<text x="806" y="675" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Never parse assistant prose to exit</text>
+<rect x="802" y="730" width="100" height="30" rx="7" fill="rgba(168,85,247,.18)"/><text x="814" y="750" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A855F7" font-weight="500">tool_use</text>
+<rect x="910" y="730" width="100" height="30" rx="7" fill="rgba(99,102,241,.18)"/><text x="922" y="750" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#6366F1" font-weight="500">end_turn</text>
+<rect x="1018" y="730" width="62" height="30" rx="7" fill="#1B122B"/><text x="1030" y="750" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A4A098" font-weight="500">loop</text>
 <rect x="36" y="816" width="370" height="285" rx="11" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
 <rect x="36" y="816" width="4" height="285" rx="2" fill="#A855F7"/>
-<text x="50" y="838" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A855F7" font-weight="700">04</text>
-<text x="78" y="838" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="650">Batches vs sync</text>
-<text x="50" y="858" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· No multi-turn tools in a batch</text>
-<text x="50" y="878" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· custom_id to resubmit failures</text>
-<text x="50" y="898" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Blocking / pre-merge -&gt; sync API</text>
-<text x="50" y="918" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· ~50% cheaper, up to 24h, no SLA</text>
-<rect x="48" y="1063" width="91" height="30" rx="7" fill="rgba(252,211,77,.15)"/><text x="60" y="1083" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#FCD34D" font-weight="500">batches</text>
-<rect x="147" y="1063" width="177" height="30" rx="7" fill="rgba(168,85,247,.18)"/><text x="159" y="1083" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A855F7" font-weight="500">sync if blocking</text>
+<text x="50" y="842" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#A855F7" font-weight="700">04</text>
+<text x="80" y="842" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="17" fill="#F3F3F1" font-weight="650">Batches vs sync</text>
+<text x="50" y="872" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Batches: no multi-turn tool loops</text>
+<text x="50" y="896" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· custom_id to resubmit failed rows</text>
+<text x="50" y="920" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Blocking / pre-merge -&gt; sync Messages</text>
+<text x="50" y="944" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· ~50% cheaper; up to 24h; no SLA</text>
+<text x="50" y="968" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Latency-tolerant jobs only for batches</text>
+<rect x="46" y="1023" width="91" height="30" rx="7" fill="rgba(252,211,77,.15)"/><text x="58" y="1043" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#FCD34D" font-weight="500">batches</text>
+<rect x="145" y="1023" width="110" height="30" rx="7" fill="#1B122B"/><text x="157" y="1043" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A4A098" font-weight="500">custom_id</text>
+<rect x="263" y="1023" width="62" height="30" rx="7" fill="rgba(168,85,247,.18)"/><text x="275" y="1043" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A855F7" font-weight="500">sync</text>
 <rect x="414" y="816" width="370" height="285" rx="11" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
 <rect x="414" y="816" width="4" height="285" rx="2" fill="#A855F7"/>
-<text x="428" y="838" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A855F7" font-weight="700">05</text>
-<text x="456" y="838" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="650">Grep / Glob + CI</text>
-<text x="428" y="858" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Grep = file contents</text>
-<text x="428" y="878" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Glob = path patterns</text>
-<text x="428" y="898" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· CI hang -&gt; -p / --print</text>
-<text x="428" y="918" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Reject CLAUDE_HEADLESS / --batch</text>
-<rect x="426" y="1063" width="148" height="30" rx="7" fill="rgba(99,102,241,.18)"/><text x="438" y="1083" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#6366F1" font-weight="500">Grep=contents</text>
-<rect x="582" y="1063" width="120" height="30" rx="7" fill="rgba(168,85,247,.18)"/><text x="594" y="1083" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A855F7" font-weight="500">Glob=paths</text>
-<rect x="710" y="1063" width="54" height="30" rx="7" fill="rgba(252,211,77,.15)"/><text x="722" y="1083" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#FCD34D" font-weight="500">-p</text>
+<text x="428" y="842" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#A855F7" font-weight="700">05</text>
+<text x="458" y="842" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="17" fill="#F3F3F1" font-weight="650">Grep / Glob + CI</text>
+<text x="428" y="872" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Grep searches file contents</text>
+<text x="428" y="896" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Glob matches path patterns only</text>
+<text x="428" y="920" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Explore: Grep -&gt; Read matches</text>
+<text x="428" y="944" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· CI hang -&gt; -p / --print non-interactive</text>
+<text x="428" y="968" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Reject CLAUDE_HEADLESS / --batch flags</text>
+<rect x="424" y="1023" width="62" height="30" rx="7" fill="rgba(99,102,241,.18)"/><text x="436" y="1043" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#6366F1" font-weight="500">Grep</text>
+<rect x="494" y="1023" width="62" height="30" rx="7" fill="rgba(168,85,247,.18)"/><text x="506" y="1043" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A855F7" font-weight="500">Glob</text>
+<rect x="564" y="1023" width="48" height="30" rx="7" fill="rgba(252,211,77,.15)"/><text x="576" y="1043" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#FCD34D" font-weight="500">-p</text>
 <rect x="792" y="816" width="370" height="285" rx="11" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
 <rect x="792" y="816" width="4" height="285" rx="2" fill="#A855F7"/>
-<text x="806" y="838" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A855F7" font-weight="700">06</text>
-<text x="834" y="838" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#F3F3F1" font-weight="650">Team MCP vs personal</text>
-<text x="806" y="858" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· .mcp.json + ${ENV} shared on clone</text>
-<text x="806" y="878" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· ~/.claude.json personal / experimental</text>
-<text x="806" y="898" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· Secrets via ${ENV_VAR}</text>
-<text x="806" y="918" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#D4D2CE">· stdio / SSE / HTTP transports</text>
-<rect x="804" y="1063" width="110" height="30" rx="7" fill="rgba(99,102,241,.18)"/><text x="816" y="1083" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#6366F1" font-weight="500">.mcp.json</text>
-<rect x="922" y="1063" width="158" height="30" rx="7" fill="#1B122B"/><text x="934" y="1083" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A4A098" font-weight="500">~/.claude.json</text>
+<text x="806" y="842" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#A855F7" font-weight="700">06</text>
+<text x="836" y="842" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="17" fill="#F3F3F1" font-weight="650">Team MCP vs personal</text>
+<text x="806" y="872" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· .mcp.json + ${ENV} shared on clone</text>
+<text x="806" y="896" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· ~/.claude.json personal / experimental</text>
+<text x="806" y="920" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Secrets only via ${ENV_VAR} refs</text>
+<text x="806" y="944" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· stdio / SSE / HTTP transports</text>
+<text x="806" y="968" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="15" fill="#D4D2CE">· Team standards live in project file</text>
+<rect x="802" y="1023" width="110" height="30" rx="7" fill="rgba(99,102,241,.18)"/><text x="814" y="1043" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#6366F1" font-weight="500">.mcp.json</text>
+<rect x="920" y="1023" width="81" height="30" rx="7" fill="rgba(252,211,77,.15)"/><text x="932" y="1043" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#FCD34D" font-weight="500">${ENV}</text>
+<rect x="802" y="1059" width="158" height="30" rx="7" fill="#1B122B"/><text x="814" y="1079" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#A4A098" font-weight="500">~/.claude.json</text>
 
   <image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1105" width="72" height="67.3" preserveAspectRatio="xMidYMid meet"/>
   <text x="1164" y="1149" text-anchor="end" font-family="Geist, ui-sans-serif, system-ui, sans-serif"
         font-size="14" fill="#A4A098">Exam Guide v1.0 / Anthropic (facts)</text>
 
+<image href="ccarf-badge-purple.png" xlink:href="ccarf-badge-purple.png" x="1070" y="28" width="98" height="98" preserveAspectRatio="xMidYMid meet" opacity="0.92"/>
 </svg>
