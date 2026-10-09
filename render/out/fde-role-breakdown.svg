@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1200" viewBox="0 0 1200 1200">
+  <rect width="1200" height="1200" fill="#05010E"/>
+
+  
+  <defs>
+    <linearGradient id="specWheel" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="50%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#FCD34D"/>
+    </linearGradient>
+  </defs>
+  <rect x="48" y="36" width="260" height="4" rx="2.0" fill="url(#specWheel)"/>
+  <text x="48" y="68" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#A855F7"
+        letter-spacing="1.6" font-weight="600">FDE  ·  ONE ROLE, EIGHT JOBS</text>
+  <text x="48" y="114" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="42" fill="#F3F3F1"
+        font-weight="700">The Role of an FDE</text>
+  <text x="48" y="145" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="17" fill="#D4D2CE">Work that used to be split across separate roles</text>
+
+<line x1="475.5" y1="483.5" x2="380.0" y2="396.0" stroke="#A4A098" stroke-width="1.5"/>
+<circle cx="475.5" cy="483.5" r="3.5" fill="#A4A098"/>
+<circle cx="380.0" cy="396.0" r="3.5" fill="#A4A098"/>
+<line x1="600.0" y1="432.0" x2="600.0" y2="396.0" stroke="#A4A098" stroke-width="1.5"/>
+<circle cx="600.0" cy="432.0" r="3.5" fill="#A4A098"/>
+<circle cx="600.0" cy="396.0" r="3.5" fill="#A4A098"/>
+<line x1="724.5" y1="483.5" x2="820.0" y2="396.0" stroke="#A4A098" stroke-width="1.5"/>
+<circle cx="724.5" cy="483.5" r="3.5" fill="#A4A098"/>
+<circle cx="820.0" cy="396.0" r="3.5" fill="#A4A098"/>
+<line x1="776.0" y1="608.0" x2="796.0" y2="608.0" stroke="#A4A098" stroke-width="1.5"/>
+<circle cx="776.0" cy="608.0" r="3.5" fill="#A4A098"/>
+<circle cx="796.0" cy="608.0" r="3.5" fill="#A4A098"/>
+<line x1="732.9" y1="740.9" x2="820.0" y2="820.0" stroke="#A855F7" stroke-width="2.5"/>
+<circle cx="732.9" cy="740.9" r="3.5" fill="#A855F7"/>
+<circle cx="820.0" cy="820.0" r="3.5" fill="#A855F7"/>
+<line x1="600.0" y1="784.0" x2="600.0" y2="820.0" stroke="#A4A098" stroke-width="1.5"/>
+<circle cx="600.0" cy="784.0" r="3.5" fill="#A4A098"/>
+<circle cx="600.0" cy="820.0" r="3.5" fill="#A4A098"/>
+<line x1="475.5" y1="732.5" x2="380.0" y2="820.0" stroke="#A4A098" stroke-width="1.5"/>
+<circle cx="475.5" cy="732.5" r="3.5" fill="#A4A098"/>
+<circle cx="380.0" cy="820.0" r="3.5" fill="#A4A098"/>
+<line x1="424.0" y1="608.0" x2="404.0" y2="608.0" stroke="#A4A098" stroke-width="1.5"/>
+<circle cx="424.0" cy="608.0" r="3.5" fill="#A4A098"/>
+<circle cx="404.0" cy="608.0" r="3.5" fill="#A4A098"/>
+<path d="M 444.0 535.6 A 172 172 0 0 1 527.6 452.0 L 546.1 491.9 A 128 128 0 0 0 483.9 554.1 Z" fill="rgba(168,85,247,.22)" stroke="rgba(168,85,247,.55)" stroke-width="1.5"/>
+<text x="493.9" y="508.9" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#F3F3F1">01</text>
+<path d="M 540.9 446.5 A 172 172 0 0 1 659.1 446.5 L 644.0 487.8 A 128 128 0 0 0 556.0 487.8 Z" fill="rgba(168,85,247,.22)" stroke="rgba(168,85,247,.55)" stroke-width="1.5"/>
+<text x="600.0" y="465.0" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#F3F3F1">02</text>
+<path d="M 672.4 452.0 A 172 172 0 0 1 756.0 535.6 L 716.1 554.1 A 128 128 0 0 0 653.9 491.9 Z" fill="rgba(168,85,247,.22)" stroke="rgba(168,85,247,.55)" stroke-width="1.5"/>
+<text x="706.1" y="508.9" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#F3F3F1">03</text>
+<path d="M 761.5 548.9 A 172 172 0 0 1 761.5 667.1 L 720.2 652.0 A 128 128 0 0 0 720.2 564.0 Z" fill="rgba(168,85,247,.22)" stroke="rgba(168,85,247,.55)" stroke-width="1.5"/>
+<text x="750.0" y="615.0" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#F3F3F1">04</text>
+<path d="M 766.9 685.5 A 184 184 0 0 1 677.5 774.9 L 653.9 724.1 A 128 128 0 0 0 716.1 661.9 Z" fill="#A855F7"/>
+<text x="710.3" y="725.3" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#05010E">05</text>
+<path d="M 659.1 769.5 A 172 172 0 0 1 540.9 769.5 L 556.0 728.2 A 128 128 0 0 0 644.0 728.2 Z" fill="rgba(168,85,247,.22)" stroke="rgba(168,85,247,.55)" stroke-width="1.5"/>
+<text x="600.0" y="765.0" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#F3F3F1">06</text>
+<path d="M 527.6 764.0 A 172 172 0 0 1 444.0 680.4 L 483.9 661.9 A 128 128 0 0 0 546.1 724.1 Z" fill="rgba(168,85,247,.22)" stroke="rgba(168,85,247,.55)" stroke-width="1.5"/>
+<text x="493.9" y="721.1" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#F3F3F1">07</text>
+<path d="M 438.5 667.1 A 172 172 0 0 1 438.5 548.9 L 479.8 564.0 A 128 128 0 0 0 479.8 652.0 Z" fill="rgba(168,85,247,.22)" stroke="rgba(168,85,247,.55)" stroke-width="1.5"/>
+<text x="450.0" y="615.0" text-anchor="middle" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#F3F3F1">08</text>
+<circle cx="600" cy="608.0" r="116" fill="#160F24" stroke="#A855F7" stroke-width="2"/>
+<text x="600" y="554" text-anchor="middle" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="30" font-weight="700" fill="#F3F3F1">Forward</text>
+<text x="600" y="588" text-anchor="middle" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="30" font-weight="700" fill="#F3F3F1">Deployed</text>
+<text x="600" y="622" text-anchor="middle" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="30" font-weight="700" fill="#F3F3F1">Engineer</text>
+<text x="600" y="649" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">Owns the outcome,</text>
+<text x="600" y="672" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">not just the delivery</text>
+<rect x="36" y="164" width="384" height="232" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="58" y="203" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#A855F7" letter-spacing="1">01</text>
+<text x="58" y="241" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="700" fill="#F3F3F1">Pre-sales scoping</text>
+<text x="58" y="274" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">Shape the deal before it&apos;s signed</text>
+<line x1="58" y1="317" x2="398" y2="317" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="58" y="347" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="600" letter-spacing="1.6" fill="#A4A098">USED TO BE</text>
+<text x="58" y="372" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" fill="#F3F3F1">Sales / Solutions Engineer</text>
+<rect x="440" y="164" width="320" height="232" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="462" y="203" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#A855F7" letter-spacing="1">02</text>
+<text x="462" y="241" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="700" fill="#F3F3F1">Discovery</text>
+<text x="462" y="274" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">Find the real problem behind</text>
+<text x="462" y="299" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">the requested solution</text>
+<line x1="462" y1="317" x2="738" y2="317" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="462" y="347" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="600" letter-spacing="1.6" fill="#A4A098">USED TO BE</text>
+<text x="462" y="372" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" fill="#F3F3F1">Business Analyst</text>
+<rect x="780" y="164" width="384" height="232" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="802" y="203" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#A855F7" letter-spacing="1">03</text>
+<text x="802" y="241" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="700" fill="#F3F3F1">Alignment</text>
+<text x="802" y="274" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">Agree scope and success with</text>
+<text x="802" y="299" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">stakeholders</text>
+<line x1="802" y1="317" x2="1142" y2="317" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="802" y="347" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="600" letter-spacing="1.6" fill="#A4A098">USED TO BE</text>
+<text x="802" y="372" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" fill="#F3F3F1">Project / Delivery Manager</text>
+<rect x="796" y="492.0" width="368" height="232" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="818" y="531.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#A855F7" letter-spacing="1">04</text>
+<text x="818" y="569.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="700" fill="#F3F3F1">Solution design</text>
+<text x="818" y="602.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">Fit the build to the customer&apos;s stack</text>
+<line x1="818" y1="645.0" x2="1142" y2="645.0" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="818" y="675.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="600" letter-spacing="1.6" fill="#A4A098">USED TO BE</text>
+<text x="818" y="700.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" fill="#F3F3F1">Solutions Architect</text>
+<rect x="780" y="820" width="384" height="256" rx="16" fill="#1C1528" stroke="#A855F7" stroke-width="2"/>
+<text x="802" y="859" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#A855F7" letter-spacing="1">05</text>
+<rect x="1072.8" y="838" width="69.2" height="28" rx="8" fill="#A855F7"/>
+<text x="1083.8" y="858" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="700" letter-spacing="1.6" fill="#05010E">CORE</text>
+<text x="802" y="897" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="700" fill="#F3F3F1">Build</text>
+<text x="802" y="930" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">Production code, with coding agents</text>
+<text x="802" y="955" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">handling over 70% of it</text>
+<line x1="802" y1="997" x2="1142" y2="997" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="802" y="1027" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="600" letter-spacing="1.6" fill="#A4A098">USED TO BE</text>
+<text x="802" y="1052" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" fill="#F3F3F1">Software Engineer</text>
+<rect x="440" y="820" width="320" height="256" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="462" y="859" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#A855F7" letter-spacing="1">06</text>
+<text x="462" y="897" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="700" fill="#F3F3F1">Applied AI</text>
+<text x="462" y="930" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">Models, prompts, RAG, evals</text>
+<line x1="462" y1="997" x2="738" y2="997" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="462" y="1027" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="600" letter-spacing="1.6" fill="#A4A098">USED TO BE</text>
+<text x="462" y="1052" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" fill="#F3F3F1">ML / AI Engineer</text>
+<rect x="36" y="820" width="384" height="256" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="58" y="859" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#A855F7" letter-spacing="1">07</text>
+<text x="58" y="897" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="700" fill="#F3F3F1">Deploy and secure</text>
+<text x="58" y="930" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">Integrate inside the customer&apos;s</text>
+<text x="58" y="955" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">environment, with data access and</text>
+<text x="58" y="980" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">credentials</text>
+<line x1="58" y1="997" x2="398" y2="997" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="58" y="1027" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="600" letter-spacing="1.6" fill="#A4A098">USED TO BE</text>
+<text x="58" y="1052" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" fill="#F3F3F1">DevOps / Security Engineer</text>
+<rect x="36" y="492.0" width="368" height="232" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="58" y="531.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#A855F7" letter-spacing="1">08</text>
+<text x="58" y="569.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="700" fill="#F3F3F1">Support and feedback</text>
+<text x="58" y="602.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">Drive adoption, decide platform vs</text>
+<text x="58" y="627.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#D4D2CE">bespoke</text>
+<line x1="58" y1="645.0" x2="382" y2="645.0" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="58" y="675.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="600" letter-spacing="1.6" fill="#A4A098">USED TO BE</text>
+<text x="58" y="700.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" fill="#F3F3F1">Customer Success + Product Manager</text>
+
+  <image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1105" width="72" height="67.3" preserveAspectRatio="xMidYMid meet"/>
+  <text x="128" y="1146" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#A4A098">Based on the AICamp Sydney x Atlassian FDE panel, Sep 2026</text>
+
+  <image href="logo-aicamp-violet.png" xlink:href="logo-aicamp-violet.png" x="1034.0" y="51.4" width="130" height="25.2" preserveAspectRatio="xMaxYMid meet"/>
+  <image href="logo-atlassian-violet.png" xlink:href="logo-atlassian-violet.png" x="1024.0" y="1130.4" width="140" height="16.4" preserveAspectRatio="xMaxYMid meet"/>
+</svg>

@@ -564,12 +564,11 @@ WHEEL = [
     ("Support and feedback", "Drive adoption, decide platform vs bespoke", "Customer Success + Product Manager"),
 ]
 CORE_IDX = 4             # Build
-WHEEL_DESC = {4: "Production code, with coding agents handling over 70% of it"}   # wheel-only wording
 ANGLE0 = -45             # arc 01 centred at 10:30, then 45 deg clockwise per arc
 WCX, WCY = 600, 671      # ring centre (set again in gen_wheel)
-HUB_R = 116
-HUB_SHIFT = -6           # hub text block nudged up (top lines are narrower)
-RING_IN, RING_OUT, CORE_OUT = 128, 172, 184
+HUB_R = 104
+HUB_SHIFT = -8           # hub text block nudged up (top lines are narrower)
+RING_IN, RING_OUT, CORE_OUT = 114, 150, 162
 SEG_GAP_DEG = 2.4        # each side of every boundary
 VIOLET_A = "rgba(168,85,247,.22)"
 VIOLET_S = "rgba(168,85,247,.55)"
@@ -597,12 +596,9 @@ def arc_seg(r0, r1, a0, a1):
             f"L {x1i:.1f} {y1i:.1f} A {r0} {r0} 0 {large} 0 {x0i:.1f} {y0i:.1f} Z")
 
 
-def role_card(x, y, w, h, idx, roomy=False, desc_override=None):
-    """Card: number (+CORE), task, description (top-anchored); USED TO BE + role (bottom-anchored).
-    roomy=True: looser vertical rhythm plus a divider rule above USED TO BE."""
+def role_card(x, y, w, h, idx):
+    """Compact card: number (+CORE), task, description (top-anchored); USED TO BE + role (bottom-anchored)."""
     task, desc, role = WHEEL[idx]
-    if desc_override:
-        desc = desc_override
     core = idx == CORE_IDX
     pad = 22
     inner = w - 2 * pad
@@ -612,8 +608,7 @@ def role_card(x, y, w, h, idx, roomy=False, desc_override=None):
     else:
         p.append(card_box(x, y, w, h, 16))
     num = f"{idx + 1:02d}"
-    vpad = 24 if roomy else 20
-    nb = y + vpad + 15
+    nb = y + 20 + 15
     p.append(
         f'<text x="{x + pad}" y="{nb}" font-family="{MONO}" font-size="20" font-weight="700" '
         f'fill="{VIOLET}" letter-spacing="1">{num}</text>'
@@ -627,7 +622,7 @@ def role_card(x, y, w, h, idx, roomy=False, desc_override=None):
             f'<text x="{cx + 11:.1f}" y="{nb - 1}" font-family="{MONO}" font-size="17" font-weight="700" '
             f'letter-spacing="1.6" fill="{PITCH}">{lab}</text>'
         )
-    tb = nb + (38 if roomy else 34)
+    tb = nb + 34
     assert tw(task, "sans", 26, 700) <= inner, task
     p.append(
         f'<text x="{x + pad}" y="{tb}" font-family="{HEAD}" font-size="26" font-weight="700" '
@@ -636,20 +631,15 @@ def role_card(x, y, w, h, idx, roomy=False, desc_override=None):
     lines = wrap_px(desc, inner, "sans", 19)
     if len(lines) > 2:
         WARN.append(f"{num} description wraps to {len(lines)} lines at {inner}px")
-    db = tb + (33 if roomy else 30)
+    db = tb + 30
     for i, ln in enumerate(lines):
         p.append(
             f'<text x="{x + pad}" y="{db + i * 25}" font-family="{SANS}" font-size="19" fill="{SUB}">{esc(ln)}</text>'
         )
     last = db + (len(lines) - 1) * 25
-    rb = y + h - vpad
+    rb = y + h - 20
     lb = rb - 25
-    if roomy:
-        ry = lb - 30
-        assert last + 14 <= ry, f"{num} card tight: desc {last} vs rule {ry}"
-        p.append(f'<line x1="{x + pad}" y1="{ry}" x2="{x + w - pad}" y2="{ry}" stroke="{RULE}" stroke-width="1"/>')
-    else:
-        assert last + 30 <= lb, f"{num} card tight: desc {last} vs label {lb}"
+    assert last + 30 <= lb, f"{num} card tight: desc {last} vs label {lb}"
     p.append(
         f'<text x="{x + pad}" y="{lb}" font-family="{MONO}" font-size="17" font-weight="600" '
         f'letter-spacing="1.6" fill="{MUTE}">USED TO BE</text>'
@@ -702,7 +692,7 @@ def wheel(cards):
     p.append(f'<circle cx="{WCX}" cy="{WCY}" r="{HUB_R}" fill="{SURFACE}" stroke="{VIOLET}" stroke-width="2"/>')
     t_lines = ["Forward", "Deployed", "Engineer"]
     s_lines = ["Owns the outcome,", "not just the delivery"]
-    t_fs, s_fs, t_lh, s_lh = 30, 18, 34, 23
+    t_fs, s_fs, t_lh, s_lh = 30, 17, 32, 21
     block = (len(t_lines) - 1) * t_lh + 27 + (len(s_lines) - 1) * s_lh + 0.72 * t_fs
     top = WCY + HUB_SHIFT - block / 2 + 0.72 * t_fs
     sy0 = top + (len(t_lines) - 1) * t_lh + 27
@@ -722,20 +712,81 @@ def wheel(cards):
     return "\n".join(p)
 
 
+def timeline_band(x, y, w, h):
+    """Single-row engagement timeline: weeks 1-8 to scale (2:4:2), then an open-ended ongoing arrow."""
+    p = [card_box(x, y, w, h, 16)]
+    p.append(f'<rect x="{x}" y="{y + 16}" width="5" height="{h - 32}" rx="2.5" fill="{VIOLET}"/>')
+    lx = x + 28
+    ab = y + 31                                  # row A baseline (label, Implementation)
+    p.append(
+        f'<text x="{lx}" y="{ab}" font-family="{HEAD}" font-size="19" font-weight="700" '
+        f'fill="{BONE}">A 2-month minimum, and ongoing</text>'
+    )
+    x0, tip = lx, x + w - 22
+    x8 = 892
+    wk = (x8 - x0) / 8
+    by0, bh = y + 46, 30                          # bar row
+    bmid = by0 + bh / 2
+    nb = y + h - 17                               # row C baseline (names)
+    segs = [(0, 2, "Weeks 1-2", "Discovery and alignment", ".30"),
+            (2, 6, "Weeks 3-6", "Design and build", ".45"),
+            (6, 8, "Weeks 7-8", "Deploy", ".60")]
+    for w0, w1, wl, nm, op in segs:
+        sx0, sx1 = x0 + w0 * wk + (0 if w0 == 0 else 3), x0 + w1 * wk - (0 if w1 == 8 else 3)
+        p.append(
+            f'<rect x="{sx0:.1f}" y="{by0}" width="{sx1 - sx0:.1f}" height="{bh}" rx="8" '
+            f'fill="rgba(168,85,247,{op})" stroke="{VIOLET_S}" stroke-width="1.5"/>'
+        )
+        cx = (sx0 + sx1) / 2
+        assert tw(wl, "mono", 16, 700) + 16 < sx1 - sx0
+        assert tw(nm, "sans", 17) + 12 < sx1 - sx0, nm
+        p.append(
+            f'<text x="{cx:.1f}" y="{bmid + 6:.1f}" text-anchor="middle" font-family="{MONO}" font-size="16" '
+            f'font-weight="700" fill="{BONE}">{wl}</text>'
+        )
+        p.append(
+            f'<text x="{cx:.1f}" y="{nb}" text-anchor="middle" font-family="{SANS}" font-size="17" '
+            f'fill="{SUB}">{nm}</text>'
+        )
+    # ongoing: dashed line past week 8 with arrowhead at the far right
+    p.append(
+        f'<line x1="{x8 + 8}" y1="{bmid}" x2="{tip - 14}" y2="{bmid}" stroke="{VIOLET}" stroke-width="3" '
+        f'stroke-dasharray="9 7" stroke-linecap="round"/>'
+    )
+    p.append(f'<path d="M {tip} {bmid} L {tip - 16} {bmid - 9} L {tip - 16} {bmid + 9} Z" fill="{VIOLET}"/>')
+    ox = x8 + 18
+    assert ox + tw("Support and iterate, ongoing", "sans", 17) < tip
+    p.append(
+        f'<text x="{ox}" y="{nb}" font-family="{SANS}" font-size="17" fill="{SUB}">Support and iterate, ongoing</text>'
+    )
+    # week-8 tick + label
+    p.append(f'<line x1="{x8}" y1="{by0 - 10}" x2="{x8}" y2="{by0 + bh + 10}" stroke="{AMBER}" stroke-width="3" stroke-linecap="round"/>')
+    il = "Implementation"
+    p.append(
+        f'<text x="{x8 + 12}" y="{ab}" font-family="{SANS}" font-size="16" font-weight="700" '
+        f'fill="{BONE}">{il}</text>'
+    )
+    assert lx + tw("A 2-month minimum, and ongoing", "sans", 19, 700) + 30 < x8
+    CHECK_BOXES.append(("timeline", x, y, x + w, y + h))
+    return "\n".join(p)
+
+
 def gen_wheel(logos=(130, 140)):
     global WCY
     CHECK_BOXES.clear()
     parts = [header("FDE  ·  ONE ROLE, EIGHT JOBS", "The Role of an FDE",
                     "Work that used to be split across separate roles", "specWheel")]
-    top_y = BODY_TOP
-    top_h, bot_h = 232, 256                # bottom row holds the 3-line 07 description
+    band_h = 108
+    parts.append(timeline_band(MARGIN, BODY_TOP, W - 2 * MARGIN, band_h))
+    top_y = BODY_TOP + band_h + 18
+    top_h, bot_h = 204, 228                # bottom row holds the 3-line 07 description
     bot_y = BODY_BOT - bot_h
     WCY = (top_y + top_h + bot_y) / 2
     wo, wm = 384, 320                      # outer / middle card widths in top and bottom rows
     xl, xm, xr = MARGIN, MARGIN + wo + GUT, MARGIN + wo + GUT + wm + GUT
     assert xr + wo == W - MARGIN
     side_w = WCX - RING_OUT - 24 - MARGIN
-    side_h = 232
+    side_h = 204
     side_y = WCY - side_h / 2
     cards = {
         0: (xl, top_y, wo, top_h), 1: (xm, top_y, wm, top_h), 2: (xr, top_y, wo, top_h),
@@ -745,7 +796,7 @@ def gen_wheel(logos=(130, 140)):
     }
     parts.append(wheel(cards))
     for idx, box in cards.items():
-        parts.append(role_card(*box, idx, roomy=True, desc_override=WHEEL_DESC.get(idx)))
+        parts.append(role_card(*box, idx))
     parts.append(footer("Based on the AICamp Sydney x Atlassian FDE panel, Sep 2026"))
     parts.append(corner_logos(*logos))
     # geometry checks: everything inside body, clear of ring, logos and each other
@@ -764,158 +815,6 @@ def gen_wheel(logos=(130, 140)):
         for b in CHECK_BOXES[i + 1:]:
             assert a[3] <= b[1] or b[3] <= a[1] or a[4] <= b[2] or b[4] <= a[2], (a[0], b[0])
     return wrap_svg("\n".join(parts))
-
-# ---------------------------------------------------------------- graphic 4
-
-SNAKE_XL, SNAKE_XR, SNAKE_R = 44, 1156, 56     # left / right bend verticals, corner radius
-NODE_R, CORE_NODE_R = 20, 25
-PILL_H = 30
-
-
-def pill(cx, cy, text, items, name):
-    pw = tw(text, "mono", 16, 700) + 24
-    x0 = cx - pw / 2
-    items.append((name, x0, cy - PILL_H / 2, x0 + pw, cy + PILL_H / 2))
-    return (
-        f'<rect x="{x0:.1f}" y="{cy - PILL_H / 2:.1f}" width="{pw:.1f}" height="{PILL_H}" rx="{PILL_H / 2}" '
-        f'fill="{SURFACE2}" stroke="{VIOLET}" stroke-width="2"/>'
-        f'<text x="{cx:.1f}" y="{cy + 6:.1f}" text-anchor="middle" font-family="{MONO}" font-size="16" '
-        f'font-weight="700" fill="{BONE}">{esc(text)}</text>'
-    )
-
-
-def above_label(x, line_y, text, items, name, anchor="middle", fs=17, wt=600, col=None):
-    col = col or SUB
-    w_ = tw(text, "sans", fs, wt)
-    x0 = {"middle": x - w_ / 2, "start": x, "end": x - w_}[anchor]
-    yb = line_y - 28
-    items.append((name, x0, yb - 0.75 * fs, x0 + w_, yb + 0.25 * fs))
-    return (
-        f'<text x="{x:.1f}" y="{yb:.1f}" text-anchor="{anchor}" font-family="{SANS}" font-size="{fs}" '
-        f'font-weight="{wt}" fill="{col}">{esc(text)}</text>'
-    )
-
-
-def node(cx, cy, idx, items):
-    core = idx == CORE_IDX
-    r = CORE_NODE_R if core else NODE_R
-    items.append((f"node{idx + 1:02d}", cx - r, cy - r, cx + r, cy + r))
-    out = []
-    if core:
-        out.append(f'<circle cx="{cx:.1f}" cy="{cy}" r="{r + 7}" fill="none" stroke="{VIOLET}" stroke-width="2" stroke-dasharray="3 4"/>')
-        out.append(f'<circle cx="{cx:.1f}" cy="{cy}" r="{r}" fill="{VIOLET}"/>')
-        tc = PITCH
-    else:
-        out.append(f'<circle cx="{cx:.1f}" cy="{cy}" r="{r}" fill="{PITCH}" stroke="{VIOLET}" stroke-width="3"/>')
-        tc = BONE
-    out.append(
-        f'<text x="{cx:.1f}" y="{cy + 6}" text-anchor="middle" font-family="{MONO}" font-size="16" '
-        f'font-weight="700" fill="{tc}">{idx + 1:02d}</text>'
-    )
-    return "".join(out)
-
-
-def gen_snake(logos=(130, 140)):
-    CHECK_BOXES.clear()
-    items = []          # labels / pills / nodes on or above the path
-    lines = []          # path segments as boxes (for card / label clearance)
-    parts = [header("FDE  ·  ONE ROLE, EIGHT JOBS", "The Role of an FDE",
-                    "A 2-month minimum, and ongoing", "specSnake")]
-    ch = 208                                  # card height
-    drop, rise = 40, 56                       # line -> card top, card bottom -> next line
-    L1 = BODY_BOT - 3 * (drop + ch) - 2 * rise
-    L2 = L1 + drop + ch + rise
-    L3 = L2 + drop + ch + rise
-    XL, XR, R = SNAKE_XL, SNAKE_XR, SNAKE_R
-    # card boxes
-    cw = (XR - 52 - (XL + 52) - 2 * GUT) / 3  # rows 1-2: 96..1104
-    x_in = XL + 52
-    cols = [x_in + i * (cw + GUT) for i in range(3)]
-    row3_w = (W - 2 * MARGIN - 48) / 2
-    t_impl = MARGIN + row3_w + 24              # Implementation tick x (centre of the row-3 gap)
-    boxes = {
-        0: (cols[0], L1 + drop, cw, ch), 1: (cols[1], L1 + drop, cw, ch), 2: (cols[2], L1 + drop, cw, ch),
-        3: (cols[2], L2 + drop, cw, ch), 4: (cols[1], L2 + drop, cw, ch), 5: (cols[0], L2 + drop, cw, ch),
-        6: (MARGIN, L3 + drop, row3_w, ch), 7: (W - MARGIN - row3_w, L3 + drop, row3_w, ch),
-    }
-    tip = W - MARGIN
-    # ---- path (solid through week 8, dashed after)
-    solid = (f"M {XL} {L1} H {XR - R} A {R} {R} 0 0 1 {XR} {L1 + R} V {L2 - R} "
-             f"A {R} {R} 0 0 1 {XR - R} {L2} H {XL + R} A {R} {R} 0 0 0 {XL} {L2 + R} V {L3 - R} "
-             f"A {R} {R} 0 0 0 {XL + R} {L3} H {t_impl:.1f}")
-    parts.append(f'<path d="{solid}" fill="none" stroke="{VIOLET}" stroke-width="5" stroke-linejoin="round"/>')
-    parts.append(
-        f'<line x1="{t_impl + 8:.1f}" y1="{L3}" x2="{tip - 18}" y2="{L3}" stroke="{VIOLET}" stroke-width="5" '
-        f'stroke-dasharray="12 9" stroke-linecap="round"/>'
-    )
-    parts.append(f'<path d="M {tip} {L3} L {tip - 20} {L3 - 12} L {tip - 20} {L3 + 12} Z" fill="{VIOLET}"/>')
-    parts.append(f'<circle cx="{XL}" cy="{L1}" r="8" fill="{VIOLET}"/>')
-    lw = 4
-    lines += [("row1", XL, L1 - lw, XR - R, L1 + lw), ("row2", XL + R, L2 - lw, XR - R, L2 + lw),
-              ("row3", XL + R, L3 - lw, tip, L3 + lw),
-              ("bendR", XR - lw, L1 + R, XR + lw, L2 - R), ("bendL", XL - lw, L2 + R, XL + lw, L3 - R)]
-    # ---- stems + nodes
-    node_x = {}
-    for idx, (x, y, w, h) in boxes.items():
-        line_y = y - drop
-        cx = x + w / 2
-        node_x[idx] = cx
-        r = CORE_NODE_R if idx == CORE_IDX else NODE_R
-        col = VIOLET if idx == CORE_IDX else VIOLET_S
-        parts.append(f'<line x1="{cx:.1f}" y1="{line_y + r}" x2="{cx:.1f}" y2="{y}" stroke="{col}" stroke-width="{3 if idx == CORE_IDX else 2}"/>')
-    # ---- time markers on the path (pills sit on the line at each phase start; names above the line)
-    p_w0 = XL + 18 + (tw("WEEK 0", "mono", 16, 700) + 24) / 2
-    parts.append(pill(p_w0, L1, "WEEK 0", items, "pill-w0"))
-    parts.append(above_label(XL - 6, L1, "Before signing", items, "lab-w0", anchor="start"))
-    g12 = cols[0] + cw + GUT / 2
-    parts.append(pill(g12, L1, "WEEKS 1-2", items, "pill-w12"))
-    parts.append(above_label(g12, L1, "Discovery and alignment", items, "lab-w12"))
-    g36 = (XR - R + node_x[3] + NODE_R) / 2
-    parts.append(pill(g36, L2, "WEEKS 3-6", items, "pill-w36"))
-    parts.append(above_label(XR - 32, L2, "Design and build", items, "lab-w36", anchor="end"))
-    g78 = (XL + R + node_x[6] - NODE_R) / 2
-    parts.append(pill(g78, L3, "WEEKS 7-8", items, "pill-w78"))
-    parts.append(above_label(g78, L3, "Deploy", items, "lab-w78"))
-    # week-8 milestone
-    parts.append(
-        f'<line x1="{t_impl:.1f}" y1="{L3 - 30}" x2="{t_impl:.1f}" y2="{L3 + 26}" stroke="{AMBER}" '
-        f'stroke-width="4" stroke-linecap="round"/>'
-    )
-    items.append(("tick", t_impl - 2, L3 - 30, t_impl + 2, L3 + 26))
-    parts.append(above_label(t_impl - 14, L3, "Implementation", items, "lab-impl", anchor="end", col=BONE, wt=700))
-    parts.append(above_label(t_impl + 14, L3, "Support and iterate, ongoing", items, "lab-ongoing", anchor="start"))
-    g_on = (t_impl + node_x[7] - NODE_R) / 2
-    parts.append(pill(g_on, L3, "ONGOING", items, "pill-ongoing"))
-    # nodes on top of the path
-    for idx, (x, y, w, h) in boxes.items():
-        parts.append(node(node_x[idx], y - drop, idx, items))
-    # cards
-    for idx, box in boxes.items():
-        parts.append(role_card(*box, idx))
-    parts.append(footer("Based on the AICamp Sydney x Atlassian FDE panel, Sep 2026"))
-    parts.append(corner_logos(*logos))
-
-    # ---- collision checks
-    def hit(a, b, m=0):
-        return not (a[3] + m <= b[1] or b[3] + m <= a[1] or a[4] + m <= b[2] or b[4] + m <= a[2])
-    cards = list(CHECK_BOXES)
-    hdr = ("header", 0, 0, W, 150)
-    lf = ("lf-mark", 36, 1105, 108, 1173)
-    logos_b = [(fn, lx, ly, lx + lw_, ly + lh) for fn, lx, ly, lw_, lh in LOGO_BOXES]
-    everything = cards + items + lines
-    for e in everything:
-        assert e[1] >= MARGIN - 8 and e[3] <= W - MARGIN and e[2] >= 150 and e[4] <= BODY_BOT, e
-        for f in [hdr, lf] + logos_b:
-            assert not hit(e, f), (e[0], f[0])
-    solid_things = cards + items
-    for i, a in enumerate(solid_things):
-        for b in solid_things[i + 1:]:
-            assert not hit(a, b, 6), (a[0], b[0])
-    for c in cards + [i_ for i_ in items if i_[0].startswith("lab")]:
-        for ln in lines:
-            assert not hit(c, ln, 6), (c[0], ln[0])
-    return wrap_svg("\n".join(parts))
-
 
 def check_bad(s: str, name: str):
     for ch in ("\u2014", "\u2013"):
@@ -936,12 +835,6 @@ def main():
     svg = gen_wheel(LOGO_SIZES["-logos-lg"])
     check_bad(svg, "fde-role-breakdown")
     path = OUT / "fde-role-breakdown.svg"
-    path.write_text(svg)
-    print(f"wrote {path}  logos {LOGO_BOXES}")
-    LOGO_BOXES.clear()
-    svg = gen_snake(LOGO_SIZES["-logos-lg"])
-    check_bad(svg, "fde-role-timeline")
-    path = OUT / "fde-role-timeline.svg"
     path.write_text(svg)
     print(f"wrote {path}  logos {LOGO_BOXES}")
     for w_ in WARN:

@@ -564,11 +564,8 @@ WHEEL = [
     ("Support and feedback", "Drive adoption, decide platform vs bespoke", "Customer Success + Product Manager"),
 ]
 CORE_IDX = 4             # Build
-WHEEL_DESC = {4: "Production code, with coding agents handling over 70% of it"}   # wheel-only wording
-ANGLE0 = -45             # arc 01 centred at 10:30, then 45 deg clockwise per arc
-WCX, WCY = 600, 671      # ring centre (set again in gen_wheel)
+WCX, WCY = 600, 620      # ring centre
 HUB_R = 116
-HUB_SHIFT = -6           # hub text block nudged up (top lines are narrower)
 RING_IN, RING_OUT, CORE_OUT = 128, 172, 184
 SEG_GAP_DEG = 2.4        # each side of every boundary
 VIOLET_A = "rgba(168,85,247,.22)"
@@ -576,10 +573,6 @@ VIOLET_S = "rgba(168,85,247,.55)"
 CHECK_BOXES = []         # (name, x0, y0, x1, y1) for overlap checks
 
 import math
-
-
-def seg_angle(idx):
-    return ANGLE0 + idx * 45
 
 
 def polar(r, deg):
@@ -597,14 +590,10 @@ def arc_seg(r0, r1, a0, a1):
             f"L {x1i:.1f} {y1i:.1f} A {r0} {r0} 0 {large} 0 {x0i:.1f} {y0i:.1f} Z")
 
 
-def role_card(x, y, w, h, idx, roomy=False, desc_override=None):
-    """Card: number (+CORE), task, description (top-anchored); USED TO BE + role (bottom-anchored).
-    roomy=True: looser vertical rhythm plus a divider rule above USED TO BE."""
+def role_card(x, y, w, h, idx):
     task, desc, role = WHEEL[idx]
-    if desc_override:
-        desc = desc_override
     core = idx == CORE_IDX
-    pad = 22
+    pad = 24
     inner = w - 2 * pad
     p = []
     if core:
@@ -612,22 +601,20 @@ def role_card(x, y, w, h, idx, roomy=False, desc_override=None):
     else:
         p.append(card_box(x, y, w, h, 16))
     num = f"{idx + 1:02d}"
-    vpad = 24 if roomy else 20
-    nb = y + vpad + 15
     p.append(
-        f'<text x="{x + pad}" y="{nb}" font-family="{MONO}" font-size="20" font-weight="700" '
+        f'<text x="{x + pad}" y="{y + pad + 15}" font-family="{MONO}" font-size="20" font-weight="700" '
         f'fill="{VIOLET}" letter-spacing="1">{num}</text>'
     )
     if core:
         lab = "CORE"
         cw = tw(lab, "mono", 17, 700) + 4 * 1.6 + 22
         cx = x + w - pad - cw
-        p.append(f'<rect x="{cx:.1f}" y="{nb - 21}" width="{cw:.1f}" height="28" rx="8" fill="{VIOLET}"/>')
+        p.append(f'<rect x="{cx:.1f}" y="{y + pad - 6}" width="{cw:.1f}" height="28" rx="8" fill="{VIOLET}"/>')
         p.append(
-            f'<text x="{cx + 11:.1f}" y="{nb - 1}" font-family="{MONO}" font-size="17" font-weight="700" '
+            f'<text x="{cx + 11:.1f}" y="{y + pad + 14}" font-family="{MONO}" font-size="17" font-weight="700" '
             f'letter-spacing="1.6" fill="{PITCH}">{lab}</text>'
         )
-    tb = nb + (38 if roomy else 34)
+    tb = y + pad + 15 + 38
     assert tw(task, "sans", 26, 700) <= inner, task
     p.append(
         f'<text x="{x + pad}" y="{tb}" font-family="{HEAD}" font-size="26" font-weight="700" '
@@ -636,20 +623,18 @@ def role_card(x, y, w, h, idx, roomy=False, desc_override=None):
     lines = wrap_px(desc, inner, "sans", 19)
     if len(lines) > 2:
         WARN.append(f"{num} description wraps to {len(lines)} lines at {inner}px")
-    db = tb + (33 if roomy else 30)
+    db = tb + 33
     for i, ln in enumerate(lines):
         p.append(
             f'<text x="{x + pad}" y="{db + i * 25}" font-family="{SANS}" font-size="19" fill="{SUB}">{esc(ln)}</text>'
         )
     last = db + (len(lines) - 1) * 25
-    rb = y + h - vpad
-    lb = rb - 25
-    if roomy:
-        ry = lb - 30
-        assert last + 14 <= ry, f"{num} card tight: desc {last} vs rule {ry}"
-        p.append(f'<line x1="{x + pad}" y1="{ry}" x2="{x + w - pad}" y2="{ry}" stroke="{RULE}" stroke-width="1"/>')
-    else:
-        assert last + 30 <= lb, f"{num} card tight: desc {last} vs label {lb}"
+    rb = y + h - 24
+    lb = rb - 28
+    ry = lb - 30
+    if last + 14 > ry:
+        WARN.append(f"{num} card tight: desc {last} vs rule {ry}")
+    p.append(f'<line x1="{x + pad}" y1="{ry}" x2="{x + w - pad}" y2="{ry}" stroke="{RULE}" stroke-width="1"/>')
     p.append(
         f'<text x="{x + pad}" y="{lb}" font-family="{MONO}" font-size="17" font-weight="600" '
         f'letter-spacing="1.6" fill="{MUTE}">USED TO BE</text>'
@@ -664,13 +649,15 @@ def role_card(x, y, w, h, idx, roomy=False, desc_override=None):
 
 
 def wheel(cards):
-    """cards: idx -> (x, y, w, h). Draws leaders, ring, hub."""
+    """cards: idx -> (x, y, w, h). Draws ring, hub, leaders."""
     p = []
+    # leaders first (under ring / cards)
     for idx, (x, y, w, h) in cards.items():
-        mid = seg_angle(idx)
+        mid = idx * 45
         r_start = (CORE_OUT if idx == CORE_IDX else RING_OUT) + 4
         sx, sy = polar(r_start, mid)
-        if abs(sy - WCY) < 1:                      # side cards (3 and 9 o'clock)
+        # target: nearest point on the facing card edge
+        if abs(sy - WCY) < 1:                      # side cards
             tx, ty = (x + w if sx > x + w else x), WCY
         else:
             ty = y + h if sy > y + h else y
@@ -678,14 +665,14 @@ def wheel(cards):
                 tx = sx
             else:
                 tx = x + w - 40 if sx > x + w else x + 40
-        assert (y <= ty <= y + h) and (x <= tx <= x + w), f"leader {idx + 1} misses its card"
         col = VIOLET if idx == CORE_IDX else MUTE
         sw = 2.5 if idx == CORE_IDX else 1.5
         p.append(f'<line x1="{sx:.1f}" y1="{sy:.1f}" x2="{tx:.1f}" y2="{ty:.1f}" stroke="{col}" stroke-width="{sw}"/>')
         p.append(f'<circle cx="{sx:.1f}" cy="{sy:.1f}" r="3.5" fill="{col}"/>')
         p.append(f'<circle cx="{tx:.1f}" cy="{ty:.1f}" r="3.5" fill="{col}"/>')
+    # ring segments, centred on 12, 1:30, 3 ... o'clock
     for idx in range(8):
-        mid = seg_angle(idx)
+        mid = idx * 45
         a0, a1 = mid - 22.5 + SEG_GAP_DEG, mid + 22.5 - SEG_GAP_DEG
         if idx == CORE_IDX:
             p.append(f'<path d="{arc_seg(RING_IN, CORE_OUT, a0, a1)}" fill="{VIOLET}"/>')
@@ -696,224 +683,75 @@ def wheel(cards):
         r_lab = (RING_IN + (CORE_OUT if idx == CORE_IDX else RING_OUT)) / 2
         lx, ly = polar(r_lab, mid)
         p.append(
-            f'<text x="{lx:.1f}" y="{ly + 7:.1f}" text-anchor="middle" font-family="{MONO}" font-size="20" '
+            f'<text x="{lx:.1f}" y="{ly + 8:.1f}" text-anchor="middle" font-family="{MONO}" font-size="22" '
             f'font-weight="700" fill="{tc}">{idx + 1:02d}</text>'
         )
+    # hub
     p.append(f'<circle cx="{WCX}" cy="{WCY}" r="{HUB_R}" fill="{SURFACE}" stroke="{VIOLET}" stroke-width="2"/>')
     t_lines = ["Forward", "Deployed", "Engineer"]
     s_lines = ["Owns the outcome,", "not just the delivery"]
-    t_fs, s_fs, t_lh, s_lh = 30, 18, 34, 23
-    block = (len(t_lines) - 1) * t_lh + 27 + (len(s_lines) - 1) * s_lh + 0.72 * t_fs
-    top = WCY + HUB_SHIFT - block / 2 + 0.72 * t_fs
-    sy0 = top + (len(t_lines) - 1) * t_lh + 27
-    rows = ([(l, top + i * t_lh, t_fs, 700) for i, l in enumerate(t_lines)]
-            + [(l, sy0 + i * s_lh, s_fs, 400) for i, l in enumerate(s_lines)])
-    for ln, yb, fs, wt in rows:
-        col, fam = (BONE, HEAD) if wt == 700 else (SUB, SANS)
+    t_lh, s_lh = 34, 23
+    block = (len(t_lines) - 1) * t_lh + 30 + (len(s_lines) - 1) * s_lh + 0.72 * 30
+    top = WCY - block / 2 + 0.72 * 30
+    for i, ln in enumerate(t_lines):
+        yb = top + i * t_lh
         p.append(
-            f'<text x="{WCX}" y="{yb:.0f}" text-anchor="middle" font-family="{fam}" font-size="{fs}" '
-            f'font-weight="{wt}" fill="{col}">{esc(ln)}</text>'
+            f'<text x="{WCX}" y="{yb:.0f}" text-anchor="middle" font-family="{HEAD}" font-size="30" '
+            f'font-weight="700" fill="{BONE}">{ln}</text>'
         )
-        half = tw(ln, "sans", fs, wt) / 2
+    sy0 = top + (len(t_lines) - 1) * t_lh + 30
+    for i, ln in enumerate(s_lines):
+        p.append(
+            f'<text x="{WCX}" y="{sy0 + i * s_lh:.0f}" text-anchor="middle" font-family="{SANS}" font-size="18" '
+            f'fill="{SUB}">{esc(ln)}</text>'
+        )
+    # hub fit check: every line's half width inside the circle chord at its height
+    for ln, yb, fs, kind, wt in ([(l, top + i * t_lh, 30, "sans", 700) for i, l in enumerate(t_lines)]
+                                 + [(l, sy0 + i * s_lh, 18, "sans", 400) for i, l in enumerate(s_lines)]):
+        half = tw(ln, kind, fs, wt) / 2
         for yy in (yb, yb - 0.72 * fs):
-            chord = math.sqrt(max(HUB_R ** 2 - (yy - WCY) ** 2, 0)) - 8
+            dy = abs(yy - WCY)
+            chord = math.sqrt(max(HUB_R ** 2 - dy ** 2, 0)) - 8
             if half > chord:
                 WARN.append(f"hub line '{ln}' too wide ({half:.0f} > {chord:.0f})")
     return "\n".join(p)
 
 
 def gen_wheel(logos=(130, 140)):
-    global WCY
     CHECK_BOXES.clear()
-    parts = [header("FDE  ·  ONE ROLE, EIGHT JOBS", "The Role of an FDE",
+    parts = [header("FDE  ·  ONE ROLE, EIGHT JOBS", "What an FDE actually does",
                     "Work that used to be split across separate roles", "specWheel")]
+    row_h = 244
     top_y = BODY_TOP
-    top_h, bot_h = 232, 256                # bottom row holds the 3-line 07 description
-    bot_y = BODY_BOT - bot_h
-    WCY = (top_y + top_h + bot_y) / 2
-    wo, wm = 384, 320                      # outer / middle card widths in top and bottom rows
+    bot_y = BODY_BOT - row_h
+    wo, wm = 384, 320                     # outer / middle card widths in top and bottom rows
     xl, xm, xr = MARGIN, MARGIN + wo + GUT, MARGIN + wo + GUT + wm + GUT
     assert xr + wo == W - MARGIN
-    side_w = WCX - RING_OUT - 24 - MARGIN
-    side_h = 232
+    side_w = WCX - RING_OUT - 30 - MARGIN
+    side_h = 272
     side_y = WCY - side_h / 2
     cards = {
-        0: (xl, top_y, wo, top_h), 1: (xm, top_y, wm, top_h), 2: (xr, top_y, wo, top_h),
-        3: (W - MARGIN - side_w, side_y, side_w, side_h),
-        4: (xr, bot_y, wo, bot_h), 5: (xm, bot_y, wm, bot_h), 6: (xl, bot_y, wo, bot_h),
-        7: (MARGIN, side_y, side_w, side_h),
+        7: (xl, top_y, wo, row_h), 0: (xm, top_y, wm, row_h), 1: (xr, top_y, wo, row_h),
+        6: (MARGIN, side_y, side_w, side_h), 2: (W - MARGIN - side_w, side_y, side_w, side_h),
+        5: (xl, bot_y, wo, row_h), 4: (xm, bot_y, wm, row_h), 3: (xr, bot_y, wo, row_h),
     }
     parts.append(wheel(cards))
     for idx, box in cards.items():
-        parts.append(role_card(*box, idx, roomy=True, desc_override=WHEEL_DESC.get(idx)))
-    parts.append(footer("Based on the AICamp Sydney x Atlassian FDE panel, Sep 2026"))
-    parts.append(corner_logos(*logos))
-    # geometry checks: everything inside body, clear of ring, logos and each other
-    for n, x0, y0, x1, y1 in CHECK_BOXES:
-        assert y0 >= BODY_TOP and y1 <= BODY_BOT and x0 >= MARGIN and x1 <= W - MARGIN, n
-        dx = max(x0 - WCX, 0, WCX - x1)
-        dy = max(y0 - WCY, 0, WCY - y1)
-        assert math.hypot(dx, dy) > RING_OUT + 12, f"{n} touches ring"
-        ca = seg_angle(CORE_IDX)
-        for k in range(21):                      # protruding Build arc outer edge
-            px, py = polar(CORE_OUT, ca - 22.5 + 45 * k / 20)
-            assert not (x0 - 12 < px < x1 + 12 and y0 - 12 < py < y1 + 12), f"{n} touches Build arc"
-        for fn, lx, ly, lw, lh in LOGO_BOXES:
-            assert x1 < lx or x0 > lx + lw or y1 < ly or y0 > ly + lh, f"{n} hits {fn}"
-    for i, a in enumerate(CHECK_BOXES):
-        for b in CHECK_BOXES[i + 1:]:
-            assert a[3] <= b[1] or b[3] <= a[1] or a[4] <= b[2] or b[4] <= a[2], (a[0], b[0])
-    return wrap_svg("\n".join(parts))
-
-# ---------------------------------------------------------------- graphic 4
-
-SNAKE_XL, SNAKE_XR, SNAKE_R = 44, 1156, 56     # left / right bend verticals, corner radius
-NODE_R, CORE_NODE_R = 20, 25
-PILL_H = 30
-
-
-def pill(cx, cy, text, items, name):
-    pw = tw(text, "mono", 16, 700) + 24
-    x0 = cx - pw / 2
-    items.append((name, x0, cy - PILL_H / 2, x0 + pw, cy + PILL_H / 2))
-    return (
-        f'<rect x="{x0:.1f}" y="{cy - PILL_H / 2:.1f}" width="{pw:.1f}" height="{PILL_H}" rx="{PILL_H / 2}" '
-        f'fill="{SURFACE2}" stroke="{VIOLET}" stroke-width="2"/>'
-        f'<text x="{cx:.1f}" y="{cy + 6:.1f}" text-anchor="middle" font-family="{MONO}" font-size="16" '
-        f'font-weight="700" fill="{BONE}">{esc(text)}</text>'
-    )
-
-
-def above_label(x, line_y, text, items, name, anchor="middle", fs=17, wt=600, col=None):
-    col = col or SUB
-    w_ = tw(text, "sans", fs, wt)
-    x0 = {"middle": x - w_ / 2, "start": x, "end": x - w_}[anchor]
-    yb = line_y - 28
-    items.append((name, x0, yb - 0.75 * fs, x0 + w_, yb + 0.25 * fs))
-    return (
-        f'<text x="{x:.1f}" y="{yb:.1f}" text-anchor="{anchor}" font-family="{SANS}" font-size="{fs}" '
-        f'font-weight="{wt}" fill="{col}">{esc(text)}</text>'
-    )
-
-
-def node(cx, cy, idx, items):
-    core = idx == CORE_IDX
-    r = CORE_NODE_R if core else NODE_R
-    items.append((f"node{idx + 1:02d}", cx - r, cy - r, cx + r, cy + r))
-    out = []
-    if core:
-        out.append(f'<circle cx="{cx:.1f}" cy="{cy}" r="{r + 7}" fill="none" stroke="{VIOLET}" stroke-width="2" stroke-dasharray="3 4"/>')
-        out.append(f'<circle cx="{cx:.1f}" cy="{cy}" r="{r}" fill="{VIOLET}"/>')
-        tc = PITCH
-    else:
-        out.append(f'<circle cx="{cx:.1f}" cy="{cy}" r="{r}" fill="{PITCH}" stroke="{VIOLET}" stroke-width="3"/>')
-        tc = BONE
-    out.append(
-        f'<text x="{cx:.1f}" y="{cy + 6}" text-anchor="middle" font-family="{MONO}" font-size="16" '
-        f'font-weight="700" fill="{tc}">{idx + 1:02d}</text>'
-    )
-    return "".join(out)
-
-
-def gen_snake(logos=(130, 140)):
-    CHECK_BOXES.clear()
-    items = []          # labels / pills / nodes on or above the path
-    lines = []          # path segments as boxes (for card / label clearance)
-    parts = [header("FDE  ·  ONE ROLE, EIGHT JOBS", "The Role of an FDE",
-                    "A 2-month minimum, and ongoing", "specSnake")]
-    ch = 208                                  # card height
-    drop, rise = 40, 56                       # line -> card top, card bottom -> next line
-    L1 = BODY_BOT - 3 * (drop + ch) - 2 * rise
-    L2 = L1 + drop + ch + rise
-    L3 = L2 + drop + ch + rise
-    XL, XR, R = SNAKE_XL, SNAKE_XR, SNAKE_R
-    # card boxes
-    cw = (XR - 52 - (XL + 52) - 2 * GUT) / 3  # rows 1-2: 96..1104
-    x_in = XL + 52
-    cols = [x_in + i * (cw + GUT) for i in range(3)]
-    row3_w = (W - 2 * MARGIN - 48) / 2
-    t_impl = MARGIN + row3_w + 24              # Implementation tick x (centre of the row-3 gap)
-    boxes = {
-        0: (cols[0], L1 + drop, cw, ch), 1: (cols[1], L1 + drop, cw, ch), 2: (cols[2], L1 + drop, cw, ch),
-        3: (cols[2], L2 + drop, cw, ch), 4: (cols[1], L2 + drop, cw, ch), 5: (cols[0], L2 + drop, cw, ch),
-        6: (MARGIN, L3 + drop, row3_w, ch), 7: (W - MARGIN - row3_w, L3 + drop, row3_w, ch),
-    }
-    tip = W - MARGIN
-    # ---- path (solid through week 8, dashed after)
-    solid = (f"M {XL} {L1} H {XR - R} A {R} {R} 0 0 1 {XR} {L1 + R} V {L2 - R} "
-             f"A {R} {R} 0 0 1 {XR - R} {L2} H {XL + R} A {R} {R} 0 0 0 {XL} {L2 + R} V {L3 - R} "
-             f"A {R} {R} 0 0 0 {XL + R} {L3} H {t_impl:.1f}")
-    parts.append(f'<path d="{solid}" fill="none" stroke="{VIOLET}" stroke-width="5" stroke-linejoin="round"/>')
-    parts.append(
-        f'<line x1="{t_impl + 8:.1f}" y1="{L3}" x2="{tip - 18}" y2="{L3}" stroke="{VIOLET}" stroke-width="5" '
-        f'stroke-dasharray="12 9" stroke-linecap="round"/>'
-    )
-    parts.append(f'<path d="M {tip} {L3} L {tip - 20} {L3 - 12} L {tip - 20} {L3 + 12} Z" fill="{VIOLET}"/>')
-    parts.append(f'<circle cx="{XL}" cy="{L1}" r="8" fill="{VIOLET}"/>')
-    lw = 4
-    lines += [("row1", XL, L1 - lw, XR - R, L1 + lw), ("row2", XL + R, L2 - lw, XR - R, L2 + lw),
-              ("row3", XL + R, L3 - lw, tip, L3 + lw),
-              ("bendR", XR - lw, L1 + R, XR + lw, L2 - R), ("bendL", XL - lw, L2 + R, XL + lw, L3 - R)]
-    # ---- stems + nodes
-    node_x = {}
-    for idx, (x, y, w, h) in boxes.items():
-        line_y = y - drop
-        cx = x + w / 2
-        node_x[idx] = cx
-        r = CORE_NODE_R if idx == CORE_IDX else NODE_R
-        col = VIOLET if idx == CORE_IDX else VIOLET_S
-        parts.append(f'<line x1="{cx:.1f}" y1="{line_y + r}" x2="{cx:.1f}" y2="{y}" stroke="{col}" stroke-width="{3 if idx == CORE_IDX else 2}"/>')
-    # ---- time markers on the path (pills sit on the line at each phase start; names above the line)
-    p_w0 = XL + 18 + (tw("WEEK 0", "mono", 16, 700) + 24) / 2
-    parts.append(pill(p_w0, L1, "WEEK 0", items, "pill-w0"))
-    parts.append(above_label(XL - 6, L1, "Before signing", items, "lab-w0", anchor="start"))
-    g12 = cols[0] + cw + GUT / 2
-    parts.append(pill(g12, L1, "WEEKS 1-2", items, "pill-w12"))
-    parts.append(above_label(g12, L1, "Discovery and alignment", items, "lab-w12"))
-    g36 = (XR - R + node_x[3] + NODE_R) / 2
-    parts.append(pill(g36, L2, "WEEKS 3-6", items, "pill-w36"))
-    parts.append(above_label(XR - 32, L2, "Design and build", items, "lab-w36", anchor="end"))
-    g78 = (XL + R + node_x[6] - NODE_R) / 2
-    parts.append(pill(g78, L3, "WEEKS 7-8", items, "pill-w78"))
-    parts.append(above_label(g78, L3, "Deploy", items, "lab-w78"))
-    # week-8 milestone
-    parts.append(
-        f'<line x1="{t_impl:.1f}" y1="{L3 - 30}" x2="{t_impl:.1f}" y2="{L3 + 26}" stroke="{AMBER}" '
-        f'stroke-width="4" stroke-linecap="round"/>'
-    )
-    items.append(("tick", t_impl - 2, L3 - 30, t_impl + 2, L3 + 26))
-    parts.append(above_label(t_impl - 14, L3, "Implementation", items, "lab-impl", anchor="end", col=BONE, wt=700))
-    parts.append(above_label(t_impl + 14, L3, "Support and iterate, ongoing", items, "lab-ongoing", anchor="start"))
-    g_on = (t_impl + node_x[7] - NODE_R) / 2
-    parts.append(pill(g_on, L3, "ONGOING", items, "pill-ongoing"))
-    # nodes on top of the path
-    for idx, (x, y, w, h) in boxes.items():
-        parts.append(node(node_x[idx], y - drop, idx, items))
-    # cards
-    for idx, box in boxes.items():
         parts.append(role_card(*box, idx))
     parts.append(footer("Based on the AICamp Sydney x Atlassian FDE panel, Sep 2026"))
     parts.append(corner_logos(*logos))
-
-    # ---- collision checks
-    def hit(a, b, m=0):
-        return not (a[3] + m <= b[1] or b[3] + m <= a[1] or a[4] + m <= b[2] or b[4] + m <= a[2])
-    cards = list(CHECK_BOXES)
-    hdr = ("header", 0, 0, W, 150)
-    lf = ("lf-mark", 36, 1105, 108, 1173)
-    logos_b = [(fn, lx, ly, lx + lw_, ly + lh) for fn, lx, ly, lw_, lh in LOGO_BOXES]
-    everything = cards + items + lines
-    for e in everything:
-        assert e[1] >= MARGIN - 8 and e[3] <= W - MARGIN and e[2] >= 150 and e[4] <= BODY_BOT, e
-        for f in [hdr, lf] + logos_b:
-            assert not hit(e, f), (e[0], f[0])
-    solid_things = cards + items
-    for i, a in enumerate(solid_things):
-        for b in solid_things[i + 1:]:
-            assert not hit(a, b, 6), (a[0], b[0])
-    for c in cards + [i_ for i_ in items if i_[0].startswith("lab")]:
-        for ln in lines:
-            assert not hit(c, ln, 6), (c[0], ln[0])
+    # geometry checks: cards vs ring, logos, each other
+    ring_box = (WCX - CORE_OUT, WCY - CORE_OUT, WCX + CORE_OUT, WCY + CORE_OUT)
+    for n, x0, y0, x1, y1 in CHECK_BOXES:
+        assert y0 >= BODY_TOP and y1 <= BODY_BOT, n
+        dx = max(x0 - WCX, 0, WCX - x1)
+        dy = max(y0 - WCY, 0, WCY - y1)
+        assert math.hypot(dx, dy) > CORE_OUT + 12, f"card {n} touches ring"
+        for fn, lx, ly, lw, lh in LOGO_BOXES:
+            assert x1 < lx or x0 > lx + lw or y1 < ly or y0 > ly + lh, f"card {n} hits {fn}"
+    for i, a in enumerate(CHECK_BOXES):
+        for b in CHECK_BOXES[i + 1:]:
+            assert a[3] <= b[1] or b[3] <= a[1] or a[4] <= b[2] or b[4] <= a[2], (a[0], b[0])
     return wrap_svg("\n".join(parts))
 
 
@@ -936,12 +774,6 @@ def main():
     svg = gen_wheel(LOGO_SIZES["-logos-lg"])
     check_bad(svg, "fde-role-breakdown")
     path = OUT / "fde-role-breakdown.svg"
-    path.write_text(svg)
-    print(f"wrote {path}  logos {LOGO_BOXES}")
-    LOGO_BOXES.clear()
-    svg = gen_snake(LOGO_SIZES["-logos-lg"])
-    check_bad(svg, "fde-role-timeline")
-    path = OUT / "fde-role-timeline.svg"
     path.write_text(svg)
     print(f"wrote {path}  logos {LOGO_BOXES}")
     for w_ in WARN:

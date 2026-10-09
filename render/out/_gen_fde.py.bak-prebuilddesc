@@ -564,7 +564,6 @@ WHEEL = [
     ("Support and feedback", "Drive adoption, decide platform vs bespoke", "Customer Success + Product Manager"),
 ]
 CORE_IDX = 4             # Build
-WHEEL_DESC = {4: "Production code, with coding agents handling over 70% of it"}   # wheel-only wording
 ANGLE0 = -45             # arc 01 centred at 10:30, then 45 deg clockwise per arc
 WCX, WCY = 600, 671      # ring centre (set again in gen_wheel)
 HUB_R = 116
@@ -597,12 +596,10 @@ def arc_seg(r0, r1, a0, a1):
             f"L {x1i:.1f} {y1i:.1f} A {r0} {r0} 0 {large} 0 {x0i:.1f} {y0i:.1f} Z")
 
 
-def role_card(x, y, w, h, idx, roomy=False, desc_override=None):
+def role_card(x, y, w, h, idx, roomy=False):
     """Card: number (+CORE), task, description (top-anchored); USED TO BE + role (bottom-anchored).
     roomy=True: looser vertical rhythm plus a divider rule above USED TO BE."""
     task, desc, role = WHEEL[idx]
-    if desc_override:
-        desc = desc_override
     core = idx == CORE_IDX
     pad = 22
     inner = w - 2 * pad
@@ -745,7 +742,7 @@ def gen_wheel(logos=(130, 140)):
     }
     parts.append(wheel(cards))
     for idx, box in cards.items():
-        parts.append(role_card(*box, idx, roomy=True, desc_override=WHEEL_DESC.get(idx)))
+        parts.append(role_card(*box, idx, roomy=True))
     parts.append(footer("Based on the AICamp Sydney x Atlassian FDE panel, Sep 2026"))
     parts.append(corner_logos(*logos))
     # geometry checks: everything inside body, clear of ring, logos and each other
