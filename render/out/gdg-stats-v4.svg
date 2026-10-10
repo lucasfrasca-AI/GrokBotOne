@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1200" viewBox="0 0 1200 1200">
+  <defs>
+    <pattern id="id-dots1" width="24" height="24" patternUnits="userSpaceOnUse" x="12" y="12"><circle cx="1.5" cy="1.5" r="1.5" fill="rgba(243,243,241,.07)"/></pattern>
+    <radialGradient id="id-dfade3" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#F3F3F1" stop-opacity="1"/><stop offset="0.6" stop-color="#F3F3F1" stop-opacity="0.6"/><stop offset="1" stop-color="#F3F3F1" stop-opacity="0"/></radialGradient>
+    <mask id="id-dmask2"><rect x="-20" y="-88" width="1160" height="1160" fill="url(#id-dfade3)"/></mask>
+    <radialGradient id="id-glow4" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#A855F7" stop-opacity="0.340"/><stop offset="0.38" stop-color="#895AF6" stop-opacity="0.187"/><stop offset="0.7" stop-color="#6366F1" stop-opacity="0.061"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
+    <radialGradient id="id-orb5" cx="0.38" cy="0.32" r="0.75"><stop offset="0" stop-color="#A855F7" stop-opacity="0.620"/><stop offset="0.55" stop-color="#895AF6" stop-opacity="0.341"/><stop offset="1" stop-color="#6366F1" stop-opacity="0.155"/></radialGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="#05010E"/>
+<text x="36.0" y="64.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="#A4A098" letter-spacing="1.2">SPARK FESTIVAL  ·  SOVEREIGN AI PANEL  ·  SYDNEY</text>
+<text x="33.0" y="124.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="52" font-weight="600" fill="#F3F3F1" letter-spacing="-1.8">Sovereign AI in Australia, by the numbers</text>
+<rect x="-20" y="-88" width="1160" height="1160" fill="url(#id-dots1)" mask="url(#id-dmask2)"/>
+<ellipse cx="342.0" cy="492.0" rx="532.0" ry="532.0" fill="url(#id-glow4)"/>
+<circle cx="342.0" cy="492.0" r="280.0" fill="url(#id-orb5)" stroke="#A855F7" stroke-width="2"/>
+<circle cx="781.6" cy="357.6" r="165.7" fill="rgba(243,243,241,.045)" stroke="rgba(243,243,241,.42)" stroke-width="1.5"/>
+<circle cx="736.0" cy="674.0" r="140.0" fill="rgba(243,243,241,.045)" stroke="rgba(243,243,241,.42)" stroke-width="1.5"/>
+<text x="146.8" y="512.0"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="132" font-weight="600" letter-spacing="-5.3" fill="#F3F3F1">A$20B</tspan></text>
+<text x="342.0" y="568.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="500" fill="#F3F3F1" text-anchor="middle">AWS, 2025 to 2029</text>
+<text x="702.2" y="371.6"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="68" font-weight="600" letter-spacing="-2.7" fill="#F3F3F1">A$7B</tspan></text>
+<text x="781.6" y="407.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="500" fill="#D4D2CE" text-anchor="middle">OpenAI + NEXTDC</text>
+<text x="664.1" y="686.0"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="60" font-weight="600" letter-spacing="-2.4" fill="#F3F3F1">A$5B</tspan></text>
+<text x="736.0" y="720.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="500" fill="#D4D2CE" text-anchor="middle">Microsoft</text>
+<circle cx="1003.2" cy="536.6" r="10.83" fill="#F3F3F1"/>
+<line x1="1003.2" y1="553.5" x2="1003.2" y2="608.6" stroke="rgba(243,243,241,.5)" stroke-width="1"/>
+<text x="1001.2" y="646.6"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="38" font-weight="600" letter-spacing="-1.5" fill="#F3F3F1">A$29.9M</tspan></text>
+<text x="1003.2" y="674.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="500" fill="#D4D2CE">AI Safety Institute</text>
+<text x="1003.2" y="698.6" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="400" fill="#A4A098">same scale</text>
+<text x="1164.0" y="186.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="#A4A098" letter-spacing="1.2" text-anchor="end">CIRCLE AREA TO SCALE</text>
+<line x1="36.0" y1="846.0" x2="1164.0" y2="846.0" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="33.0" y="928.7"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="76" font-weight="600" letter-spacing="-3.0" fill="#A855F7">79%</tspan></text>
+<text x="216.0" y="898.7" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="500" fill="#F3F3F1">of Australian businesses say keeping</text>
+<text x="216.0" y="925.7" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="500" fill="#F3F3F1">AI data in Australia matters</text>
+<text x="609.0" y="928.7"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="76" font-weight="600" letter-spacing="-3.0" fill="#F3F3F1">70%</tspan></text>
+<text x="794.3" y="898.7" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="500" fill="#F3F3F1">would pay more for AI hosted</text>
+<text x="794.3" y="925.7" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="500" fill="#F3F3F1">entirely in Australia</text>
+<line x1="36.0" y1="968.7" x2="1164.0" y2="968.7" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="35.0" y="1017.2"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="600" letter-spacing="-1.4" fill="#F3F3F1">19 days</tspan></text>
+<text x="36.0" y="1047.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">Claude Fable 5 offline worldwide under a</text>
+<text x="36.0" y="1070.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">US export directive</text>
+<line x1="406.7" y1="990.7" x2="406.7" y2="1086.7" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="421.7" y="1017.2"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="600" letter-spacing="-1.4" fill="#F3F3F1">84 days</tspan></text>
+<text x="422.7" y="1047.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">for OpenAI to tell government its agent</text>
+<text x="422.7" y="1070.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">accessed a Medicare portal</text>
+<line x1="793.3" y1="990.7" x2="793.3" y2="1086.7" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="808.3" y="1017.2"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="600" letter-spacing="-1.4" fill="#F3F3F1">10 Dec 2026</tspan></text>
+<text x="809.3" y="1047.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">Privacy Act automated-decision rules</text>
+<text x="809.3" y="1070.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">begin</text>
+<image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1105" width="72" height="67.3" preserveAspectRatio="xMidYMid meet"/>
+<text x="132.0" y="1142.9" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#A4A098">Sources: Amazon, NEXTDC, Microsoft, National AI Plan, Decidr, Anthropic, ABC, OAIC</text>
+  <image href="logo-gfd-violet.png" xlink:href="logo-gfd-violet.png" x="1014.0" y="56.6" width="150.0" height="14.8" preserveAspectRatio="xMaxYMid meet"/>
+  <image href="logo-spark-violet.png" xlink:href="logo-spark-violet.png" x="1070.0" y="1117.3" width="94.0" height="42.8" preserveAspectRatio="xMaxYMid meet"/>
+</svg>

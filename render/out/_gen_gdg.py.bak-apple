@@ -1,0 +1,827 @@
+#!/usr/bin/env python3
+"""GDG / Google for Developers x Spark Festival graphics (1200x1200 dark brand).
+
+House style copied (not imported) from _gen_fde.py: spectrum rule top-left, mono violet
+eyebrow, big title, subtitle, LF mark bottom-left, corner logos, dash guard.
+Apple design language (keynote stat slides / spec pages): bento grid of uniform rounded
+rectangles (ONE radius RAD, ONE gutter GUT, ONE inner padding PAD), hairline borders,
+huge tight General Sans hero numbers with quiet grey labels, violet only on the key number,
+the header spectrum rule as the single gradient. (Expressive version: _gen_gdg.py.bak-expressive)
+Fonts: General Sans (Fontshare, installed in ~/.fonts) for headings and hero numbers,
+Geist for body, Geist Mono for labels.
+
+Graphics:
+  gdg-stats         Sovereign AI in Australia, by the numbers
+  gdg-sovereignty   AI sovereignty is leverage (panel framework)
+  gdg-antigravity   Antigravity 2.0: one prompt, three agents (workshop)
+
+Logos: real violet PNGs are picked up automatically from
+  /workspace/projects/gdg-sovereignty/assets/{google-for-developers,spark-foundation}-violet.png
+  -> cropped to alpha bbox and copied to OUT as logo-gfd-violet.png / logo-spark-violet.png.
+If neither source nor copy exists, a dashed placeholder box with the same bounding box is drawn.
+
+Run:  python3 _gen_gdg.py            (writes SVGs, renders PNGs + 390 previews)
+"""
+import math
+import re
+import subprocess
+import sys
+from pathlib import Path
+from xml.sax.saxutils import escape
+
+from PIL import Image, ImageFont
+
+OUT = Path("/workspace/render/out")
+ASSETS = Path("/workspace/projects/gdg-sovereignty/assets")
+BUILD = "/workspace/render/build.sh"
+W = H = 1200
+
+# ---------------------------------------------------------------- tokens (tokens.css only)
+PITCH = "#05010E"
+BONE = "#F3F3F1"
+SUB = "#D4D2CE"
+MUTE = "#A4A098"
+VIOLET = "#A855F7"
+INDIGO = "#6366F1"
+AMBER = "#FCD34D"
+ACCENT = "#895AF6"
+SURFACE = "#160F24"
+SURFACE2 = "#1C1528"
+INPUT = "#1B122B"
+RED = "#DC2828"
+RULE = "rgba(243,243,241,.12)"
+RULE2 = "rgba(243,243,241,.07)"
+ALLOWED_HEX = {c.upper() for c in (PITCH, BONE, SUB, MUTE, VIOLET, INDIGO, AMBER, ACCENT,
+                                    SURFACE, SURFACE2, INPUT, RED)}
+
+
+def violet_a(a):
+    return f"rgba(168,85,247,{a})"
+
+
+SANS = "Geist, ui-sans-serif, system-ui, sans-serif"
+HEAD = "General Sans, Geist, ui-sans-serif, system-ui, sans-serif"
+MONO = "Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace"
+
+MARK = "lf-mark.png"          # same-dir href: rsvg will not load ../ paths
+MARGIN = 36
+BODY_TOP = 168
+BODY_BOT = 1080
+LF_BOX = (36, 1105, 108, 1105 + 72 * 144 / 154)
+
+# ---------------------------------------------------------------- logos
+LOGO_RIGHT = W - MARGIN       # 1164
+LOGO_TR_CY = 64               # eyebrow line
+LOGO_BR_CY = 1105 + 72 * 144 / 154 / 2   # LF mark centre (1138.7)
+# (out filename, source filename, target width, max height, placeholder height)
+# GFD lockup is a 10:1 wordmark: 150 wide (~15 tall) keeps it legible at 390 px.
+# Spark Foundation lockup is 2.2:1 (stacked "spark > foundation"): sized by height (~43 tall, ~94 wide), level
+# with the LF mark; a 20-26 px height cap would shrink it to ~55 px wide and unreadable.
+LOGO_GFD = ("logo-gfd-violet.png", "google-for-developers-violet.png", 150, 48, 15)
+LOGO_SPARK = ("logo-spark-violet.png", "spark-foundation-violet.png", 94, 43, 43)
+LOGO_STATUS = {}
+LOGO_BOXES = []
+
+
+def sync_logo(spec):
+    """Copy (alpha-cropped) source asset into OUT if present and newer. Returns (w, h) px or None."""
+    fn, src_name, *_ = spec
+    src, dst = ASSETS / src_name, OUT / fn
+    if src.exists() and (not dst.exists() or src.stat().st_mtime > dst.stat().st_mtime):
+        im = Image.open(src).convert("RGBA")
+        bb = im.getchannel("A").getbbox()
+        if bb:
+            im = im.crop(bb)
+        im.save(dst)
+    if dst.exists():
+        LOGO_STATUS[fn] = "real" if src.exists() else "real (copy in out/, source missing)"
+        return Image.open(dst).size
+    LOGO_STATUS[fn] = "placeholder"
+    return None
+
+
+def logo(spec, right, cy):
+    fn, _, tw_, max_h, ph_h = spec
+    size = sync_logo(spec)
+    if size:
+        pw, ph = size
+        w_, h_ = tw_, tw_ * ph / pw
+        if h_ > max_h:
+            h_, w_ = max_h, max_h * pw / ph
+    else:
+        w_, h_ = tw_, ph_h
+    x, y = right - w_, cy - h_ / 2
+    LOGO_BOXES.append((fn, x, y, x + w_, y + h_))
+    if size:
+        return (f'<image href="{fn}" xlink:href="{fn}" x="{x:.1f}" y="{y:.1f}" width="{w_:.1f}" '
+                f'height="{h_:.1f}" preserveAspectRatio="xMaxYMid meet"/>')
+    return (f'<rect x="{x:.1f}" y="{y:.1f}" width="{w_:.1f}" height="{h_:.1f}" rx="4" fill="none" '
+            f'stroke="{violet_a(.6)}" stroke-width="1.5" stroke-dasharray="5 4"/>'
+            f'<!-- placeholder for {fn} -->')
+
+
+def corner_logos():
+    return "\n".join(["  " + logo(LOGO_GFD, LOGO_RIGHT, LOGO_TR_CY),
+                      "  " + logo(LOGO_SPARK, LOGO_RIGHT, LOGO_BR_CY)])
+
+
+# ---------------------------------------------------------------- fonts + text
+FONT_DIR = "/usr/share/fonts/truetype/sand-box/google"
+_FONT_FILES = {
+    "sans": f"{FONT_DIR}/Geist/Geist-VariableFont_wght.ttf",
+    "sans_i": f"{FONT_DIR}/Geist/Geist-Italic-VariableFont_wght.ttf",
+    "mono": f"{FONT_DIR}/Geist Mono/GeistMono-VariableFont_wght.ttf",
+}
+GS_DIR = Path.home() / ".fonts"
+_GS = {300: "Light", 400: "Regular", 500: "Medium", 600: "Semibold", 700: "Bold"}
+_font_cache = {}
+WARN = []
+TEXT_BOXES = []      # (label, x0, y0, x1, y1) for every text run, for collision checks
+
+
+def font(kind, size, weight=400):
+    key = (kind, size, weight)
+    if key not in _font_cache:
+        if kind in ("head", "head_i"):
+            nm = _GS[min(_GS, key=lambda k: abs(k - weight))]
+            if kind == "head_i":
+                nm = (nm if nm != "Regular" else "") + "Italic"
+            path = GS_DIR / f"GeneralSans-{nm}.ttf"
+            if not path.exists():
+                raise SystemExit(f"General Sans missing: {path}")
+            _font_cache[key] = ImageFont.truetype(str(path), size)
+            return _font_cache[key]
+        f = ImageFont.truetype(_FONT_FILES[kind], size)
+        try:
+            f.set_variation_by_axes([weight])
+        except Exception:
+            pass
+        _font_cache[key] = f
+    return _font_cache[key]
+
+
+def tw(text, kind="sans", size=16, weight=400, ls=0):
+    return font(kind, size, weight).getlength(text) + ls * len(text)
+
+
+def esc(t):
+    return escape(t, {"'": "&apos;", '"': "&quot;"})
+
+
+def wrap_px(text, max_w, kind="sans", size=16, weight=400):
+    words = text.split()
+    lines, cur = [], []
+    for w_ in words:
+        trial = " ".join(cur + [w_])
+        if tw(trial, kind, size, weight) <= max_w or not cur:
+            cur.append(w_)
+        else:
+            lines.append(" ".join(cur))
+            cur = [w_]
+    if cur:
+        lines.append(" ".join(cur))
+    return lines
+
+
+def T(x, y, s, fs=19, kind="sans", wt=400, fill=SUB, anchor="start", ls=0, italic=False,
+      head=False, tag=None, opacity=None):
+    """One text run. Records its bbox for collision checks."""
+    if head:
+        kind = "head"
+    fam = MONO if kind == "mono" else (HEAD if kind == "head" else SANS)
+    mk = (kind + "_i") if italic else kind
+    w_ = tw(s, mk, fs, wt, ls)
+    x0 = {"start": x, "middle": x - w_ / 2, "end": x - w_}[anchor]
+    TEXT_BOXES.append((tag or s[:24], x0, y - 0.74 * fs, x0 + w_, y + 0.22 * fs))
+    extra = ""
+    if ls:
+        extra += f' letter-spacing="{ls}"'
+    if italic:
+        extra += ' font-style="italic"'
+    if anchor != "start":
+        extra += f' text-anchor="{anchor}"'
+    if opacity is not None:
+        extra += f' fill-opacity="{opacity}"'
+    return (f'<text x="{x:.1f}" y="{y:.1f}" font-family="{fam}" font-size="{fs}" font-weight="{wt}" '
+            f'fill="{fill}"{extra}>{esc(s)}</text>')
+
+
+def para(x, y, text, max_w, fs=19, lh=None, **kw):
+    """Wrapped paragraph; returns (svg, last_baseline)."""
+    lh = lh or round(fs * 1.3)
+    kind = "sans_i" if kw.get("italic") else kw.get("kind", "sans")
+    lines = wrap_px(text, max_w, kind, fs, kw.get("wt", 400))
+    out = [T(x, y + i * lh, ln, fs, **kw) for i, ln in enumerate(lines)]
+    return "\n".join(out), y + (len(lines) - 1) * lh
+
+
+def hero(x, y, num, fs=96, fill=BONE, unit=None, unit_fs=None, unit_fill=SUB, anchor="start", wt=700,
+         tag=None):
+    """Huge, tight General Sans number (negative tracking) with optional quiet unit after it."""
+    ls = -round(fs * 0.04, 1)
+    nw = tw(num, "head", fs, wt, ls)
+    unit_fs = unit_fs or max(int(fs * 0.28), 20)
+    gap = fs * 0.1
+    uw = gap + tw(unit, "head", unit_fs, 500) if unit else 0
+    total = nw + uw
+    x0 = {"start": x, "middle": x - total / 2, "end": x - total}[anchor]
+    TEXT_BOXES.append((tag or num, x0, y - 0.72 * fs, x0 + total, y + 0.03 * fs))
+    s = (f'<text x="{x0:.1f}" y="{y:.1f}"><tspan font-family="{HEAD}" font-size="{fs}" font-weight="{wt}" '
+         f'letter-spacing="{ls}" fill="{fill}">{esc(num)}</tspan>')
+    if unit:
+        s += (f'<tspan dx="{gap:.1f}" font-family="{HEAD}" font-size="{unit_fs}" font-weight="500" '
+              f'letter-spacing="0" fill="{unit_fill}">{esc(unit)}</tspan>')
+    return s + "</text>"
+
+
+def hero_w(num, fs, wt=700):
+    return tw(num, "head", fs, wt, -round(fs * 0.04, 1))
+
+
+# ---------------------------------------------------------------- bento primitives (Apple)
+RAD = 28            # the one corner radius
+GUT = 20            # the one gutter
+PAD = 32            # the one inner padding
+
+
+def rrect(x, y, w, h, rx=RAD, fill=SURFACE, stroke=None, sw=0, extra=""):
+    st = f' stroke="{stroke}" stroke-width="{sw}"' if stroke else ""
+    return f'<rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h:.1f}" rx="{rx}" fill="{fill}"{st}{extra}/>'
+
+
+def card(x, y, w, h, fill=SURFACE, stroke=RULE, sw=1):
+    return rrect(x, y, w, h, RAD, fill=fill, stroke=stroke, sw=sw)
+
+
+def label(x, y, s, fill=MUTE, anchor="start", tag=None):
+    """Quiet mono uppercase label."""
+    return T(x, y, s, 16, "mono", 500, fill, anchor, ls=1.4, tag=tag)
+
+
+def hline(x0, x1, y, stroke=RULE, sw=1):
+    return f'<line x1="{x0:.1f}" y1="{y:.1f}" x2="{x1:.1f}" y2="{y:.1f}" stroke="{stroke}" stroke-width="{sw}"/>'
+
+
+def grid_x(x, w, n, gut=GUT):
+    """n equal columns inside [x, x+w]: list of (x, w)."""
+    cw = (w - gut * (n - 1)) / n
+    return [(x + i * (cw + gut), cw) for i in range(n)]
+
+
+# ---------------------------------------------------------------- page furniture
+
+def spectrum_bar(x, y, w, h=4, gid="spec"):
+    """The ONE allowed gradient per graphic (--spectrum)."""
+    return f'''
+  <defs>
+    <linearGradient id="{gid}" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="{INDIGO}"/>
+      <stop offset="50%" stop-color="{VIOLET}"/>
+      <stop offset="100%" stop-color="{AMBER}"/>
+    </linearGradient>
+  </defs>
+  <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{h / 2}" fill="url(#{gid})"/>'''
+
+
+def header(eyebrow, title, subtitle, gid):
+    return "\n".join([
+        spectrum_bar(48, 36, 260, 4, gid),
+        T(48, 70, eyebrow, 16, "mono", 600, VIOLET, ls=1.6, tag="eyebrow"),
+        T(48, 120, title, 46, "head", 600, BONE, ls=-1.2, tag="title"),
+        T(48, 152, subtitle, 19, "sans", 400, MUTE, tag="subtitle"),
+    ])
+
+
+def lf_mark(x=36, y=1105, width=72):
+    height = width * 144 / 154
+    return (f'<image href="{MARK}" xlink:href="{MARK}" x="{x}" y="{y}" width="{width}" '
+            f'height="{height:.1f}" preserveAspectRatio="xMidYMid meet"/>')
+
+
+def footer(cite):
+    return lf_mark() + "\n" + T(128, 1146, cite, 16, "sans", 400, MUTE, tag="footer")
+
+
+def wrap_svg(inner):
+    return f'''<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1200" viewBox="0 0 1200 1200">
+  <rect width="1200" height="1200" fill="{PITCH}"/>
+{inner}
+</svg>
+'''
+
+
+def start_page():
+    TEXT_BOXES.clear()
+    LOGO_BOXES.clear()
+
+
+def check_layout(name, allow_overlap=()):
+    """Text never overlaps other text, logos, or the LF mark; everything on canvas."""
+    def hit(a, b, m=0):
+        return not (a[3] + m <= b[1] or b[3] + m <= a[1] or a[4] + m <= b[2] or b[4] + m <= a[2])
+    lf = ("lf-mark",) + LF_BOX
+    errs = []
+    for i, a in enumerate(TEXT_BOXES):
+        if a[1] < MARGIN - 4 or a[3] > W - MARGIN + 4 or a[2] < 0 or a[4] > H:
+            errs.append(f"off-canvas {a}")
+        for f in [lf] + LOGO_BOXES:
+            if hit(a, f, 6):
+                errs.append(f"{a[0]!r} hits {f[0]}")
+        for b in TEXT_BOXES[i + 1:]:
+            if hit(a, b, 1) and (a[0], b[0]) not in allow_overlap:
+                errs.append(f"text overlap {a[0]!r} / {b[0]!r}")
+    if errs:
+        raise SystemExit(f"{name}: layout errors:\n  " + "\n  ".join(errs))
+
+
+def check_bad(svg, name):
+    for ch in ("\u2014", "\u2013"):
+        if ch in svg:
+            raise SystemExit(f"dash found in {name}: {ch!r}")
+    for hx in re.findall(r"#[0-9A-Fa-f]{6}\b", svg):
+        if hx.upper() not in ALLOWED_HEX:
+            raise SystemExit(f"off-token colour in {name}: {hx}")
+    for m in re.findall(r"rgba\(([^)]*)\)", svg):
+        rgb = tuple(int(float(v)) for v in m.split(",")[:3])
+        if rgb not in {(243, 243, 241), (168, 85, 247)}:
+            raise SystemExit(f"off-token rgba in {name}: {m}")
+    for bad in ("cookie", "squircle"):
+        if bad in svg:
+            raise SystemExit(f"expressive shape left in {name}: {bad}")
+    if svg.count("<linearGradient") + svg.count("<radialGradient") > 1:
+        raise SystemExit(f"more than one gradient in {name}")
+
+
+# ================================================================ graphic 1: gdg-stats
+
+def invest_card(x, y, w, h):
+    """Circles to scale (AREA proportional to A$), on one hairline baseline.
+    The A$29.9M AISI dot is true scale (r about 5px), so no 'not to scale' note."""
+    p = [card(x, y, w, h)]
+    p.append(label(x + PAD, y + 48, "WHO IS BUILDING HERE  \u00b7  CIRCLE AREA TO SCALE", tag="inv-eyebrow"))
+    R = 130.0
+    r = lambda v: R * math.sqrt(v / 20000.0)
+    rA, rO, rM, rS = R, r(7000), r(5000), r(29.9)
+    base = y + h - 36
+    p.append(hline(x + PAD, x + w - PAD, base + 0.5, stroke="rgba(243,243,241,.22)"))
+    circ = lambda cx, cy, rr: (f'<circle cx="{cx:.1f}" cy="{cy:.2f}" r="{rr:.2f}" fill="rgba(243,243,241,.04)" '
+                               f'stroke="rgba(243,243,241,.45)" stroke-width="1.5"/>')
+    ax, ay = x + PAD + rA, base - rA
+    p.append(circ(ax, ay, rA))
+    p.append(hero(ax, ay + 8, "A$20B", 66, VIOLET, anchor="middle", tag="aws-num"))
+    p.append(T(ax, ay + 44, "AWS, 2025 to 2029", 19, "sans", 600, BONE, "middle", tag="aws-who"))
+    p.append(T(ax, ay + 78, "Source: Amazon and PM,", 16, "sans", 400, MUTE, "middle", tag="aws-src1"))
+    p.append(T(ax, ay + 99, "14 Jun 2025", 16, "sans", 400, MUTE, "middle", tag="aws-src2"))
+    num_y = y + 112
+
+    def col(cx0, cw, rad, num, who, what, src, tag):
+        q = [hero(cx0, num_y, num, 54, BONE, tag=f"{tag}-num")]
+        q.append(T(cx0, num_y + 36, who, 19, "sans", 600, BONE, tag=f"{tag}-who"))
+        yy = num_y + 36
+        if what:
+            s_, yy = para(cx0, yy + 25, what, cw, 18, 23, fill=SUB, tag=f"{tag}-what")
+            q.append(s_)
+        for k, ln in enumerate(src if isinstance(src, (list, tuple)) else wrap_px(src, cw, "sans", 16)):
+            yy = yy + (25 if k == 0 else 20)
+            q.append(T(cx0, yy, ln, 16, "sans", 400, MUTE, tag=f"{tag}-src{k}"))
+        if rad:
+            q.append(circ(cx0 + rad, base - rad, rad))
+            assert yy + 14 < base - 2 * rad, f"{tag} text hits circle"
+        return "\n".join(q), yy
+
+    c1 = ax + rA + 60
+    c2 = c1 + 246
+    c3 = c2 + 226
+    s, _ = col(c1, 220, rO, "A$7B", "OpenAI + NEXTDC", "Sydney AI campus (MoU)",
+               ("Source: Minister Charlton,", "5 Dec 2025"), "oai")
+    p.append(s)
+    s, _ = col(c2, 200, rM, "A$5B", "Microsoft", "Over two years", ("Source: Microsoft,", "24 Oct 2023"), "ms")
+    p.append(s)
+    cw3 = x + w - PAD - c3
+    s, last = col(c3, cw3, 0, "A$29.9M", "AI Safety Institute", "Funded as mandatory guardrails were set aside",
+                  "Source: National AI Plan, 2 Dec 2025", "aisi")
+    p.append(s)
+    dx = c3 + rS
+    p.append(f'<circle cx="{dx:.2f}" cy="{base - rS:.2f}" r="{rS:.2f}" fill="{BONE}"/>')
+    p.append(T(dx + 18, base - 4, "A$29.9M at the same scale", 16, "sans", 400, MUTE, tag="aisi-note"))
+    assert last + 30 < base - 16
+    return "\n".join(p)
+
+
+def demand_card(x, y, w, h):
+    p = [card(x, y, w, h)]
+    iw = w - 2 * PAD
+    ny = y + PAD + 0.72 * 150
+    p.append(hero(x + PAD - 4, ny, "79%", 150, VIOLET, tag="79"))
+    s, last = para(x + PAD, ny + 40, "of Australian businesses say it's important their AI tools store and process "
+                   "data in Australia", iw, 20, 26, fill=SUB, tag="79-body")
+    p.append(s)
+    ry = last + 26
+    p.append(hline(x + PAD, x + w - PAD, ry))
+    n2y = ry + 30 + 0.72 * 84
+    p.append(hero(x + PAD - 2, n2y, "70%", 84, BONE, tag="70"))
+    tx = x + PAD + hero_w("70%", 84) + 22
+    lines = wrap_px("would pay more for AI hosted entirely in Australia", x + w - PAD - tx, "sans", 19)
+    top = n2y - 0.72 * 84 + 0.72 * 19 + (0.72 * 84 - 0.72 * 19 - (len(lines) - 1) * 24) / 2
+    for i, ln in enumerate(lines):
+        p.append(T(tx, top + i * 24, ln, 19, "sans", 400, SUB, tag=f"70-{i}"))
+    src = ("Source: Decidr, State of AI in Australian Business 2026, 1,324 businesses, Jul 2026. "
+           "Vendor survey; Decidr's David Brudenell was on the panel.")
+    sl = wrap_px(src, iw, "sans", 16)
+    sy = y + h - PAD + 4 - (len(sl) - 1) * 20
+    for i, ln in enumerate(sl):
+        p.append(T(x + PAD, sy + i * 20, ln, 16, "sans", 400, MUTE, tag=f"dec-src{i}"))
+    if n2y + 24 > sy - 16:
+        WARN.append(f"demand card tight: 70% {n2y:.0f} vs source {sy:.0f}")
+    return "\n".join(p)
+
+
+def row_stat(x, y, w, h, num, unit, lab, title, body, src, numcol=212):
+    """Spec-row card: huge number + quiet label left, text right."""
+    p = [card(x, y, w, h)]
+    ny = y + PAD + 0.72 * 84 - 2
+    p.append(hero(x + PAD - 2, ny, num, 84, BONE, unit=unit, unit_fs=24, tag=f"n-{num}"))
+    p.append(label(x + PAD, ny + 34, lab, tag=f"lab-{num}"))
+    tx = x + PAD + numcol
+    tw_ = x + w - PAD - tx
+    yy = y + PAD + 14
+    if title:
+        yy -= 4
+        p.append(T(tx, yy, title, 20, "head", 600, BONE, tag=f"t-{num}"))
+        yy += 27
+    s, last = para(tx, yy, body, tw_, 18, 23, fill=SUB, tag=f"b-{num}")
+    p.append(s)
+    p.append(T(tx, last + 25, src, 16, "sans", 400, MUTE, tag=f"s-{num}"))
+    if last + 25 > y + h - 16:
+        WARN.append(f"row card {num} tight: {last + 26:.0f} > {y + h - 18}")
+    return "\n".join(p)
+
+
+def gen_stats():
+    start_page()
+    parts = [header("SPARK FESTIVAL  \u00b7  SOVEREIGN AI PANEL  \u00b7  SYDNEY",
+                    "Sovereign AI in Australia, by the numbers",
+                    "What businesses want, who is building here, and what changed this year", "specStats")]
+    ih = 424
+    parts.append(invest_card(MARGIN, BODY_TOP, W - 2 * MARGIN, ih))
+    ry = BODY_TOP + ih + GUT
+    rh = BODY_BOT - ry
+    lw = 456
+    parts.append(demand_card(MARGIN, ry, lw, rh))
+    rx = MARGIN + lw + GUT
+    rw = W - MARGIN - rx
+    ch = 134
+    parts.append(row_stat(rx, ry, rw, ch, "19", "days", "EXPORT CONTROL", None,
+                          "Anthropic's Claude Fable 5 was offline worldwide under a US export directive, 12 Jun to 1 Jul 2026",
+                          "Source: Anthropic statements"))
+    parts.append(row_stat(rx, ry + ch + GUT, rw, ch, "84", "days", "DISCLOSURE", None,
+                          "from an OpenAI agent accessing a Services Australia Medicare portal to OpenAI telling government, "
+                          "18 Jun to 10 Sep 2026", "Source: ABC, 24 Sep 2026"))
+    parts.append(row_stat(rx, ry + 2 * (ch + GUT), rw, rh - 2 * (ch + GUT), "10", None, "DEC 2026", "Privacy Act: automated decisions",
+                          "Privacy policies must say when a computer program makes, or substantially assists, decisions "
+                          "that significantly affect people", "Source: OAIC, 30 Sep 2026"))
+    parts.append(footer("Day counts calculated from the published dates"))
+    parts.append(corner_logos())
+    check_layout("gdg-stats")
+    return wrap_svg("\n".join(parts))
+
+
+# ================================================================ graphic 2: gdg-sovereignty
+
+LEGS = [  # name, descriptor, tag lines, kind
+    ("Model", "who builds it, and whose values it carries", None, "leg"),
+    ("Data", "where it is stored and processed", ("MOSTLY", "LOCALISATION"), "leg"),
+    ("Policy", "who sets and enforces the rules", ("TRUE", "SOVEREIGNTY"), "core"),
+    ("Inference", "where the model runs", ("MOSTLY", "LOCALISATION"), "leg"),
+    ("Intellectual", "domain know-how that can't be scraped", ("ADDED", "5TH LEG"), "added"),
+]
+X0, X1 = 48, 1152      # text column of graphic 2 (aligns with header)
+
+
+def quote_block(y):
+    p = [T(X0 - 4, y + 64, "\u201cSovereignty = leverage,", 66, "head", 600, BONE, ls=-2.2, tag="q1"),
+         T(X0 + 22, y + 138, "not just choice\u201d", 66, "head", 600, BONE, ls=-2.2, tag="q2"),
+         T(X1, y + 138, "Raymond Sun, HSF Kramer", 19, "sans", 500, MUTE, "end", tag="q-attr")]
+    return "\n".join(p)
+
+
+def stool(y_seat, y_bot):
+    p = [rrect(X0, y_seat - 1.5, X1 - X0, 3, 1.5, fill=BONE)]       # the seat
+    cols = grid_x(X0, X1 - X0, 5)
+    top = y_seat + GUT
+    pol = 2
+    for i, ((cx, cw), (name, desc, tag, kind)) in enumerate(zip(cols, LEGS)):
+        core = kind == "core"
+        # hairline leg hanging from the seat
+        p.append(f'<line x1="{cx + cw / 2:.1f}" y1="{y_seat + 1.5:.1f}" x2="{cx + cw / 2:.1f}" y2="{top:.1f}" '
+                 f'stroke="{VIOLET if core else "rgba(243,243,241,.3)"}" stroke-width="{2 if core else 1}"/>')
+        p.append(card(cx, top, cw, y_bot - top, fill=SURFACE if core else PITCH,
+                      stroke=VIOLET if core else RULE, sw=1.5 if core else 1))
+        p.append(T(cx + 24, top + 50, name, 27 if not core else 30, "head", 700 if core else 600,
+                   VIOLET if core else BONE, ls=-0.6, tag=f"leg-{name}"))
+        assert tw(name, "head", 27, 600, -0.6) < cw - 40, name
+        s, last = para(cx + 24, top + 82, desc, cw - 48, 18, 23, fill=SUB if not core else BONE,
+                       tag=f"legd-{name}")
+        p.append(s)
+        if tag:
+            for k, t in enumerate(tag):
+                p.append(T(cx + 24, y_bot - 52 + k * 22, t, 16, "mono", 600,
+                           {"core": VIOLET, "added": BONE}.get(kind, MUTE), ls=1.0, tag=f"legt-{name}-{k}"))
+            if last + 24 > y_bot - 52 - 16:
+                WARN.append(f"leg {name} text reaches tag")
+        # quiet chevrons in the gutters, pointing at Policy
+        if i < len(LEGS) - 1:
+            gx = cx + cw + GUT / 2
+            d = 1 if i < pol else -1
+            gy = y_bot - 100
+            p.append(f'<path d="M {gx - 3 * d:.1f} {gy - 6} L {gx + 3 * d:.1f} {gy} L {gx - 3 * d:.1f} {gy + 6}" '
+                     f'fill="none" stroke="{MUTE}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>')
+    fy = y_bot + 20
+    a4, b4 = cols[0][0], cols[3][0] + cols[3][1]
+    a5, b5 = cols[4][0], cols[4][0] + cols[4][1]
+    for a, b in ((a4, b4), (a5, b5)):
+        p.append(f'<path d="M {a + 2:.1f} {fy - 7} V {fy} H {b - 2:.1f} V {fy - 7}" fill="none" '
+                 f'stroke="rgba(243,243,241,.3)" stroke-width="1"/>')
+    p.append(T((a4 + b4) / 2, fy + 28, "Four legs proposed by David Brudenell, Decidr", 18, "sans", 500, SUB,
+               "middle", tag="floor-4"))
+    p.append(T((a5 + b5) / 2, fy + 28, "Added by Raymond Sun", 18, "sans", 500, SUB, "middle", tag="floor-5"))
+    p.append(T((a4 + b4) / 2, fy + 54, "Raymond Sun: data, compute and inference are mostly localisation; "
+               "true sovereignty is policy", 17, "sans", 400, MUTE, "middle", italic=True, tag="floor-ray"))
+    return "\n".join(p), fy + 54
+
+
+def rule_of_three(y):
+    p = [hline(X0, X1, y), label(X0, y + 40, "THE RULE OF THREE  \u00b7  RAMESH HEIDARY, GOOGLE CLOUD",
+                                 tag="r3-eyebrow")]
+    items = [("Know where your data goes", "prompts and metadata included"),
+             ("Know who can be legally", "compelled to hand it over"),
+             ("Be able to prove it", None)]
+    cols = grid_x(X0, X1 - X0, 3, 40)
+    for i, ((cx, cw), (a, b)) in enumerate(zip(cols, items)):
+        p.append(hero(cx - 3, y + 136, str(i + 1), 84, BONE, wt=300, tag=f"r3-n{i}"))
+        tx = cx + 66
+        p.append(T(tx, y + 98, a, 20, "sans", 600, BONE, tag=f"r3-a{i}"))
+        assert tw(a, "sans", 20, 600) < cw - 66, a
+        if b:
+            p.append(T(tx, y + 124, b, 19, "sans", 400, SUB, tag=f"r3-b{i}"))
+    return "\n".join(p)
+
+
+def geo(y, y_end):
+    p = [hline(X0, X1, y), label(X0, y + 40, "WHERE AUSTRALIA SITS  \u00b7  LAURA HEIDRICH, GOOGLE CLOUD",
+                                 tag="geo-eyebrow")]
+    ly = y_end - 64
+    eu, au, us = X0 + 110, (X0 + X1) / 2, X1 - 110
+    p.append(hline(X0, X1, ly, stroke="rgba(243,243,241,.35)", sw=1.5))
+    p.append(label(eu + 34, ly - 18, "STRICTER RULES", tag="geo-strict"))
+    p.append(label(us - 34, ly - 18, "LOOSER RULES", anchor="end", tag="geo-loose"))
+    for mx, code, col, r in ((eu, "EU", BONE, 6), (au, "AU", VIOLET, 8), (us, "US", BONE, 6)):
+        p.append(f'<circle cx="{mx:.1f}" cy="{ly:.1f}" r="{r}" fill="{col}"/>')
+        p.append(T(mx, ly - 18, code, 18, "mono", 600, BONE if code != "AU" else VIOLET, "middle", tag=f"geo-{code}"))
+    qy = ly + 44
+    p.append(T(eu, qy, "\u201cA hygiene factor\u201d", 21, "head", 500, SUB, "middle", italic=True, tag="geo-q-eu"))
+    p.append(T(au, qy, "\u201cThe ethical middle ground\u201d", 21, "head", 500, BONE, "middle", italic=True,
+               tag="geo-q-au"))
+    p.append(T(us, qy, "\u201cThe Wild West\u201d", 21, "head", 500, SUB, "middle", italic=True, tag="geo-q-us"))
+    return "\n".join(p)
+
+
+def gen_sovereignty():
+    start_page()
+    parts = [header("SPARK FESTIVAL  \u00b7  SOVEREIGN AI PANEL  \u00b7  SYDNEY", "AI sovereignty is leverage",
+                    "Five legs, three tests and one middle ground, from the panel", "specSov")]
+    parts.append(quote_block(BODY_TOP + 12))
+    seat = BODY_TOP + 190
+    s, last = stool(seat, seat + 272)
+    parts.append(s)
+    r3 = last + 34
+    parts.append(rule_of_three(r3))
+    parts.append(geo(r3 + 160, BODY_BOT))
+    parts.append(footer("Paraphrased from notes taken at the panel, 24 Sep 2026"))
+    parts.append(corner_logos())
+    check_layout("gdg-sovereignty")
+    return wrap_svg("\n".join(parts))
+
+
+# ================================================================ graphic 3: gdg-antigravity
+
+def badge_card(x, y, w, h, num, a, b, fill=BONE):
+    p = [card(x, y, w, h)]
+    ny = y + PAD + 0.72 * 64 - 2
+    p.append(hero(x + PAD - 2, ny, num, 64, fill, tag=f"b-{num}"))
+    p.append(T(x + PAD, ny + 34, a, 18, "sans", 600, BONE, tag=f"ba-{num}"))
+    p.append(T(x + PAD, ny + 57, b, 16, "sans", 400, MUTE, tag=f"bb-{num}"))
+    assert tw(a, "sans", 18, 600) < w - 2 * PAD, a
+    if ny + 57 > y + h - 16:
+        WARN.append(f"badge {num} tight")
+    return "\n".join(p)
+
+
+def worktree_card(x, y, w, h):
+    p = [card(x, y, w, h)]
+    p.append(T(x + PAD, y + 54, "The multiverse option", 28, "head", 600, BONE, ls=-0.6, tag="wt-title"))
+    p.append(label(x + PAD + tw("The multiverse option", "head", 28, 600, -0.6) + 18, y + 54, "GIT WORKTREES",
+                   tag="wt-lab"))
+    lh, lg = 64, 16
+    mid = y + h - PAD - lh * 1.5 - lg
+    cys = [mid - lh - lg, mid, mid + lh + lg]
+    # repo node
+    p.append(T(x + PAD, mid - 18, "One repo", 26, "head", 600, BONE, ls=-0.4, tag="wt-repo"))
+    p.append(T(x + PAD, mid + 10, "same prompt", 18, "sans", 400, SUB, tag="wt-repo2"))
+    p.append(T(x + PAD, mid + 34, "3 worktrees", 18, "sans", 400, SUB, tag="wt-repo3"))
+    nx = x + PAD + 150
+    kx = x + w - PAD - tw("Keep the best", "head", 24, 600, -0.3) - 26
+    l0, l1 = nx + 46, kx - 52
+    stroke = 'stroke="rgba(243,243,241,.4)" stroke-width="1.5" fill="none"'
+    for cy in cys:
+        p.append(f'<path d="M {nx:.1f} {mid:.1f} C {nx + 34:.1f} {mid:.1f} {l0 - 34:.1f} {cy:.1f} {l0:.1f} {cy:.1f}" {stroke}/>')
+        p.append(f'<path d="M {l1:.1f} {cy:.1f} C {l1 + 34:.1f} {cy:.1f} {kx - 34:.1f} {mid:.1f} {kx - 8:.1f} {mid:.1f}" {stroke}/>')
+    p.append(f'<circle cx="{nx:.1f}" cy="{mid:.1f}" r="6" fill="{BONE}"/>')
+    p.append(f'<circle cx="{kx - 8:.1f}" cy="{mid:.1f}" r="6" fill="{VIOLET}"/>')
+    p.append(T(kx + 10, mid + 8, "Keep the best", 24, "head", 600, BONE, ls=-0.3, tag="wt-keep"))
+    lanes = [("a", "No skill", "Steamrolls to completion on assumptions"),
+             ("b", "/grill-me", "Asks high-level clarifying questions first"),
+             ("c", "/interview-me", "Deep questioning; writes decision docs before coding")]
+    for (k, name, desc), cy in zip(lanes, cys):
+        p.append(card(l0, cy - lh / 2, l1 - l0, lh, fill=PITCH))
+        p.append(T(l0 + 26, cy + 6, k, 17, "mono", 500, MUTE, tag=f"wt-k{k}"))
+        p.append(T(l0 + 52, cy + 7, name, 21, "mono", 600, BONE, tag=f"wt-n{k}"))
+        dx = l0 + 52 + 186
+        dw = l1 - 26 - dx
+        lines = wrap_px(desc, dw, "sans", 18)
+        if len(lines) > 2:
+            WARN.append(f"lane {name} wraps to {len(lines)}")
+        top = cy + 6 - (len(lines) - 1) * 11.5
+        for i, ln in enumerate(lines):
+            p.append(T(dx, top + i * 23, ln, 18, "sans", 400, SUB, tag=f"wt-d{k}{i}"))
+    p.append(label(l1, cys[0] - lh / 2 - 10, "FASTEST", anchor="end", tag="wt-fast"))
+    return "\n".join(p)
+
+
+def harness_card(x, y, w, h):
+    p = [card(x, y, w, h)]
+    ox, oy, ow, oh = x + 24, y + 24, w - 48, 144
+    p.append(rrect(ox, oy, ow, oh, RAD, fill="none", stroke="rgba(243,243,241,.35)", sw=1.2))
+    p.append(label(ox + 24, oy + 34, "HARNESS", tag="h-lab"))
+    gx, gy, gw, gh = ox + 20, oy + 50, 142, 74
+    p.append(rrect(gx, gy, gw, gh, RAD, fill=SURFACE2, stroke=VIOLET, sw=1.2))
+    p.append(T(gx + gw / 2, gy + 34, "Gemini", 22, "head", 600, BONE, "middle", tag="h-gem"))
+    p.append(T(gx + gw / 2, gy + 57, "token predictor", 16, "sans", 400, MUTE, "middle", tag="h-tok"))
+    tx0 = gx + gw + 16
+    tww = ox + ow - 18 - tx0
+    for k, ty in enumerate((gy + 2, gy + 42)):
+        p.append(rrect(tx0, ty, tww, 30, 8, fill="none", stroke="rgba(243,243,241,.35)", sw=1))
+        p.append(T(tx0 + tww / 2, ty + 21, "SKILL.md", 16, "mono", 500, SUB, "middle", tag=f"h-sk{k}"))
+    cw = w - 2 * PAD
+    yy = oy + oh + 44
+    p.append(T(x + PAD, yy, "Antigravity harness", 20, "head", 600, BONE, tag="h-t1"))
+    s, last = para(x + PAD, yy + 25, "gives Gemini disk, shell and the ability to run programs", cw, 18, 23,
+                   fill=SUB, tag="h-b1")
+    p.append(s)
+    p.append(T(x + PAD, last + 38, "Agent Skills", 20, "head", 600, BONE, tag="h-t2"))
+    s, last = para(x + PAD, last + 63, "markdown files (SKILL.md) that tell the model when and how to do a task",
+                   cw, 18, 23, fill=SUB, tag="h-b2")
+    p.append(s)
+    if last > y + h - 20:
+        WARN.append(f"harness overflow {last:.0f} > {y + h - 20}")
+    return "\n".join(p)
+
+
+def loop_card(x, y, w, h):
+    p = [card(x, y, w, h)]
+    p.append(label(x + PAD, y + 48, "REFINEMENT LOOP", tag="lp-lab"))
+    R = 82
+    cx, cy = x + w / 2, y + 172
+    p.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{R}" fill="none" stroke="rgba(243,243,241,.4)" stroke-width="1.5"/>')
+    for a in (45, 135, 225, 315):           # small clockwise arrowheads
+        t = math.radians(a)
+        px, py = cx + R * math.sin(t), cy - R * math.cos(t)
+        tx, ty = math.cos(t), math.sin(t)
+        nx_, ny_ = -ty, tx
+        p.append(f'<path d="M {px - 5 * tx + 5 * nx_:.1f} {py - 5 * ty + 5 * ny_:.1f} L {px + 4 * tx:.1f} {py + 4 * ty:.1f} '
+                 f'L {px - 5 * tx - 5 * nx_:.1f} {py - 5 * ty - 5 * ny_:.1f}" fill="none" stroke="{BONE}" '
+                 f'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>')
+    for name, a in (("write", 0), ("run", 90), ("verify", 180), ("fix", 270)):
+        t = math.radians(a)
+        px, py = cx + R * math.sin(t), cy - R * math.cos(t)
+        lw_ = tw(name, "mono", 17, 600) + 16
+        p.append(f'<rect x="{px - lw_ / 2:.1f}" y="{py - 13:.1f}" width="{lw_:.1f}" height="26" fill="{SURFACE}"/>')
+        p.append(T(px, py + 6, name, 17, "mono", 600, BONE, "middle", tag=f"lp-{name}"))
+    p.append(hero(cx, cy + 10, "2 to 3", 38, BONE, anchor="middle", wt=600, tag="lp-n"))
+    p.append(T(cx, cy + 34, "cycles", 16, "sans", 400, MUTE, "middle", tag="lp-c"))
+    ly = y + h - PAD - 46 - 4
+    p.append(T(x + PAD, ly - 6, "/loop", 22, "mono", 600, BONE, tag="lp-cmd"))
+    p.append(label(x + w - PAD, ly - 6, "PER WORKSHOP", anchor="end", tag="lp-per"))
+    s, last = para(x + PAD, ly + 22, "automates it until a done condition is met", w - 2 * PAD, 18, 23, fill=SUB,
+                   tag="lp-b")
+    p.append(s)
+    if last > y + h - 18:
+        WARN.append("loop overflow")
+    return "\n".join(p)
+
+
+def security_card(x, y, w, h):
+    p = [card(x, y, w, h, stroke=RED, sw=1.2)]
+    p.append(label(x + PAD, y + 46, "SECURITY", fill=RED, tag="sec-lab"))
+    p.append(T(x + PAD, y + 82, "Only install skills you trust.", 22, "head", 600, BONE, ls=-0.3, tag="sec-t"))
+    s, last = para(x + PAD, y + 108, "The model can't separate instructions from content.", w - 2 * PAD, 18, 23,
+                   fill=SUB, tag="sec-b")
+    p.append(s)
+    if last > y + h - 16:
+        WARN.append(f"security overflow {last:.0f} > {y + h - 16}")
+    return "\n".join(p)
+
+
+def new_card(x, y, w, h):
+    p = [card(x, y, w, h)]
+    p.append(label(x + PAD, y + 46, "NEW IN ANTIGRAVITY 2.0", tag="new-lab"))
+    items = ["Native Git worktrees", "Built-in /grill-me", "/goal: run until the task is finished", "Subagents",
+             "Scheduled tasks"]
+    sep = "  \u00b7  "
+    maxw = w - 2 * PAD
+    lines, cur = [], []
+    for it in items:
+        trial = sep.join(cur + [it])
+        if cur and tw(trial, "sans", 18, 500) > maxw:
+            lines.append(cur)
+            cur = [it]
+        else:
+            cur.append(it)
+    lines.append(cur)
+    yy = y + 82
+    for i, ln in enumerate(lines):
+        xx = x + PAD
+        for j, it in enumerate(ln):
+            p.append(T(xx, yy, it, 18, "sans", 500, BONE, tag=f"new-{i}{j}"))
+            xx += tw(it, "sans", 18, 500)
+            if j < len(ln) - 1:
+                p.append(T(xx + tw(sep, "sans", 18, 500) / 2, yy, "\u00b7", 18, "sans", 500, MUTE, "middle",
+                           tag=f"new-dot{i}{j}"))
+                xx += tw(sep, "sans", 18, 500)
+        yy += 27
+    p.append(T(x + PAD, yy + 8, "Also in 2.0: Agent Skills, MCP", 16, "sans", 400, MUTE, tag="new-also"))
+    if yy + 8 > y + h - 18:
+        WARN.append(f"new card overflow {yy + 8:.0f} > {y + h - 18}")
+    return "\n".join(p)
+
+
+def gen_antigravity():
+    start_page()
+    parts = [header("SPARK FESTIVAL  \u00b7  AGENT SKILLS WORKSHOP  \u00b7  SYDNEY",
+                    "Antigravity 2.0: one prompt, three agents",
+                    "Brett Morgan's hands-on session with Agent Skills in Google Antigravity", "specAG")]
+    cols = grid_x(MARGIN, W - 2 * MARGIN, 3)
+    by, bh = BODY_TOP, 150
+    badges = [("1.3M", "grill-me installs on skills.sh", "Vercel's skills directory, Oct 2026"),
+              ("2.4M+", "weekly active users of Antigravity", "Sundar Pichai, Jul 2026"),
+              ("3.8", "Gemini 3.8 Flash ran the demos", "Workshop sample runs, 24 Sep 2026")]
+    for (cx, cw), (n, a, b) in zip(cols, badges):
+        parts.append(badge_card(cx, by, cw, bh, n, a, b))
+    hy = by + bh + GUT
+    hh = 330
+    parts.append(worktree_card(MARGIN, hy, W - 2 * MARGIN, hh))
+    ry = hy + hh + GUT
+    rh = BODY_BOT - ry
+    parts.append(harness_card(cols[0][0], ry, cols[0][1], rh))
+    parts.append(loop_card(cols[1][0], ry, cols[1][1], rh))
+    sh = 156
+    parts.append(security_card(cols[2][0], ry, cols[2][1], sh))
+    parts.append(new_card(cols[2][0], ry + sh + GUT, cols[2][1], rh - sh - GUT))
+    parts.append(footer("Brett Morgan, Antigravity Agent Skills workshop, Google Sydney, 24 Sep 2026"))
+    parts.append(corner_logos())
+    check_layout("gdg-antigravity")
+    return wrap_svg("\n".join(parts))
+
+
+# ================================================================ driver
+
+GRAPHICS = [("gdg-stats", gen_stats), ("gdg-sovereignty", gen_sovereignty),
+            ("gdg-antigravity", gen_antigravity)]
+
+
+def render(name, svg):
+    check_bad(svg, name)
+    svg_path, png_path = OUT / f"{name}.svg", OUT / f"{name}.png"
+    svg_path.write_text(svg)
+    subprocess.run([BUILD, str(svg_path), str(png_path)], check=True, stdout=subprocess.DEVNULL)
+    im = Image.open(png_path).convert("RGB")
+    im.resize((390, 390), Image.LANCZOS).save(OUT / f"preview-{name}-390.png")
+    print(f"wrote {svg_path.name}, {png_path.name}, preview-{name}-390.png")
+
+
+def main(only=None):
+    for name, fn in GRAPHICS:
+        if only and name not in only:
+            continue
+        WARN.clear()
+        svg = fn()
+        render(name, svg)
+        for w_ in WARN:
+            print("WARN", name, w_)
+    print("logos:", LOGO_STATUS)
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:] or None)

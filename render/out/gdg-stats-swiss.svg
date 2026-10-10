@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1200" viewBox="0 0 1200 1200">
+  <rect width="1200" height="1200" fill="#F3F3F1"/>
+<text x="36.0" y="64.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#05010E" letter-spacing="1.6">SPARK FESTIVAL  ·  SOVEREIGN AI PANEL  ·  SYDNEY</text>
+<text x="33.0" y="120.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="54" font-weight="700" fill="#05010E" letter-spacing="-2.0">Sovereign AI in Australia, by the numbers</text>
+<text x="36.0" y="150.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="rgba(5,1,14,.74)">What businesses want, who is building here, and what changed this year</text>
+<rect x="36.0" y="168.0" width="1128.0" height="6" fill="#05010E"/>
+<text x="36.0" y="202.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="700" fill="#05010E" letter-spacing="1.0">01</text>
+<text x="84.0" y="202.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="rgba(5,1,14,.74)" letter-spacing="1.4">WHO IS BUILDING HERE  ·  CIRCLE AREA TO SCALE</text>
+<text x="27.0" y="358.2"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="192" font-weight="700" letter-spacing="-7.7" fill="#A855F7">A$20B</tspan></text>
+<text x="36.0" y="396.2" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="600" fill="#05010E" letter-spacing="-0.3">AWS, 2025 to 2029</text>
+<text x="259.3" y="396.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">Source: Amazon and PM, 14 Jun 2025</text>
+<line x1="708.0" y1="396.7" x2="1164.0" y2="396.7" stroke="#05010E" stroke-width="1"/>
+<circle cx="798.0" cy="306.2" r="90.00" fill="none" stroke="#A855F7" stroke-width="2.5"/>
+<text x="798.0" y="420.2" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#05010E" text-anchor="middle">A$20B</text>
+<circle cx="963.2" cy="343.0" r="53.24" fill="none" stroke="#05010E" stroke-width="1.5"/>
+<text x="963.2" y="420.2" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#05010E" text-anchor="middle">A$7B</text>
+<circle cx="1083.5" cy="351.2" r="45.00" fill="none" stroke="#05010E" stroke-width="1.5"/>
+<text x="1083.5" y="420.2" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#05010E" text-anchor="middle">A$5B</text>
+<circle cx="1153.97" cy="392.76" r="3.48" fill="#05010E"/>
+<text x="708.0" y="444.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="500" fill="#05010E">A$29.9M at the same scale</text>
+<line x1="922.5" y1="439.2" x2="1154.0" y2="439.2" stroke="rgba(5,1,14,.56)" stroke-width="1"/>
+<line x1="1154.0" y1="439.2" x2="1154.0" y2="402.2" stroke="rgba(5,1,14,.56)" stroke-width="1"/>
+<line x1="36.0" y1="458.2" x2="1164.0" y2="458.2" stroke="#05010E" stroke-width="2"/>
+<text x="34.0" y="503.0"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="40" font-weight="700" letter-spacing="-1.6" fill="#05010E">A$7B</tspan></text>
+<text x="143.1" y="503.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="600" fill="#05010E">OpenAI + NEXTDC</text>
+<text x="36.0" y="531.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">Sydney AI campus (MoU)</text>
+<text x="36.0" y="553.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">Source: Minister Charlton, 5 Dec 2025</text>
+<text x="418.0" y="503.0"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="40" font-weight="700" letter-spacing="-1.6" fill="#05010E">A$5B</tspan></text>
+<text x="529.9" y="503.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="600" fill="#05010E">Microsoft</text>
+<text x="420.0" y="531.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">Over two years</text>
+<text x="420.0" y="553.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">Source: Microsoft, 24 Oct 2023</text>
+<text x="802.0" y="503.0"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="40" font-weight="700" letter-spacing="-1.6" fill="#05010E">A$29.9M</tspan></text>
+<text x="974.0" y="503.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="600" fill="#05010E">AI Safety Institute</text>
+<text x="804.0" y="531.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">Funded as mandatory guardrails were set</text>
+<text x="804.0" y="553.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">aside</text>
+<text x="804.0" y="575.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">Source: National AI Plan, 2 Dec 2025</text>
+<line x1="408.0" y1="472.2" x2="408.0" y2="581.0" stroke="rgba(5,1,14,.56)" stroke-width="1"/>
+<line x1="792.0" y1="472.2" x2="792.0" y2="581.0" stroke="rgba(5,1,14,.56)" stroke-width="1"/>
+<rect x="36.0" y="601.0" width="1128.0" height="6" fill="#05010E"/>
+<text x="36.0" y="635.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="700" fill="#05010E" letter-spacing="1.0">02</text>
+<text x="20.0" y="865.0"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="300" font-weight="700" letter-spacing="-12.0" fill="#A855F7">79%</tspan></text>
+<text x="36.0" y="903.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="600" fill="#05010E">of Australian businesses say it&apos;s important their AI tools store</text>
+<text x="36.0" y="931.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="600" fill="#05010E">and process data in Australia</text>
+<line x1="36.0" y1="951.0" x2="684.0" y2="951.0" stroke="#05010E" stroke-width="1"/>
+<text x="33.0" y="1013.1"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="64" font-weight="700" letter-spacing="-2.6" fill="#05010E">70%</tspan></text>
+<text x="190.2" y="1013.1" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="500" fill="rgba(5,1,14,.74)">would pay more for AI hosted entirely in Australia</text>
+<text x="36.0" y="1045.1" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">Source: Decidr, State of AI in Australian Business 2026, 1,324 businesses, Jul 2026.</text>
+<text x="36.0" y="1065.1" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">Vendor survey; Decidr&apos;s David Brudenell was on the panel.</text>
+<line x1="696.0" y1="623.0" x2="696.0" y2="1080.0" stroke="rgba(5,1,14,.56)" stroke-width="1"/>
+<text x="708.0" y="635.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="700" fill="#05010E" letter-spacing="1.0">03</text>
+<text x="705.0" y="694.8"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="58" font-weight="700" letter-spacing="-2.3" fill="#05010E">19</tspan><tspan dx="5.8" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="500" letter-spacing="0" fill="#05010E">days</tspan></text>
+<text x="1164.0" y="694.8" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="rgba(5,1,14,.74)" letter-spacing="1.4" text-anchor="end">EXPORT CONTROL</text>
+<text x="708.0" y="723.8" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="600" fill="#05010E">Claude Fable 5 offline worldwide under a US</text>
+<text x="708.0" y="746.8" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="600" fill="#05010E">export directive</text>
+<text x="708.0" y="770.8" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">12 Jun to 1 Jul 2026</text>
+<text x="1164.0" y="770.8" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)" text-anchor="end">Source: Anthropic statements</text>
+<line x1="708.0" y1="785.8" x2="1164.0" y2="785.8" stroke="#05010E" stroke-width="1"/>
+<text x="705.0" y="839.6"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="58" font-weight="700" letter-spacing="-2.3" fill="#05010E">84</tspan><tspan dx="5.8" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="500" letter-spacing="0" fill="#05010E">days</tspan></text>
+<text x="1164.0" y="839.6" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="rgba(5,1,14,.74)" letter-spacing="1.4" text-anchor="end">DISCLOSURE</text>
+<text x="708.0" y="868.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="600" fill="#05010E">for OpenAI to tell government its agent accessed</text>
+<text x="708.0" y="891.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="600" fill="#05010E">a Medicare portal</text>
+<text x="708.0" y="915.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">18 Jun to 10 Sep 2026</text>
+<text x="1164.0" y="915.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)" text-anchor="end">Source: ABC, 24 Sep 2026</text>
+<line x1="708.0" y1="930.6" x2="1164.0" y2="930.6" stroke="#05010E" stroke-width="1"/>
+<text x="705.0" y="984.3"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="58" font-weight="700" letter-spacing="-2.3" fill="#05010E">10 Dec</tspan><tspan dx="5.8" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="500" letter-spacing="0" fill="#05010E">2026</tspan></text>
+<text x="708.0" y="1013.3" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="600" fill="#05010E">Privacy Act rules on automated decisions begin</text>
+<text x="708.0" y="1037.3" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">Policies must say when a program makes or substantially</text>
+<text x="708.0" y="1057.3" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">assists significant decisions</text>
+<text x="708.0" y="1078.3" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">Source: OAIC, 30 Sep 2026</text>
+<image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1105" width="72" height="67.3" preserveAspectRatio="xMidYMid meet"/>
+<text x="132.0" y="1146.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">Day counts calculated from the published dates</text>
+  <image href="logo-gfd-violet.png" xlink:href="logo-gfd-violet.png" x="1014.0" y="56.6" width="150.0" height="14.8" preserveAspectRatio="xMaxYMid meet"/>
+  <image href="logo-spark-violet.png" xlink:href="logo-spark-violet.png" x="1070.0" y="1117.3" width="94.0" height="42.8" preserveAspectRatio="xMaxYMid meet"/>
+</svg>

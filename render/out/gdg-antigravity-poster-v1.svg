@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1200" viewBox="0 0 1200 1200">
+  <defs>
+    <pattern id="id-dots13" width="24" height="24" patternUnits="userSpaceOnUse" x="12" y="12"><circle cx="1.5" cy="1.5" r="1.5" fill="rgba(243,243,241,.07)"/></pattern>
+    <radialGradient id="id-dfade15" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#F3F3F1" stop-opacity="1"/><stop offset="0.6" stop-color="#F3F3F1" stop-opacity="0.6"/><stop offset="1" stop-color="#F3F3F1" stop-opacity="0"/></radialGradient>
+    <mask id="id-dmask14"><rect x="60" y="60" width="1080" height="1080" fill="url(#id-dfade15)"/></mask>
+    <radialGradient id="id-glow16" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#A855F7" stop-opacity="0.500"/><stop offset="0.38" stop-color="#895AF6" stop-opacity="0.275"/><stop offset="0.7" stop-color="#6366F1" stop-opacity="0.090"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
+    <radialGradient id="id-glow17" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#A855F7" stop-opacity="0.140"/><stop offset="0.38" stop-color="#895AF6" stop-opacity="0.077"/><stop offset="0.7" stop-color="#6366F1" stop-opacity="0.025"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
+    <radialGradient id="id-orb18" cx="0.38" cy="0.32" r="0.75"><stop offset="0" stop-color="#A855F7" stop-opacity="1.000"/><stop offset="0.55" stop-color="#895AF6" stop-opacity="0.550"/><stop offset="1" stop-color="#6366F1" stop-opacity="0.250"/></radialGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="#05010E"/>
+<text x="36.0" y="64.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="#A4A098" letter-spacing="1.2">SPARK FESTIVAL  ·  AGENT SKILLS WORKSHOP  ·  SYDNEY</text>
+<text x="33.0" y="124.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="52" font-weight="600" fill="#F3F3F1" letter-spacing="-1.8">Antigravity 2.0: one prompt, three agents</text>
+<text x="34.0" y="232.0"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="50" font-weight="600" letter-spacing="-2.0" fill="#F3F3F1">1.3M</tspan></text>
+<text x="36.0" y="264.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">grill-me installs (skills.sh)</text>
+<text x="418.0" y="232.0"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="50" font-weight="600" letter-spacing="-2.0" fill="#F3F3F1">2.4M+</tspan></text>
+<text x="420.0" y="264.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">weekly Antigravity users</text>
+<line x1="396.0" y1="192.0" x2="396.0" y2="270.0" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="802.0" y="232.0"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="50" font-weight="600" letter-spacing="-2.0" fill="#F3F3F1">3.8 Flash</tspan></text>
+<text x="804.0" y="264.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">Gemini model in the demos</text>
+<line x1="780.0" y1="192.0" x2="780.0" y2="270.0" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<rect x="60" y="60" width="1080" height="1080" fill="url(#id-dots13)" mask="url(#id-dmask14)"/>
+<ellipse cx="990.0" cy="600.0" rx="330.0" ry="330.0" fill="url(#id-glow16)"/>
+<ellipse cx="560.0" cy="600.0" rx="520.0" ry="364.0" fill="url(#id-glow17)"/>
+<text x="36.0" y="336.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#A855F7" letter-spacing="1.2">THE MULTIVERSE OPTION</text>
+<text x="280.7" y="336.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#A4A098">one prompt, three Git worktrees</text>
+<path d="M 150.0 600 C 270.0 600 252.0 442 372.0 442" stroke="rgba(243,243,241,.55)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M 372.0 442 L 760.0 442" stroke="rgba(243,243,241,.55)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M 760.0 442 C 880.0 442 880.0 600 960.0 600" stroke="#A855F7" stroke-opacity=".85" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<circle cx="372.0" cy="442" r="6" fill="#05010E" stroke="#F3F3F1" stroke-width="2"/>
+<path d="M 150.0 600 C 270.0 600 252.0 600 372.0 600" stroke="rgba(243,243,241,.55)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M 372.0 600 L 760.0 600" stroke="rgba(243,243,241,.55)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M 760.0 600 C 880.0 600 880.0 600 960.0 600" stroke="#A855F7" stroke-opacity=".85" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<circle cx="372.0" cy="600" r="6" fill="#05010E" stroke="#F3F3F1" stroke-width="2"/>
+<path d="M 150.0 600 C 270.0 600 252.0 758 372.0 758" stroke="rgba(243,243,241,.55)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M 372.0 758 L 760.0 758" stroke="rgba(243,243,241,.55)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M 760.0 758 C 880.0 758 880.0 600 960.0 600" stroke="#A855F7" stroke-opacity=".85" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<circle cx="372.0" cy="758" r="6" fill="#05010E" stroke="#F3F3F1" stroke-width="2"/>
+<text x="394.0" y="424.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#A4A098">a</text>
+<text x="422.0" y="424.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="28" font-weight="600" fill="#F3F3F1">No skill</text>
+<text x="394.0" y="476.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#D4D2CE">steamrolls on assumptions</text>
+<text x="394.0" y="582.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#A4A098">b</text>
+<text x="422.0" y="582.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="28" font-weight="600" fill="#F3F3F1">/grill-me</text>
+<text x="394.0" y="634.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#D4D2CE">clarifies first</text>
+<text x="394.0" y="740.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#A4A098">c</text>
+<text x="422.0" y="740.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="28" font-weight="600" fill="#F3F3F1">/interview-me</text>
+<text x="394.0" y="792.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#D4D2CE">decision docs first</text>
+<text x="760.0" y="424.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="#A4A098" letter-spacing="1.2" text-anchor="end">FASTEST</text>
+<circle cx="150" cy="600" r="16" fill="#F3F3F1"/>
+<text x="150.0" y="658.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="600" fill="#F3F3F1" text-anchor="middle">One repo</text>
+<text x="150.0" y="684.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#A4A098" text-anchor="middle">same prompt</text>
+<circle cx="990" cy="600" r="30" fill="url(#id-orb18)" stroke="#A855F7" stroke-width="2"/>
+<circle cx="990" cy="600" r="10" fill="#F3F3F1"/>
+<text x="990.0" y="676.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="30" font-weight="600" fill="#F3F3F1" letter-spacing="-0.6" text-anchor="middle">Keep the best</text>
+<text x="36.0" y="940.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="#A4A098" letter-spacing="1.2">NEW IN 2.0</text>
+<rect x="165.9" y="914" width="217.9" height="40" rx="20" fill="rgba(243,243,241,.04)" stroke="rgba(243,243,241,.24)" stroke-width="1"/>
+<text x="183.9" y="941.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="500" fill="#F3F3F1">Native Git worktrees</text>
+<rect x="395.8" y="914" width="182.6" height="40" rx="20" fill="rgba(243,243,241,.04)" stroke="rgba(243,243,241,.24)" stroke-width="1"/>
+<text x="413.8" y="941.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="500" fill="#F3F3F1">Built-in /grill-me</text>
+<rect x="590.4" y="914" width="83.0" height="40" rx="20" fill="rgba(243,243,241,.04)" stroke="rgba(243,243,241,.24)" stroke-width="1"/>
+<text x="608.4" y="941.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="500" fill="#F3F3F1">/goal</text>
+<rect x="685.4" y="914" width="131.8" height="40" rx="20" fill="rgba(243,243,241,.04)" stroke="rgba(243,243,241,.24)" stroke-width="1"/>
+<text x="703.4" y="941.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="500" fill="#F3F3F1">Subagents</text>
+<rect x="829.2" y="914" width="184.3" height="40" rx="20" fill="rgba(243,243,241,.04)" stroke="rgba(243,243,241,.24)" stroke-width="1"/>
+<text x="847.2" y="941.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="500" fill="#F3F3F1">Scheduled tasks</text>
+<rect x="36" y="1003" width="40" height="3" fill="#DC2828"/>
+<text x="90.0" y="1012.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="700" fill="#DC2828" letter-spacing="1.2">SECURITY</text>
+<text x="194.3" y="1012.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="500" fill="#F3F3F1">Only install skills you trust.</text>
+<image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1105" width="72" height="67.3" preserveAspectRatio="xMidYMid meet"/>
+<text x="132.0" y="1140.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="400" fill="#A4A098">Sources: Brett Morgan, Antigravity Agent Skills workshop, Google Sydney, 24 Sep 2026 ·</text>
+<text x="132.0" y="1162.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="400" fill="#A4A098">skills.sh · Sundar Pichai, Jul 2026 · antigravity.google</text>
+  <image href="logo-gfd-violet.png" xlink:href="logo-gfd-violet.png" x="1014.0" y="56.6" width="150.0" height="14.8" preserveAspectRatio="xMaxYMid meet"/>
+  <image href="logo-spark-violet.png" xlink:href="logo-spark-violet.png" x="1070.0" y="1117.3" width="94.0" height="42.8" preserveAspectRatio="xMaxYMid meet"/>
+</svg>

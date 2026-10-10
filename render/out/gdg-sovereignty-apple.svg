@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1200" viewBox="0 0 1200 1200">
+  <rect width="1200" height="1200" fill="#05010E"/>
+
+  <defs>
+    <linearGradient id="specSov" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="50%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#FCD34D"/>
+    </linearGradient>
+  </defs>
+  <rect x="48" y="36" width="260" height="4" rx="2.0" fill="url(#specSov)"/>
+<text x="48.0" y="70.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#A855F7" letter-spacing="1.6">SPARK FESTIVAL  ·  SOVEREIGN AI PANEL  ·  SYDNEY</text>
+<text x="48.0" y="120.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="46" font-weight="600" fill="#F3F3F1" letter-spacing="-1.2">AI sovereignty is leverage</text>
+<text x="48.0" y="152.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#A4A098">Five legs, three tests and one middle ground, from the panel</text>
+<text x="44.0" y="244.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="66" font-weight="600" fill="#F3F3F1" letter-spacing="-2.2">“Sovereignty = leverage,</text>
+<text x="70.0" y="318.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="66" font-weight="600" fill="#F3F3F1" letter-spacing="-2.2">not just choice”</text>
+<text x="1152.0" y="318.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="500" fill="#A4A098" text-anchor="end">Raymond Sun, HSF Kramer</text>
+<rect x="48.0" y="356.5" width="1104.0" height="3.0" rx="1.5" fill="#F3F3F1"/>
+<line x1="150.4" y1="359.5" x2="150.4" y2="378.0" stroke="rgba(243,243,241,.3)" stroke-width="1"/>
+<rect x="48.0" y="378.0" width="204.8" height="252.0" rx="28" fill="#05010E" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="72.0" y="428.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="27" font-weight="600" fill="#F3F3F1" letter-spacing="-0.6">Model</text>
+<text x="72.0" y="460.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">who builds it, and</text>
+<text x="72.0" y="483.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">whose values it</text>
+<text x="72.0" y="506.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">carries</text>
+<path d="M 259.8 524 L 265.8 530 L 259.8 536" fill="none" stroke="#A4A098" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="375.2" y1="359.5" x2="375.2" y2="378.0" stroke="rgba(243,243,241,.3)" stroke-width="1"/>
+<rect x="272.8" y="378.0" width="204.8" height="252.0" rx="28" fill="#05010E" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="296.8" y="428.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="27" font-weight="600" fill="#F3F3F1" letter-spacing="-0.6">Data</text>
+<text x="296.8" y="460.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">where it is stored</text>
+<text x="296.8" y="483.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">and processed</text>
+<text x="296.8" y="578.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#A4A098" letter-spacing="1.0">MOSTLY</text>
+<text x="296.8" y="600.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#A4A098" letter-spacing="1.0">LOCALISATION</text>
+<path d="M 484.6 524 L 490.6 530 L 484.6 536" fill="none" stroke="#A4A098" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="600.0" y1="359.5" x2="600.0" y2="378.0" stroke="#A855F7" stroke-width="2"/>
+<rect x="497.6" y="378.0" width="204.8" height="252.0" rx="28" fill="#160F24" stroke="#A855F7" stroke-width="1.5"/>
+<text x="521.6" y="428.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="30" font-weight="700" fill="#A855F7" letter-spacing="-0.6">Policy</text>
+<text x="521.6" y="460.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#F3F3F1">who sets and</text>
+<text x="521.6" y="483.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#F3F3F1">enforces the rules</text>
+<text x="521.6" y="578.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#A855F7" letter-spacing="1.0">TRUE</text>
+<text x="521.6" y="600.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#A855F7" letter-spacing="1.0">SOVEREIGNTY</text>
+<path d="M 715.4 524 L 709.4 530 L 715.4 536" fill="none" stroke="#A4A098" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="824.8" y1="359.5" x2="824.8" y2="378.0" stroke="rgba(243,243,241,.3)" stroke-width="1"/>
+<rect x="722.4" y="378.0" width="204.8" height="252.0" rx="28" fill="#05010E" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="746.4" y="428.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="27" font-weight="600" fill="#F3F3F1" letter-spacing="-0.6">Inference</text>
+<text x="746.4" y="460.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">where the model</text>
+<text x="746.4" y="483.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">runs</text>
+<text x="746.4" y="578.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#A4A098" letter-spacing="1.0">MOSTLY</text>
+<text x="746.4" y="600.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#A4A098" letter-spacing="1.0">LOCALISATION</text>
+<path d="M 940.2 524 L 934.2 530 L 940.2 536" fill="none" stroke="#A4A098" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="1049.6" y1="359.5" x2="1049.6" y2="378.0" stroke="rgba(243,243,241,.3)" stroke-width="1"/>
+<rect x="947.2" y="378.0" width="204.8" height="252.0" rx="28" fill="#05010E" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="971.2" y="428.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="27" font-weight="600" fill="#F3F3F1" letter-spacing="-0.6">Intellectual</text>
+<text x="971.2" y="460.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">domain know-how</text>
+<text x="971.2" y="483.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">that can&apos;t be</text>
+<text x="971.2" y="506.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="#D4D2CE">scraped</text>
+<text x="971.2" y="578.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#F3F3F1" letter-spacing="1.0">ADDED</text>
+<text x="971.2" y="600.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#F3F3F1" letter-spacing="1.0">5TH LEG</text>
+<path d="M 50.0 643 V 650 H 925.2 V 643" fill="none" stroke="rgba(243,243,241,.3)" stroke-width="1"/>
+<path d="M 949.2 643 V 650 H 1150.0 V 643" fill="none" stroke="rgba(243,243,241,.3)" stroke-width="1"/>
+<text x="487.6" y="678.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" fill="#D4D2CE" text-anchor="middle">Four legs proposed by David Brudenell, Decidr</text>
+<text x="1049.6" y="678.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" fill="#D4D2CE" text-anchor="middle">Added by Raymond Sun</text>
+<text x="487.6" y="704.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="17" font-weight="400" fill="#A4A098" font-style="italic" text-anchor="middle">Raymond Sun: data, compute and inference are mostly localisation; true sovereignty is policy</text>
+<line x1="48.0" y1="738.0" x2="1152.0" y2="738.0" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="48.0" y="778.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="#A4A098" letter-spacing="1.4">THE RULE OF THREE  ·  RAMESH HEIDARY, GOOGLE CLOUD</text>
+<text x="45.0" y="874.0"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="84" font-weight="300" letter-spacing="-3.4" fill="#F3F3F1">1</tspan></text>
+<text x="114.0" y="836.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="600" fill="#F3F3F1">Know where your data goes</text>
+<text x="114.0" y="862.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#D4D2CE">prompts and metadata included</text>
+<text x="426.3" y="874.0"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="84" font-weight="300" letter-spacing="-3.4" fill="#F3F3F1">2</tspan></text>
+<text x="495.3" y="836.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="600" fill="#F3F3F1">Know who can be legally</text>
+<text x="495.3" y="862.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#D4D2CE">compelled to hand it over</text>
+<text x="807.7" y="874.0"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="84" font-weight="300" letter-spacing="-3.4" fill="#F3F3F1">3</tspan></text>
+<text x="876.7" y="836.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="600" fill="#F3F3F1">Be able to prove it</text>
+<line x1="48.0" y1="898.0" x2="1152.0" y2="898.0" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="48.0" y="938.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="#A4A098" letter-spacing="1.4">WHERE AUSTRALIA SITS  ·  LAURA HEIDRICH, GOOGLE CLOUD</text>
+<line x1="48.0" y1="1016.0" x2="1152.0" y2="1016.0" stroke="rgba(243,243,241,.35)" stroke-width="1.5"/>
+<text x="192.0" y="998.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="#A4A098" letter-spacing="1.4">STRICTER RULES</text>
+<text x="1008.0" y="998.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="#A4A098" letter-spacing="1.4" text-anchor="end">LOOSER RULES</text>
+<circle cx="158.0" cy="1016.0" r="6" fill="#F3F3F1"/>
+<text x="158.0" y="998.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="#F3F3F1" text-anchor="middle">EU</text>
+<circle cx="600.0" cy="1016.0" r="8" fill="#A855F7"/>
+<text x="600.0" y="998.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="#A855F7" text-anchor="middle">AU</text>
+<circle cx="1042.0" cy="1016.0" r="6" fill="#F3F3F1"/>
+<text x="1042.0" y="998.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="#F3F3F1" text-anchor="middle">US</text>
+<text x="158.0" y="1060.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="500" fill="#D4D2CE" font-style="italic" text-anchor="middle">“A hygiene factor”</text>
+<text x="600.0" y="1060.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="500" fill="#F3F3F1" font-style="italic" text-anchor="middle">“The ethical middle ground”</text>
+<text x="1042.0" y="1060.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="500" fill="#D4D2CE" font-style="italic" text-anchor="middle">“The Wild West”</text>
+<image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1105" width="72" height="67.3" preserveAspectRatio="xMidYMid meet"/>
+<text x="128.0" y="1146.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="#A4A098">Paraphrased from notes taken at the panel, 24 Sep 2026</text>
+  <image href="logo-gfd-violet.png" xlink:href="logo-gfd-violet.png" x="1014.0" y="56.6" width="150.0" height="14.8" preserveAspectRatio="xMaxYMid meet"/>
+  <image href="logo-spark-violet.png" xlink:href="logo-spark-violet.png" x="1070.0" y="1117.3" width="94.0" height="42.8" preserveAspectRatio="xMaxYMid meet"/>
+</svg>

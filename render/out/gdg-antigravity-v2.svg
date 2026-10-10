@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1200" viewBox="0 0 1200 1200">
+  <defs>
+    <pattern id="id-dots1" width="24" height="24" patternUnits="userSpaceOnUse" x="12" y="12"><circle cx="1.5" cy="1.5" r="1.5" fill="rgba(243,243,241,.07)"/></pattern>
+    <radialGradient id="id-dfade3" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#F3F3F1" stop-opacity="1"/><stop offset="0.6" stop-color="#F3F3F1" stop-opacity="0.6"/><stop offset="1" stop-color="#F3F3F1" stop-opacity="0"/></radialGradient>
+    <mask id="id-dmask2"><rect x="440" y="45" width="840" height="840" fill="url(#id-dfade3)"/></mask>
+    <radialGradient id="id-glow4" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#A855F7" stop-opacity="0.500"/><stop offset="0.38" stop-color="#895AF6" stop-opacity="0.275"/><stop offset="0.7" stop-color="#6366F1" stop-opacity="0.090"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
+    <radialGradient id="id-orb5" cx="0.38" cy="0.32" r="0.75"><stop offset="0" stop-color="#A855F7" stop-opacity="1.000"/><stop offset="0.55" stop-color="#895AF6" stop-opacity="0.550"/><stop offset="1" stop-color="#6366F1" stop-opacity="0.250"/></radialGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="#05010E"/>
+<text x="36.0" y="64.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="#A4A098" letter-spacing="1.2">SPARK FESTIVAL  ·  AGENT SKILLS WORKSHOP  ·  SYDNEY</text>
+<text x="33.0" y="124.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="52" font-weight="600" fill="#F3F3F1" letter-spacing="-1.8">What&apos;s new in Antigravity 2.0</text>
+<text x="34.0" y="226.0"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="56" font-weight="600" letter-spacing="-2.2" fill="#F3F3F1">2.4M+</tspan></text>
+<text x="36.0" y="258.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#D4D2CE">weekly Antigravity users</text>
+<line x1="396.0" y1="182.0" x2="396.0" y2="264.0" stroke="rgba(243,243,241,.12)" stroke-width="1"/>
+<text x="418.0" y="226.0"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="56" font-weight="600" letter-spacing="-2.2" fill="#F3F3F1">Gemini 3.8 Flash</tspan></text>
+<text x="420.0" y="258.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#D4D2CE">model in the workshop demos</text>
+<rect x="440" y="45" width="840" height="840" fill="url(#id-dots1)" mask="url(#id-dmask2)"/>
+<ellipse cx="940.0" cy="465.0" rx="380.0" ry="285.0" fill="url(#id-glow4)"/>
+<rect x="36.0" y="300.0" width="1128.0" height="330.0" rx="24" fill="rgba(243,243,241,.03)" stroke="rgba(168,85,247,.45)" stroke-width="1.2"/>
+<text x="76.0" y="362.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#A855F7" letter-spacing="1.2">NEW IN 2.0</text>
+<text x="74.0" y="440.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="52" font-weight="600" fill="#F3F3F1" letter-spacing="-1.4">Native Git</text>
+<text x="74.0" y="498.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="52" font-weight="600" fill="#F3F3F1" letter-spacing="-1.4">worktrees</text>
+<text x="76.0" y="552.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#D4D2CE">an isolated worktree for each</text>
+<text x="76.0" y="581.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#D4D2CE">agent session</text>
+<path d="M 600 459.0 C 660 459.0 640 397.0 700 397.0 L 880 397.0" stroke="rgba(243,243,241,.55)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M 880 397.0 C 950 397.0 970 459.0 1018 459.0" stroke="#A855F7" stroke-opacity=".9" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<circle cx="790.0" cy="397.0" r="5" fill="#05010E" stroke="#F3F3F1" stroke-width="2"/>
+<path d="M 600 459.0 C 660 459.0 640 459.0 700 459.0 L 880 459.0" stroke="rgba(243,243,241,.55)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M 880 459.0 C 950 459.0 970 459.0 1018 459.0" stroke="#A855F7" stroke-opacity=".9" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<circle cx="790.0" cy="459.0" r="5" fill="#05010E" stroke="#F3F3F1" stroke-width="2"/>
+<path d="M 600 459.0 C 660 459.0 640 521.0 700 521.0 L 880 521.0" stroke="rgba(243,243,241,.55)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M 880 521.0 C 950 521.0 970 459.0 1018 459.0" stroke="#A855F7" stroke-opacity=".9" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<circle cx="790.0" cy="521.0" r="5" fill="#05010E" stroke="#F3F3F1" stroke-width="2"/>
+<circle cx="600" cy="459.0" r="11" fill="#F3F3F1"/>
+<circle cx="1040" cy="459.0" r="22" fill="url(#id-orb5)" stroke="#A855F7" stroke-width="2"/>
+<circle cx="1040" cy="459.0" r="7" fill="#F3F3F1"/>
+<text x="600.0" y="563.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="500" fill="#D4D2CE" text-anchor="middle">one repo</text>
+<text x="790.0" y="563.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="500" fill="#D4D2CE" text-anchor="middle">three agents</text>
+<text x="1040.0" y="563.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="500" fill="#F3F3F1" text-anchor="middle">keep the best</text>
+<rect x="36.0" y="654.0" width="552.0" height="168.0" rx="24" fill="rgba(243,243,241,.035)" stroke="rgba(243,243,241,.14)" stroke-width="1.2"/>
+<circle cx="100.0" cy="738.0" r="34" fill="rgba(243,243,241,.05)" stroke="rgba(243,243,241,.2)" stroke-width="1.2"/>
+<path d="M 83.0 725.0 h 34 a 5 5 0 0 1 5 5 v 16 a 5 5 0 0 1 -5 5 h -16 l -9 8 v -8 h -9 a 5 5 0 0 1 -5 -5 v -16 a 5 5 0 0 1 5 -5 z" fill="none" stroke="#F3F3F1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/>
+<path d="M 95.5 734.0 a 4.5 4.5 0 1 1 6 4.2 c -1.4 .6 -1.5 1.4 -1.5 2.8" fill="none" stroke="#F3F3F1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+<circle cx="100.0" cy="746.5" r="1.4" fill="#F3F3F1"/>
+<text x="156.0" y="732.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="600" fill="#F3F3F1" letter-spacing="-0.8">Built-in /grill-me</text>
+<text x="156.0" y="768.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="400" fill="#D4D2CE">asks questions back before implementing</text>
+<rect x="612.0" y="654.0" width="552.0" height="168.0" rx="24" fill="rgba(243,243,241,.035)" stroke="rgba(243,243,241,.14)" stroke-width="1.2"/>
+<circle cx="676.0" cy="738.0" r="34" fill="rgba(243,243,241,.05)" stroke="rgba(243,243,241,.2)" stroke-width="1.2"/>
+<circle cx="676.0" cy="738.0" r="17" fill="none" stroke="#F3F3F1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/><circle cx="676.0" cy="738.0" r="9.5" fill="none" stroke="#F3F3F1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/>
+<circle cx="676.0" cy="738.0" r="3.2" fill="#F3F3F1"/>
+<text x="732.0" y="732.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="600" fill="#F3F3F1" letter-spacing="-0.8">/goal</text>
+<text x="732.0" y="768.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="400" fill="#D4D2CE">runs until the task is finished</text>
+<rect x="36.0" y="846.0" width="552.0" height="168.0" rx="24" fill="rgba(243,243,241,.035)" stroke="rgba(243,243,241,.14)" stroke-width="1.2"/>
+<circle cx="100.0" cy="930.0" r="34" fill="rgba(243,243,241,.05)" stroke="rgba(243,243,241,.2)" stroke-width="1.2"/>
+<path d="M 100.0 920.0 V 928.0 M 100.0 928.0 C 100.0 934.0 86.0 932.0 86.0 940.0 M 100.0 928.0 V 940.0 M 100.0 928.0 C 100.0 934.0 114.0 932.0 114.0 940.0" fill="none" stroke="#F3F3F1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/>
+<circle cx="100.0" cy="916.0" r="5" fill="#F3F3F1"/>
+<circle cx="86.0" cy="944.0" r="4" fill="none" stroke="#F3F3F1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+<circle cx="100.0" cy="944.0" r="4" fill="none" stroke="#F3F3F1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+<circle cx="114.0" cy="944.0" r="4" fill="none" stroke="#F3F3F1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+<text x="156.0" y="942.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="600" fill="#F3F3F1" letter-spacing="-0.8">Subagents</text>
+<rect x="612.0" y="846.0" width="552.0" height="168.0" rx="24" fill="rgba(243,243,241,.035)" stroke="rgba(243,243,241,.14)" stroke-width="1.2"/>
+<circle cx="676.0" cy="930.0" r="34" fill="rgba(243,243,241,.05)" stroke="rgba(243,243,241,.2)" stroke-width="1.2"/>
+<circle cx="676.0" cy="930.0" r="17" fill="none" stroke="#F3F3F1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/><path d="M 676.0 921.0 V 930.0 L 683.0 935.0" fill="none" stroke="#F3F3F1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/>
+<text x="732.0" y="942.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="600" fill="#F3F3F1" letter-spacing="-0.8">Scheduled tasks</text>
+<rect x="36" y="1052" width="40" height="3" fill="#DC2828"/>
+<text x="90.0" y="1061.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="700" fill="#DC2828" letter-spacing="1.2">SECURITY</text>
+<text x="194.3" y="1061.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="500" fill="#F3F3F1">Only install skills you trust.</text>
+<image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1105" width="72" height="67.3" preserveAspectRatio="xMidYMid meet"/>
+<text x="132.0" y="1142.9" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#A4A098">Sources: Brett Morgan workshop, Google Sydney, 24 Sep 2026 · antigravity.google · Sundar Pichai</text>
+  <image href="logo-gfd-violet.png" xlink:href="logo-gfd-violet.png" x="1014.0" y="56.6" width="150.0" height="14.8" preserveAspectRatio="xMaxYMid meet"/>
+  <image href="logo-spark-violet.png" xlink:href="logo-spark-violet.png" x="1070.0" y="1117.3" width="94.0" height="42.8" preserveAspectRatio="xMaxYMid meet"/>
+</svg>

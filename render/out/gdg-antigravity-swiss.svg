@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1200" viewBox="0 0 1200 1200">
+  <rect width="1200" height="1200" fill="#F3F3F1"/>
+<text x="36.0" y="64.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#05010E" letter-spacing="1.6">SPARK FESTIVAL  ·  AGENT SKILLS WORKSHOP  ·  SYDNEY</text>
+<text x="33.0" y="120.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="54" font-weight="700" fill="#05010E" letter-spacing="-2.0">Antigravity 2.0: one prompt, three agents</text>
+<text x="36.0" y="150.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="rgba(5,1,14,.74)">Brett Morgan&apos;s hands-on session with Agent Skills in Google Antigravity</text>
+<rect x="36.0" y="168.0" width="1128.0" height="6" fill="#05010E"/>
+<text x="36.0" y="202.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="700" fill="#05010E" letter-spacing="1.0">01</text>
+<text x="32.0" y="280.5"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="84" font-weight="700" letter-spacing="-3.4" fill="#05010E">1.3M</tspan></text>
+<text x="36.0" y="314.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="600" fill="#05010E">grill-me installs on skills.sh</text>
+<text x="36.0" y="338.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">Vercel&apos;s skills directory, Oct 2026</text>
+<line x1="408.0" y1="190.0" x2="408.0" y2="344.0" stroke="rgba(5,1,14,.56)" stroke-width="1"/>
+<text x="416.0" y="280.5"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="84" font-weight="700" letter-spacing="-3.4" fill="#05010E">2.4M+</tspan></text>
+<text x="420.0" y="314.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="600" fill="#05010E">weekly active users of Antigravity</text>
+<text x="420.0" y="338.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">Sundar Pichai, Jul 2026</text>
+<line x1="792.0" y1="190.0" x2="792.0" y2="344.0" stroke="rgba(5,1,14,.56)" stroke-width="1"/>
+<text x="800.0" y="280.5"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="84" font-weight="700" letter-spacing="-3.4" fill="#05010E">3.8</tspan></text>
+<text x="804.0" y="314.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="600" fill="#05010E">Gemini 3.8 Flash ran the demos</text>
+<text x="804.0" y="338.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">Workshop sample runs, 24 Sep 2026</text>
+<rect x="36.0" y="366.5" width="1128.0" height="6" fill="#05010E"/>
+<text x="36.0" y="400.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="700" fill="#05010E" letter-spacing="1.0">02</text>
+<text x="84.0" y="400.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="rgba(5,1,14,.74)" letter-spacing="1.4">GIT WORKTREES</text>
+<text x="34.0" y="454.5" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="36" font-weight="700" fill="#05010E" letter-spacing="-1.0">The multiverse option</text>
+<text x="36.0" y="547.5" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="700" fill="#05010E" letter-spacing="-0.5">One repo</text>
+<text x="36.0" y="573.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">same prompt</text>
+<text x="36.0" y="596.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">3 worktrees</text>
+<path d="M 222.0 561.5 C 262.0 561.5 278.0 499.5 316.0 499.5" fill="none" stroke="#05010E" stroke-width="1.5"/>
+<path d="M 980.0 499.5 C 1018.0 499.5 954.0 561.5 994.0 561.5" fill="none" stroke="#05010E" stroke-width="1.5"/>
+<path d="M 222.0 561.5 C 262.0 561.5 278.0 561.5 316.0 561.5" fill="none" stroke="#05010E" stroke-width="1.5"/>
+<path d="M 980.0 561.5 C 1018.0 561.5 954.0 561.5 994.0 561.5" fill="none" stroke="#05010E" stroke-width="1.5"/>
+<path d="M 222.0 561.5 C 262.0 561.5 278.0 623.5 316.0 623.5" fill="none" stroke="#05010E" stroke-width="1.5"/>
+<path d="M 980.0 623.5 C 1018.0 623.5 954.0 561.5 994.0 561.5" fill="none" stroke="#05010E" stroke-width="1.5"/>
+<circle cx="222.0" cy="561.5" r="6" fill="#05010E"/>
+<circle cx="994.0" cy="561.5" r="9" fill="#A855F7"/>
+<text x="1012.0" y="557.5" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="700" fill="#A855F7" letter-spacing="-0.5">Keep the</text>
+<text x="1012.0" y="585.5" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="700" fill="#A855F7" letter-spacing="-0.5">best</text>
+<line x1="324.0" y1="468.5" x2="972.0" y2="468.5" stroke="#05010E" stroke-width="1.5"/>
+<text x="324.0" y="506.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="rgba(5,1,14,.56)">a</text>
+<text x="352.0" y="507.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700" fill="#05010E">No skill</text>
+<text x="600.0" y="505.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">Steamrolls to completion on assumptions</text>
+<line x1="324.0" y1="530.5" x2="972.0" y2="530.5" stroke="#05010E" stroke-width="1"/>
+<text x="324.0" y="568.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="rgba(5,1,14,.56)">b</text>
+<text x="352.0" y="569.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700" fill="#05010E">/grill-me</text>
+<text x="600.0" y="567.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">Asks high-level clarifying questions first</text>
+<line x1="324.0" y1="592.5" x2="972.0" y2="592.5" stroke="#05010E" stroke-width="1"/>
+<line x1="324.0" y1="654.5" x2="972.0" y2="654.5" stroke="#05010E" stroke-width="1.5"/>
+<text x="324.0" y="630.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="rgba(5,1,14,.56)">c</text>
+<text x="352.0" y="631.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700" fill="#05010E">/interview-me</text>
+<text x="600.0" y="618.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">Deep questioning; writes decision docs</text>
+<text x="600.0" y="641.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">before coding</text>
+<text x="972.0" y="456.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="rgba(5,1,14,.56)" letter-spacing="1.4" text-anchor="end">FASTEST</text>
+<rect x="36.0" y="684.5" width="1128.0" height="6" fill="#05010E"/>
+<text x="36.0" y="718.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="700" fill="#05010E" letter-spacing="1.0">03</text>
+<line x1="36.0" y1="736.5" x2="396.0" y2="736.5" stroke="#05010E" stroke-width="2"/>
+<text x="36.0" y="766.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="rgba(5,1,14,.74)" letter-spacing="1.4">HARNESS</text>
+<rect x="36.0" y="782.5" width="360.0" height="108" fill="none" stroke="#05010E" stroke-width="1.2"/>
+<rect x="52.0" y="798.5" width="136" height="76" fill="none" stroke="#A855F7" stroke-width="2"/>
+<text x="66.0" y="832.5" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="700" fill="#A855F7" letter-spacing="-0.6">Gemini</text>
+<text x="66.0" y="856.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">token predictor</text>
+<rect x="202.0" y="798.5" width="178.0" height="34" fill="none" stroke="#05010E" stroke-width="1"/>
+<text x="214.0" y="821.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#05010E">SKILL.md</text>
+<rect x="202.0" y="840.5" width="178.0" height="34" fill="none" stroke="#05010E" stroke-width="1"/>
+<text x="214.0" y="863.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600" fill="#05010E">SKILL.md</text>
+<text x="36.0" y="926.5" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="700" fill="#05010E">Antigravity harness</text>
+<text x="36.0" y="951.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">gives Gemini disk, shell and the ability to</text>
+<text x="36.0" y="974.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">run programs</text>
+<text x="36.0" y="1006.5" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="700" fill="#05010E">Agent Skills</text>
+<text x="36.0" y="1031.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">markdown files (SKILL.md) that tell the</text>
+<text x="36.0" y="1054.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">model when and how to do a task</text>
+<line x1="420.0" y1="736.5" x2="780.0" y2="736.5" stroke="#05010E" stroke-width="2"/>
+<text x="420.0" y="766.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="rgba(5,1,14,.74)" letter-spacing="1.4">REFINEMENT LOOP</text>
+<circle cx="600.0" cy="890.5" r="80" fill="none" stroke="#05010E" stroke-width="1.5"/>
+<path d="M 649.5 833.9 L 659.4 836.7 L 656.6 826.8" fill="none" stroke="#05010E" stroke-width="1.6"/>
+<path d="M 656.6 940.0 L 653.7 949.9 L 663.6 947.0" fill="none" stroke="#05010E" stroke-width="1.6"/>
+<path d="M 550.5 947.0 L 540.6 944.2 L 543.4 954.1" fill="none" stroke="#05010E" stroke-width="1.6"/>
+<path d="M 543.4 841.0 L 546.3 831.1 L 536.4 833.9" fill="none" stroke="#05010E" stroke-width="1.6"/>
+<rect x="567.5" y="797.5" width="65.0" height="26" fill="#F3F3F1"/>
+<text x="600.0" y="816.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="700" fill="#05010E" text-anchor="middle">write</text>
+<rect x="657.7" y="877.5" width="44.6" height="26" fill="#F3F3F1"/>
+<text x="680.0" y="896.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="700" fill="#05010E" text-anchor="middle">run</text>
+<rect x="562.4" y="957.5" width="75.2" height="26" fill="#F3F3F1"/>
+<text x="600.0" y="976.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="700" fill="#05010E" text-anchor="middle">verify</text>
+<rect x="497.7" y="877.5" width="44.6" height="26" fill="#F3F3F1"/>
+<text x="520.0" y="896.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="700" fill="#05010E" text-anchor="middle">fix</text>
+<text x="554.8" y="900.5"><tspan font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="38" font-weight="700" letter-spacing="-1.5" fill="#05010E">2 to 3</tspan></text>
+<text x="600.0" y="924.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)" text-anchor="middle">cycles</text>
+<text x="420.0" y="1018.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700" fill="#05010E">/loop</text>
+<text x="780.0" y="1018.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="rgba(5,1,14,.56)" letter-spacing="1.4" text-anchor="end">PER WORKSHOP</text>
+<text x="420.0" y="1045.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">automates it until a done condition is met</text>
+<rect x="804.0" y="736.5" width="360.0" height="4" fill="#DC2828"/>
+<text x="804.0" y="768.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="#DC2828" letter-spacing="1.4">SECURITY</text>
+<text x="804.0" y="804.5" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="23" font-weight="700" fill="#05010E" letter-spacing="-0.4">Only install skills you trust.</text>
+<text x="804.0" y="830.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">The model can&apos;t separate instructions from</text>
+<text x="804.0" y="853.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(5,1,14,.74)">content.</text>
+<line x1="804.0" y1="883.5" x2="1164.0" y2="883.5" stroke="#05010E" stroke-width="2"/>
+<text x="804.0" y="913.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="500" fill="rgba(5,1,14,.74)" letter-spacing="1.4">NEW IN ANTIGRAVITY 2.0</text>
+<text x="804.0" y="945.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" fill="#05010E">Native Git worktrees</text>
+<line x1="804.0" y1="954.5" x2="1164.0" y2="954.5" stroke="rgba(5,1,14,.56)" stroke-width="0.8"/>
+<text x="804.0" y="970.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" fill="#05010E">Built-in /grill-me</text>
+<line x1="804.0" y1="979.5" x2="1164.0" y2="979.5" stroke="rgba(5,1,14,.56)" stroke-width="0.8"/>
+<text x="804.0" y="995.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" fill="#05010E">/goal: run until the task is finished</text>
+<line x1="804.0" y1="1004.5" x2="1164.0" y2="1004.5" stroke="rgba(5,1,14,.56)" stroke-width="0.8"/>
+<text x="804.0" y="1020.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" fill="#05010E">Subagents</text>
+<line x1="804.0" y1="1029.5" x2="1164.0" y2="1029.5" stroke="rgba(5,1,14,.56)" stroke-width="0.8"/>
+<text x="804.0" y="1045.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" fill="#05010E">Scheduled tasks</text>
+<text x="804.0" y="1074.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">Also in 2.0: Agent Skills, MCP</text>
+<image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1105" width="72" height="67.3" preserveAspectRatio="xMidYMid meet"/>
+<text x="132.0" y="1146.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="400" fill="rgba(5,1,14,.74)">Brett Morgan, Antigravity Agent Skills workshop, Google Sydney, 24 Sep 2026</text>
+  <image href="logo-gfd-violet.png" xlink:href="logo-gfd-violet.png" x="1014.0" y="56.6" width="150.0" height="14.8" preserveAspectRatio="xMaxYMid meet"/>
+  <image href="logo-spark-violet.png" xlink:href="logo-spark-violet.png" x="1070.0" y="1117.3" width="94.0" height="42.8" preserveAspectRatio="xMaxYMid meet"/>
+</svg>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="627" viewBox="0 0 1200 627">
+  <defs>
+    <pattern id="id-dots1" width="24" height="24" patternUnits="userSpaceOnUse" x="12" y="12"><circle cx="1.5" cy="1.5" r="1.5" fill="rgba(243,243,241,.07)"/></pattern>
+    <radialGradient id="id-dfade3" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#F3F3F1" stop-opacity="1"/><stop offset="0.6" stop-color="#F3F3F1" stop-opacity="0.6"/><stop offset="1" stop-color="#F3F3F1" stop-opacity="0"/></radialGradient>
+    <mask id="id-dmask2"><rect x="609" y="3" width="660" height="660" fill="url(#id-dfade3)"/></mask>
+    <radialGradient id="id-glow4" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#A855F7" stop-opacity="0.550"/><stop offset="0.38" stop-color="#895AF6" stop-opacity="0.303"/><stop offset="0.7" stop-color="#6366F1" stop-opacity="0.099"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="627" fill="#05010E"/>
+<rect x="609" y="3" width="660" height="660" fill="url(#id-dots1)" mask="url(#id-dmask2)"/>
+<ellipse cx="939.0" cy="332.6" rx="340.0" ry="306.0" fill="url(#id-glow4)"/>
+<image href="antigravity-a-mark.png" xlink:href="antigravity-a-mark.png" x="738.0" y="128.0" width="402.0" height="372.0" preserveAspectRatio="xMidYMid meet"/>
+<text x="33.0" y="236.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="60" font-weight="600" fill="#F3F3F1" letter-spacing="-1.8">Google for Developers:</text>
+<text x="33.0" y="306.0" font-family="General Sans, Geist, ui-sans-serif, system-ui, sans-serif" font-size="60" font-weight="600" fill="#F3F3F1" letter-spacing="-1.8">Spark Festival</text>
+<g transform="translate(36.0 352.0) scale(1.05)" fill="none" stroke="#D4D2CE" stroke-width="2" stroke-linejoin="round"><path d="M9 23 C9 23 1.5 14.5 1.5 9 A7.5 7.5 0 0 1 16.5 9 C16.5 14.5 9 23 9 23 Z"/><circle cx="9" cy="9" r="2.8" fill="#D4D2CE" stroke="none"/></g>
+<text x="68.0" y="372.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="400" fill="#D4D2CE">Google Sydney Headquarters, Pyrmont</text>
+<image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="542.4" width="52" height="48.6"/>
+<text x="116.0" y="560.4" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#A855F7" letter-spacing="0.6">01</text>
+<text x="153.2" y="560.4" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#D4D2CE" letter-spacing="0.6">AI Sovereignty panel</text>
+<text x="116.0" y="587.4" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#A855F7" letter-spacing="0.6">02</text>
+<text x="153.2" y="587.4" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#D4D2CE" letter-spacing="0.6">Antigravity 2.0 Agent Skills workshop</text>
+<image href="logo-gdg-color-dark.png" xlink:href="logo-gdg-color-dark.png" x="1032.0" y="36.0" width="132.0" height="27.2" preserveAspectRatio="xMidYMid meet"/>
+<text x="1164.0" y="80.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" font-weight="500" fill="#A4A098" letter-spacing="0.6" text-anchor="end">Google Developer Group</text>
+</svg>
