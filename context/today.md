@@ -1,14 +1,14 @@
 # Today's single target
 # Owner: Mentor. One target only. Not a plan version.
 
-- **date**: 2026-10-08 (Sydney)
-- **stage**: 2 — Compliance (plan v009)
-- **competency**: `compliance-deploy`
-- **lane**: build
-- **from plan**: v009 stage 2 — compliance & risk pack bound to the stage-1 use case
-- **calendar**: Stage 1 complete; Stage 2 week 4 Mon 2026-10-05 → Fri 2026-10-09 (active); Stage 3 Mon 2026-10-12 → Fri 2026-11-06
-- **work**: Keep building the compliance & risk decision pack for the same use case — data sovereignty position, privacy constraints, regulation map, risk register with owners/mitigations
-- **why**: Stage 2 week 4 still open (ends Fri 2026-10-09, tomorrow); plan v009 unchanged; no new Scout run since 20260906T231515Z, so no new signal to move it
-- **diagram archetype**: `decision-tree` — residency / privacy / regulation gates → risk outcomes
-- **sources**: prior Reddit run (no demand signal for compliance-deploy; fresh Scout still pending)
+- **date**: 2026-10-11 (Sydney) — next weekday pick locked for Mon 2026-10-12
+- **stage**: 3 — Infrastructure / Hosting (plan v010)
+- **competency**: `cloud-deploy`
+- **lane**: study open, then build
+- **from plan**: v010 stage 3 — architecture decision record + IaC hosting baseline with one authenticated API boundary
+- **calendar**: Stage 1 complete; Stage 2 closed Fri 2026-10-09; Stage 3 Mon 2026-10-12 → Fri 2026-11-06 (active)
+- **work**: Short study open on hosting model + cloud provider choice for the stage-1 use case, using the stage-2 data-sovereignty position as the residency input; start the architecture decision record (hosting model, provider, region)
+- **why**: v010 moved the active stage to Stage 3; priorities unchanged (no two-run gap). Compliance pack completion not recorded — if unfinished, the pick flips once to close it, since its sovereignty position feeds the hosting choice
+- **diagram archetype**: `architecture` — use case → hosting tier → provider/region, trust boundary marked
+- **sources**: prior Reddit run only; fresh Scout still pending
 - **deferred tagged here**: none
