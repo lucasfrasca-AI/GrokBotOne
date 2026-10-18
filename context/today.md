@@ -1,14 +1,14 @@
 # Today's single target
 # Owner: Mentor. One target only. Not a plan version.
 
-- **date**: 2026-10-16 (Sydney)
-- **stage**: 3 — Infrastructure / Hosting (plan v010)
+- **date**: 2026-10-18 (Sydney) — next weekday pick locked for Mon 2026-10-19
+- **stage**: 3 — Infrastructure / Hosting (plan v011), week 6
 - **competency**: `cloud-deploy`
-- **lane**: study open, then build
-- **from plan**: v010 stage 3 — architecture decision record + IaC hosting baseline with one authenticated API boundary
-- **calendar**: Stage 3 Mon 2026-10-12 → Fri 2026-11-06 (active, week 5 of 8; today is the last day of week 5)
-- **work**: Close the short hosting/provider study slice and finish a first full draft of the architecture decision record (hosting model, provider, region), taking the stage-2 data-sovereignty position as the residency input, so IaC build can start Monday
-- **why**: Stayed — still week 5's study-open slice, which ends today; no new captures, signals, or score changes overnight; fresh Scout still pending; compliance pack completion still unrecorded (flip once to close it if Lucas says unfinished)
+- **lane**: build
+- **from plan**: v011 stage 3 week 6 — IaC hosting baseline from the ADR
+- **calendar**: Week 6 Mon 2026-10-19 → Fri 2026-10-23 IaC baseline (cloud-deploy); week 7 Mon 26 → Fri 30 Oct authenticated API boundary (api-auth); week 8 Mon 2 → Fri 6 Nov keep baseline running (prod-ship)
+- **work**: Finish the architecture decision record if the draft isn't done, then start the IaC that stands up the hosting baseline in the chosen provider/region
+- **why**: v011 moved Stage 3 into build-heavy weeks after the study open ended Fri 16 Oct. Compliance pack completion still unrecorded — if unfinished, flip one day to close it before IaC fixes the region
 - **diagram archetype**: `architecture` — use case → hosting tier → provider/region, trust boundary marked
-- **sources**: prior Reddit run only (20260906T231515Z); fresh Scout still pending
-- **deferred tagged here**: none (deferred/cloud-deploy.md empty)
+- **sources**: prior Reddit run only; fresh Scout still pending
+- **deferred tagged here**: none
