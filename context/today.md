@@ -1,7 +1,7 @@
 # Today's single target
 # Owner: Mentor. One target only. Not a plan version.
 
-- **date**: 2026-10-18 (Sydney) — next weekday pick locked for Mon 2026-10-19
+- **date**: 2026-10-20 (Sydney)
 - **stage**: 3 — Infrastructure / Hosting (plan v011), week 6
 - **competency**: `cloud-deploy`
 - **lane**: build
