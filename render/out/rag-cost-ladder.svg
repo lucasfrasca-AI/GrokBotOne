@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1500" viewBox="0 0 1200 1500">
+  <defs>
+    <pattern id="id-dots-5" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12.0" cy="12.0" r="1.1" fill="#F3F3F1" fill-opacity="0.16"/></pattern>
+    <radialGradient id="id-mg-7" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#F3F3F1" stop-opacity="1"/><stop offset="1" stop-color="#F3F3F1" stop-opacity="0"/></radialGradient>
+    <mask id="id-mask-6"><rect x="260" y="340" width="1120" height="1120" fill="url(#id-mg-7)"/></mask>
+    <radialGradient id="id-glow-8" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A855F7" stop-opacity="0.4"/><stop offset="0.45" stop-color="#895AF6" stop-opacity="0.13999999999999999"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="#05010E"/>
+<rect x="260" y="340" width="1120" height="1120" fill="url(#id-dots-5)" mask="url(#id-mask-6)"/>
+<ellipse cx="860.0" cy="760.0" rx="560.0" ry="560.0" fill="url(#id-glow-8)"/>
+<circle cx="77" cy="105" r="5" fill="#A855F7"/>
+<text x="94.0" y="112.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#A4A098" letter-spacing="2.4">RAG OPTIONS · COST</text>
+<text x="70.0" y="200.0" font-family="General Sans, sans-serif" font-size="58" font-weight="600" fill="#F3F3F1" letter-spacing="-1.4500000000000002">Eight steps, from</text>
+<text x="70.0" y="263.8" font-family="General Sans, sans-serif" font-size="58" font-weight="600" fill="#F3F3F1" letter-spacing="-1.4500000000000002">baseline to secondary index</text>
+<text x="72.0" y="325.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="400" fill="#D4D2CE">Dots are the source's index and query cost ratings.</text>
+<text x="72.0" y="361.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="400" fill="#D4D2CE">Four filled marks is the most expensive option in the set.</text>
+<text x="810.0" y="457.2" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#A4A098" text-anchor="middle" letter-spacing="2">INDEX</text>
+<text x="962.0" y="457.2" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#A4A098" text-anchor="middle" letter-spacing="2">QUERY</text>
+<rect x="72" y="1259.9" width="1056" height="92.1" rx="12" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="96" y="1302.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="500" fill="#A855F7">01</text>
+<text x="136.0" y="1302.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1">Long context</text>
+<text x="136.0" y="1332.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="400" fill="#A4A098">Baseline to beat</text>
+<circle cx="769.0" cy="1306.0" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="796.0" cy="1306.0" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="823.0" cy="1306.0" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="850.0" cy="1306.0" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="921.0" cy="1306.0" r="9" fill="#A855F7"/>
+<circle cx="948.0" cy="1306.0" r="9" fill="#A855F7"/>
+<circle cx="975.0" cy="1306.0" r="9" fill="#A855F7"/>
+<circle cx="1002.0" cy="1306.0" r="9" fill="#A855F7"/>
+<rect x="124" y="1155.8" width="1004" height="92.1" rx="12" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="148" y="1197.9" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="500" fill="#A855F7">02</text>
+<text x="188.0" y="1197.9" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1">Vector RAG</text>
+<text x="188.0" y="1227.9" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="400" fill="#A4A098">Prototypes only</text>
+<circle cx="769.0" cy="1201.9" r="9" fill="#A855F7"/>
+<circle cx="796.0" cy="1201.9" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="823.0" cy="1201.9" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="850.0" cy="1201.9" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="921.0" cy="1201.9" r="9" fill="#A855F7"/>
+<circle cx="948.0" cy="1201.9" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="975.0" cy="1201.9" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="1002.0" cy="1201.9" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<line x1="72" y1="1125.8" x2="1128" y2="1125.8" stroke="#A855F7" stroke-width="2" stroke-dasharray="8 7"/>
+<rect x="172" y="1109.8" width="256.0" height="32" rx="16" fill="#05010E" stroke="#A855F7" stroke-width="1.5"/>
+<text x="186.0" y="1132.8" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="600" fill="#A855F7" letter-spacing="2.4">PRODUCTION FLOOR</text>
+<rect x="176" y="999.7" width="952" height="92.1" rx="12" fill="#160F24" stroke="#A855F7" stroke-width="2"/>
+<text x="200" y="1041.8" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="500" fill="#A855F7">03</text>
+<text x="240.0" y="1041.8" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1">Hybrid + reranker</text>
+<text x="240.0" y="1071.8" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="400" fill="#A4A098">Production floor</text>
+<circle cx="769.0" cy="1045.8" r="9" fill="#A855F7"/>
+<circle cx="796.0" cy="1045.8" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="823.0" cy="1045.8" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="850.0" cy="1045.8" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="921.0" cy="1045.8" r="9" fill="#A855F7"/>
+<circle cx="948.0" cy="1045.8" r="9" fill="#A855F7"/>
+<circle cx="975.0" cy="1045.8" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="1002.0" cy="1045.8" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<rect x="228" y="895.6" width="900" height="92.1" rx="12" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="252" y="937.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="500" fill="#A855F7">04</text>
+<text x="292.0" y="937.7" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1">Hybrid + metadata filters</text>
+<text x="292.0" y="967.7" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="400" fill="#A4A098">Production floor</text>
+<circle cx="769.0" cy="941.7" r="9" fill="#A855F7"/>
+<circle cx="796.0" cy="941.7" r="9" fill="#A855F7"/>
+<circle cx="823.0" cy="941.7" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="850.0" cy="941.7" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="921.0" cy="941.7" r="9" fill="#A855F7"/>
+<circle cx="948.0" cy="941.7" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="975.0" cy="941.7" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="1002.0" cy="941.7" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<rect x="280" y="791.5" width="848" height="92.1" rx="12" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="304" y="833.6" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="500" fill="#A855F7">05</text>
+<text x="344.0" y="833.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1">Agentic hybrid</text>
+<text x="344.0" y="863.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="400" fill="#A4A098">Fastest-growing</text>
+<circle cx="769.0" cy="837.6" r="9" fill="#A855F7"/>
+<circle cx="796.0" cy="837.6" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="823.0" cy="837.6" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="850.0" cy="837.6" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="921.0" cy="837.6" r="9" fill="#A855F7"/>
+<circle cx="948.0" cy="837.6" r="9" fill="#A855F7"/>
+<circle cx="975.0" cy="837.6" r="9" fill="#A855F7"/>
+<circle cx="1002.0" cy="837.6" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<rect x="332" y="687.4" width="796" height="92.1" rx="12" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="356" y="729.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="500" fill="#A855F7">06</text>
+<text x="396.0" y="729.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1">Text-to-query</text>
+<text x="396.0" y="759.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="400" fill="#A4A098">Under-used</text>
+<circle cx="769.0" cy="733.5" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="796.0" cy="733.5" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="823.0" cy="733.5" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="850.0" cy="733.5" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="921.0" cy="733.5" r="9" fill="#A855F7"/>
+<circle cx="948.0" cy="733.5" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="975.0" cy="733.5" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<circle cx="1002.0" cy="733.5" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<rect x="384" y="583.3" width="744" height="92.1" rx="12" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="408" y="625.4" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="500" fill="#A855F7">07</text>
+<text x="448.0" y="625.4" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1">GraphRAG</text>
+<text x="448.0" y="655.4" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="400" fill="#A4A098">Rare, narrow</text>
+<circle cx="769.0" cy="629.4" r="9" fill="#A855F7"/>
+<circle cx="796.0" cy="629.4" r="9" fill="#A855F7"/>
+<circle cx="823.0" cy="629.4" r="9" fill="#A855F7"/>
+<circle cx="850.0" cy="629.4" r="9" fill="#A855F7"/>
+<circle cx="921.0" cy="629.4" r="9" fill="#A855F7"/>
+<circle cx="948.0" cy="629.4" r="9" fill="#A855F7"/>
+<circle cx="975.0" cy="629.4" r="9" fill="#A855F7"/>
+<circle cx="1002.0" cy="629.4" r="8" fill="none" stroke="#A4A098" stroke-width="2" stroke-opacity="0.75"/>
+<rect x="436" y="479.2" width="692" height="92.1" rx="12" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="460" y="521.2" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="500" fill="#A855F7">08</text>
+<text x="500.0" y="521.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1">Hybrid Graph RAG</text>
+<text x="500.0" y="551.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="400" fill="#A4A098">Secondary index</text>
+<circle cx="769.0" cy="525.2" r="9" fill="#A855F7"/>
+<circle cx="796.0" cy="525.2" r="9" fill="#A855F7"/>
+<circle cx="823.0" cy="525.2" r="9" fill="#A855F7"/>
+<circle cx="850.0" cy="525.2" r="9" fill="#A855F7"/>
+<circle cx="921.0" cy="525.2" r="9" fill="#A855F7"/>
+<circle cx="948.0" cy="525.2" r="9" fill="#A855F7"/>
+<circle cx="975.0" cy="525.2" r="9" fill="#A855F7"/>
+<circle cx="1002.0" cy="525.2" r="9" fill="#A855F7"/>
+<image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1405" width="72" height="67.3"/>
+<text x="136.0" y="1445.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="400" fill="#A4A098" letter-spacing="0.2">Source: rag-options-at-a-glance</text>
+</svg>

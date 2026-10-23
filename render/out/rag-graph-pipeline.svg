@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1500" viewBox="0 0 1200 1500">
+  <defs>
+    <pattern id="id-dots-17" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12.0" cy="12.0" r="1.1" fill="#F3F3F1" fill-opacity="0.16"/></pattern>
+    <radialGradient id="id-mg-19" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#F3F3F1" stop-opacity="1"/><stop offset="1" stop-color="#F3F3F1" stop-opacity="0"/></radialGradient>
+    <mask id="id-mask-18"><rect x="260" y="300" width="1120" height="1120" fill="url(#id-mg-19)"/></mask>
+    <radialGradient id="id-glow-20" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A855F7" stop-opacity="0.34"/><stop offset="0.45" stop-color="#895AF6" stop-opacity="0.119"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="#05010E"/>
+<rect x="260" y="300" width="1120" height="1120" fill="url(#id-dots-17)" mask="url(#id-mask-18)"/>
+<ellipse cx="850.0" cy="860.0" rx="600.0" ry="660.0" fill="url(#id-glow-20)"/>
+<circle cx="77" cy="105" r="5" fill="#A855F7"/>
+<text x="94.0" y="112.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#A4A098" letter-spacing="2.4">KNOWLEDGE GRAPH PREP</text>
+<text x="70.0" y="194.0" font-family="General Sans, sans-serif" font-size="52" font-weight="600" fill="#F3F3F1" letter-spacing="-1.3">Entity resolution is the</text>
+<text x="70.0" y="251.2" font-family="General Sans, sans-serif" font-size="52" font-weight="600" fill="#F3F3F1" letter-spacing="-1.3">make-or-break component</text>
+<text x="72.0" y="310.8" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="400" fill="#D4D2CE">Extraction errors become permanent structure that later queries treat as fact.</text>
+<rect x="72" y="354.8" width="1056" height="189.8" rx="16" fill="#160F24" stroke="#A855F7" stroke-width="2"/>
+<rect x="72" y="372.8" width="4" height="153.8" rx="2" fill="#A855F7"/>
+<text x="106.0" y="406.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="600" fill="#A855F7" letter-spacing="1.5">01</text>
+<text x="150.0" y="408.7" font-family="General Sans, sans-serif" font-size="34" font-weight="600" fill="#F3F3F1" letter-spacing="-0.6">Ontology</text>
+<text x="317.2" y="406.7" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#A4A098">Rules for what goes into the graph</text>
+<rect x="106.0" y="428.7" width="340.0" height="38" rx="19.0" fill="#1B122B" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="122.0" y="454.2" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#D4D2CE">Which entities become nodes</text>
+<rect x="456.0" y="428.7" width="397.0" height="38" rx="19.0" fill="#1B122B" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="472.0" y="454.2" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#D4D2CE">Which relationships become edges</text>
+<rect x="863.0" y="428.7" width="203.1" height="38" rx="19.0" fill="#1B122B" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="879.0" y="454.2" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#D4D2CE">Nodes immutable</text>
+<rect x="106.0" y="476.7" width="294.3" height="38" rx="19.0" fill="#1B122B" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="122.0" y="502.2" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#D4D2CE">Supersession is an edge</text>
+<rect x="410.3" y="476.7" width="465.4" height="38" rx="19.0" fill="#1B122B" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="426.3" y="502.2" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#D4D2CE">Hand-curated graph over LLM extraction</text>
+<line x1="132" y1="544.6" x2="132" y2="611.6" stroke="#A855F7" stroke-width="2"/>
+<path d="M125 609.6 L132 620.6 L139 609.6" fill="none" stroke="#A855F7" stroke-width="2"/>
+<text x="150.0" y="589.6" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#A4A098" letter-spacing="0.6">node and edge types</text>
+<rect x="754.8" y="546.6" width="210.4" height="44" rx="22" fill="none" stroke="#D4D2CE" stroke-width="1.5" stroke-dasharray="5 5"/>
+<text x="860.0" y="575.6" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#D4D2CE" text-anchor="middle" letter-spacing="1.2">RAW DOCUMENTS</text>
+<line x1="860" y1="590.6" x2="860" y2="611.6" stroke="#A855F7" stroke-width="2"/>
+<path d="M853 609.6 L860 620.6 L867 609.6" fill="none" stroke="#A855F7" stroke-width="2"/>
+<rect x="72" y="620.6" width="1056" height="141.8" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<rect x="72" y="638.6" width="4" height="105.8" rx="2" fill="#A855F7"/>
+<text x="106.0" y="672.6" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="600" fill="#A855F7" letter-spacing="1.5">02</text>
+<text x="150.0" y="674.6" font-family="General Sans, sans-serif" font-size="34" font-weight="600" fill="#F3F3F1" letter-spacing="-0.6">Entity extraction</text>
+<text x="434.4" y="672.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#A4A098">Find the nodes the ontology allows</text>
+<rect x="106.0" y="694.6" width="454.0" height="38" rx="19.0" fill="#1B122B" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="122.0" y="720.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#D4D2CE">Deterministic first: parsers over NER</text>
+<rect x="570.0" y="694.6" width="362.8" height="38" rx="19.0" fill="#1B122B" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="586.0" y="720.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#D4D2CE">Full LLM pass over the corpus</text>
+<line x1="132" y1="762.5" x2="132" y2="793.5" stroke="#A855F7" stroke-width="2"/>
+<path d="M125 791.5 L132 802.5 L139 791.5" fill="none" stroke="#A855F7" stroke-width="2"/>
+<text x="150.0" y="789.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#A4A098" letter-spacing="0.6">entities</text>
+<rect x="72" y="802.5" width="1056" height="189.8" rx="16" fill="#160F24" stroke="#A855F7" stroke-width="2"/>
+<rect x="72" y="820.5" width="4" height="153.8" rx="2" fill="#A855F7"/>
+<text x="106.0" y="854.4" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="600" fill="#A855F7" letter-spacing="1.5">03</text>
+<text x="150.0" y="856.4" font-family="General Sans, sans-serif" font-size="34" font-weight="600" fill="#F3F3F1" letter-spacing="-0.6">Entity resolution / dedup</text>
+<text x="560.3" y="854.4" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#A4A098">The make-or-break component</text>
+<rect x="106.0" y="876.4" width="305.8" height="38" rx="19.0" fill="#1B122B" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="122.0" y="901.9" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#D4D2CE">Merge duplicate entities</text>
+<rect x="421.8" y="876.4" width="385.6" height="38" rx="19.0" fill="#1B122B" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="437.8" y="901.9" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#D4D2CE">Disambiguate identical entities</text>
+<rect x="106.0" y="924.4" width="476.8" height="38" rx="19.0" fill="#1B122B" stroke="#A855F7" stroke-width="1.5"/>
+<text x="122.0" y="949.9" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#F3F3F1">Risk: fragments under real-world naming</text>
+<line x1="132" y1="992.3" x2="132" y2="1023.3" stroke="#A855F7" stroke-width="2"/>
+<path d="M125 1021.3 L132 1032.3 L139 1021.3" fill="none" stroke="#A855F7" stroke-width="2"/>
+<text x="150.0" y="1019.3" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#A4A098" letter-spacing="0.6">resolved entities</text>
+<rect x="72" y="1032.3" width="1056" height="141.8" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<rect x="72" y="1050.3" width="4" height="105.8" rx="2" fill="#A855F7"/>
+<text x="106.0" y="1084.2" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="600" fill="#A855F7" letter-spacing="1.5">04</text>
+<text x="150.0" y="1086.2" font-family="General Sans, sans-serif" font-size="34" font-weight="600" fill="#F3F3F1" letter-spacing="-0.6">Relationship extraction</text>
+<text x="536.5" y="1084.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#A4A098">Find the edges the ontology allows</text>
+<rect x="106.0" y="1106.2" width="351.4" height="38" rx="19.0" fill="#1B122B" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="122.0" y="1131.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#D4D2CE">Edge types from the ontology</text>
+<rect x="467.4" y="1106.2" width="442.6" height="38" rx="19.0" fill="#1B122B" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="483.4" y="1131.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#D4D2CE">Edges only between resolved entities</text>
+<line x1="132" y1="1174.2" x2="132" y2="1205.2" stroke="#A855F7" stroke-width="2"/>
+<path d="M125 1203.2 L132 1214.2 L139 1203.2" fill="none" stroke="#A855F7" stroke-width="2"/>
+<text x="150.0" y="1201.2" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#A4A098" letter-spacing="0.6">typed edges</text>
+<rect x="72" y="1214.2" width="1056" height="141.8" rx="16" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<rect x="72" y="1232.2" width="4" height="105.8" rx="2" fill="#A855F7"/>
+<text x="106.0" y="1266.1" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="600" fill="#A855F7" letter-spacing="1.5">05</text>
+<text x="150.0" y="1268.1" font-family="General Sans, sans-serif" font-size="34" font-weight="600" fill="#F3F3F1" letter-spacing="-0.6">Validation</text>
+<text x="328.1" y="1266.1" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#A4A098">Check every node and edge against the schema</text>
+<rect x="106.0" y="1288.1" width="351.4" height="38" rx="19.0" fill="#1B122B" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="122.0" y="1313.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#D4D2CE">Checked against the ontology</text>
+<rect x="467.4" y="1288.1" width="442.6" height="38" rx="19.0" fill="#1B122B" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="483.4" y="1313.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#D4D2CE">Schema-validated, never prose-parsed</text>
+<image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1405" width="72" height="67.3"/>
+<text x="136.0" y="1445.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="400" fill="#A4A098" letter-spacing="0.2">Sources: rag-options-at-a-glance, rag-selection-matrix, coverage map</text>
+</svg>

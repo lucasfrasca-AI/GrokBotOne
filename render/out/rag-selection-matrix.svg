@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1500" viewBox="0 0 1200 1500">
+  <defs>
+    <pattern id="id-dots-9" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12.0" cy="12.0" r="1.1" fill="#F3F3F1" fill-opacity="0.16"/></pattern>
+    <radialGradient id="id-mg-11" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#F3F3F1" stop-opacity="1"/><stop offset="1" stop-color="#F3F3F1" stop-opacity="0"/></radialGradient>
+    <mask id="id-mask-10"><rect x="280" y="380" width="1040" height="1040" fill="url(#id-mg-11)"/></mask>
+    <radialGradient id="id-glow-12" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A855F7" stop-opacity="0.36"/><stop offset="0.45" stop-color="#895AF6" stop-opacity="0.126"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="#05010E"/>
+<rect x="280" y="380" width="1040" height="1040" fill="url(#id-dots-9)" mask="url(#id-mask-10)"/>
+<ellipse cx="820.0" cy="900.0" rx="520.0" ry="520.0" fill="url(#id-glow-12)"/>
+<circle cx="77" cy="105" r="5" fill="#A855F7"/>
+<text x="94.0" y="112.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#A4A098" letter-spacing="2.4">RAG SELECTION MATRIX</text>
+<text x="70.0" y="200.0" font-family="General Sans, sans-serif" font-size="58" font-weight="600" fill="#F3F3F1" letter-spacing="-1.4500000000000002">Choose by the query,</text>
+<text x="70.0" y="263.8" font-family="General Sans, sans-serif" font-size="58" font-weight="600" fill="#F3F3F1" letter-spacing="-1.4500000000000002">not by the industry</text>
+<text x="72.0" y="325.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="400" fill="#D4D2CE">Selection is driven by corpus properties and query archetype, not by industry label.</text>
+<text x="460.0" y="695.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="23" font-weight="500" fill="#F3F3F1" transform="rotate(-90 460.0 695.2)">Long context, no retrieval</text>
+<text x="564.0" y="695.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="23" font-weight="500" fill="#F3F3F1" transform="rotate(-90 564.0 695.2)">Vector only</text>
+<text x="668.0" y="695.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="23" font-weight="500" fill="#F3F3F1" transform="rotate(-90 668.0 695.2)">Hybrid + reranker</text>
+<text x="772.0" y="695.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="23" font-weight="500" fill="#F3F3F1" transform="rotate(-90 772.0 695.2)">Hybrid + metadata filters</text>
+<text x="876.0" y="695.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="23" font-weight="500" fill="#F3F3F1" transform="rotate(-90 876.0 695.2)">Agentic hybrid</text>
+<text x="966.5" y="695.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="23" font-weight="500" fill="#F3F3F1" transform="rotate(-90 966.5 695.2)">Text-to-query on existing</text>
+<text x="993.5" y="695.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="23" font-weight="500" fill="#F3F3F1" transform="rotate(-90 993.5 695.2)">schema</text>
+<text x="1084.0" y="695.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="23" font-weight="500" fill="#F3F3F1" transform="rotate(-90 1084.0 695.2)">GraphRAG</text>
+<text x="72.0" y="695.2" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="500" fill="#A4A098" letter-spacing="2">QUERY ARCHETYPE</text>
+<rect x="400" y="719.2" width="728" height="520.8" rx="14" fill="#160F24" fill-opacity="0.7" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<line x1="504.0" y1="719.2" x2="504.0" y2="1240" stroke="rgba(243,243,241,.07)" stroke-width="1.5"/>
+<line x1="608.0" y1="719.2" x2="608.0" y2="1240" stroke="rgba(243,243,241,.07)" stroke-width="1.5"/>
+<line x1="712.0" y1="719.2" x2="712.0" y2="1240" stroke="rgba(243,243,241,.07)" stroke-width="1.5"/>
+<line x1="816.0" y1="719.2" x2="816.0" y2="1240" stroke="rgba(243,243,241,.07)" stroke-width="1.5"/>
+<line x1="920.0" y1="719.2" x2="920.0" y2="1240" stroke="rgba(243,243,241,.07)" stroke-width="1.5"/>
+<line x1="1024.0" y1="719.2" x2="1024.0" y2="1240" stroke="rgba(243,243,241,.07)" stroke-width="1.5"/>
+<text x="72.0" y="753.3" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="500" fill="#F3F3F1">Exact identifier lookup</text>
+<text x="72.0" y="783.3" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#A4A098">Part numbers, SKUs, error codes,</text>
+<text x="72.0" y="808.3" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#A4A098">clause references</text>
+<path d="M432.0 791.3 L472.0 751.3 L472.0 791.3 Z" fill="#A855F7"/><rect x="433.2" y="752.5" width="37.5" height="37.5" rx="5" fill="none" stroke="#A855F7" stroke-width="2.5"/>
+<rect x="537.2" y="752.5" width="37.5" height="37.5" rx="5" fill="none" stroke="#A4A098" stroke-width="2.5" stroke-opacity="0.8"/>
+<rect x="640.0" y="751.3" width="40" height="40" rx="5" fill="#A855F7"/>
+<rect x="744.0" y="751.3" width="40" height="40" rx="5" fill="#A855F7"/>
+<rect x="848.0" y="751.3" width="40" height="40" rx="5" fill="#A855F7"/>
+<rect x="952.0" y="751.3" width="40" height="40" rx="5" fill="#A855F7"/>
+<path d="M1056.0 791.3 L1096.0 751.3 L1096.0 791.3 Z" fill="#A855F7"/><rect x="1057.2" y="752.5" width="37.5" height="37.5" rx="5" fill="none" stroke="#A855F7" stroke-width="2.5"/>
+<line x1="72" y1="823.4" x2="1128" y2="823.4" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="72.0" y="857.4" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="500" fill="#F3F3F1">Conceptual or paraphrased</text>
+<text x="72.0" y="887.4" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#A4A098">“What’s our stance on contractor</text>
+<text x="72.0" y="912.4" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#A4A098">access?”</text>
+<rect x="432.0" y="855.4" width="40" height="40" rx="5" fill="#A855F7"/>
+<rect x="536.0" y="855.4" width="40" height="40" rx="5" fill="#A855F7"/>
+<rect x="640.0" y="855.4" width="40" height="40" rx="5" fill="#A855F7"/>
+<rect x="744.0" y="855.4" width="40" height="40" rx="5" fill="#A855F7"/>
+<rect x="848.0" y="855.4" width="40" height="40" rx="5" fill="#A855F7"/>
+<rect x="953.2" y="856.7" width="37.5" height="37.5" rx="5" fill="none" stroke="#A4A098" stroke-width="2.5" stroke-opacity="0.8"/>
+<path d="M1056.0 895.4 L1096.0 855.4 L1096.0 895.4 Z" fill="#A855F7"/><rect x="1057.2" y="856.7" width="37.5" height="37.5" rx="5" fill="none" stroke="#A855F7" stroke-width="2.5"/>
+<line x1="72" y1="927.5" x2="1128" y2="927.5" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="72.0" y="961.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="500" fill="#F3F3F1">Multi-hop synthesis</text>
+<text x="72.0" y="991.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#A4A098">Answer depends on chaining two</text>
+<text x="72.0" y="1016.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#A4A098">or three retrievals</text>
+<path d="M432.0 999.6 L472.0 959.6 L472.0 999.6 Z" fill="#A855F7"/><rect x="433.2" y="960.9" width="37.5" height="37.5" rx="5" fill="none" stroke="#A855F7" stroke-width="2.5"/>
+<rect x="537.2" y="960.9" width="37.5" height="37.5" rx="5" fill="none" stroke="#A4A098" stroke-width="2.5" stroke-opacity="0.8"/>
+<rect x="641.2" y="960.9" width="37.5" height="37.5" rx="5" fill="none" stroke="#A4A098" stroke-width="2.5" stroke-opacity="0.8"/>
+<path d="M744.0 999.6 L784.0 959.6 L784.0 999.6 Z" fill="#A855F7"/><rect x="745.2" y="960.9" width="37.5" height="37.5" rx="5" fill="none" stroke="#A855F7" stroke-width="2.5"/>
+<rect x="848.0" y="959.6" width="40" height="40" rx="5" fill="#A855F7"/>
+<path d="M952.0 999.6 L992.0 959.6 L992.0 999.6 Z" fill="#A855F7"/><rect x="953.2" y="960.9" width="37.5" height="37.5" rx="5" fill="none" stroke="#A855F7" stroke-width="2.5"/>
+<path d="M1056.0 999.6 L1096.0 959.6 L1096.0 999.6 Z" fill="#A855F7"/><rect x="1057.2" y="960.9" width="37.5" height="37.5" rx="5" fill="none" stroke="#A855F7" stroke-width="2.5"/>
+<line x1="72" y1="1031.7" x2="1128" y2="1031.7" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="72.0" y="1065.8" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="500" fill="#F3F3F1">Global or aggregative</text>
+<text x="72.0" y="1095.8" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#A4A098">“What themes recur across 4,000</text>
+<text x="72.0" y="1120.8" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#A4A098">reports?”</text>
+<rect x="433.2" y="1065.0" width="37.5" height="37.5" rx="5" fill="none" stroke="#A4A098" stroke-width="2.5" stroke-opacity="0.8"/>
+<rect x="537.2" y="1065.0" width="37.5" height="37.5" rx="5" fill="none" stroke="#A4A098" stroke-width="2.5" stroke-opacity="0.8"/>
+<rect x="641.2" y="1065.0" width="37.5" height="37.5" rx="5" fill="none" stroke="#A4A098" stroke-width="2.5" stroke-opacity="0.8"/>
+<rect x="745.2" y="1065.0" width="37.5" height="37.5" rx="5" fill="none" stroke="#A4A098" stroke-width="2.5" stroke-opacity="0.8"/>
+<path d="M848.0 1103.8 L888.0 1063.8 L888.0 1103.8 Z" fill="#A855F7"/><rect x="849.2" y="1065.0" width="37.5" height="37.5" rx="5" fill="none" stroke="#A855F7" stroke-width="2.5"/>
+<path d="M952.0 1103.8 L992.0 1063.8 L992.0 1103.8 Z" fill="#A855F7"/><rect x="953.2" y="1065.0" width="37.5" height="37.5" rx="5" fill="none" stroke="#A855F7" stroke-width="2.5"/>
+<rect x="1056.0" y="1063.8" width="40" height="40" rx="5" fill="#A855F7"/>
+<line x1="72" y1="1135.8" x2="1128" y2="1135.8" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="72.0" y="1169.9" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="500" fill="#F3F3F1">Relational traversal</text>
+<text x="72.0" y="1199.9" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#A4A098">Blast radius, dependency chains,</text>
+<text x="72.0" y="1224.9" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#A4A098">shared counterparties</text>
+<rect x="433.2" y="1169.2" width="37.5" height="37.5" rx="5" fill="none" stroke="#A4A098" stroke-width="2.5" stroke-opacity="0.8"/>
+<rect x="537.2" y="1169.2" width="37.5" height="37.5" rx="5" fill="none" stroke="#A4A098" stroke-width="2.5" stroke-opacity="0.8"/>
+<rect x="641.2" y="1169.2" width="37.5" height="37.5" rx="5" fill="none" stroke="#A4A098" stroke-width="2.5" stroke-opacity="0.8"/>
+<rect x="745.2" y="1169.2" width="37.5" height="37.5" rx="5" fill="none" stroke="#A4A098" stroke-width="2.5" stroke-opacity="0.8"/>
+<path d="M848.0 1207.9 L888.0 1167.9 L888.0 1207.9 Z" fill="#A855F7"/><rect x="849.2" y="1169.2" width="37.5" height="37.5" rx="5" fill="none" stroke="#A855F7" stroke-width="2.5"/>
+<rect x="952.0" y="1167.9" width="40" height="40" rx="5" fill="#A855F7"/>
+<rect x="1056.0" y="1167.9" width="40" height="40" rx="5" fill="#A855F7"/>
+<rect x="72.0" y="1281.0" width="26" height="26" rx="5" fill="#A855F7"/>
+<text x="110.0" y="1302.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#D4D2CE">Strong fit</text>
+<path d="M248.1 1307.0 L274.1 1281.0 L274.1 1307.0 Z" fill="#A855F7"/><rect x="249.4" y="1282.2" width="23.5" height="23.5" rx="5" fill="none" stroke="#A855F7" stroke-width="2.5"/>
+<text x="286.1" y="1302.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#D4D2CE">Workable with effort</text>
+<rect x="534.8" y="1282.2" width="23.5" height="23.5" rx="5" fill="none" stroke="#A4A098" stroke-width="2.5" stroke-opacity="0.8"/>
+<text x="571.5" y="1302.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#D4D2CE">Wrong tool</text>
+<text x="72.0" y="1346.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="400" fill="#A4A098">Hybrid Graph RAG has no column: the source treats “hybrid graph” as an ensemble.</text>
+<image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1405" width="72" height="67.3"/>
+<text x="136.0" y="1445.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="400" fill="#A4A098" letter-spacing="0.2">Source: rag-selection-matrix</text>
+</svg>

@@ -1,7 +1,7 @@
 # Today's single target
 # Owner: Mentor. One target only. Not a plan version.
 
-- **date**: 2026-10-22 (Sydney) — target stayed; still week 6 IaC baseline
+- **date**: 2026-10-23 (Sydney) — target stayed; week 6 IaC baseline, final day
 - **stage**: 3 — Infrastructure / Hosting (plan v011), week 6
 - **competency**: `cloud-deploy`
 - **lane**: build
