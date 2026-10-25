@@ -179,6 +179,8 @@ def check(name):
         if a[1] < 30 or a[3] > W - 30 or a[2] < 20 or a[4] > H - 20:
             errs.append(f"off-canvas {a}")
         for b in BLOCKS:
+            if str(a[0]).startswith(str(b[0]) + "-"):
+                continue      # a card's own text
             if hit(a, b, 4):
                 errs.append(f"text {a[0]!r} hits {b[0]}")
         for b in TEXT_BOXES[i + 1:]:
@@ -198,8 +200,15 @@ def guard(svg, name):
     for m in re.findall(r"rgba\(([^)]*)\)", svg):
         if tuple(int(float(v)) for v in m.split(",")[:3]) not in ALLOWED_RGB:
             raise SystemExit(f"off-palette rgba in {name}: {m}")
-    if "<linearGradient" in svg or "<filter" in svg:
-        raise SystemExit(f"linear gradient / filter in {name}")
+    lgs = re.findall(r"<linearGradient.*?</linearGradient>", svg, re.S)
+    if len(lgs) > 1 or "<filter" in svg:
+        raise SystemExit(f"more than one linear gradient / filter in {name}")
+    for body in lgs:   # only --spectrum: #6366F1, #A855F7, #FCD34D
+        if [c.upper() for c in re.findall(r'stop-color="([^"]+)"', body)] != [INDIGO, VIOLET, AMBER]:
+            raise SystemExit(f"non-spectrum linear gradient in {name}")
+    for txt in re.findall(r"<text[^>]*>([^<]*)</text>", svg):
+        if re.search(r"\s-\s|^-\s|\s-$", txt):
+            raise SystemExit(f"hyphen used as a dash in {name}: {txt!r}")
 
 
 def render(name, svg):
@@ -221,76 +230,127 @@ def render(name, svg):
     print(f"wrote {name}.svg/.png {im.size} (build.sh gave {size[0]}x{size[1]}), preview-{name}-390.png")
 
 
-# ======================================================================= 1. failure map
+# ======================================================================= 1. failure map (v2)
+# Axis assignments as in v1 / graphics-sourcing.md. Nodes on the vertical divider are "words and meaning";
+# metadata filters sits on the cross (deterministic scope, probabilistic ranking).
+FM_NODES = [  # name, one-line description (rag-options-at-a-glance wording), hard?, column, row
+    ("Text-to-query", "Computed, not approximated", False, "words", "det"),
+    ("Hybrid + metadata filters", "Exact filter, probabilistic ranking", True, "spine", "cross"),
+    ("Hybrid Graph RAG", "Exact entry, probabilistic neighbourhood", False, "spine", 0),
+    ("Hybrid + reranker", "Exact terms plus paraphrase", False, "spine", 1),
+    ("Agentic hybrid", "Same question, different routes", False, "spine", 2),
+    ("Long context", "Accuracy is a position problem", False, "meaning", 0),
+    ("Vector RAG", "Returns what a passage is about", False, "meaning", 1),
+    ("GraphRAG", "Strong on themes, weak on quotes", False, "meaning", 2),
+]
+NAME_FS, DESC_FS, TAG_FS = 29, 22, 18
+
+
+def fm_card_w(name, desc):
+    tagw = tw("SOFT", "mono", TAG_FS, 600, 1.5) + 22
+    return 64 + max(tw(name, "sans", NAME_FS, 600) + 18 + tagw, tw(desc, "sans", DESC_FS, 400)) + 22
+
+
+def fm_card(x, y, w, h, name, desc, hard):
+    tag = "HARD" if hard else "SOFT"
+    out = []
+    if hard:
+        out.append(glow(x + w / 2, y + h / 2, w * 0.75, 0.55, sy=0.6))
+        out.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h}" rx="16" fill="{SURFACE2}" '
+                   f'stroke="{VIOLET}" stroke-width="3"/>')
+        out.append(f'<circle cx="{x + 34:.1f}" cy="{y + h / 2:.1f}" r="13" fill="{VIOLET}"/>')
+    else:
+        out.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h}" rx="16" fill="{SURFACE}" fill-opacity="0.9" '
+                   f'stroke="{VIOLET}" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="7 6"/>')
+        out.append(f'<circle cx="{x + 34:.1f}" cy="{y + h / 2:.1f}" r="12" fill="{VIOLET}" fill-opacity="0.18" '
+                   f'stroke="{VIOLET}" stroke-opacity="0.7" stroke-width="2.5" stroke-dasharray="4 3.5"/>')
+    block(name, x, y, x + w, y + h)
+    ny = y + h / 2 - 6
+    out.append(T(x + 64, ny, name, NAME_FS, "sans", 600, BONE, tag=name + "-n"))
+    tx = x + 64 + tw(name, "sans", NAME_FS, 600) + 18
+    tgw = tw(tag, "mono", TAG_FS, 600, 1.5) + 18
+    out.append(f'<rect x="{tx:.1f}" y="{ny - 21:.1f}" width="{tgw:.1f}" height="27" rx="13.5" '
+               + (f'fill="{VIOLET}"/>' if hard else f'fill="none" stroke="{SUB}" stroke-opacity="0.7" stroke-width="1.5" stroke-dasharray="4 3"/>'))
+    out.append(T(tx + 9, ny - 1, tag, TAG_FS, "mono", 600, PITCH if hard else SUB, ls=1.5, tag=name + "-t"))
+    out.append(T(x + 64, ny + 34, desc, DESC_FS, "sans", 400, SUB, tag=name + "-d"))
+    # card owns its text; drop the card block so its own text does not trip the check
+    BLOCKS.remove((name, x, y, x + w, y + h))
+    return "\n".join(out), (name, x - 1, y - 1, x + w + 1, y + h + 1)
+
+
 def gen_failure_map():
     start()
     p = []
-    hd, yb = header("RAG options · output character",
-                    ["Which failure mode", "can you live with?"],
-                    "Soft failures look identical to correct answers. Hard failures announce themselves.")
-    X0, X1, Y0, Y1 = 168, 1128, yb + 64, 1222
-    cx, cy = (X0 + X1) / 2, (Y0 + Y1) / 2
-    p.append(dotgrid(cx, cy, 560))
-    p.append(glow(cx + 120, cy + 120, 520, 0.42, sy=0.9))
+    hd, yb = header("RAG options · output character", ["Which failure mode can you live with?"],
+                    "Soft failures look identical to correct answers. Hard failures announce themselves.",
+                    tfs=52, y=92)
+    GX0, GX1, GY0, GY1 = 36, 1164, yb + 34, 1380
+    spine_w = max(fm_card_w(n, d) for n, d, _, c, _ in FM_NODES if c == "spine")
+    mean_w = max(fm_card_w(n, d) for n, d, _, c, _ in FM_NODES if c == "meaning")
+    gap = 26
+    # divider placed so the meaning column fits to the right of the spine cards
+    DX = GX1 - 24 - mean_w - gap - spine_w / 2
+    DY = GY0 + (GY1 - GY0) * 0.38
+    p.append(dotgrid((DX + GX1) / 2, (DY + GY1) / 2, 520))
+    p.append(glow(DX + 120, DY + 260, 560, 0.30))
     p.append(hd)
-    # quadrant frame and cross
-    p.append(f'<rect x="{X0}" y="{Y0:.1f}" width="{X1 - X0}" height="{Y1 - Y0:.1f}" rx="18" fill="none" stroke="{RULE}" stroke-width="1.5"/>')
-    p.append(f'<line x1="{cx}" y1="{Y0:.1f}" x2="{cx}" y2="{Y1}" stroke="{RULE}" stroke-width="1.5"/>')
-    p.append(f'<line x1="{X0}" y1="{cy:.1f}" x2="{X1}" y2="{cy:.1f}" stroke="{RULE}" stroke-width="1.5"/>')
-    # axis labels
-    p.append(T(124, (Y0 + cy) / 2, "DETERMINISTIC", 21, "mono", 500, SUB, "middle", ls=2.2, rot=-90))
-    p.append(T(124, (cy + Y1) / 2, "PROBABILISTIC", 21, "mono", 500, SUB, "middle", ls=2.2, rot=-90))
-    block("y-axis", 100, Y0, 130, Y1)
-    ay = Y1 + 40
-    p.append(T(X0, ay, "WORDS", 21, "mono", 500, SUB, ls=2.2, tag="x-words"))
-    p.append(T(cx, ay, "WORDS AND MEANING", 21, "mono", 500, SUB, "middle", ls=2.2, tag="x-both"))
-    p.append(T(X1, ay, "MEANING", 21, "mono", 500, SUB, "end", ls=2.2, tag="x-meaning"))
-    p.append(f'<path d="M{cx - 7} {Y1 + 2} l7 9 l7 -9" fill="none" stroke="{MUTE}" stroke-width="1.5"/>')
+    g = 6
+    quads = [(GX0, GY0, DX - g, DY - g), (DX + g, GY0, GX1, DY - g), (GX0, DY + g, DX - g, GY1), (DX + g, DY + g, GX1, GY1)]
+    for (a0, b0, a1, b1) in quads:
+        p.append(f'<rect x="{a0:.1f}" y="{b0:.1f}" width="{a1 - a0:.1f}" height="{b1 - b0:.1f}" rx="20" '
+                 f'fill="{SURFACE}" fill-opacity="0.38" stroke="{RULE}" stroke-width="1.5"/>')
+    # quadrant labels, big, in the outer corners
+    QL = 34
 
-    def mark(x, y, hard, name, desc, side, straddle=False):
-        r = 15
-        if hard:
-            s = f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r}" fill="{VIOLET}"/>'
+    def qlabel(x, y, a, b, anchor, bottom=False):
+        y1, y2 = (y - QL * 1.15, y) if bottom else (y, y + QL * 1.15)
+        return "\n".join([T(x, y1, a, QL, "head", 600, BONE, anchor, ls=-0.5, tag=a + b + "1"),
+                          T(x, y2, "+ " + b, QL, "head", 500, MUTE, anchor, ls=-0.5, tag=a + b + "2")])
+    p.append(qlabel(GX0 + 28, GY0 + 52, "Deterministic", "Words", "start"))
+    p.append(qlabel(GX1 - 28, GY0 + 52, "Deterministic", "Meaning", "end"))
+    p.append(qlabel(GX0 + 28, GY1 - 26, "Probabilistic", "Words", "start", True))
+    p.append(qlabel(GX1 - 28, GY1 - 26, "Probabilistic", "Meaning", "end", True))
+    # spine label: the divider itself is "words and meaning"
+    sl = "WORDS AND MEANING"
+    slw = tw(sl, "mono", 19, 600, 2)
+    p.append(f'<rect x="{DX - slw / 2 - 14:.1f}" y="{GY1 - 46:.1f}" width="{slw + 28:.1f}" height="34" rx="17" fill="{PITCH}" stroke="{RULE}" stroke-width="1.5"/>')
+    p.append(T(DX, GY1 - 23, sl, 19, "mono", 600, SUB, "middle", ls=2, tag="spine"))
+    # nodes
+    H_ = 104
+    rows_top, rows_bot = DY + H_ / 2 + 34, GY1 - 26 - QL * 1.15 - QL * 0.8 - 20
+    step = (rows_bot - rows_top - H_) / 2
+    cards = []
+    for name, desc, hard, col, row in FM_NODES:
+        if col == "spine":
+            w = spine_w
+            x = DX - w / 2
+            y = (DY - H_ / 2) if row == "cross" else rows_top + row * step
+        elif col == "meaning":
+            w = mean_w
+            x = GX1 - 24 - w
+            y = rows_top + row * step
         else:
-            s = (f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r - 1.5}" fill="{VIOLET}" fill-opacity="0.16" '
-                 f'stroke="{VIOLET}" stroke-width="3"/>')
-        block(name + "-mark", x - r, y - r, x + r, y + r)
-        out = [s]
-        if side == "r":
-            tx, anc = x + r + 16, "start"
-        else:
-            tx, anc = x - r - 16, "end"
-        w = max(tw(name, "sans", 26, 500), tw(desc, "sans", 21, 400))
-        bx = tx if anc == "start" else tx - w
-        if straddle:   # name above the line, detail below it, like the mark itself
-            out.append(T(tx, y - 12, name, 26, "sans", 500, BONE, anc, tag=name))
-            out.append(T(tx, y + 30, desc, 21, "sans", 400, MUTE, anc, tag=name + "-d"))
-        else:
-            out.append(T(tx, y + 6, name, 26, "sans", 500, BONE, anc, tag=name))
-            out.append(T(tx, y + 34, desc, 21, "sans", 400, MUTE, anc, tag=name + "-d"))
-        return "\n".join(out)
-
-    q = (cy - Y0)
-    # deterministic, words
-    p.append(mark(X0 + 150, Y0 + q * 0.42, False, "Text-to-query", "deterministic on execution", "r"))
-    # the two mixed cases sit on / just under the deterministic line, words-and-meaning column
-    p.append(mark(cx, cy, True, "Hybrid + metadata filters", "deterministic scope, probabilistic ranking", "l", True))
-    p.append(mark(cx, cy + q * 0.24, False, "Hybrid Graph RAG", "exact entry, probabilistic neighbourhood", "l"))
-    p.append(mark(cx, cy + q * 0.50, False, "Hybrid + reranker", "words and meaning", "l"))
-    p.append(mark(cx, cy + q * 0.76, False, "Agentic hybrid", "probabilistic and path-dependent", "l"))
-    # probabilistic, meaning
-    mx = cx + 200
-    p.append(mark(mx, cy + q * 0.24, False, "Long context", "probabilistic, meaning", "r"))
-    p.append(mark(mx, cy + q * 0.50, False, "Vector RAG", "meaning only", "r"))
-    p.append(mark(mx, cy + q * 0.76, False, "GraphRAG", "meaning at corpus scale", "r"))
-    # legend
-    ly = ay + 66
-    p.append(f'<circle cx="{X0 + 12}" cy="{ly - 8}" r="12" fill="{VIOLET}"/>')
-    p.append(T(X0 + 36, ly, "Fails hard: returns nothing and tells you so", 22, "sans", 400, SUB, tag="lg-hard"))
-    p.append(f'<circle cx="{X0 + 12}" cy="{ly + 34}" r="10.5" fill="{VIOLET}" fill-opacity="0.16" stroke="{VIOLET}" stroke-width="3"/>')
-    p.append(T(X0 + 36, ly + 42, "Fails soft: returns a plausible wrong answer", 22, "sans", 400, SUB, tag="lg-soft"))
-    p.append(T(X1, ly + 42, "Position inside a quadrant is not a score", 19, "mono", 400, MUTE, "end", tag="lg-note"))
-    p.append(footer("Source: rag-options-at-a-glance"))
+            w = fm_card_w(name, desc)
+            x = GX0 + 28
+            y = GY0 + 52 + QL * 1.15 + 48
+        svg, box = fm_card(x, y, w, H_, name, desc, hard)
+        p.append(svg)
+        cards.append(box)
+    # empty quadrants say so
+    for (qx, qy, anchor) in [((DX + GX1) / 2 + 30, (GY0 + DY) / 2 + 40, "middle")]:
+        p.append(T(qx, qy, "None of the eight", 24, "sans", 400, MUTE, anchor, tag=f"empty{qx:.0f}a"))
+        p.append(T(qx, qy + 30, "sit here", 24, "sans", 400, MUTE, anchor, tag=f"empty{qx:.0f}b"))
+    BLOCKS.extend(cards)
+    # legend + source, in the footer band beside the LF mark
+    lx, l1, l2 = LF_X + LF_W + 30, LF_Y + 22, LF_Y + 58
+    p.append(f'<rect x="{lx}" y="{l1 - 20}" width="58" height="27" rx="13.5" fill="{VIOLET}"/>')
+    p.append(T(lx + 9, l1 - 1, "HARD", TAG_FS, "mono", 600, PITCH, ls=1.5, tag="lg-h"))
+    p.append(T(lx + 74, l1, "Fails hard: returns nothing and tells you so (solid)", 21, "sans", 400, SUB, tag="lg-hard"))
+    p.append(f'<rect x="{lx}" y="{l2 - 20}" width="58" height="27" rx="13.5" fill="none" stroke="{SUB}" stroke-opacity="0.7" stroke-width="1.5" stroke-dasharray="4 3"/>')
+    p.append(T(lx + 9, l2 - 1, "SOFT", TAG_FS, "mono", 600, SUB, ls=1.5, tag="lg-s"))
+    p.append(T(lx + 74, l2, "Fails soft: returns a plausible wrong answer (dashed)", 21, "sans", 400, SUB, tag="lg-soft"))
+    p.append(f'<image href="lf-mark.png" xlink:href="lf-mark.png" x="{LF_X}" y="{LF_Y}" width="{LF_W}" height="{LF_H:.1f}"/>')
+    p.append(T(GX1, l2, "Source: rag-options-at-a-glance", 17, "mono", 400, MUTE, "end", tag="source"))
     check("rag-failure-map")
     return wrap_svg("\n".join(p))
 
@@ -592,67 +652,158 @@ def gen_pipeline(kind):
     return wrap_svg("\n".join(p))
 
 
-# ======================================================================= 6. stats (stats.md graphic labels)
-STATS = [  # before, figure, after, source   (stats.md "Graphic label", split around the figure)
-    ("RAG used in", "51%", "of enterprise AI deployments", "Menlo Ventures, 2024"),
-    ("Contextual retrieval + reranking:", "67%", "fewer retrieval failures", "Anthropic, 2024"),
-    ("GraphRAG wins", "72 to 83%", "on comprehensiveness vs vector RAG",
-     "Microsoft Research, 2024 · corpus-wide questions"),
-    ("LinkedIn:", "28.6%", "faster ticket resolution with graph RAG", "Xu et al., SIGIR 2024"),
-]
-REALITY = ("Legal RAG tools still hallucinate", "17 to 33%", "of the time", "Stanford/Yale, 2024")
+# ======================================================================= 6. stats (v2)
+# Every figure and phrase from /workspace/projects/rag-3-types/stats.md (see graphics-sourcing.md).
+def spectrum_id():
+    i = gid("spectrum")
+    DEFS.append(f'<linearGradient id="{i}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{INDIGO}"/>'
+                f'<stop offset="0.5" stop-color="{VIOLET}"/><stop offset="1" stop-color="{AMBER}"/></linearGradient>')
+    return i
 
 
-def stat_block(x, y, w, h, st, fs_num, fill=SURFACE, stroke=RULE, center=False):
-    before, fig, after, source = st
-    out = [f'<rect x="{x}" y="{y:.1f}" width="{w}" height="{h:.1f}" rx="18" fill="{fill}" stroke="{stroke}" stroke-width="1.5"/>']
-    pad = 36
-    bl = wrap_px(before, w - 2 * pad, "sans", 24, 400)
-    al = wrap_px(after, w - 2 * pad, "sans", 24, 400)
-    while tw(fig, "head", fs_num, 600, -fs_num * 0.03) > w - 2 * pad:
-        fs_num -= 2
-    content = 32 * len(bl) + fs_num * 0.98 + 32 + 32 * len(al)
-    ty = y + (h - 40 - content) / 2 + 26
-    for i, ln in enumerate(bl):
-        out.append(T(x + pad, ty + i * 32, ln, 24, "sans", 400, SUB, tag=f"{fig}-b{i}"))
-    ny = ty + 32 * (len(bl) - 1) + 14 + fs_num * 0.74
-    out.append(T(x + pad - 3, ny, fig, fs_num, "head", 600, BONE, ls=-fs_num * 0.03, tag=fig))
-    ay = ny + fs_num * 0.24 + 32
-    for i, ln in enumerate(al):
-        out.append(T(x + pad, ay + i * 32, ln, 24, "sans", 400, SUB, tag=f"{fig}-a{i}"))
-    out.append(T(x + pad, y + h - 28, source, 12, "mono", 400, MUTE, ls=0.4, tag=f"{fig}-src"))
-    return "\n".join(out)
+def src(x, y, s, anchor="start"):
+    return T(x, y, s, 17, "mono", 400, MUTE, anchor, ls=0.2, tag="src-" + s[:14])
+
+
+def arc_pt(cx, cy, r, t):
+    import math
+    a = math.pi * (1 - t)
+    return cx + r * math.cos(a), cy - r * math.sin(a)
+
+
+def arc(cx, cy, r, t0, t1):
+    x0, y0 = arc_pt(cx, cy, r, t0)
+    x1, y1 = arc_pt(cx, cy, r, t1)
+    return f"M{x0:.1f} {y0:.1f} A{r} {r} 0 0 1 {x1:.1f} {y1:.1f}"
 
 
 def gen_stats():
     start()
     p = []
-    hd, yb = header("RAG in production", ["What the numbers say"], None, tfs=62)
-    p.append(dotgrid(600, 620, 560))
-    p.append(glow(600, 600, 620, 0.36, sy=0.9))
-    p.append(hd)
-    gx, gap = M, 24
-    cw = (1128 - M - gap) / 2
-    top = yb + 56
-    rc_h = 300
-    sep = 1352 - rc_h - 66
-    ch = (sep - 40 - top - gap) / 2
-    for i, st in enumerate(STATS):
-        r, c = divmod(i, 2)
-        p.append(stat_block(gx + c * (cw + gap), top + r * (ch + gap), cw, ch, st, 110))
-    # separator + reality check
-    lw = tw("REALITY CHECK", "mono", 22, 600, 3)
-    p.append(f'<line x1="{M}" y1="{sep:.1f}" x2="{1128 - lw - 28:.1f}" y2="{sep:.1f}" stroke="{SUB}" stroke-width="1.5" stroke-dasharray="6 6"/>')
-    p.append(T(1128, sep + 8, "REALITY CHECK", 22, "mono", 600, BONE, "end", ls=3, tag="rc-label"))
-    rcy = sep + 40
-    before, fig, after, source = REALITY
-    p.append(f'<rect x="{M}" y="{rcy:.1f}" width="{1128 - M}" height="{rc_h}" rx="18" fill="none" stroke="{SUB}" stroke-width="2"/>')
-    fs = 140
-    p.append(T(M + 40, rcy + 54, before, 28, "sans", 400, SUB, tag="rc-b"))
-    p.append(T(M + 36, rcy + 54 + 24 + fs * 0.74, fig, fs, "head", 600, BONE, ls=-fs * 0.03, tag="rc-fig"))
-    fx = M + 36 + tw(fig, "head", fs, 600, -fs * 0.03) + 26
-    p.append(T(fx, rcy + 54 + 24 + fs * 0.74, after, 32, "sans", 400, SUB, tag="rc-a"))
-    p.append(T(M + 40, rcy + rc_h - 30, source, 12, "mono", 400, MUTE, ls=0.4, tag="rc-src"))
+    X0, X1 = 36, 1164
+    # ---------------- hero: 51%
+    p.append(dotgrid(330, 300, 420))
+    p.append(glow(300, 300, 470, 0.75, sy=0.75))
+    p.append(f'<circle cx="{M + 5}" cy="85" r="5" fill="{VIOLET}"/>')
+    p.append(T(M + 22, 92, "RAG IN PRODUCTION", 20, "mono", 500, MUTE, ls=2.4, tag="eyebrow"))
+    p.append(T(M, 158, "RAG used in", 34, "sans", 400, SUB, tag="h-b"))
+    hf = 280
+    p.append(T(M - 10, 158 + 30 + hf * 0.72, "51%", hf, "head", 600, BONE, ls=-hf * 0.035, tag="hero"))
+    hx = M + tw("51%", "head", hf, 600, -hf * 0.035) + 34
+    p.append(T(hx, 262, "of enterprise AI", 40, "sans", 500, BONE, tag="h-a1"))
+    p.append(T(hx, 310, "deployments", 40, "sans", 500, BONE, tag="h-a2"))
+    p.append(T(hx, 362, "a dramatic rise from 31%", 25, "sans", 400, SUB, tag="h-c1"))
+    p.append(T(hx, 396, "last year", 25, "sans", 400, SUB, tag="h-c2"))
+    # adoption track with the spectrum (the one gradient element): 31% last year, 51% now
+    ty = 434
+    sid = spectrum_id()
+    p.append(f'<rect x="{M}" y="{ty}" width="{X1 - M - 36}" height="12" rx="6" fill="{BONE}" fill-opacity="0.08"/>')
+    tw_ = X1 - M - 36
+    p.append(f'<rect x="{M}" y="{ty}" width="{tw_ * 0.51:.1f}" height="12" rx="6" fill="url(#{sid})"/>')
+    x31 = M + tw_ * 0.31
+    p.append(f'<line x1="{x31:.1f}" y1="{ty - 10}" x2="{x31:.1f}" y2="{ty + 22}" stroke="{BONE}" stroke-width="2"/>')
+    p.append(T(x31, ty + 48, "2023: 31%", 20, "mono", 500, SUB, "middle", tag="t31"))
+    x51 = M + tw_ * 0.51
+    p.append(f'<circle cx="{x51:.1f}" cy="{ty + 6}" r="11" fill="{BONE}"/>')
+    p.append(T(x51, ty + 48, "2024: 51%", 20, "mono", 600, BONE, "middle", tag="t51"))
+    p.append(src(X1 - 36, ty + 48, "Menlo Ventures, 2024", "end"))
+
+    # ---------------- 67%: four-step failure-rate chart
+    py0, py1 = 520, 935
+    px0, px1 = X0, 640
+    p.append(f'<rect x="{px0}" y="{py0}" width="{px1 - px0}" height="{py1 - py0}" rx="22" fill="{SURFACE}" stroke="{RULE}" stroke-width="1.5"/>')
+    p.append(T(px0 + 32, py0 + 52, "Contextual retrieval + reranking:", 23, "sans", 400, SUB, tag="c-b"))
+    p.append(T(px0 + 28, py0 + 52 + 100, "67%", 112, "head", 600, BONE, ls=-3, tag="c-fig"))
+    fx = px0 + 28 + tw("67%", "head", 112, 600, -3) + 20
+    p.append(T(fx, py0 + 112, "fewer retrieval", 25, "sans", 500, BONE, tag="c-a1"))
+    p.append(T(fx, py0 + 144, "failures", 25, "sans", 500, BONE, tag="c-a2"))
+    p.append(T(px0 + 32, py0 + 202, "Top-20 retrieval failure rate", 18, "mono", 400, MUTE, tag="c-cap"))
+    bars = [("5.7%", "Baseline", None), ("3.7%", "Contextual", "Embeddings"),
+            ("2.9%", "+ Contextual", "BM25"), ("1.9%", "+ reranking", None)]
+    vals = [5.7, 3.7, 2.9, 1.9]
+    base = py1 - 74
+    maxh = base - (py0 + 252)
+    bw, bg = 104, 34
+    bx0 = px0 + 32
+    for i, ((lab, c1, c2), v) in enumerate(zip(bars, vals)):
+        h = maxh * v / 5.7
+        x = bx0 + i * (bw + bg)
+        last = i == 3
+        if last:
+            p.append(glow(x + bw / 2, base - h / 2, 120, 0.6))
+            p.append(f'<rect x="{x}" y="{base - h:.1f}" width="{bw}" height="{h:.1f}" rx="8" fill="{VIOLET}"/>')
+        elif i == 0:
+            p.append(f'<rect x="{x + 1}" y="{base - h + 1:.1f}" width="{bw - 2}" height="{h - 2:.1f}" rx="8" fill="none" stroke="{SUB}" stroke-width="2" stroke-dasharray="6 5"/>')
+        else:
+            p.append(f'<rect x="{x}" y="{base - h:.1f}" width="{bw}" height="{h:.1f}" rx="8" fill="{VIOLET}" fill-opacity="{0.25 + 0.2 * i}"/>')
+        p.append(T(x + bw / 2, base - h - 14, lab, 24, "mono", 600, BONE, "middle", tag="v" + lab))
+        p.append(T(x + bw / 2, base + 30, c1, 19, "sans", 500 if last else 400, BONE if last else SUB, "middle", tag="l1" + lab))
+        if c2:
+            p.append(T(x + bw / 2, base + 54, c2, 19, "sans", 400, SUB, "middle", tag="l2" + lab))
+    p.append(f'<line x1="{bx0 - 6}" y1="{base}" x2="{bx0 + 4 * bw + 3 * bg + 6}" y2="{base}" stroke="{RULE}" stroke-width="1.5"/>')
+    p.append(src(px1 - 28, py0 + 52, "Anthropic, 2024", "end"))
+
+    # ---------------- GraphRAG: radial win-rate gauge, 72 to 83%
+    gx0, gx1 = 664, X1
+    gcx, gr = (gx0 + gx1) / 2 - 6, 196
+    gcy = py0 + 300
+    p.append(f'<path d="{arc(gcx, gcy, gr, 0, 1)}" fill="none" stroke="{BONE}" stroke-opacity="0.1" stroke-width="30" stroke-linecap="round"/>')
+    p.append(f'<path d="{arc(gcx, gcy, gr, 0, 0.72)}" fill="none" stroke="{VIOLET}" stroke-opacity="0.32" stroke-width="30"/>')
+    gx, gy = arc_pt(gcx, gcy, gr, 0.775)
+    p.append(glow(gx, gy, 110, 0.7))
+    p.append(f'<path d="{arc(gcx, gcy, gr, 0.72, 0.83)}" fill="none" stroke="{VIOLET}" stroke-width="42"/>')
+    for t, lab in ((0.5, "50%"),):
+        a0 = arc_pt(gcx, gcy, gr - 30, t)
+        a1 = arc_pt(gcx, gcy, gr + 30, t)
+        p.append(f'<line x1="{a0[0]:.1f}" y1="{a0[1]:.1f}" x2="{a1[0]:.1f}" y2="{a1[1]:.1f}" stroke="{SUB}" stroke-width="2"/>')
+    for t, lab in ((0.72, "72%"), (0.83, "83%")):
+        lx, ly = arc_pt(gcx, gcy, gr + 52, t)
+        p.append(T(lx + 6, ly + 6, lab, 20, "mono", 600, BONE, "middle", tag="g" + lab))
+    lx, ly = arc_pt(gcx, gcy, gr + 30, 0.5)
+    p.append(T(lx, ly - 12, "50%", 18, "mono", 500, MUTE, "middle", tag="g50"))
+    p.append(T(gcx, gcy - 96, "GraphRAG wins", 24, "sans", 500, BONE, "middle", tag="g-b"))
+    p.append(T(gcx, gcy - 22, "72 to 83%", 62, "head", 600, BONE, "middle", ls=-1.5, tag="g-fig"))
+    p.append(T(gcx, gcy + 42, "on comprehensiveness vs vector RAG", 23, "sans", 400, SUB, "middle", tag="g-a1"))
+    p.append(src(gcx, gcy + 80, "Microsoft Research, 2024 · corpus-wide questions", "middle"))
+
+    # ---------------- LinkedIn: tool vs manual, median hours
+    ly0 = 968
+    p.append(T(M, ly0 + 26, "LinkedIn:", 24, "sans", 400, SUB, tag="l-b"))
+    p.append(T(M - 4, ly0 + 26 + 92, "28.6%", 104, "head", 600, BONE, ls=-3, tag="l-fig"))
+    p.append(T(M, ly0 + 170, "faster ticket resolution", 24, "sans", 400, SUB, tag="l-a1"))
+    p.append(T(M, ly0 + 200, "with graph RAG", 24, "sans", 400, SUB, tag="l-a2"))
+    bx = 470
+    unit = (X1 - 36 - bx - 90) / 7
+    rows = [("Manual methods", 7, "7 hours"), ("With graph RAG", 5, "5 hours")]
+    for i, (lab, v, vl) in enumerate(rows):
+        y = ly0 + 14 + i * 88
+        p.append(T(bx, y + 10, lab, 21, "sans", 500 if i else 400, BONE if i else SUB, tag="lb" + lab))
+        if i:
+            p.append(f'<rect x="{bx}" y="{y + 24}" width="{unit * v:.1f}" height="34" rx="8" fill="{VIOLET}"/>')
+        else:
+            p.append(f'<rect x="{bx + 1}" y="{y + 25}" width="{unit * v - 2:.1f}" height="32" rx="8" fill="none" stroke="{SUB}" stroke-width="2" stroke-dasharray="6 5"/>')
+        p.append(T(bx + unit * v + 14, y + 49, vl, 22, "mono", 600, BONE, tag="lv" + vl))
+    p.append(T(bx, ly0 + 210, "Median per-issue resolution time", 18, "mono", 400, MUTE, tag="l-cap"))
+    p.append(src(X1 - 36, ly0 + 210, "Xu et al., SIGIR 2024", "end"))
+
+    # ---------------- reality check: amber, set apart
+    ry0, ry1 = 1212, 1382
+    p.append(f'<rect x="{X0}" y="{ry0}" width="{X1 - X0}" height="{ry1 - ry0}" rx="22" fill="{AMBER}" fill-opacity="0.06" stroke="{AMBER}" stroke-width="2"/>')
+    p.append(f'<rect x="{X0 + 30}" y="{ry0 - 17}" width="{tw("REALITY CHECK", "mono", 20, 700, 3) + 30:.1f}" height="34" rx="17" fill="{AMBER}"/>')
+    p.append(T(X0 + 45, ry0 + 7, "REALITY CHECK", 20, "mono", 700, PITCH, ls=3, tag="rc"))
+    p.append(T(M, ry0 + 60, "Legal RAG tools still hallucinate", 26, "sans", 400, SUB, tag="r-b"))
+    rf = 92
+    p.append(T(M - 4, ry1 - 26, "17 to 33%", rf, "head", 600, AMBER, ls=-2.5, tag="r-fig"))
+    ax = M + tw("17 to 33%", "head", rf, 600, -2.5) + 22
+    p.append(T(ax, ry1 - 30, "of the time", 28, "sans", 500, BONE, tag="r-a"))
+    # 0 to 100 track with the 17 to 33 band
+    tx0, tx1 = 720, X1 - 40
+    tyy = ry0 + 92
+    p.append(f'<rect x="{tx0}" y="{tyy}" width="{tx1 - tx0}" height="14" rx="7" fill="{BONE}" fill-opacity="0.08"/>')
+    p.append(f'<rect x="{tx0 + (tx1 - tx0) * 0.17:.1f}" y="{tyy - 6}" width="{(tx1 - tx0) * 0.16:.1f}" height="26" rx="6" fill="{AMBER}"/>')
+    p.append(T(tx0, tyy + 50, "0%", 18, "mono", 500, MUTE, tag="r0"))
+    p.append(T(tx1, tyy + 50, "100% of responses", 18, "mono", 500, MUTE, "end", tag="r100"))
+    p.append(src(tx1, ry0 + 50, "Stanford/Yale, 2024", "end"))
     p.append(footer("Source: stats.md, compiled 23 Oct 2026"))
     check("rag-stats")
     return wrap_svg("\n".join(p))

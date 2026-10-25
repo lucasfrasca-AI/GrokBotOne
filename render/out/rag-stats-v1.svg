@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="1500" viewBox="0 0 1200 1500">
+  <defs>
+    <pattern id="id-dots-21" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12.0" cy="12.0" r="1.1" fill="#F3F3F1" fill-opacity="0.16"/></pattern>
+    <radialGradient id="id-mg-23" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#F3F3F1" stop-opacity="1"/><stop offset="1" stop-color="#F3F3F1" stop-opacity="0"/></radialGradient>
+    <mask id="id-mask-22"><rect x="40" y="60" width="1120" height="1120" fill="url(#id-mg-23)"/></mask>
+    <radialGradient id="id-glow-24" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A855F7" stop-opacity="0.36"/><stop offset="0.45" stop-color="#895AF6" stop-opacity="0.126"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="#05010E"/>
+<rect x="40" y="60" width="1120" height="1120" fill="url(#id-dots-21)" mask="url(#id-mask-22)"/>
+<ellipse cx="600.0" cy="600.0" rx="620.0" ry="558.0" fill="url(#id-glow-24)"/>
+<circle cx="77" cy="105" r="5" fill="#A855F7"/>
+<text x="94.0" y="112.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#A4A098" letter-spacing="2.4">RAG IN PRODUCTION</text>
+<text x="70.0" y="204.0" font-family="General Sans, sans-serif" font-size="62" font-weight="600" fill="#F3F3F1" letter-spacing="-1.55">What the numbers say</text>
+<rect x="72.0" y="278.6" width="516.0" height="321.7" rx="18" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="108.0" y="343.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="400" fill="#D4D2CE">RAG used in</text>
+<text x="105.0" y="439.0" font-family="General Sans, sans-serif" font-size="110" font-weight="600" fill="#F3F3F1" letter-spacing="-3.3">51%</text>
+<text x="108.0" y="497.4" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="400" fill="#D4D2CE">of enterprise AI deployments</text>
+<text x="108.0" y="572.3" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#A4A098" letter-spacing="0.4">Menlo Ventures, 2024</text>
+<rect x="612.0" y="278.6" width="516.0" height="321.7" rx="18" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="648.0" y="343.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="400" fill="#D4D2CE">Contextual retrieval + reranking:</text>
+<text x="645.0" y="439.0" font-family="General Sans, sans-serif" font-size="110" font-weight="600" fill="#F3F3F1" letter-spacing="-3.3">67%</text>
+<text x="648.0" y="497.4" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="400" fill="#D4D2CE">fewer retrieval failures</text>
+<text x="648.0" y="572.3" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#A4A098" letter-spacing="0.4">Anthropic, 2024</text>
+<rect x="72.0" y="624.3" width="516.0" height="321.7" rx="18" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="108.0" y="696.1" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="400" fill="#D4D2CE">GraphRAG wins</text>
+<text x="105.0" y="781.1" font-family="General Sans, sans-serif" font-size="96" font-weight="600" fill="#F3F3F1" letter-spacing="-2.88">72 to 83%</text>
+<text x="108.0" y="836.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="400" fill="#D4D2CE">on comprehensiveness vs vector RAG</text>
+<text x="108.0" y="918.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#A4A098" letter-spacing="0.4">Microsoft Research, 2024 · corpus-wide questions</text>
+<rect x="612.0" y="624.3" width="516.0" height="321.7" rx="18" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="648.0" y="689.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="400" fill="#D4D2CE">LinkedIn:</text>
+<text x="645.0" y="784.6" font-family="General Sans, sans-serif" font-size="110" font-weight="600" fill="#F3F3F1" letter-spacing="-3.3">28.6%</text>
+<text x="648.0" y="843.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="400" fill="#D4D2CE">faster ticket resolution with graph RAG</text>
+<text x="648.0" y="918.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#A4A098" letter-spacing="0.4">Xu et al., SIGIR 2024</text>
+<line x1="72" y1="986.0" x2="892.4" y2="986.0" stroke="#D4D2CE" stroke-width="1.5" stroke-dasharray="6 6"/>
+<text x="1128.0" y="994.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="600" fill="#F3F3F1" text-anchor="end" letter-spacing="3">REALITY CHECK</text>
+<rect x="72" y="1026.0" width="1056" height="300" rx="18" fill="none" stroke="#D4D2CE" stroke-width="2"/>
+<text x="112.0" y="1080.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="28" font-weight="400" fill="#D4D2CE">Legal RAG tools still hallucinate</text>
+<text x="108.0" y="1207.6" font-family="General Sans, sans-serif" font-size="140" font-weight="600" fill="#F3F3F1" letter-spacing="-4.2">17 to 33%</text>
+<text x="737.7" y="1207.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="32" font-weight="400" fill="#D4D2CE">of the time</text>
+<text x="112.0" y="1296.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="400" fill="#A4A098" letter-spacing="0.4">Stanford/Yale, 2024</text>
+<image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1405" width="72" height="67.3"/>
+<text x="136.0" y="1445.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="400" fill="#A4A098" letter-spacing="0.2">Source: stats.md, compiled 23 Oct 2026</text>
+</svg>

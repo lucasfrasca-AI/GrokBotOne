@@ -4,55 +4,88 @@
   <defs>
     <pattern id="id-dots-1" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12.0" cy="12.0" r="1.1" fill="#F3F3F1" fill-opacity="0.16"/></pattern>
     <radialGradient id="id-mg-3" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#F3F3F1" stop-opacity="1"/><stop offset="1" stop-color="#F3F3F1" stop-opacity="0"/></radialGradient>
-    <mask id="id-mask-2"><rect x="88.0" y="249.60000000000002" width="1120" height="1120" fill="url(#id-mg-3)"/></mask>
-    <radialGradient id="id-glow-4" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A855F7" stop-opacity="0.42"/><stop offset="0.45" stop-color="#895AF6" stop-opacity="0.147"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
+    <mask id="id-mask-2"><rect x="272.08984375" y="517.636" width="1040" height="1040" fill="url(#id-mg-3)"/></mask>
+    <radialGradient id="id-glow-4" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A855F7" stop-opacity="0.3"/><stop offset="0.45" stop-color="#895AF6" stop-opacity="0.105"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
+    <radialGradient id="id-glow-5" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A855F7" stop-opacity="0.55"/><stop offset="0.45" stop-color="#895AF6" stop-opacity="0.1925"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
   </defs>
   <rect width="1200" height="1500" fill="#05010E"/>
-<rect x="88.0" y="249.60000000000002" width="1120" height="1120" fill="url(#id-dots-1)" mask="url(#id-mask-2)"/>
-<ellipse cx="768.0" cy="929.6" rx="520.0" ry="468.0" fill="url(#id-glow-4)"/>
-<circle cx="77" cy="105" r="5" fill="#A855F7"/>
-<text x="94.0" y="112.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#A4A098" letter-spacing="2.4">RAG OPTIONS · OUTPUT CHARACTER</text>
-<text x="70.0" y="200.0" font-family="General Sans, sans-serif" font-size="58" font-weight="600" fill="#F3F3F1" letter-spacing="-1.4500000000000002">Which failure mode</text>
-<text x="70.0" y="263.8" font-family="General Sans, sans-serif" font-size="58" font-weight="600" fill="#F3F3F1" letter-spacing="-1.4500000000000002">can you live with?</text>
-<text x="72.0" y="325.2" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="400" fill="#D4D2CE">Soft failures look identical to correct answers. Hard failures announce themselves.</text>
-<rect x="168" y="397.2" width="960" height="824.8" rx="18" fill="none" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
-<line x1="648.0" y1="397.2" x2="648.0" y2="1222" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
-<line x1="168" y1="809.6" x2="1128" y2="809.6" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
-<text x="124.0" y="603.4" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="500" fill="#D4D2CE" text-anchor="middle" letter-spacing="2.2" transform="rotate(-90 124.0 603.4)">DETERMINISTIC</text>
-<text x="124.0" y="1015.8" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="500" fill="#D4D2CE" text-anchor="middle" letter-spacing="2.2" transform="rotate(-90 124.0 1015.8)">PROBABILISTIC</text>
-<text x="168.0" y="1262.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="500" fill="#D4D2CE" letter-spacing="2.2">WORDS</text>
-<text x="648.0" y="1262.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="500" fill="#D4D2CE" text-anchor="middle" letter-spacing="2.2">WORDS AND MEANING</text>
-<text x="1128.0" y="1262.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" font-weight="500" fill="#D4D2CE" text-anchor="end" letter-spacing="2.2">MEANING</text>
-<path d="M641.0 1224 l7 9 l7 -9" fill="none" stroke="#A4A098" stroke-width="1.5"/>
-<circle cx="318.0" cy="570.4" r="13.5" fill="#A855F7" fill-opacity="0.16" stroke="#A855F7" stroke-width="3"/>
-<text x="349.0" y="576.4" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1">Text-to-query</text>
-<text x="349.0" y="604.4" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="400" fill="#A4A098">deterministic on execution</text>
-<circle cx="648.0" cy="809.6" r="15" fill="#A855F7"/>
-<text x="617.0" y="797.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1" text-anchor="end">Hybrid + metadata filters</text>
-<text x="617.0" y="839.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="400" fill="#A4A098" text-anchor="end">deterministic scope, probabilistic ranking</text>
-<circle cx="648.0" cy="908.6" r="13.5" fill="#A855F7" fill-opacity="0.16" stroke="#A855F7" stroke-width="3"/>
-<text x="617.0" y="914.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1" text-anchor="end">Hybrid Graph RAG</text>
-<text x="617.0" y="942.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="400" fill="#A4A098" text-anchor="end">exact entry, probabilistic neighbourhood</text>
-<circle cx="648.0" cy="1015.8" r="13.5" fill="#A855F7" fill-opacity="0.16" stroke="#A855F7" stroke-width="3"/>
-<text x="617.0" y="1021.8" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1" text-anchor="end">Hybrid + reranker</text>
-<text x="617.0" y="1049.8" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="400" fill="#A4A098" text-anchor="end">words and meaning</text>
-<circle cx="648.0" cy="1123.0" r="13.5" fill="#A855F7" fill-opacity="0.16" stroke="#A855F7" stroke-width="3"/>
-<text x="617.0" y="1129.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1" text-anchor="end">Agentic hybrid</text>
-<text x="617.0" y="1157.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="400" fill="#A4A098" text-anchor="end">probabilistic and path-dependent</text>
-<circle cx="848.0" cy="908.6" r="13.5" fill="#A855F7" fill-opacity="0.16" stroke="#A855F7" stroke-width="3"/>
-<text x="879.0" y="914.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1">Long context</text>
-<text x="879.0" y="942.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="400" fill="#A4A098">probabilistic, meaning</text>
-<circle cx="848.0" cy="1015.8" r="13.5" fill="#A855F7" fill-opacity="0.16" stroke="#A855F7" stroke-width="3"/>
-<text x="879.0" y="1021.8" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1">Vector RAG</text>
-<text x="879.0" y="1049.8" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="400" fill="#A4A098">meaning only</text>
-<circle cx="848.0" cy="1123.0" r="13.5" fill="#A855F7" fill-opacity="0.16" stroke="#A855F7" stroke-width="3"/>
-<text x="879.0" y="1129.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="500" fill="#F3F3F1">GraphRAG</text>
-<text x="879.0" y="1157.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="400" fill="#A4A098">meaning at corpus scale</text>
-<circle cx="180" cy="1320" r="12" fill="#A855F7"/>
-<text x="204.0" y="1328.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#D4D2CE">Fails hard: returns nothing and tells you so</text>
-<circle cx="180" cy="1362" r="10.5" fill="#A855F7" fill-opacity="0.16" stroke="#A855F7" stroke-width="3"/>
-<text x="204.0" y="1370.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#D4D2CE">Fails soft: returns a plausible wrong answer</text>
-<text x="1128.0" y="1370.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="400" fill="#A4A098" text-anchor="end">Position inside a quadrant is not a score</text>
+<rect x="272.08984375" y="517.636" width="1040" height="1040" fill="url(#id-dots-1)" mask="url(#id-mask-2)"/>
+<ellipse cx="540.2" cy="955.3" rx="560.0" ry="560.0" fill="url(#id-glow-4)"/>
+<circle cx="77" cy="85" r="5" fill="#A855F7"/>
+<text x="94.0" y="92.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#A4A098" letter-spacing="2.4">RAG OPTIONS · OUTPUT CHARACTER</text>
+<text x="70.0" y="174.0" font-family="General Sans, sans-serif" font-size="52" font-weight="600" fill="#F3F3F1" letter-spacing="-1.3">Which failure mode can you live with?</text>
+<text x="72.0" y="233.6" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="400" fill="#D4D2CE">Soft failures look identical to correct answers. Hard failures announce themselves.</text>
+<rect x="36.0" y="275.6" width="378.2" height="413.7" rx="20" fill="#160F24" fill-opacity="0.38" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<rect x="426.2" y="275.6" width="737.8" height="413.7" rx="20" fill="#160F24" fill-opacity="0.38" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<rect x="36.0" y="701.3" width="378.2" height="678.7" rx="20" fill="#160F24" fill-opacity="0.38" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<rect x="426.2" y="701.3" width="737.8" height="678.7" rx="20" fill="#160F24" fill-opacity="0.38" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="64.0" y="327.6" font-family="General Sans, sans-serif" font-size="34" font-weight="600" fill="#F3F3F1" letter-spacing="-0.5">Deterministic</text>
+<text x="64.0" y="366.7" font-family="General Sans, sans-serif" font-size="34" font-weight="500" fill="#A4A098" letter-spacing="-0.5">+ Words</text>
+<text x="1136.0" y="327.6" font-family="General Sans, sans-serif" font-size="34" font-weight="600" fill="#F3F3F1" text-anchor="end" letter-spacing="-0.5">Deterministic</text>
+<text x="1136.0" y="366.7" font-family="General Sans, sans-serif" font-size="34" font-weight="500" fill="#A4A098" text-anchor="end" letter-spacing="-0.5">+ Meaning</text>
+<text x="64.0" y="1314.9" font-family="General Sans, sans-serif" font-size="34" font-weight="600" fill="#F3F3F1" letter-spacing="-0.5">Probabilistic</text>
+<text x="64.0" y="1354.0" font-family="General Sans, sans-serif" font-size="34" font-weight="500" fill="#A4A098" letter-spacing="-0.5">+ Words</text>
+<text x="1136.0" y="1314.9" font-family="General Sans, sans-serif" font-size="34" font-weight="600" fill="#F3F3F1" text-anchor="end" letter-spacing="-0.5">Probabilistic</text>
+<text x="1136.0" y="1354.0" font-family="General Sans, sans-serif" font-size="34" font-weight="500" fill="#A4A098" text-anchor="end" letter-spacing="-0.5">+ Meaning</text>
+<rect x="293.2" y="1334.0" width="253.9" height="34" rx="17" fill="#05010E" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
+<text x="420.2" y="1357.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="600" fill="#D4D2CE" text-anchor="middle" letter-spacing="2">WORDS AND MEANING</text>
+<rect x="64.0" y="414.7" width="377.1" height="104" rx="16" fill="#160F24" fill-opacity="0.9" stroke="#A855F7" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="7 6"/>
+<circle cx="98.0" cy="466.7" r="12" fill="#A855F7" fill-opacity="0.18" stroke="#A855F7" stroke-opacity="0.7" stroke-width="2.5" stroke-dasharray="4 3.5"/>
+<text x="128.0" y="460.7" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="29" font-weight="600" fill="#F3F3F1">Text-to-query</text>
+<rect x="337.8" y="439.7" width="65.7" height="27" rx="13.5" fill="none" stroke="#D4D2CE" stroke-opacity="0.7" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="346.8" y="459.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="#D4D2CE" letter-spacing="1.5">SOFT</text>
+<text x="128.0" y="494.7" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#D4D2CE">Computed, not approximated</text>
+<ellipse cx="420.2" cy="695.3" rx="387.3" ry="232.4" fill="url(#id-glow-5)"/>
+<rect x="162.0" y="643.3" width="516.4" height="104" rx="16" fill="#1C1528" stroke="#A855F7" stroke-width="3"/>
+<circle cx="196.0" cy="695.3" r="13" fill="#A855F7"/>
+<text x="226.0" y="689.3" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="29" font-weight="600" fill="#F3F3F1">Hybrid + metadata filters</text>
+<rect x="586.7" y="668.3" width="65.7" height="27" rx="13.5" fill="#A855F7"/>
+<text x="595.7" y="688.3" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="#05010E" letter-spacing="1.5">HARD</text>
+<text x="226.0" y="723.3" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#D4D2CE">Exact filter, probabilistic ranking</text>
+<rect x="162.0" y="781.3" width="516.4" height="104" rx="16" fill="#160F24" fill-opacity="0.9" stroke="#A855F7" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="7 6"/>
+<circle cx="196.0" cy="833.3" r="12" fill="#A855F7" fill-opacity="0.18" stroke="#A855F7" stroke-opacity="0.7" stroke-width="2.5" stroke-dasharray="4 3.5"/>
+<text x="226.0" y="827.3" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="29" font-weight="600" fill="#F3F3F1">Hybrid Graph RAG</text>
+<rect x="492.7" y="806.3" width="65.7" height="27" rx="13.5" fill="none" stroke="#D4D2CE" stroke-opacity="0.7" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="501.7" y="826.3" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="#D4D2CE" letter-spacing="1.5">SOFT</text>
+<text x="226.0" y="861.3" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#D4D2CE">Exact entry, probabilistic neighbourhood</text>
+<rect x="162.0" y="972.5" width="516.4" height="104" rx="16" fill="#160F24" fill-opacity="0.9" stroke="#A855F7" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="7 6"/>
+<circle cx="196.0" cy="1024.5" r="12" fill="#A855F7" fill-opacity="0.18" stroke="#A855F7" stroke-opacity="0.7" stroke-width="2.5" stroke-dasharray="4 3.5"/>
+<text x="226.0" y="1018.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="29" font-weight="600" fill="#F3F3F1">Hybrid + reranker</text>
+<rect x="482.6" y="997.5" width="65.7" height="27" rx="13.5" fill="none" stroke="#D4D2CE" stroke-opacity="0.7" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="491.6" y="1017.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="#D4D2CE" letter-spacing="1.5">SOFT</text>
+<text x="226.0" y="1052.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#D4D2CE">Exact terms plus paraphrase</text>
+<rect x="162.0" y="1163.7" width="516.4" height="104" rx="16" fill="#160F24" fill-opacity="0.9" stroke="#A855F7" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="7 6"/>
+<circle cx="196.0" cy="1215.7" r="12" fill="#A855F7" fill-opacity="0.18" stroke="#A855F7" stroke-opacity="0.7" stroke-width="2.5" stroke-dasharray="4 3.5"/>
+<text x="226.0" y="1209.7" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="29" font-weight="600" fill="#F3F3F1">Agentic hybrid</text>
+<rect x="445.0" y="1188.7" width="65.7" height="27" rx="13.5" fill="none" stroke="#D4D2CE" stroke-opacity="0.7" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="454.0" y="1208.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="#D4D2CE" letter-spacing="1.5">SOFT</text>
+<text x="226.0" y="1243.7" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#D4D2CE">Same question, different routes</text>
+<rect x="704.4" y="781.3" width="435.6" height="104" rx="16" fill="#160F24" fill-opacity="0.9" stroke="#A855F7" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="7 6"/>
+<circle cx="738.4" cy="833.3" r="12" fill="#A855F7" fill-opacity="0.18" stroke="#A855F7" stroke-opacity="0.7" stroke-width="2.5" stroke-dasharray="4 3.5"/>
+<text x="768.4" y="827.3" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="29" font-weight="600" fill="#F3F3F1">Long context</text>
+<rect x="968.2" y="806.3" width="65.7" height="27" rx="13.5" fill="none" stroke="#D4D2CE" stroke-opacity="0.7" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="977.2" y="826.3" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="#D4D2CE" letter-spacing="1.5">SOFT</text>
+<text x="768.4" y="861.3" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#D4D2CE">Accuracy is a position problem</text>
+<rect x="704.4" y="972.5" width="435.6" height="104" rx="16" fill="#160F24" fill-opacity="0.9" stroke="#A855F7" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="7 6"/>
+<circle cx="738.4" cy="1024.5" r="12" fill="#A855F7" fill-opacity="0.18" stroke="#A855F7" stroke-opacity="0.7" stroke-width="2.5" stroke-dasharray="4 3.5"/>
+<text x="768.4" y="1018.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="29" font-weight="600" fill="#F3F3F1">Vector RAG</text>
+<rect x="946.5" y="997.5" width="65.7" height="27" rx="13.5" fill="none" stroke="#D4D2CE" stroke-opacity="0.7" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="955.5" y="1017.5" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="#D4D2CE" letter-spacing="1.5">SOFT</text>
+<text x="768.4" y="1052.5" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#D4D2CE">Returns what a passage is about</text>
+<rect x="704.4" y="1163.7" width="435.6" height="104" rx="16" fill="#160F24" fill-opacity="0.9" stroke="#A855F7" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="7 6"/>
+<circle cx="738.4" cy="1215.7" r="12" fill="#A855F7" fill-opacity="0.18" stroke="#A855F7" stroke-opacity="0.7" stroke-width="2.5" stroke-dasharray="4 3.5"/>
+<text x="768.4" y="1209.7" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="29" font-weight="600" fill="#F3F3F1">GraphRAG</text>
+<rect x="930.2" y="1188.7" width="65.7" height="27" rx="13.5" fill="none" stroke="#D4D2CE" stroke-opacity="0.7" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="939.2" y="1208.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="#D4D2CE" letter-spacing="1.5">SOFT</text>
+<text x="768.4" y="1243.7" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="400" fill="#D4D2CE">Strong on themes, weak on quotes</text>
+<text x="822.1" y="525.4" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="400" fill="#A4A098" text-anchor="middle">None of the eight</text>
+<text x="822.1" y="555.4" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="400" fill="#A4A098" text-anchor="middle">sit here</text>
+<rect x="138" y="1407" width="58" height="27" rx="13.5" fill="#A855F7"/>
+<text x="147.0" y="1426.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="#05010E" letter-spacing="1.5">HARD</text>
+<text x="212.0" y="1427.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="400" fill="#D4D2CE">Fails hard: returns nothing and tells you so (solid)</text>
+<rect x="138" y="1443" width="58" height="27" rx="13.5" fill="none" stroke="#D4D2CE" stroke-opacity="0.7" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="147.0" y="1462.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600" fill="#D4D2CE" letter-spacing="1.5">SOFT</text>
+<text x="212.0" y="1463.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="21" font-weight="400" fill="#D4D2CE">Fails soft: returns a plausible wrong answer (dashed)</text>
 <image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1405" width="72" height="67.3"/>
-<text x="136.0" y="1445.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="400" fill="#A4A098" letter-spacing="0.2">Source: rag-options-at-a-glance</text>
+<text x="1164.0" y="1463.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="400" fill="#A4A098" text-anchor="end">Source: rag-options-at-a-glance</text>
 </svg>
