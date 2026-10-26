@@ -2,32 +2,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
      width="1200" height="1500" viewBox="0 0 1200 1500">
   <defs>
-    <pattern id="id-dots-6" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12.0" cy="12.0" r="1.1" fill="#F3F3F1" fill-opacity="0.16"/></pattern>
-    <radialGradient id="id-mg-8" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#F3F3F1" stop-opacity="1"/><stop offset="1" stop-color="#F3F3F1" stop-opacity="0"/></radialGradient>
-    <mask id="id-mask-7"><rect x="-90" y="-120" width="840" height="840" fill="url(#id-mg-8)"/></mask>
-    <radialGradient id="id-glow-9" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A855F7" stop-opacity="0.75"/><stop offset="0.45" stop-color="#895AF6" stop-opacity="0.26249999999999996"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
-    <linearGradient id="id-spectrum-10" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6366F1"/><stop offset="0.5" stop-color="#A855F7"/><stop offset="1" stop-color="#FCD34D"/></linearGradient>
-    <radialGradient id="id-glow-11" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A855F7" stop-opacity="0.6"/><stop offset="0.45" stop-color="#895AF6" stop-opacity="0.21"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
-    <radialGradient id="id-glow-12" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A855F7" stop-opacity="0.7"/><stop offset="0.45" stop-color="#895AF6" stop-opacity="0.24499999999999997"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
+    <pattern id="id-dots-1" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12.0" cy="12.0" r="1.1" fill="#F3F3F1" fill-opacity="0.16"/></pattern>
+    <radialGradient id="id-mg-3" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#F3F3F1" stop-opacity="1"/><stop offset="1" stop-color="#F3F3F1" stop-opacity="0"/></radialGradient>
+    <mask id="id-mask-2"><rect x="-90" y="-120" width="840" height="840" fill="url(#id-mg-3)"/></mask>
+    <radialGradient id="id-glow-4" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A855F7" stop-opacity="0.75"/><stop offset="0.45" stop-color="#895AF6" stop-opacity="0.26249999999999996"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
+    <linearGradient id="id-spectrum-5" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6366F1"/><stop offset="0.5" stop-color="#A855F7"/><stop offset="1" stop-color="#FCD34D"/></linearGradient>
+    <radialGradient id="id-glow-6" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A855F7" stop-opacity="0.6"/><stop offset="0.45" stop-color="#895AF6" stop-opacity="0.21"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
+    <radialGradient id="id-glow-7" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A855F7" stop-opacity="0.7"/><stop offset="0.45" stop-color="#895AF6" stop-opacity="0.24499999999999997"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/></radialGradient>
   </defs>
   <rect width="1200" height="1500" fill="#05010E"/>
-<rect x="-90" y="-120" width="840" height="840" fill="url(#id-dots-6)" mask="url(#id-mask-7)"/>
-<ellipse cx="300.0" cy="300.0" rx="470.0" ry="352.5" fill="url(#id-glow-9)"/>
+<rect x="-90" y="-120" width="840" height="840" fill="url(#id-dots-1)" mask="url(#id-mask-2)"/>
+<ellipse cx="320.0" cy="300.0" rx="480.0" ry="360.0" fill="url(#id-glow-4)"/>
 <circle cx="77" cy="85" r="5" fill="#A855F7"/>
-<text x="94.0" y="92.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#A4A098" letter-spacing="2.4">RAG IN PRODUCTION</text>
-<text x="72.0" y="158.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="34" font-weight="400" fill="#D4D2CE">RAG used in</text>
-<text x="62.0" y="389.6" font-family="General Sans, sans-serif" font-size="280" font-weight="600" fill="#F3F3F1" letter-spacing="-9.8">51%</text>
-<text x="657.0" y="262.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="40" font-weight="500" fill="#F3F3F1">of enterprise AI</text>
-<text x="657.0" y="310.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="40" font-weight="500" fill="#F3F3F1">deployments</text>
-<text x="657.0" y="362.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="25" font-weight="400" fill="#D4D2CE">a dramatic rise from 31%</text>
-<text x="657.0" y="396.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="25" font-weight="400" fill="#D4D2CE">last year</text>
+<text x="94.0" y="92.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#A4A098" letter-spacing="2.4">RAG IN THE ENTERPRISE</text>
+<text x="64.0" y="376.0" font-family="General Sans, sans-serif" font-size="250" font-weight="600" fill="#F3F3F1" letter-spacing="-8.75">59.4%</text>
+<text x="827.0" y="262.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="36" font-weight="500" fill="#F3F3F1">of enterprises</text>
+<text x="827.0" y="308.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="36" font-weight="500" fill="#F3F3F1">anchored in basic</text>
+<text x="827.0" y="354.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="36" font-weight="500" fill="#F3F3F1">or hybrid RAG</text>
 <rect x="72" y="434" width="1056" height="12" rx="6" fill="#F3F3F1" fill-opacity="0.08"/>
-<rect x="72" y="434" width="538.6" height="12" rx="6" fill="url(#id-spectrum-10)"/>
-<line x1="399.4" y1="424" x2="399.4" y2="456" stroke="#F3F3F1" stroke-width="2"/>
-<text x="399.4" y="482.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" fill="#D4D2CE" text-anchor="middle">2023: 31%</text>
-<circle cx="610.6" cy="440" r="11" fill="#F3F3F1"/>
-<text x="610.6" y="482.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="600" fill="#F3F3F1" text-anchor="middle">2024: 51%</text>
-<text x="1128.0" y="482.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="400" fill="#A4A098" text-anchor="end" letter-spacing="0.2">Menlo Ventures, 2024</text>
+<rect x="72" y="434" width="627.3" height="12" rx="6" fill="url(#id-spectrum-5)"/>
+<text x="1128.0" y="482.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="400" fill="#A4A098" text-anchor="end" letter-spacing="0.2">Futurum Group, 1H 2026 survey, n=818</text>
 <rect x="36" y="520" width="604" height="415" rx="22" fill="#160F24" stroke="rgba(243,243,241,.12)" stroke-width="1.5"/>
 <text x="68.0" y="572.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="23" font-weight="400" fill="#D4D2CE">Contextual retrieval + reranking:</text>
 <text x="64.0" y="672.0" font-family="General Sans, sans-serif" font-size="112" font-weight="600" fill="#F3F3F1" letter-spacing="-3">67%</text>
@@ -45,7 +39,7 @@
 <text x="396.0" y="801.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" font-weight="600" fill="#F3F3F1" text-anchor="middle">2.9%</text>
 <text x="396.0" y="891.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#D4D2CE" text-anchor="middle">+ Contextual</text>
 <text x="396.0" y="915.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="400" fill="#D4D2CE" text-anchor="middle">BM25</text>
-<ellipse cx="534.0" cy="846.2" rx="120.0" ry="120.0" fill="url(#id-glow-11)"/>
+<ellipse cx="534.0" cy="846.2" rx="120.0" ry="120.0" fill="url(#id-glow-6)"/>
 <rect x="482" y="831.3" width="104" height="29.7" rx="8" fill="#A855F7"/>
 <text x="534.0" y="817.3" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" font-weight="600" fill="#F3F3F1" text-anchor="middle">1.9%</text>
 <text x="534.0" y="891.0" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="500" fill="#F3F3F1" text-anchor="middle">+ reranking</text>
@@ -53,7 +47,7 @@
 <text x="612.0" y="572.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="400" fill="#A4A098" text-anchor="end" letter-spacing="0.2">Anthropic, 2024</text>
 <path d="M712.0 820.0 A196 196 0 0 1 1104.0 820.0" fill="none" stroke="#F3F3F1" stroke-opacity="0.1" stroke-width="30" stroke-linecap="round"/>
 <path d="M712.0 820.0 A196 196 0 0 1 1032.9 669.0" fill="none" stroke="#A855F7" stroke-opacity="0.32" stroke-width="30"/>
-<ellipse cx="1057.0" cy="692.7" rx="110.0" ry="110.0" fill="url(#id-glow-12)"/>
+<ellipse cx="1057.0" cy="692.7" rx="110.0" ry="110.0" fill="url(#id-glow-7)"/>
 <path d="M1032.9 669.0 A196 196 0 0 1 1076.7 720.2" fill="none" stroke="#A855F7" stroke-width="42"/>
 <line x1="908.0" y1="654.0" x2="908.0" y2="594.0" stroke="#D4D2CE" stroke-width="2"/>
 <text x="1072.1" y="634.9" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="600" fill="#F3F3F1" text-anchor="middle">72%</text>
@@ -87,5 +81,5 @@
 <text x="1124.0" y="1354.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="500" fill="#A4A098" text-anchor="end">100% of responses</text>
 <text x="1124.0" y="1262.0" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" font-weight="400" fill="#A4A098" text-anchor="end" letter-spacing="0.2">Stanford/Yale, 2024</text>
 <image href="lf-mark.png" xlink:href="lf-mark.png" x="36" y="1405" width="72" height="67.3"/>
-<text x="136.0" y="1445.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="400" fill="#A4A098" letter-spacing="0.2">Source: stats.md, compiled 23 Oct 2026</text>
+<text x="136.0" y="1445.7" font-family="Geist Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="400" fill="#A4A098" letter-spacing="0.2">Source: stats.md, compiled 23 and 25 Oct 2026</text>
 </svg>

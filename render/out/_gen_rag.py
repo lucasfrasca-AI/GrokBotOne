@@ -681,32 +681,25 @@ def gen_stats():
     start()
     p = []
     X0, X1 = 36, 1164
-    # ---------------- hero: 51%
+    # ---------------- hero: 59.4% (stats.md "2025-2026 usage update", Futurum)
     p.append(dotgrid(330, 300, 420))
-    p.append(glow(300, 300, 470, 0.75, sy=0.75))
+    p.append(glow(320, 300, 480, 0.75, sy=0.75))
     p.append(f'<circle cx="{M + 5}" cy="85" r="5" fill="{VIOLET}"/>')
-    p.append(T(M + 22, 92, "RAG IN PRODUCTION", 20, "mono", 500, MUTE, ls=2.4, tag="eyebrow"))
-    p.append(T(M, 158, "RAG used in", 34, "sans", 400, SUB, tag="h-b"))
-    hf = 280
-    p.append(T(M - 10, 158 + 30 + hf * 0.72, "51%", hf, "head", 600, BONE, ls=-hf * 0.035, tag="hero"))
-    hx = M + tw("51%", "head", hf, 600, -hf * 0.035) + 34
-    p.append(T(hx, 262, "of enterprise AI", 40, "sans", 500, BONE, tag="h-a1"))
-    p.append(T(hx, 310, "deployments", 40, "sans", 500, BONE, tag="h-a2"))
-    p.append(T(hx, 362, "a dramatic rise from 31%", 25, "sans", 400, SUB, tag="h-c1"))
-    p.append(T(hx, 396, "last year", 25, "sans", 400, SUB, tag="h-c2"))
-    # adoption track with the spectrum (the one gradient element): 31% last year, 51% now
+    p.append(T(M + 22, 92, "RAG IN THE ENTERPRISE", 20, "mono", 500, MUTE, ls=2.4, tag="eyebrow"))
+    hf = 250
+    hb = 376                                   # hero baseline; block stays between eyebrow and track
+    p.append(T(M - 8, hb, "59.4%", hf, "head", 600, BONE, ls=-hf * 0.035, tag="hero"))
+    hx = M + tw("59.4%", "head", hf, 600, -hf * 0.035) + 26
+    # stats.md / Futurum wording "anchored in"; 36px is the largest size that keeps it to three lines
+    for i, ln in enumerate(wrap_px("of enterprises anchored in basic or hybrid RAG", X1 - 36 - hx, "sans", 36, 500)):
+        p.append(T(hx, hb - 114 + i * 46, ln, 36, "sans", 500, BONE, tag=f"h-a{i}"))
+    # single spectrum fill (the one gradient element): track is 0 to 100%, fill ends at 59.4%
     ty = 434
     sid = spectrum_id()
-    p.append(f'<rect x="{M}" y="{ty}" width="{X1 - M - 36}" height="12" rx="6" fill="{BONE}" fill-opacity="0.08"/>')
     tw_ = X1 - M - 36
-    p.append(f'<rect x="{M}" y="{ty}" width="{tw_ * 0.51:.1f}" height="12" rx="6" fill="url(#{sid})"/>')
-    x31 = M + tw_ * 0.31
-    p.append(f'<line x1="{x31:.1f}" y1="{ty - 10}" x2="{x31:.1f}" y2="{ty + 22}" stroke="{BONE}" stroke-width="2"/>')
-    p.append(T(x31, ty + 48, "2023: 31%", 20, "mono", 500, SUB, "middle", tag="t31"))
-    x51 = M + tw_ * 0.51
-    p.append(f'<circle cx="{x51:.1f}" cy="{ty + 6}" r="11" fill="{BONE}"/>')
-    p.append(T(x51, ty + 48, "2024: 51%", 20, "mono", 600, BONE, "middle", tag="t51"))
-    p.append(src(X1 - 36, ty + 48, "Menlo Ventures, 2024", "end"))
+    p.append(f'<rect x="{M}" y="{ty}" width="{tw_}" height="12" rx="6" fill="{BONE}" fill-opacity="0.08"/>')
+    p.append(f'<rect x="{M}" y="{ty}" width="{tw_ * 0.594:.1f}" height="12" rx="6" fill="url(#{sid})"/>')
+    p.append(src(X1 - 36, ty + 48, "Futurum Group, 1H 2026 survey, n=818", "end"))
 
     # ---------------- 67%: four-step failure-rate chart
     py0, py1 = 520, 935
@@ -804,7 +797,7 @@ def gen_stats():
     p.append(T(tx0, tyy + 50, "0%", 18, "mono", 500, MUTE, tag="r0"))
     p.append(T(tx1, tyy + 50, "100% of responses", 18, "mono", 500, MUTE, "end", tag="r100"))
     p.append(src(tx1, ry0 + 50, "Stanford/Yale, 2024", "end"))
-    p.append(footer("Source: stats.md, compiled 23 Oct 2026"))
+    p.append(footer("Source: stats.md, compiled 23 and 25 Oct 2026"))
     check("rag-stats")
     return wrap_svg("\n".join(p))
 
