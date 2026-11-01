@@ -1,8 +1,8 @@
-# Learning Plan — v012
+# Learning Plan — v013
 
-- **Written:** 2026-10-25 (AEST)
+- **Written:** 2026-11-01 (AEST)
 - **Owner:** Curriculum (reports to Mentor)
-- **Prior:** v011
+- **Prior:** v012
 - **Status:** active — FDE 11-stage map as syllabus spine; this cycle = stages 1–3 only
 - **Trigger:** standing Sunday 18:00 AEST rewrite (no two-run Mentor gap)
 
@@ -28,7 +28,7 @@ Work in the order it happens. Matrix IDs score progress; this map sets sequence.
 
 ## Rationale
 
-Standing Sunday rewrite. Since v011 (2026-10-18), competencies.md evidence/targets are unchanged, `/workspace/captures` still holds only the historical Reddit set (run `20260906T231515Z`), and `signals.md` is still that same single scoring run — Mentor’s 2026-10-23 `today.md` again notes the fresh Scout run is pending — so no Mentor-flagged gap has persisted across two runs and this version does **not** reshape priorities: stage-first spine, stages 1–3 active cycle, three shippable artifacts, floored score table, and 30/70 inside 1–3 all hold. The material change is a calendar step inside Stage 3: week 6 (Mon 2026-10-19 → Fri 2026-10-23) ran on `cloud-deploy` every day through Mentor’s Fri 2026-10-23 pick (finish the architecture decision record, then start the IaC hosting baseline), so **week 7 (Mon 2026-10-26 → Fri 2026-10-30) is now the active build week on `api-auth`**: wire and implement one authenticated API boundary into the baseline. Because neither a finished decision record nor a running IaC baseline is recorded, week 7 adds one explicit gate — if the baseline is not yet standing, Mentor’s first week-7 pick closes it on `cloud-deploy` before the API boundary starts, since the auth boundary has to attach to something deployed, not a diagram. Week 8 (`prod-ship`) is unchanged, and the cycle still ends Fri 2026-11-06; week 7 carries no new study beyond targeted auth-pattern reading when a build step blocks, keeping the cycle near 30/70. Curriculum does not invent a decision-record, baseline, Stage 1, or Stage 2 pack completion: none is recorded in competencies.md. Historical one-run flags (`api-auth`, `cust-discovery`, `ambiguity-decomp`, `exec-comm`, `legacy-data`) stay one-run only until Mentor writes a second pass; `api-auth` is the one flag this cycle’s active week works directly.
+Standing Sunday rewrite. Since v012 (2026-10-25), competencies.md evidence/targets are unchanged, `/workspace/captures` still holds only the historical Reddit set (run `20260906T231515Z`), and `signals.md` is still that single scoring run with Mentor’s fresh Scout run still pending, so no Mentor-flagged gap has persisted across two runs and priorities are **not** reshaped: stage-first spine, stages 1–3 cycle, three shippable artifacts, floored score table, and 30/70 inside 1–3 all hold. The material change is sequencing inside Stage 3: v012’s week-7 gate never closed — Mentor kept `cloud-deploy` on every day Mon 2026-10-26 → Fri 2026-10-30 (`today.md` 2026-10-30: “gate still open, day 5”) because neither a finished decision record nor a deployed, reachable IaC baseline is recorded — so `api-auth` did not start and week 8 cannot simply switch to `prod-ship` on a baseline that may not exist. Week 8 (Mon 2026-11-02 → Fri 2026-11-06) is therefore re-sequenced as a compressed, gated build week: (1) close the baseline on `cloud-deploy` with a hard one-day cap (Mon) and a reachable-endpoint definition of done, (2) implement the authenticated API boundary on `api-auth` (Tue–Thu), (3) run it under real use on `prod-ship` (Fri). Because two weeks of build now share one week, a **provisional overflow week 9 (Mon 2026-11-09 → Fri 2026-11-13)** is added for whatever of `api-auth`/`prod-ship` is left — it opens only if Lucas or Mentor confirms the week-8 artifact isn’t done, and stage 4 does not start before then. No new study is added (week 8 study stays targeted reading only when a step blocks), which keeps the cycle build-heavy and at or under the 30% study cap. Curriculum does not invent a decision-record, baseline, Stage 1, or Stage 2 pack completion: none is recorded.
 
 **Deliberately not covering this cycle:** data pipeline, model config, orchestration, security/guardrails, evaluation, LLMOps, deployment/lifecycle, and adoption/hand-off (stages 4–11). Also not covering a standalone “ship any live app” `prod-ship` arc detached from the map — production shipping starts as **stage 3 infrastructure** that hosts the chosen use case, not a free-floating demo. Applied AI depth (`llm-integrate`, `context-eng`, `agent-orch`, `eval-design`) waits until stages 4–8. Integration-wall depth beyond what stage 2–3 require (`legacy-data`, deep `enterprise-auth`) waits. Interview-only drills without a stage artifact are out.
 
@@ -79,7 +79,7 @@ Numbers: where Lucas gave a range, the **lower** figure is used and marked provi
 
 **Rough size:** ~8–10 weekdays (weeks 1–2). ~30% study (discovery/scoping methods) then build the pack.
 
-**Progress note (as of 2026-10-25 AEST):** Stage 1 calendar complete — week 1 Mon 2026-09-14 → Fri 2026-09-19; week 2 Mon 2026-09-21 → Fri 2026-09-25. No pack-completion evidence recorded in competencies.md (scores unchanged). No Stage 1 flip-back in Mentor day-picks through 2026-10-23.
+**Progress note (as of 2026-11-01 AEST):** Stage 1 calendar complete — week 1 Mon 2026-09-14 → Fri 2026-09-19; week 2 Mon 2026-09-21 → Fri 2026-09-25. No pack-completion evidence recorded in competencies.md (scores unchanged). No Stage 1 flip-back in Mentor day-picks through 2026-10-30.
 
 ### Stage 2 — Compliance (PLAN)
 
@@ -91,7 +91,7 @@ Numbers: where Lucas gave a range, the **lower** figure is used and marked provi
 
 **Rough size:** ~6–8 weekdays (weeks 3–4). Short study open on residency/privacy patterns, then build the pack for *this* use case only.
 
-**Progress note (as of 2026-10-25 AEST):** Stage 2 calendar window closed — Mon 2026-09-28 → Fri 2026-10-09. Last `compliance-deploy` day-pick recorded was 2026-10-08; Mentor’s Stage 3 picks (through 2026-10-23) take the Stage 2 data-sovereignty position as the residency input. No pack-completion evidence recorded in competencies.md (scores unchanged); Curriculum does not invent a Stage 2 ship. If Lucas says the pack is unfinished, Mentor flips one day-pick to close it — ideally before the IaC baseline fixes region/residency.
+**Progress note (as of 2026-11-01 AEST):** Stage 2 calendar window closed — Mon 2026-09-28 → Fri 2026-10-09. Last `compliance-deploy` day-pick recorded was 2026-10-08; Mentor’s Stage 3 picks (through 2026-10-30) take the Stage 2 data-sovereignty position as the residency input. No pack-completion evidence recorded in competencies.md (scores unchanged); Curriculum does not invent a Stage 2 ship. If Lucas says the pack is unfinished, Mentor flips one day-pick to close it — ideally before the IaC baseline fixes region/residency.
 
 ### Stage 3 — Infrastructure / Hosting (BUILD)
 
@@ -105,31 +105,33 @@ Numbers: where Lucas gave a range, the **lower** figure is used and marked provi
 
 **Rough size:** ~12–16 weekdays (weeks 5–8). Short IaC/cloud study open, then mostly build. This is the multi-week stage.
 
-**Progress note (as of 2026-10-25 AEST):** **Active** Mon 2026-10-12 → Fri 2026-11-06 (weeks 5–8). Week 5 (Mon 2026-10-12 → Fri 2026-10-16) was the hosting/provider study open. Week 6 (Mon 2026-10-19 → Fri 2026-10-23) ran on `cloud-deploy` through Mentor’s Fri 2026-10-23 pick (finish the decision record, then start the IaC baseline in the chosen provider/region). Completion of the decision record and a running baseline are not recorded. Week 7 starts Mon 2026-10-26. Weeks 6–8 build:
+**Progress note (as of 2026-11-01 AEST):** **Active** Mon 2026-10-12 → Fri 2026-11-06 (weeks 5–8), with a provisional overflow week 9. Week 5 (Mon 2026-10-12 → Fri 2026-10-16) was the hosting/provider study open. Weeks 6 and 7 (Mon 2026-10-19 → Fri 2026-10-30) both ran on `cloud-deploy`: week 7’s gate stayed open all five days (Mentor `today.md` 2026-10-30), so `api-auth` has not started. A finished decision record and a deployed, reachable baseline are still not recorded. Week 8 starts Mon 2026-11-02 and is re-sequenced:
 
 | weeks | calendar (AEST) | build focus | primary id |
 |-------|-----------------|-------------|------------|
-| 6 | Mon 2026-10-19 → Fri 2026-10-23 | IaC stands up the hosting baseline from the decision record — **calendar done**; completion not recorded | `cloud-deploy` |
-| 7 | Mon 2026-10-26 → Fri 2026-10-30 | **Active.** Gate first: if the baseline is not yet standing, close it on `cloud-deploy` (one day-pick, ideally Mon). Then wire and implement one authenticated API boundary into the deployed baseline | `api-auth` |
-| 8 | Mon 2026-11-02 → Fri 2026-11-06 | Keep the baseline running under real use: debug, iterate, record what broke | `prod-ship` |
+| 6 | Mon 2026-10-19 → Fri 2026-10-23 | IaC baseline from the decision record — **calendar done**; completion not recorded | `cloud-deploy` |
+| 7 | Mon 2026-10-26 → Fri 2026-10-30 | **Calendar done; gate never closed** — all five days stayed on `cloud-deploy`; `api-auth` not started | `cloud-deploy` (gate) |
+| 8 | Mon 2026-11-02 → Fri 2026-11-06 | **Active, compressed.** Mon: close the baseline (hard one-day cap; done = decision record finished and the baseline deployed with one reachable endpoint). Tue–Thu: wire and implement one authenticated API boundary on that endpoint. Fri: run it under real use, record what broke | `cloud-deploy` → `api-auth` → `prod-ship` |
+| 9 (provisional) | Mon 2026-11-09 → Fri 2026-11-13 | Overflow only if Lucas/Mentor confirm the week-8 artifact isn’t done: finish `api-auth`, then keep the baseline running (`prod-ship`). Otherwise skipped and the next cycle plans from Sun 2026-11-08 | `api-auth` / `prod-ship` |
 
-Sequencing guide only — Mentor still picks one target per day and may reorder on evidence. Study in weeks 7–8 is limited to targeted reading (auth patterns in week 7) when a build step blocks.
+Sequencing guide only — Mentor still picks one target per day and may reorder on evidence. If the baseline is still not standing at end of Mon 2026-11-02, Mentor should cut scope (smallest deployable endpoint, single region) rather than spend another day on design. Study in weeks 8–9 is limited to targeted reading (auth patterns, provider docs) when a build step blocks.
 
 ### 8-week boundary (Mentor day picks still one-at-a-time)
 
-Calendar pinned at v006 (AEST weekdays); progress status updated this rewrite. Relative week labels from v005 still apply.
+Calendar pinned at v006 (AEST weekdays); progress status updated this rewrite; provisional week 9 added at v013. Relative week labels from v005 still apply.
 
-| weeks | calendar (AEST) | stage | focus | status (as of 2026-10-25) |
+| weeks | calendar (AEST) | stage | focus | status (as of 2026-11-01) |
 |-------|-----------------|-------|-------|---------------------------|
 | 1–2 | Mon 2026-09-14 → Fri 2026-09-25 | 1 Discovery / Design | Discovery + scoping pack | **complete** (week 2 ended Fri 2026-09-25); no pack-completion evidence recorded |
 | 3–4 | Mon 2026-09-28 → Fri 2026-10-09 | 2 Compliance | Compliance & risk pack for that use case | **complete (calendar)** (ended Fri 2026-10-09); Mentor on `compliance-deploy` through 2026-10-08; no pack-completion evidence recorded |
-| 5–8 | Mon 2026-10-12 → Fri 2026-11-06 | 3 Infrastructure / Hosting | Architecture + IaC baseline, kept live | **active** — week 5 study open done; week 6 IaC baseline calendar done (ended Fri 2026-10-23), completion not recorded; week 7 of 8 (`api-auth`) starts Mon 2026-10-26 |
+| 5–8 | Mon 2026-10-12 → Fri 2026-11-06 | 3 Infrastructure / Hosting | Architecture + IaC baseline, kept live | **active** — week 5 study open done; weeks 6–7 calendar done on `cloud-deploy` (gate never closed; baseline completion not recorded); week 8 compressed `cloud-deploy` → `api-auth` → `prod-ship` from Mon 2026-11-02 |
+| 9 (provisional) | Mon 2026-11-09 → Fri 2026-11-13 | 3 Infrastructure / Hosting (overflow) | Finish API boundary, keep baseline running | **opens only if** week-8 artifact confirmed not done |
 
-Mentor opened stage 1 on `cust-discovery` (2026-09-12), moved to Stage 2 `compliance-deploy` by 2026-10-01 (last such pick 2026-10-08), and was on Stage 3 `cloud-deploy` from 2026-10-16 through 2026-10-23 (study open, decision record, IaC baseline). Week 7 moves to `api-auth`.
+Mentor opened stage 1 on `cust-discovery` (2026-09-12), moved to Stage 2 `compliance-deploy` by 2026-10-01 (last such pick 2026-10-08), and was on Stage 3 `cloud-deploy` from 2026-10-16 through 2026-10-30 (study open, decision record, IaC baseline, then five days of the week-7 gate). Week 8 opens on the baseline close, then moves to `api-auth`.
 
 ## Mentor flags caveat
 
-Current `signals.md` still reflects a single historical Reddit scoring run (pre-Mentor ownership, `20260906T231515Z`); Mentor’s 2026-10-23 note says a fresh Scout run is still pending. Persistence rewrite still waits for a **second confirming Mentor run** against the same gap. One-run flags remain: `api-auth`, `cust-discovery`, `ambiguity-decomp`, `exec-comm`, `legacy-data`. Sunday 18:00 AEST rewrite remains standing.
+Current `signals.md` still reflects a single historical Reddit scoring run (pre-Mentor ownership, `20260906T231515Z`); Mentor’s 2026-10-30 `today.md` says a fresh Scout run is still pending. Persistence rewrite still waits for a **second confirming Mentor run** against the same gap. One-run flags remain: `api-auth`, `cust-discovery`, `ambiguity-decomp`, `exec-comm`, `legacy-data`. Sunday 18:00 AEST rewrite remains standing.
 
 ## Later cycles (stages 4–11)
 
@@ -148,11 +150,12 @@ Visible. Not planned this cycle. Competency hints are directional only.
 
 Also deferred as standalone P0s from v004’s “Not this cycle” list unless a later stage pulls them in: `prod-lang`, `codebase-debug`, `legacy-data` (until stage 4), deep `enterprise-auth`, `llm-integrate` / `eval-design` / `context-eng` / `agent-orch` (until stages 4–8), `prod-ownership` as its own arc (until stages 9–10).
 
-## Diff vs v011
+## Diff vs v012
 
-- Standing Sunday rewrite; no priority reshape (no two-run Mentor gap; fresh Scout run still pending per Mentor 2026-10-23)
-- Stage 3: week 6 (IaC baseline, `cloud-deploy`) marked calendar done, completion not recorded; week 7 (Mon 2026-10-26 → Fri 2026-10-30, `api-auth`) now active
-- Added a week-7 gate: if the IaC baseline is not standing, Mentor's first week-7 pick closes it on `cloud-deploy` before the authenticated API boundary starts
-- Week 7 study limited to targeted auth-pattern reading when a build step blocks
-- Progress notes, 8-week status table, Mentor-pick history, and flags caveat refreshed to as-of 2026-10-25; no invented decision-record, baseline, or pack completion
-- Spine, artifacts, score table, 30/70, week 8, and Later cycles unchanged
+- Standing Sunday rewrite; no priority reshape (no two-run Mentor gap; fresh Scout run still pending per Mentor 2026-10-30)
+- Week 7 marked calendar done with the gate never closed: all five days on `cloud-deploy`, `api-auth` not started
+- Week 8 (Mon 2026-11-02 → Fri 2026-11-06) re-sequenced: Mon close baseline (hard one-day cap, reachable-endpoint done-definition) → Tue–Thu `api-auth` → Fri `prod-ship`
+- Added provisional overflow week 9 (Mon 2026-11-09 → Fri 2026-11-13), opening only if the week-8 artifact is confirmed not done; stage 4 does not start before then
+- Added scope-cut guidance if the baseline is still not standing end of Mon 2026-11-02
+- Progress notes, status table, Mentor-pick history, and flags caveat refreshed to as-of 2026-11-01; no invented completions
+- Spine, artifacts, score table, 30/70, and Later cycles unchanged
