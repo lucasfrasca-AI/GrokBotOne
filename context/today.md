@@ -1,14 +1,14 @@
 # Today's single target
 # Owner: Mentor. One target only. Not a plan version.
 
-- **date**: 2026-11-05 (Sydney) — week 8, day 4 (plan v013)
+- **date**: 2026-11-06 (Sydney) — week 8, day 5 (plan v013)
 - **stage**: 3 — Infrastructure / Hosting (plan v013), week 8
-- **competency**: `api-auth`
+- **competency**: `prod-ship`
 - **lane**: build
-- **from plan**: v013 week 8 Thu — third and last api-auth day (Tue–Thu)
-- **calendar**: Mon cloud-deploy close-out (cap spent; completion not recorded) → Tue–Thu api-auth → Fri prod-ship; week 9 overflow only if week-8 artifact confirmed not done
-- **work**: Finish the one authenticated API boundary: token issue/verify working on the baseline (or smallest single-region) endpoint, with the reject path actually returning 401/403. No new cloud-deploy work.
-- **why**: Stayed — last of v013's three api-auth days (Fri moves to prod-ship) and it's still flagged (demand 4, evidence 2); no completion recorded yet
-- **diagram archetype**: `sequence` — client → auth (token issue/verify) → API endpoint, trust boundary marked, reject path shown
-- **sources**: historical Reddit run 20260906T231515Z only (captures 03, 13, 02); fresh Scout run still pending
-- **deferred tagged here**: none (deferred/api-auth.md is empty)
+- **from plan**: v013 week 8 Fri — run the baseline + auth boundary under real use, record what broke
+- **calendar**: Mon cloud-deploy close-out → Tue–Thu api-auth → Fri prod-ship (today); week 9 overflow only if Lucas/Mentor confirm the week-8 artifact isn't done
+- **work**: Put the deployed endpoint with its auth boundary under real use (real calls, valid and rejected tokens), fix what breaks, and write a short "what broke / what I changed" log. No new design or cloud-deploy work.
+- **why**: Moved — api-auth's three days (Tue–Thu) are spent per v013, and Friday shifts to keeping the baseline live; no api-auth or baseline completion recorded, so week-9 overflow may open
+- **diagram archetype**: `timeline` — request run over the day: deploy → real calls → failures/incidents → fixes, with the 401/403 reject path marked
+- **sources**: historical Reddit run 20260906T231515Z only (captures 02, 14, 13); fresh Scout run still pending
+- **deferred tagged here**: none (deferred/prod-ship.md is empty)
