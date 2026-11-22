@@ -1,9 +1,9 @@
-# Learning Plan — v015
+# Learning Plan — v016
 
-- **Written:** 2026-11-15 (AEST)
+- **Written:** 2026-11-22 (AEST)
 - **Owner:** Curriculum (reports to Mentor)
-- **Prior:** v014
-- **Status:** active — FDE 11-stage map as syllabus spine; this cycle = stages 1–3 only
+- **Prior:** v015
+- **Status:** active — FDE 11-stage map as syllabus spine; cycle 1 (stages 1–3) **closed** Fri 2026-11-20; cycle 2 = stages 4–5
 - **Trigger:** standing Sunday 18:00 AEST rewrite (no two-run Mentor gap)
 
 ## Syllabus spine (Lucas, 2026-09-12)
@@ -24,125 +24,109 @@ Work in the order it happens. Matrix IDs score progress; this map sets sequence.
 | 10 | RUN | Deployment / Lifecycle — Deployment, Versioning, Change Control, Continuous Improvement, Operations |
 | 11 | RUN | Adoption / Hand Off — Stakeholders, Enablement, Hand Off, Value Realisation |
 
-**This cycle covers stages 1–3 only.** Stages 4–11 sit in **Later cycles** below.
+**Cycle 1 (stages 1–3) is closed. Cycle 2 covers stages 4–5 only.** Stages 6–11 sit in **Later cycles** below.
 
 ## Rationale
 
-Standing Sunday rewrite. Since v014 (2026-11-08), competencies.md evidence/targets are unchanged, `/workspace/captures` still holds only the historical Reddit set (run `20260906T231515Z`), and `signals.md` is still that single scoring run with Mentor’s fresh Scout run still pending (`today.md` 2026-11-13), so no Mentor-flagged gap has persisted across two runs and priorities are **not** reshaped: stage-first spine, stages 1–3 cycle, three shippable artifacts, floored score table, and 30/70 inside 1–3 all hold. The material change is how Stage 3 ends. Week 9 overflow (Mon 2026-11-09 → Fri 2026-11-13) ran the v014 calendar — Mon–Wed `api-auth`, Thu–Fri `prod-ship` (Mentor `today.md` 2026-11-13) — but Mentor again records that neither the authenticated API boundary nor a standing baseline is done. That makes four straight weeks (6–9) where Stage 3 build days were spent without a recorded artifact, so another open-ended overflow would just repeat the pattern. v015 adds **one final, hard-capped close-out week 10 (Mon 2026-11-16 → Fri 2026-11-20)**: Mon is an evidence day — Lucas records what actually exists (decision record, reachable endpoint, auth path) and, if nothing is standing, ships the smallest single-region endpoint that day; Tue–Wed `api-auth` on that endpoint; Thu–Fri `prod-ship` (keep it up, debug, write a short run log). **Stage 3 closes Fri 2026-11-20 regardless of state**; whatever is unfinished is carried as a named debt line, and the next Sunday rewrite (2026-11-22) plans the stage 4 open (or a next-cycle reset) rather than a week 11. The gap may be recording rather than doing, so v015 also asks Lucas to note completions (or update evidence in competencies.md himself) for the Stage 1 pack, Stage 2 pack, decision record and baseline — Curriculum still invents none. No new study is added (week 10 study is targeted reading only when a step blocks), which keeps the cycle build-heavy and at or under the 30% study cap.
+Standing Sunday rewrite, and the one v015 committed to: Stage 3's hard-capped week 10 (Mon 2026-11-16 → Fri 2026-11-20) has ended, so this version closes cycle 1 and decides what opens next. Inputs are unchanged since v015 — competencies.md evidence/targets are as Lucas wrote them on 2026-09-07, `/workspace/captures` holds only the historical Reddit run `20260906T231515Z`, and `signals.md` is still that single run with Mentor's fresh Scout run pending (`today.md` 2026-11-20) — so no Mentor-flagged gap has persisted across two runs and nothing is reshaped on demand grounds. Mentor's last pick (Fri 2026-11-20, `prod-ship`) again records neither the authenticated API boundary nor a standing baseline as done, and Lucas has recorded no completion for the Stage 1 pack, Stage 2 pack, decision record or baseline. As v015 promised, there is **no week 11**: cycle 1 closes with an explicit debt ledger, and cycle 2 opens on **stage 4 (Data Pipeline) then stage 5 (Model Configuration)**, Mon 2026-11-23 → Fri 2026-12-18. Rather than a cycle reset that would re-run stages 1–3 on the same calendar pattern that produced ten weeks without a recorded artifact, v016 makes the debt payable *inside* the new build: the stage 4 pipeline must ingest from the stage-1 use case's sources and serve retrieval from **one deployed, reachable endpoint behind one auth check**, so a working stage 4 artifact also clears the Stage 3 baseline and `api-auth` debt. Each week opens with a short Monday evidence check (≤30 min, not a full day) where Lucas records what exists; Curriculum still invents no completions. Study stays at 30% (retrieval/chunking patterns in week 1, model access/selection in week 3) and build at 70% inside stages 4–5.
 
-**Deliberately not covering this cycle:** data pipeline, model config, orchestration, security/guardrails, evaluation, LLMOps, deployment/lifecycle, and adoption/hand-off (stages 4–11). Also not covering a standalone “ship any live app” `prod-ship` arc detached from the map — production shipping starts as **stage 3 infrastructure** that hosts the chosen use case, not a free-floating demo. Applied AI depth (`llm-integrate`, `context-eng`, `agent-orch`, `eval-design`) waits until stages 4–8. Integration-wall depth beyond what stage 2–3 require (`legacy-data`, deep `enterprise-auth`) waits. Interview-only drills without a stage artifact are out.
+**Deliberately not covering this cycle:** orchestration, security/guardrails, evaluation, LLMOps, deployment/lifecycle, adoption/hand-off (stages 6–11). No re-run of stages 1–3 as their own weeks — their unfinished artifacts are carried as debt and closed either by Lucas recording them or inside the stage 4–5 build. Deep `enterprise-auth` (SSO/OIDC/SAML) waits for stage 7; one simple auth check on the endpoint is enough here. Interview-only drills without a stage artifact are out.
 
 Numbers: where Lucas gave a range, the **lower** figure is used and marked provisional until he confirms.
 
 ## Operating rules
 
-1. Hold a **30% study / 70% build** split **inside stages 1–3** — not across the full map or matrix.
+1. Hold a **30% study / 70% build** split **inside the active cycle's stages (4–5)** — not across the full map or matrix.
 2. Never edit a written plan version. Always add a new numbered version with a diff and a one-paragraph rationale.
 3. Canonical latest: `/workspace/context/plan.md`. Snapshots: `/workspace/context/plan/vNNN.md` (+ `.diff`).
 4. Mentor picks **one** daily target from the active stage (or its study slice). Curriculum does not set the day-of pick.
 5. Each new version goes to Mentor and Herald.
 6. Evidence and targets are Lucas-only — never invent or overwrite scores.
 7. Gap rewrites: when a Mentor-flagged gap in `signals.md` persists across two runs; Sunday 18:00 AEST rewrite regardless. (Analyst is retired.)
+8. Debt rule (new): cycle-1 debt is closed by Lucas recording it, or by the stage 4–5 artifact running on a deployed, authenticated endpoint. No stage is reopened as its own calendar week.
 
 ## Score convention (floored)
 
 | id | evidence | target | notes |
 |----|----------|--------|-------|
-| cust-discovery | 1 | 4 | as written |
-| ambiguity-decomp | 2 | 4 | as written |
-| scope-write | 2 | 5 | as written |
-| exec-comm | 1 | 5 | as written |
-| compliance-deploy | 3 | 5 | as written |
-| cloud-deploy | 2 | 4 | evidence floored from `2-3`, target floored from `4-5` — provisional |
-| prod-ship | 2 | 4 | target floored from `4-5` — provisional |
-| api-auth | 2 | 5 | as written (interfaces in stage 3) |
+| context-eng | 3 | 5 | as written — stage 4 primary |
+| legacy-data | 1 | 4 | as written — stage 4 (sources/ingestion); one-run Mentor flag |
+| llm-integrate | 2 | 5 | evidence floored from `2-3` — provisional; stage 5 primary |
+| cloud-deploy | 2 | 4 | floored from `2-3` / `4-5` — provisional; cycle-1 debt |
+| prod-ship | 2 | 4 | target floored from `4-5` — provisional; cycle-1 debt |
+| api-auth | 2 | 5 | as written; cycle-1 debt; one-run Mentor flag |
 
-## This cycle — stages 1 to 3
+Cycle-1 IDs not carried as primaries (`cust-discovery`, `ambiguity-decomp`, `scope-write`, `exec-comm`, `compliance-deploy`) are unchanged in competencies.md and reappear at stages 7 and 11.
 
-### Study / build allocation (inside 1–3 only)
+## Cycle 1 close-out — debt ledger (as of 2026-11-22 AEST)
+
+| artifact | stage | calendar | recorded status | how it closes |
+|----------|-------|----------|-----------------|---------------|
+| Discovery + scoping pack | 1 | Mon 2026-09-14 → Fri 2026-09-25 | not recorded | Lucas records it exists, or writes a one-page use-case statement in week 1 Mon check (the stage 4 sources depend on it) |
+| Compliance & risk pack | 2 | Mon 2026-09-28 → Fri 2026-10-09 | not recorded | Lucas records it; else the stage 4 storage choice notes its residency position in one paragraph |
+| Decision record (architecture) | 3 | weeks 5–6 | not recorded | Lucas records it; else written as the stage 4 pipeline's hosting note |
+| IaC baseline, deployed and reachable | 3 | weeks 6–10 | not recorded | stage 4 week 1: pipeline served from one deployed single-region endpoint |
+| Authenticated API boundary | 3 | weeks 7–10 | not recorded | stage 4 week 2: one auth check on the retrieval endpoint |
+| Baseline kept running + run log | 3 | weeks 8–10 | not recorded | carried through cycle 2: endpoint stays up; short run log each Friday |
+
+## This cycle — stages 4 to 5
+
+### Study / build allocation (inside 4–5 only)
 
 | Lane | Share | Where it sits |
 |------|-------|---------------|
-| Study | 30% | Short opens on each stage: discovery methods; compliance/residency patterns; cloud + IaC patterns for the chosen host |
-| Build | 70% | The three shippable artifacts below |
+| Study | 30% | Week 1: retrieval strategy, chunking, storage options. Week 3: model access, selection, prompt/context patterns |
+| Build | 70% | The two shippable artifacts below, on the deployed endpoint |
 
-### Stage 1 — Discovery / Design (PLAN)
+### Stage 4 — Data Pipeline (BUILD)
 
-**Ship:** one real **discovery + scoping pack** for a single AI/customer use case — not a reading list. Must include: use case statement, success metrics, readiness assessment, and business case, written as something you could hand a skeptical stakeholder.
-
-| moves | evidence→target | how the artifact moves it |
-|-------|-----------------|---------------------------|
-| cust-discovery | 1 → 4 | Surfaces the real problem behind the stated ask |
-| ambiguity-decomp | 2 → 4 | Turns the ambiguous brief into a concrete plan |
-| scope-write | 2 → 5 | Outcomes, out-of-scope, risks, success checks |
-| exec-comm | 1 → 5 | Business case / metrics readable by non-technical stakeholders (practice inside the same pack) |
-
-**Rough size:** ~8–10 weekdays (weeks 1–2). ~30% study (discovery/scoping methods) then build the pack.
-
-**Progress note (as of 2026-11-15 AEST):** Stage 1 calendar complete — week 1 Mon 2026-09-14 → Fri 2026-09-19; week 2 Mon 2026-09-21 → Fri 2026-09-25. No pack-completion evidence recorded in competencies.md (scores unchanged). No Stage 1 flip-back in Mentor day-picks through 2026-11-13. Lucas asked to record whether the pack exists.
-
-### Stage 2 — Compliance (PLAN)
-
-**Ship:** one **compliance & risk decision pack** bound to the stage-1 use case — data sovereignty position, privacy constraints, applicable regulation map, and a risk register with owners/mitigations. Shippable PDF/markdown an engagement lead could attach to the scoping pack.
+**Ship:** a **working retrieval pipeline** for the stage-1 use case — real sources ingested, chunked, stored, and retrievable through **one deployed, authenticated endpoint**, with a short note on retrieval strategy and why. Not a notebook.
 
 | moves | evidence→target | how the artifact moves it |
 |-------|-----------------|---------------------------|
-| compliance-deploy | 3 → 5 | Customer-deploy constraints (residency, regulatory, security sign-off) made explicit and actionable |
+| context-eng | 3 → 5 | Chunking, storage and retrieval choices made and implemented for a real source set |
+| legacy-data | 1 → 4 | Ingestion from at least one messy/structured customer-style source (DB export, CSV, legacy API) |
+| cloud-deploy / prod-ship / api-auth | debt | Served from a deployed endpoint behind one auth check, kept running |
 
-**Rough size:** ~6–8 weekdays (weeks 3–4). Short study open on residency/privacy patterns, then build the pack for *this* use case only.
+| week | calendar (AEST) | focus | primary id |
+|------|-----------------|-------|------------|
+| 1 | Mon 2026-11-23 → Fri 2026-11-27 | Mon: ≤30 min evidence check (record what exists from cycle 1). Mon–Tue: study open (retrieval/chunking/storage). Wed–Fri: ingest + chunk + store one source set; serve retrieval from the smallest single-region endpoint | `context-eng` → `cloud-deploy` (debt) |
+| 2 | Mon 2026-11-30 → Fri 2026-12-04 | Add one legacy-style source; add one auth check on the endpoint; Fri run log | `legacy-data` → `api-auth` (debt) |
 
-**Progress note (as of 2026-11-15 AEST):** Stage 2 calendar window closed — Mon 2026-09-28 → Fri 2026-10-09. Last `compliance-deploy` day-pick recorded was 2026-10-08; Mentor’s Stage 3 picks (through 2026-11-13) take the Stage 2 data-sovereignty position as the residency input. No pack-completion evidence recorded in competencies.md (scores unchanged); Curriculum does not invent a Stage 2 ship. If Lucas says the pack is unfinished, Mentor flips one day-pick to close it — ideally before the IaC baseline fixes region/residency.
+### Stage 5 — Model Configuration (BUILD)
 
-### Stage 3 — Infrastructure / Hosting (BUILD)
-
-**Ship:** a **solution architecture + deployed hosting baseline** for that use case — architecture diagram/decision record (hosting model, cloud provider, compute, networking, interfaces) plus IaC that actually stands up the baseline (not slides). Interfaces stub or wire at least one authenticated external/API boundary.
+**Ship:** the stage 4 pipeline **wired to a model** — chosen access path and model with a short selection note, a versioned prompt/context template, and recorded inference parameters, answering real queries from the endpoint.
 
 | moves | evidence→target | how the artifact moves it |
 |-------|-----------------|---------------------------|
-| cloud-deploy | 2 → 4 | Real cloud working knowledge on the chosen provider |
-| prod-ship | 2 → 4 | Baseline kept running under real use (debug/iterate), not a disposable lab |
-| api-auth | 2 → 5 | Interface/auth path in the architecture, implemented not only drawn |
+| llm-integrate | 2 → 5 | LLM wired into the live pipeline, not a demo |
+| context-eng | 3 → 5 | Prompt/context engineering over the stage 4 retrieval |
+| prod-ship | debt | Endpoint kept running under use; Friday run logs |
 
-**Rough size:** ~12–16 weekdays (weeks 5–8). Short IaC/cloud study open, then mostly build. This is the multi-week stage.
+| week | calendar (AEST) | focus | primary id |
+|------|-----------------|-------|------------|
+| 3 | Mon 2026-12-07 → Fri 2026-12-11 | Mon–Tue: study open (model access/selection, prompt patterns). Wed–Fri: wire model to retrieval; selection note | `llm-integrate` |
+| 4 | Mon 2026-12-14 → Fri 2026-12-18 | Prompt/context template versioned; inference params recorded; keep endpoint up; Fri run log + cycle 2 close | `context-eng` → `prod-ship` |
 
-**Progress note (as of 2026-11-15 AEST):** **Active — final close-out week.** Original window Mon 2026-10-12 → Fri 2026-11-06 (weeks 5–8) and overflow week 9 (Mon 2026-11-09 → Fri 2026-11-13) are calendar-complete. Week 5 was the hosting/provider study open. Weeks 6–7 ran on `cloud-deploy` (week-7 gate never closed). Week 8 spent v013’s compressed sequence. Week 9 spent v014’s sequence — Mon–Wed `api-auth`, Thu–Fri `prod-ship` (Mentor `today.md` 2026-11-13) — but Mentor records neither the authenticated API boundary nor a standing baseline as done. A finished decision record and a deployed, reachable baseline are still not recorded. Week 10 is the last Stage 3 week; the stage closes Fri 2026-11-20 regardless:
+Sequencing guide only — Mentor still picks one target per day and may reorder on evidence. Split check: 3 study days of 20 (15%) plus targeted reading when a build step blocks, capped at 30%; build ≥70%. **Cycle 2 closes Fri 2026-12-18**; the rewrite on Sun 2026-12-20 plans the holiday break and cycle 3.
 
-| weeks | calendar (AEST) | build focus | primary id |
-|-------|-----------------|-------------|------------|
-| 6 | Mon 2026-10-19 → Fri 2026-10-23 | IaC baseline from the decision record — **calendar done**; completion not recorded | `cloud-deploy` |
-| 7 | Mon 2026-10-26 → Fri 2026-10-30 | **Calendar done; gate never closed** — all five days stayed on `cloud-deploy` | `cloud-deploy` (gate) |
-| 8 | Mon 2026-11-02 → Fri 2026-11-06 | **Calendar done.** Compressed sequence spent; no `api-auth` or baseline completion recorded | `cloud-deploy` → `api-auth` → `prod-ship` |
-| 9 | Mon 2026-11-09 → Fri 2026-11-13 | **Calendar done (overflow).** Mon–Wed `api-auth`, Thu–Fri `prod-ship` spent (Mentor `today.md` 2026-11-13); no boundary or baseline completion recorded | `api-auth` → `prod-ship` |
-| 10 | Mon 2026-11-16 → Fri 2026-11-20 | **Final close-out (hard cap).** Mon: evidence day — record what exists (decision record, reachable endpoint, auth path); if nothing is standing, ship the smallest single-region endpoint that day. Tue–Wed: authenticated boundary on that endpoint. Thu–Fri: keep it running under real use, debug, write a short run log. Unfinished items become a named debt line at close | `cloud-deploy` (Mon) → `api-auth` → `prod-ship` |
+### Cycle history
 
-Sequencing guide only — Mentor still picks one target per day and may reorder on evidence. Study in week 10 is limited to targeted reading (auth patterns, provider docs) when a build step blocks. **No week 11.** Stage 3 closes Fri 2026-11-20; the next Sunday rewrite (2026-11-22) plans the stage 4 open (or a next-cycle reset) from whatever is recorded, carrying any Stage 3 debt explicitly.
-
-### 8-week boundary (Mentor day picks still one-at-a-time)
-
-Calendar pinned at v006 (AEST weekdays); progress status updated this rewrite; week 9 overflow (added provisional at v013) opened at v014 and spent; final capped week 10 added at v015. Relative week labels from v005 still apply.
-
-| weeks | calendar (AEST) | stage | focus | status (as of 2026-11-15) |
-|-------|-----------------|-------|-------|---------------------------|
-| 1–2 | Mon 2026-09-14 → Fri 2026-09-25 | 1 Discovery / Design | Discovery + scoping pack | **complete** (week 2 ended Fri 2026-09-25); no pack-completion evidence recorded |
-| 3–4 | Mon 2026-09-28 → Fri 2026-10-09 | 2 Compliance | Compliance & risk pack for that use case | **complete (calendar)** (ended Fri 2026-10-09); Mentor on `compliance-deploy` through 2026-10-08; no pack-completion evidence recorded |
-| 5–8 | Mon 2026-10-12 → Fri 2026-11-06 | 3 Infrastructure / Hosting | Architecture + IaC baseline, kept live | **calendar complete** (ended Fri 2026-11-06) — week 5 study open done; weeks 6–7 on `cloud-deploy` (gate never closed); week 8 compressed sequence spent (Mon `cloud-deploy` → Tue–Thu `api-auth` → Fri `prod-ship`); no baseline or `api-auth` completion recorded |
-| 9 | Mon 2026-11-09 → Fri 2026-11-13 | 3 Infrastructure / Hosting (overflow) | Finish API boundary, keep baseline running | **calendar complete** — Mon–Wed `api-auth`, Thu–Fri `prod-ship` spent; no boundary or baseline completion recorded (Mentor `today.md` 2026-11-13) |
-| 10 | Mon 2026-11-16 → Fri 2026-11-20 | 3 Infrastructure / Hosting (final close-out) | Evidence day, then API boundary, then keep it running; stage closes Fri regardless | **active — hard cap**; no week 11 |
-
-Mentor opened stage 1 on `cust-discovery` (2026-09-12), moved to Stage 2 `compliance-deploy` by 2026-10-01 (last such pick 2026-10-08), and was on Stage 3 `cloud-deploy` from 2026-10-16 through 2026-10-30 (study open, decision record, IaC baseline, then five days of the week-7 gate). Week 8 followed the v013 compressed calendar through Mentor’s Fri 2026-11-06 `prod-ship` pick (Mon `cloud-deploy` close-out, Tue–Thu `api-auth`, Fri `prod-ship`); no baseline or `api-auth` completion recorded. Week 9 overflow ran Mon–Wed `api-auth` then Thu–Fri `prod-ship` (last pick Fri 2026-11-13); no completion recorded. Week 10 opens on an evidence day, then `api-auth`, then `prod-ship`, and Stage 3 closes Fri 2026-11-20.
+| cycle | calendar (AEST) | stages | status |
+|-------|-----------------|--------|--------|
+| 1 | Mon 2026-09-14 → Fri 2026-11-20 (weeks 1–10) | 1–3 | **closed** — calendar complete; no artifact completion recorded; debt ledger above |
+| 2 | Mon 2026-11-23 → Fri 2026-12-18 (weeks 1–4) | 4–5 | **active** — opens Mon 2026-11-23 |
 
 ## Mentor flags caveat
 
-Current `signals.md` still reflects a single historical Reddit scoring run (pre-Mentor ownership, `20260906T231515Z`); Mentor’s 2026-11-13 `today.md` says a fresh Scout run is still pending. Persistence rewrite still waits for a **second confirming Mentor run** against the same gap. One-run flags remain: `api-auth`, `cust-discovery`, `ambiguity-decomp`, `exec-comm`, `legacy-data`. Sunday 18:00 AEST rewrite remains standing.
+Current `signals.md` still reflects a single historical Reddit scoring run (pre-Mentor ownership, `20260906T231515Z`); Mentor's 2026-11-20 `today.md` says a fresh Scout run is still pending. Persistence rewrite still waits for a **second confirming Mentor run** against the same gap. One-run flags remain: `api-auth`, `cust-discovery`, `ambiguity-decomp`, `exec-comm`, `legacy-data`. Cycle 2 directly works `legacy-data` and `api-auth`. Sunday 18:00 AEST rewrite remains standing.
 
-## Later cycles (stages 4–11)
+## Later cycles (stages 6–11)
 
 Visible. Not planned this cycle. Competency hints are directional only.
 
 | # | stage | primary matrix IDs (indicative) |
 |---|-------|----------------------------------|
-| 4 | Data Pipeline | `context-eng`, `legacy-data` |
-| 5 | Model Configuration | `llm-integrate`, `context-eng` |
 | 6 | Orchestration / Harness | `agent-orch` |
 | 7 | Security / Guardrails | `compliance-deploy`, `api-auth`, `enterprise-auth` |
 | 8 | Evaluation / Tuning | `eval-design` |
@@ -150,13 +134,13 @@ Visible. Not planned this cycle. Competency hints are directional only.
 | 10 | Deployment / Lifecycle | `prod-ship`, `prod-ownership`, `cloud-deploy` |
 | 11 | Adoption / Hand Off | `exec-comm`, `scope-write`, `cust-discovery` |
 
-Also deferred as standalone P0s from v004’s “Not this cycle” list unless a later stage pulls them in: `prod-lang`, `codebase-debug`, `legacy-data` (until stage 4), deep `enterprise-auth`, `llm-integrate` / `eval-design` / `context-eng` / `agent-orch` (until stages 4–8), `prod-ownership` as its own arc (until stages 9–10).
+Also deferred as standalone P0s unless a later stage pulls them in: `prod-lang`, `codebase-debug`, deep `enterprise-auth` (until stage 7), `eval-design` / `agent-orch` (until stages 6–8), `prod-ownership` as its own arc (until stages 9–10).
 
-## Diff vs v014
+## Diff vs v015
 
-- Standing Sunday rewrite; no priority reshape (no two-run Mentor gap; fresh Scout run still pending per Mentor 2026-11-13)
-- Week 9 overflow marked calendar done: Mon–Wed `api-auth` → Thu–Fri `prod-ship` spent; no boundary or baseline completion recorded
-- Added one **final, hard-capped** week 10 (Mon 2026-11-16 → Fri 2026-11-20): Mon evidence day (record what exists; else ship smallest single-region endpoint), Tue–Wed `api-auth`, Thu–Fri `prod-ship` + run log
-- Stage 3 closes Fri 2026-11-20 regardless; unfinished items carried as named debt; no week 11; next rewrite Sun 2026-11-22 plans stage 4 open or a cycle reset
-- Lucas asked to record completions (Stage 1 pack, Stage 2 pack, decision record, baseline) or update evidence himself; no invented completions
-- Spine, artifacts, score table, 30/70, and Later cycles unchanged
+- Standing Sunday rewrite; no priority reshape on demand grounds (no two-run Mentor gap; Scout run still pending per Mentor 2026-11-20)
+- Stage 3 week 10 marked done; **cycle 1 (stages 1–3) closed** Fri 2026-11-20 with no artifact completion recorded; no week 11
+- Added a cycle-1 **debt ledger** (Stage 1 pack, Stage 2 pack, decision record, baseline, auth boundary, run log) and debt rule 8: debt closes by Lucas recording it or inside the stage 4–5 build on a deployed, authenticated endpoint
+- **Cycle 2 opened: stage 4 Data Pipeline (weeks 1–2, Mon 2026-11-23 → Fri 2026-12-04) then stage 5 Model Configuration (weeks 3–4, Mon 2026-12-07 → Fri 2026-12-18)**
+- Score table now: `context-eng` 3→5, `legacy-data` 1→4, `llm-integrate` 2→5 (floored), plus `cloud-deploy` / `prod-ship` / `api-auth` as debt; no scores changed in competencies.md
+- 30/70 split now held inside stages 4–5; Monday evidence check capped at 30 min; Later cycles now stages 6–11
