@@ -1,14 +1,14 @@
 # Today's single target
 # Owner: Mentor. One target only. Not a plan version.
 
-- **date**: 2026-11-20 (Sydney) — week 10 close-out, day 5 (plan v015)
-- **stage**: 3 — Infrastructure / Hosting (plan v015), week 10 final close-out, last day
-- **competency**: `prod-ship`
-- **lane**: build
-- **from plan**: v015 week 10 Thu–Fri — keep it running under real use, debug, write a short run log
-- **calendar**: Mon `cloud-deploy` evidence day → Tue–Wed `api-auth` → Thu–Fri `prod-ship`; Stage 3 closes Fri 2026-11-20 regardless; no week 11; next rewrite Sun 2026-11-22
-- **work**: Keep the baseline running under real use, debug, and write a short run log; if it isn’t standing, cut to the smallest single-region endpoint that can take real use.
-- **why**: Stayed — Friday is still inside the Thu–Fri `prod-ship` window and Stage 3 closes today regardless; neither the authenticated API boundary nor a standing baseline is recorded as done
-- **diagram archetype**: `timeline` — short run log of the baseline under real use
-- **sources**: historical Reddit run 20260906T231515Z only (captures 02, 14; third pending); fresh Scout run still pending
-- **deferred tagged here**: none (deferred/prod-ship.md is empty)
+- **date**: 2026-11-23 (Sydney) — cycle 2, stage 4 week 1, day 1 (plan v016)
+- **stage**: 4 — Data Pipeline (plan v016), week 1 open
+- **competency**: `context-eng`
+- **lane**: study
+- **from plan**: v016 week 1 Mon — ≤30 min evidence check (record what exists from cycle 1); Mon–Tue study open (retrieval/chunking/storage)
+- **calendar**: Mon evidence check + Mon–Tue study (retrieval/chunking/storage) → Wed–Fri ingest, chunk and store one source set, served from the smallest single-region endpoint; week's focus `context-eng`, with `cloud-deploy` as debt (not today's target)
+- **work**: In ≤30 minutes, record which cycle-1 artifacts actually exist (Curriculum invents no completions). Then open study of retrieval strategy, chunking, and storage options.
+- **why**: Moved — Monday opens cycle 2 / stage 4 week 1 after cycle 1 closed Fri 2026-11-20; plan v016 makes today the evidence check plus the start of the Mon–Tue retrieval/chunking/storage study, with `context-eng` as the week's primary
+- **diagram archetype**: `concept map` — how retrieval, chunking, and storage relate
+- **sources**: pending — historical Reddit run 20260906T231515Z has no `context-eng` signal; fresh Scout run still pending
+- **deferred tagged here**: none (deferred/context-eng.md is empty)
